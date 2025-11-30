@@ -9,7 +9,9 @@ import {
   SignalIcon, 
   ShieldCheckIcon, 
   BoltIcon, 
-  GlobeAltIcon 
+  GlobeAltIcon,
+  PhoneIcon,
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline'
 
 export default function NetworkDevicesLearnMore() {
@@ -39,7 +41,7 @@ export default function NetworkDevicesLearnMore() {
                   lineHeight: '1.8',
                   opacity: 0.95
                 }}>
-                  Build a secure, high-performance home network with our custom network devices. Enterprise-grade networking solutions for your home.
+                  Build a secure, high-performance home network with our custom network devices, integrated phone systems, and secure messaging systems. Enterprise-grade networking solutions for your home.
                 </p>
               </div>
             </div>
@@ -137,6 +139,52 @@ export default function NetworkDevicesLearnMore() {
                     <h4 className="fw-bold mb-3" style={{ color: '#14432A' }}>Extended Range</h4>
                     <p className="text-muted">
                       Whole home coverage with mesh networking capabilities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-lg-3">
+                <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px' }}>
+                  <div className="card-body p-4 text-center">
+                    <div style={{
+                      background: 'rgba(20, 67, 42, 0.1)',
+                      borderRadius: '12px',
+                      width: '64px',
+                      height: '64px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 20px'
+                    }}>
+                      <PhoneIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                    </div>
+                    <h4 className="fw-bold mb-3" style={{ color: '#14432A' }}>Phone Systems</h4>
+                    <p className="text-muted">
+                      Private phone protocol with dedicated phone numbers and secure calling.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-lg-3">
+                <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px' }}>
+                  <div className="card-body p-4 text-center">
+                    <div style={{
+                      background: 'rgba(20, 67, 42, 0.1)',
+                      borderRadius: '12px',
+                      width: '64px',
+                      height: '64px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 20px'
+                    }}>
+                      <ChatBubbleLeftRightIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                    </div>
+                    <h4 className="fw-bold mb-3" style={{ color: '#14432A' }}>Messaging Systems</h4>
+                    <p className="text-muted">
+                      Secure messaging protocol with end-to-end encryption and blockchain backup.
                     </p>
                   </div>
                 </div>

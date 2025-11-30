@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { WifiIcon, ServerIcon, SignalIcon, ShieldCheckIcon, BoltIcon, GlobeAltIcon } from '@heroicons/react/24/outline'
+import { WifiIcon, ServerIcon, SignalIcon, ShieldCheckIcon, BoltIcon, GlobeAltIcon, PhoneIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, slideInLeft, slideInRight, staggerContainer, staggerItem } from '../utils/animations'
 
@@ -43,7 +43,7 @@ export default function NetworkDevices() {
                 maxWidth: '800px',
                 margin: '0 auto'
               }}>
-                Build a secure, high-performance home network with our custom network devices. 
+                Build a secure, high-performance home network with our custom network devices, integrated phone systems, and secure messaging systems. 
                 Enterprise-grade networking solutions for your home.
               </p>
             </motion.div>
@@ -129,6 +129,38 @@ export default function NetworkDevices() {
                     <div>
                       <h5 className="mb-1 fw-bold">Extended Range</h5>
                       <small className="opacity-75">Whole home coverage</small>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div className="col-md-6" variants={staggerItem}>
+                  <div className="d-flex align-items-center">
+                    <div style={{
+                      background: 'rgba(20, 67, 42, 0.1)',
+                      borderRadius: '12px',
+                      padding: '12px',
+                      marginRight: '15px'
+                    }}>
+                      <PhoneIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                    </div>
+                    <div>
+                      <h5 className="mb-1 fw-bold">Phone Systems</h5>
+                      <small className="opacity-75">Private phone protocol</small>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div className="col-md-6" variants={staggerItem}>
+                  <div className="d-flex align-items-center">
+                    <div style={{
+                      background: 'rgba(20, 67, 42, 0.1)',
+                      borderRadius: '12px',
+                      padding: '12px',
+                      marginRight: '15px'
+                    }}>
+                      <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                    </div>
+                    <div>
+                      <h5 className="mb-1 fw-bold">Messaging Systems</h5>
+                      <small className="opacity-75">Secure messaging protocol</small>
                     </div>
                   </div>
                 </motion.div>
@@ -247,11 +279,19 @@ export default function NetworkDevices() {
                       <span className="fw-medium">Firewall Protection</span>
                       <span className="text-success fw-bold">✓ Secured</span>
                     </div>
+                    <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                      <span className="fw-medium">Phone Systems</span>
+                      <span className="text-success fw-bold">✓ Integrated</span>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                      <span className="fw-medium">Messaging Systems</span>
+                      <span className="text-success fw-bold">✓ Active</span>
+                    </div>
                   </div>
                 </div>
                 
                 <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Powered by</small>
+                  <small className="text-muted d-block mb-2">Powered by Centuries Mutual Network Technology</small>
                 </div>
               </div>
             </div>
