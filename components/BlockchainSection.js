@@ -184,10 +184,11 @@ export default function BlockchainSection() {
               position: 'relative',
               overflow: 'hidden',
               minHeight: '100vh',
-              padding: '2rem 0'
+              padding: '2rem 0',
+              width: '100%'
             }}>
-              <div className="container">
-                <div className="row align-items-center">
+              <div style={{ width: '100%', padding: '0 2rem' }}>
+                <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
@@ -413,10 +414,11 @@ export default function BlockchainSection() {
               position: 'relative',
               overflow: 'hidden',
               minHeight: '100vh',
-              padding: '2rem 0'
+              padding: '2rem 0',
+              width: '100%'
             }}>
-              <div className="container">
-                <div className="row align-items-center">
+              <div style={{ width: '100%', padding: '0 2rem' }}>
+                <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
