@@ -12,6 +12,7 @@ export default function Signup() {
     firstName: '',
     lastName: '',
     email: '',
+    phoneNumber: '',
     password: '',
     confirmPassword: '',
     agreeToTerms: false
@@ -57,6 +58,7 @@ export default function Signup() {
           data: {
             first_name: formData.firstName,
             last_name: formData.lastName,
+            phone_number: formData.phoneNumber,
           }
         }
       })
@@ -171,6 +173,27 @@ export default function Signup() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="Enter your email"
+                      required
+                      style={{ 
+                        borderColor: '#e9ecef',
+                        fontSize: '1rem',
+                        padding: '0.75rem'
+                      }}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="phoneNumber" className="form-label small text-muted">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
+                      onChange={handleInputChange}
+                      placeholder="Enter your phone number"
                       required
                       style={{ 
                         borderColor: '#e9ecef',
