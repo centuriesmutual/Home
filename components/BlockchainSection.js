@@ -415,7 +415,7 @@ export default function BlockchainSection() {
               <div style={{ width: '100%', padding: '0' }}>
                 <div className="row align-items-center" style={{ margin: 0 }}>
                   <motion.div className="col-lg-6" {...slideInLeft}>
-                    <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
+                    <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff', margin: '1rem' }}>
                       <div className="card-body p-4">
                         <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>In-House Trust Score System</h5>
                         <p className="text-muted mb-4" style={{ fontSize: '0.9rem' }}>
@@ -435,16 +435,20 @@ export default function BlockchainSection() {
                             margin: '0 auto 16px',
                             color: 'white',
                             fontSize: '2.5rem',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
+                            border: '4px solid rgba(20, 67, 42, 0.2)'
                           }}>
                             225
                           </div>
-                          <div className="badge px-3 py-2 mb-2" style={{ backgroundColor: '#14432A', color: 'white' }}>In-House Trust Score</div>
-                          <div className="badge bg-success px-3 py-2 mb-3">EXCELLENT RATING</div>
-                          <div className="progress mb-2" style={{ height: '8px', background: '#e9ecef' }}>
-                            <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A' }}></div>
+                          <div className="badge px-3 py-2 mb-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px' }}>In-House Trust Score</div>
+                          <div className="badge bg-success px-3 py-2 mb-3" style={{ borderRadius: '8px' }}>EXCELLENT RATING</div>
+                          <div className="progress mb-2" style={{ height: '8px', background: '#e9ecef', borderRadius: '4px' }}>
+                            <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A', borderRadius: '4px' }}></div>
                           </div>
-                          <small className="text-muted">1 - 300</small>
+                          <div className="d-flex justify-content-between" style={{ fontSize: '0.75rem' }}>
+                            <small className="text-muted">1</small>
+                            <small className="text-muted">300</small>
+                          </div>
                         </div>
 
                         {/* Feature List with Icons */}
@@ -476,9 +480,9 @@ export default function BlockchainSection() {
                   </motion.div>
                   
                   <motion.div className="col-lg-6" {...slideInRight}>
-                    <div className="text-dark" style={{ marginTop: '2rem' }}>
-                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.25rem' }}>Member In-House Trust Score System</h5>
-                      <p className="text-muted mb-4" style={{ fontSize: '0.95rem' }}>
+                    <div className="text-dark" style={{ marginTop: '2rem', padding: '1rem' }}>
+                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.5rem' }}>Member In-House Trust Score System</h5>
+                      <p className="text-muted mb-4" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
                         Find the perfect room and roommate with our patented member trust rating system. Verified profiles, secure payments, and reliable reviews help you make informed decisions for your next home.
                       </p>
                       
@@ -524,10 +528,10 @@ export default function BlockchainSection() {
 
                       {/* Action Buttons */}
                       <div className="d-flex gap-3">
-                        <Link href="/rooms" className="btn px-4 py-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', textDecoration: 'none', flex: 1 }}>
+                        <Link href="/rooms" className="btn px-4 py-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', textDecoration: 'none', flex: 1, fontWeight: '600' }}>
                           Find Roommates
                         </Link>
-                        <Link href="/trustscore" className="btn px-4 py-2" style={{ border: '2px solid #14432A', color: '#14432A', borderRadius: '8px', textDecoration: 'none', flex: 1, background: 'transparent' }}>
+                        <Link href="/trustscore" className="btn px-4 py-2" style={{ border: '2px solid #14432A', color: '#14432A', borderRadius: '8px', textDecoration: 'none', flex: 1, background: 'transparent', fontWeight: '600' }}>
                           More Information
                         </Link>
                       </div>
