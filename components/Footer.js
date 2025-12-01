@@ -1,6 +1,5 @@
 'use client'
 
-<<<<<<< HEAD
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -35,14 +34,34 @@ export default function Footer() {
 
   const { width, height, fontSize } = getLogoSize()
 
-=======
-export default function Footer() {
->>>>>>> cb752f65a79af2a8fb8947423ead53308279bbba
   return (
-    <footer className="bg-dark text-white py-3">
+    <footer className="bg-dark text-white py-5">
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+        
+        @media (max-width: 768px) {
+          .footer-content {
+            text-align: left;
+          }
+          .footer-logo {
+            justify-content: flex-start;
+          }
+          .footer-links {
+            margin-top: 1.5rem;
+          }
+        }
+        .footer-logo-container {
+          position: relative;
+          width: ${width}px;
+          height: ${height}px;
+        }
+        .footer-logo-container img {
+          filter: brightness(0) invert(1);
+          opacity: 0.9;
+        }
+      `}</style>
       <div className="container">
         <div className="row">
-<<<<<<< HEAD
           <div className="col-lg-4 mb-4 mb-lg-0 footer-content">
             <div className="d-flex align-items-center mb-3 footer-logo">
               <div className="footer-logo-container me-2">
@@ -69,11 +88,6 @@ export default function Footer() {
             </div>
             <p className="mb-3">
               Providing a comprehensive brokerage network to further a secure a better future.
-=======
-          <div className="col-12 text-center">
-            <p className="mb-0 text-muted" style={{ fontSize: '0.9rem' }}>
-              © 2025 Centuries Mutual. All rights reserved.
->>>>>>> cb752f65a79af2a8fb8947423ead53308279bbba
             </p>
             <div className="d-flex align-items-center gap-3 flex-wrap">
               {/* Dallas, Texas Location */}
@@ -83,7 +97,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
           <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Community</h5>
             <ul className="list-unstyled footer-links">
@@ -142,10 +155,8 @@ export default function Footer() {
           <p className="text-center text-md-center text-start mb-0">
             © {mounted ? new Date().getFullYear() : '2026'} Centuries Mutual. All rights reserved.
           </p>
-=======
->>>>>>> cb752f65a79af2a8fb8947423ead53308279bbba
         </div>
       </div>
     </footer>
   )
-} 
+}
