@@ -183,11 +183,6 @@ export default function Shop() {
                         </div>
 
                         <div className="mt-auto pt-3">
-                          <div className="mb-3">
-                            <small className="text-muted d-block mb-2">Powered by</small>
-                            <div className="d-flex gap-2 flex-wrap">
-                            </div>
-                          </div>
                           <button 
                             className="btn btn-primary w-100 fw-bold"
                             style={{ 

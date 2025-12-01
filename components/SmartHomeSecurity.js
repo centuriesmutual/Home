@@ -313,17 +313,6 @@ export default function SmartHomeSecurity() {
                   </motion.div>
                 </motion.div>
                 
-                <motion.div 
-                  className="mb-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-200px' }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  <small className="text-muted d-block mb-2">Powered by</small>
-                  <div className="d-flex gap-3 align-items-center">
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </motion.div>

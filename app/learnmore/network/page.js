@@ -171,22 +171,6 @@ export default function NetworkDevicesLearnMore() {
               </div>
             </div>
 
-            {/* Powered By Section */}
-            <div className="row">
-              <div className="col-lg-8 mx-auto">
-                <div className="card border-0 shadow-sm" style={{ 
-                  borderRadius: '16px',
-                  background: 'linear-gradient(135deg, #14432A 0%, #1a5436 100%)',
-                  color: 'white'
-                }}>
-                  <div className="card-body p-5 text-center">
-                    <h3 className="fw-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      Powered by Centuries Mutual Communication Technology
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </main>

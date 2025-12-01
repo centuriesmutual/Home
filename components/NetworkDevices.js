@@ -257,9 +257,6 @@ export default function NetworkDevices() {
                   </div>
                 </div>
                 
-                <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Powered by Centuries Mutual Communication Technology</small>
-                </div>
               </div>
             </div>
           </motion.div>

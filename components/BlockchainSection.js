@@ -30,7 +30,7 @@ export default function BlockchainSection() {
               </div>
               
               <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.1rem' }}>
-                Powered by Patented Blockchain Technology
+                Patented Blockchain Technology
               </h5>
               
               <p className="text-muted mb-4" style={{ fontSize: '0.95rem', lineHeight: '1.6', maxWidth: '800px', margin: '0 auto' }}>
