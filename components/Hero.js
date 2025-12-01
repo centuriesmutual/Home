@@ -139,8 +139,6 @@ export default function Hero() {
                 </motion.a>
                 <motion.a 
                   href="https://newspaper.centuriesmutual.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="btn btn-sm text-white"
                   style={{ 
                     fontSize: '0.7rem',
@@ -148,7 +146,9 @@ export default function Hero() {
                     border: '1px solid rgba(255,255,255,0.3)',
                     borderRadius: '4px',
                     background: 'rgba(255,255,255,0.1)',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                    textDecoration: 'none'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.background = 'rgba(255,255,255,0.2)';
@@ -162,7 +162,9 @@ export default function Hero() {
                   transition={{ duration: 0.1 }}
                   onClick={(e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     window.location.href = 'https://newspaper.centuriesmutual.com';
+                    return false;
                   }}
                 >
                   Newspaper
