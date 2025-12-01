@@ -270,7 +270,7 @@ export default function BlockchainSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Feature Icons */}
             <div className="row g-4 mt-4">
