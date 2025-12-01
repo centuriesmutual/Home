@@ -417,16 +417,16 @@ export default function BlockchainSection() {
                   <motion.div className="col-lg-6" {...slideInLeft}>
                     <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff', margin: '1rem' }}>
                       <div className="card-body p-4">
-                        <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>In-House Trust Score System</h5>
-                        <p className="text-muted mb-4" style={{ fontSize: '0.9rem' }}>
+                        <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.1rem' }}>In-House Trust Score System</h5>
+                        <p className="text-muted mb-4" style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
                           Transparent in-house trust score based on our recommendation engine (1-300 scale) and verified member system
                         </p>
                         
                         {/* Circular Trust Score Display */}
                         <div className="text-center mb-4">
                           <div style={{
-                            width: '120px',
-                            height: '120px',
+                            width: '140px',
+                            height: '140px',
                             borderRadius: '50%',
                             background: 'linear-gradient(135deg, #14432A 0%, #206542 100%)',
                             display: 'flex',
@@ -434,20 +434,27 @@ export default function BlockchainSection() {
                             justifyContent: 'center',
                             margin: '0 auto 16px',
                             color: 'white',
-                            fontSize: '2.5rem',
+                            fontSize: '3rem',
                             fontWeight: 'bold',
-                            border: '4px solid rgba(20, 67, 42, 0.2)'
+                            border: '6px solid rgba(20, 67, 42, 0.15)',
+                            boxShadow: '0 4px 15px rgba(20, 67, 42, 0.2)'
                           }}>
                             225
                           </div>
-                          <div className="badge px-3 py-2 mb-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px' }}>In-House Trust Score</div>
-                          <div className="badge bg-success px-3 py-2 mb-3" style={{ borderRadius: '8px' }}>EXCELLENT RATING</div>
-                          <div className="progress mb-2" style={{ height: '8px', background: '#e9ecef', borderRadius: '4px' }}>
-                            <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A', borderRadius: '4px' }}></div>
+                          <div className="mb-2">
+                            <span className="badge px-3 py-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', fontSize: '0.85rem' }}>In-House Trust Score</span>
                           </div>
-                          <div className="d-flex justify-content-between" style={{ fontSize: '0.75rem' }}>
-                            <small className="text-muted">1</small>
-                            <small className="text-muted">300</small>
+                          <div className="mb-3">
+                            <span className="badge bg-success px-3 py-2" style={{ borderRadius: '8px', fontSize: '0.85rem', fontWeight: '600' }}>EXCELLENT RATING</span>
+                          </div>
+                          <div className="position-relative mb-2" style={{ padding: '0 20px' }}>
+                            <div className="progress" style={{ height: '10px', background: '#e9ecef', borderRadius: '5px' }}>
+                              <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A', borderRadius: '5px' }}></div>
+                            </div>
+                            <div className="d-flex justify-content-between mt-1" style={{ fontSize: '0.7rem' }}>
+                              <span className="text-muted">1</span>
+                              <span className="text-muted">300</span>
+                            </div>
                           </div>
                         </div>
 
@@ -456,22 +463,22 @@ export default function BlockchainSection() {
                           <div className="d-flex align-items-start mb-3">
                             <StarIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <strong style={{ color: '#14432A' }}>In-House Trust Score Display:</strong>
-                              <span className="text-muted"> Transparent in-house ratings for all members</span>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>In-House Trust Score Display:</strong>
+                              <span className="text-muted" style={{ fontSize: '0.85rem' }}> Transparent in-house ratings for all members</span>
                             </div>
                           </div>
                           <div className="d-flex align-items-start mb-3">
                             <UserGroupIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <strong style={{ color: '#14432A' }}>Verified Members:</strong>
-                              <span className="text-muted"> ID verification required</span>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Verified Members:</strong>
+                              <span className="text-muted" style={{ fontSize: '0.85rem' }}> ID verification required</span>
                             </div>
                           </div>
                           <div className="d-flex align-items-start">
                             <ChatBubbleLeftRightIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <strong style={{ color: '#14432A' }}>Review System:</strong>
-                              <span className="text-muted"> Rate your roommates and landlords</span>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Review System:</strong>
+                              <span className="text-muted" style={{ fontSize: '0.85rem' }}> Rate your roommates and landlords</span>
                             </div>
                           </div>
                         </div>
@@ -481,7 +488,7 @@ export default function BlockchainSection() {
                   
                   <motion.div className="col-lg-6" {...slideInRight}>
                     <div className="text-dark" style={{ marginTop: '2rem', padding: '1rem' }}>
-                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.5rem' }}>Member In-House Trust Score System</h5>
+                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.75rem' }}>Member In-House Trust Score System</h5>
                       <p className="text-muted mb-4" style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
                         Find the perfect room and roommate with our patented member trust rating system. Verified profiles, secure payments, and reliable reviews help you make informed decisions for your next home.
                       </p>
