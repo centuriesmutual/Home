@@ -270,7 +270,6 @@ export default function BlockchainSection() {
                   </div>
                 </div>
               </div>
-            </div>
 
             {/* Feature Icons */}
             <div className="row g-4 mt-4">
