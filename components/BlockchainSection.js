@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ShieldCheckIcon, LockClosedIcon, CheckBadgeIcon, UserGroupIcon, CubeIcon, DocumentCheckIcon } from '@heroicons/react/24/outline'
+import { ShieldCheckIcon, LockClosedIcon, CheckBadgeIcon, UserGroupIcon, CubeIcon, DocumentCheckIcon, HomeIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, staggerContainer, cardAnimation } from '../utils/animations'
 
@@ -171,6 +171,96 @@ export default function BlockchainSection() {
                     lineHeight: '1.6'
                   }}>
                       Automated smart contract governance and claims handling for financial contracts
+                  </p>
+                  </motion.div>
+                </Link>
+              </div>
+              
+              <div className="col-md-4 text-center">
+                <Link href="/rooms" className="text-decoration-none">
+                  <motion.div 
+                    className="card border-0 shadow-sm h-100" 
+                    style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  padding: '2rem 1.5rem',
+                  border: '1px solid #e9ecef',
+                  height: '100%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                  <div className="mb-3 d-flex justify-content-center">
+                      <HomeIcon style={{ 
+                      width: '40px', 
+                      height: '40px', 
+                      color: '#14432A'
+                    }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ 
+                    color: '#14432A',
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                      Find Room
+                  </h6>
+                  <p className="text-muted mb-0" style={{ 
+                    fontSize: '0.9rem',
+                    lineHeight: '1.6'
+                  }}>
+                      Search and find available rooms with our secure platform
+                  </p>
+                  </motion.div>
+                </Link>
+              </div>
+              
+              <div className="col-md-4 text-center">
+                <Link href="/edocument-system" className="text-decoration-none">
+                  <motion.div 
+                    className="card border-0 shadow-sm h-100" 
+                    style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  padding: '2rem 1.5rem',
+                  border: '1px solid #e9ecef',
+                  height: '100%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                  <div className="mb-3 d-flex justify-content-center">
+                      <DocumentTextIcon style={{ 
+                      width: '40px', 
+                      height: '40px', 
+                      color: '#14432A'
+                    }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ 
+                    color: '#14432A',
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                      eDocument System
+                  </h6>
+                  <p className="text-muted mb-0" style={{ 
+                    fontSize: '0.9rem',
+                    lineHeight: '1.6'
+                  }}>
+                      Legally binding documents with blockchain verification
                   </p>
                   </motion.div>
                 </Link>
