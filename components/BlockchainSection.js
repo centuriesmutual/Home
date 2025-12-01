@@ -3,15 +3,9 @@
 import { motion } from 'framer-motion'
 import { ShieldCheckIcon, LockClosedIcon, CheckBadgeIcon, UserGroupIcon, CubeIcon, DocumentCheckIcon, HomeIcon, DocumentTextIcon, StarIcon, CreditCardIcon, MagnifyingGlassIcon, MapPinIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { useState } from 'react'
 import { sectionAnimation, staggerContainer, cardAnimation } from '../utils/animations'
 
 export default function BlockchainSection() {
-  const [searchFilters, setSearchFilters] = useState({
-    location: '',
-    maxPrice: '',
-    roomType: 'Private Room'
-  })
 
   return (
     <section className="py-5" style={{ 
@@ -46,101 +40,7 @@ export default function BlockchainSection() {
               </p>
             </motion.div>
 
-            {/* Find Your Perfect Room Section */}
-            <motion.div className="mb-5" {...sectionAnimation}>
-              <div className="text-center mb-4">
-                <h3 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.75rem' }}>
-                  Find Your Perfect Room
-                </h3>
-                <p className="text-muted mb-4" style={{ fontSize: '1rem', maxWidth: '700px', margin: '0 auto' }}>
-                  Discover amazing rental opportunities in your area. From cozy studios to shared apartments, we connect you with the perfect living space that fits your lifestyle and budget.
-                </p>
-              </div>
-
-              {/* Trust Score Based Community Features */}
-              <div className="row g-3 mb-4">
-                <div className="col-md-3 col-6">
-                  <div className="text-center p-3" style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e9ecef' }}>
-                    <ShieldCheckIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                    <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Verified trustworthy renters</h6>
-                  </div>
-                </div>
-                <div className="col-md-3 col-6">
-                  <div className="text-center p-3" style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e9ecef' }}>
-                    <HomeIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                    <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Beautiful Spaces</h6>
-                  </div>
-                </div>
-                <div className="col-md-3 col-6">
-                  <div className="text-center p-3" style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e9ecef' }}>
-                    <CreditCardIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                    <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Secure Access</h6>
-                    <small className="text-muted" style={{ fontSize: '0.75rem' }}>Coinbase wallet integration</small>
-                  </div>
-                </div>
-                <div className="col-md-3 col-6">
-                  <div className="text-center p-3" style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e9ecef' }}>
-                    <DocumentTextIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                    <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Document Services</h6>
-                    <small className="text-muted" style={{ fontSize: '0.75rem' }}>Secure digital document management</small>
-                  </div>
-                </div>
-              </div>
-
-              {/* Start Your Search Today */}
-              <div className="card border-0 shadow-sm mb-4" style={{ borderRadius: '16px', background: '#ffffff' }}>
-                <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3 text-center" style={{ color: '#14432A' }}>Start Your Search Today</h5>
-                  <div className="row g-3">
-                    <div className="col-md-4">
-                      <label className="form-label small fw-bold" style={{ color: '#14432A' }}>Location</label>
-                      <div className="input-group">
-                        <span className="input-group-text bg-white border-end-0">
-                          <MapPinIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
-                        </span>
-                        <input
-                          type="text"
-                          className="form-control border-start-0"
-                          placeholder="Enter city or neighborhood"
-                          value={searchFilters.location}
-                          onChange={(e) => setSearchFilters({...searchFilters, location: e.target.value})}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-4">
-                      <label className="form-label small fw-bold" style={{ color: '#14432A' }}>Max Price</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter max monthly rent (e.g., $1200)"
-                        value={searchFilters.maxPrice}
-                        onChange={(e) => setSearchFilters({...searchFilters, maxPrice: e.target.value})}
-                      />
-                    </div>
-                    <div className="col-md-4">
-                      <label className="form-label small fw-bold" style={{ color: '#14432A' }}>Room Type</label>
-                      <select
-                        className="form-select"
-                        value={searchFilters.roomType}
-                        onChange={(e) => setSearchFilters({...searchFilters, roomType: e.target.value})}
-                      >
-                        <option>Private Room</option>
-                        <option>Shared Room</option>
-                        <option>Studio</option>
-                        <option>1 Bedroom</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="text-center mt-3">
-                    <Link href="/rooms" className="btn btn-primary px-5" style={{ backgroundColor: '#14432A', borderColor: '#14432A' }}>
-                      <MagnifyingGlassIcon style={{ width: '18px', height: '18px', marginRight: '8px' }} />
-                      Search Rooms
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* In-House Trust Score System */}
+            {/* In-House Trust Score System */}
               <div className="row g-4 mb-4">
                 <div className="col-md-6">
                   <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
@@ -264,105 +164,108 @@ export default function BlockchainSection() {
                 </div>
               </div>
 
-              {/* Member In-House Trust Score System */}
-              <div className="card border-0 shadow-sm mb-4" style={{ borderRadius: '16px', background: '#ffffff' }}>
-                <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>Member In-House Trust Score System</h5>
-                  <p className="text-muted mb-4">
-                    Find the perfect room and roommate with our patented member trust rating system. Verified profiles, secure payments, and reliable reviews help you make informed decisions for your next home.
+              {/* eDocument System */}
+              <div className="mb-5">
+                <div className="text-center mb-4">
+                  <h3 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.75rem' }}>eDocument System</h3>
+                  <p className="text-muted mb-4" style={{ fontSize: '1rem', maxWidth: '700px', margin: '0 auto' }}>
+                    Find and rent real estate with roommates using our comprehensive eDocument system. Streamline lease agreements, roommate contracts, and property documentation all in one place.
                   </p>
-                  <div className="row g-3">
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <ShieldCheckIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Verified Profiles</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>ID & background checked</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <StarIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Trust Score</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Reliable scoring system</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <LockClosedIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Secure Messaging</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Safe communication</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <UserGroupIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.9rem' }}>Roommate Matching</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Compatible preferences</small>
+                </div>
+
+                <div className="row g-4">
+                  {/* eDocument Dashboard - Left */}
+                  <div className="col-md-6">
+                    <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
+                      <div className="card-body p-4">
+                        <h5 className="fw-bold mb-4" style={{ color: '#14432A' }}>eDocument Dashboard</h5>
+                        
+                        {/* Summary Statistics */}
+                        <div className="row g-3 mb-4">
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
+                              <ShieldCheckIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
+                              <div className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '1.75rem' }}>15</div>
+                              <small className="text-muted" style={{ fontSize: '0.75rem' }}>Active Leases</small>
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
+                              <LockClosedIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
+                              <div className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '1.75rem' }}>3</div>
+                              <small className="text-muted" style={{ fontSize: '0.75rem' }}>Pending Docs</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Recent Documents */}
+                        <div className="p-3 mb-4" style={{ background: 'rgba(20, 67, 42, 0.05)', borderRadius: '12px' }}>
+                          <h6 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '0.95rem' }}>Recent Documents</h6>
+                          <div className="small">
+                            <div className="mb-2 d-flex justify-content-between align-items-center">
+                              <span>Lease Agreement</span>
+                              <span className="text-success">✓ Signed</span>
+                            </div>
+                            <div className="mb-2 d-flex justify-content-between align-items-center">
+                              <span>Roommate Contract</span>
+                              <span className="text-success">✓ Complete</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <span>Property Inspection</span>
+                              <span className="text-warning">⚠ Pending</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* View All Documents Button */}
+                        <Link href="/edocument-system" className="btn w-100 py-3" style={{ backgroundColor: '#D4AF37', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600' }}>
+                          View All Documents
+                        </Link>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              {/* eDocument System */}
-              <div className="card border-0 shadow-sm mb-5" style={{ borderRadius: '16px', background: '#ffffff' }}>
-                <div className="card-body p-4">
-                  <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>eDocument System</h5>
-                  <p className="text-muted mb-4">
-                    Find and rent real estate with roommates using our comprehensive eDocument system. Streamline lease agreements, roommate contracts, and property documentation all in one place.
-                  </p>
-                  <div className="row g-3 mb-3">
-                    <div className="col-md-3">
-                      <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
-                        <div className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '1.5rem' }}>15</div>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Active Leases</small>
+                  {/* eDocument Features - Right */}
+                  <div className="col-md-6">
+                    <div className="row g-3 mb-4">
+                      <div className="col-6">
+                        <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '12px', background: '#ffffff', padding: '1.5rem' }}>
+                          <DocumentTextIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '12px' }} />
+                          <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem' }}>Digital Leases</h6>
+                          <p className="text-muted mb-0 small">Electronic lease agreements</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-3">
-                      <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
-                        <div className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '1.5rem' }}>3</div>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Pending Docs</small>
+                      <div className="col-6">
+                        <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '12px', background: '#ffffff', padding: '1.5rem' }}>
+                          <DocumentCheckIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '12px' }} />
+                          <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem' }}>Roommate Contracts</h6>
+                          <p className="text-muted mb-0 small">Secure roommate agreements</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="p-3" style={{ background: 'rgba(20, 67, 42, 0.05)', borderRadius: '12px' }}>
-                        <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.9rem' }}>Recent Documents</h6>
-                        <div className="small">
-                          <div className="mb-1">Lease Agreement <span className="text-success">✓ Signed</span></div>
-                          <div className="mb-1">Roommate Contract <span className="text-success">✓ Complete</span></div>
-                          <div>Property Inspection <span className="text-warning">⚠ Pending</span></div>
+                      <div className="col-6">
+                        <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '12px', background: '#ffffff', padding: '1.5rem' }}>
+                          <DocumentTextIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '12px' }} />
+                          <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem' }}>Property Documents</h6>
+                          <p className="text-muted mb-0 small">Complete property files</p>
+                        </div>
+                      </div>
+                      <div className="col-6">
+                        <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '12px', background: '#ffffff', padding: '1.5rem' }}>
+                          <LockClosedIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '12px' }} />
+                          <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem' }}>Instant Access</h6>
+                          <p className="text-muted mb-0 small">24/7 document access</p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row g-3">
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <DocumentTextIcon style={{ width: '24px', height: '24px', color: '#14432A', marginBottom: '4px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Digital Leases</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Electronic lease agreements</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <DocumentCheckIcon style={{ width: '24px', height: '24px', color: '#14432A', marginBottom: '4px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Roommate Contracts</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Secure roommate agreements</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <DocumentTextIcon style={{ width: '24px', height: '24px', color: '#14432A', marginBottom: '4px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Property Documents</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>Complete property files</small>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-6">
-                      <div className="text-center">
-                        <LockClosedIcon style={{ width: '24px', height: '24px', color: '#14432A', marginBottom: '4px' }} />
-                        <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Instant Access</h6>
-                        <small className="text-muted" style={{ fontSize: '0.75rem' }}>24/7 document access</small>
-                      </div>
+
+                    {/* Action Buttons */}
+                    <div className="d-flex gap-3">
+                      <Link href="/edocument-system" className="btn px-4 py-3" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', textDecoration: 'none', flex: 1, fontWeight: '600' }}>
+                        Access Documents
+                      </Link>
+                      <Link href="/edocuments-audit-tracking" className="btn px-4 py-3" style={{ border: '2px solid #14432A', color: '#14432A', borderRadius: '8px', textDecoration: 'none', flex: 1, background: 'transparent', fontWeight: '600' }}>
+                        Learn More
+                      </Link>
                     </div>
                   </div>
                 </div>
