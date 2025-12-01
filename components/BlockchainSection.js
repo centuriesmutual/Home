@@ -40,6 +40,144 @@ export default function BlockchainSection() {
               </p>
             </motion.div>
 
+            {/* Feature Icons */}
+            <div className="row g-4 mt-4">
+              <div className="col-md-4 text-center">
+                <Link href="/individual-family-services" className="text-decoration-none">
+                  <motion.div 
+                    className="card border-0 shadow-sm h-100" 
+                    style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  padding: '2rem 1.5rem',
+                  border: '1px solid #e9ecef',
+                  height: '100%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                  <div className="mb-3 d-flex justify-content-center">
+                      <UserGroupIcon style={{ 
+                      width: '40px', 
+                      height: '40px', 
+                      color: '#14432A'
+                    }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ 
+                    color: '#14432A',
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                      Individual & Family Services
+                  </h6>
+                  <p className="text-muted mb-0" style={{ 
+                    fontSize: '0.9rem',
+                    lineHeight: '1.6'
+                  }}>
+                      Comprehensive health insurance and health services for individuals and families
+                  </p>
+                  </motion.div>
+                </Link>
+              </div>
+              
+              <div className="col-md-4 text-center">
+                <Link href="/blockchain" className="text-decoration-none">
+                  <motion.div 
+                    className="card border-0 shadow-sm h-100" 
+                    style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  padding: '2rem 1.5rem',
+                  border: '1px solid #e9ecef',
+                  height: '100%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                  <div className="mb-3 d-flex justify-content-center">
+                      <CubeIcon style={{ 
+                      width: '40px', 
+                      height: '40px', 
+                      color: '#14432A'
+                    }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ 
+                    color: '#14432A',
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                      BlockChain
+                  </h6>
+                  <p className="text-muted mb-0" style={{ 
+                    fontSize: '0.9rem',
+                    lineHeight: '1.6'
+                  }}>
+                      Secure block space with messaging, contacts, room listings, with For You content
+                  </p>
+                  </motion.div>
+                </Link>
+              </div>
+              
+              <div className="col-md-4 text-center">
+                <Link href="/audit-compliance" className="text-decoration-none">
+                  <motion.div 
+                    className="card border-0 shadow-sm h-100" 
+                    style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  padding: '2rem 1.5rem',
+                  border: '1px solid #e9ecef',
+                  height: '100%',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ 
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                  <div className="mb-3 d-flex justify-content-center">
+                      <DocumentCheckIcon style={{ 
+                      width: '40px', 
+                      height: '40px', 
+                      color: '#14432A'
+                    }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ 
+                    color: '#14432A',
+                    fontSize: '1rem',
+                    marginBottom: '0.75rem'
+                  }}>
+                      Audit & Compliance
+                  </h6>
+                  <p className="text-muted mb-0" style={{ 
+                    fontSize: '0.9rem',
+                    lineHeight: '1.6'
+                  }}>
+                      Automated smart contract governance and claims handling for financial contracts
+                  </p>
+                  </motion.div>
+                </Link>
+              </div>
+            </div>
+
             {/* eDocument System Section */}
             <section className="py-5" style={{
               background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%)',
@@ -698,143 +836,6 @@ export default function BlockchainSection() {
               </div>
             </section>
 
-            {/* Feature Icons */}
-            <div className="row g-4 mt-4">
-              <div className="col-md-4 text-center">
-                <Link href="/individual-family-services" className="text-decoration-none">
-                  <motion.div 
-                    className="card border-0 shadow-sm h-100" 
-                    style={{
-                  background: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '2rem 1.5rem',
-                  border: '1px solid #e9ecef',
-                  height: '100%',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    whileHover={{ 
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.1 }}
-                  >
-                  <div className="mb-3 d-flex justify-content-center">
-                      <UserGroupIcon style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      color: '#14432A'
-                    }} />
-                  </div>
-                  <h6 className="fw-bold mb-2" style={{ 
-                    color: '#14432A',
-                    fontSize: '1rem',
-                    marginBottom: '0.75rem'
-                  }}>
-                      Individual & Family Services
-                  </h6>
-                  <p className="text-muted mb-0" style={{ 
-                    fontSize: '0.9rem',
-                    lineHeight: '1.6'
-                  }}>
-                      Comprehensive health insurance and health services for individuals and families
-                  </p>
-                  </motion.div>
-                </Link>
-              </div>
-              
-              <div className="col-md-4 text-center">
-                <Link href="/blockchain" className="text-decoration-none">
-                  <motion.div 
-                    className="card border-0 shadow-sm h-100" 
-                    style={{
-                  background: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '2rem 1.5rem',
-                  border: '1px solid #e9ecef',
-                  height: '100%',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    whileHover={{ 
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.1 }}
-                  >
-                  <div className="mb-3 d-flex justify-content-center">
-                      <CubeIcon style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      color: '#14432A'
-                    }} />
-                  </div>
-                  <h6 className="fw-bold mb-2" style={{ 
-                    color: '#14432A',
-                    fontSize: '1rem',
-                    marginBottom: '0.75rem'
-                  }}>
-                      BlockChain
-                  </h6>
-                  <p className="text-muted mb-0" style={{ 
-                    fontSize: '0.9rem',
-                    lineHeight: '1.6'
-                  }}>
-                      Secure block space with messaging, contacts, room listings, with For You content
-                  </p>
-                  </motion.div>
-                </Link>
-              </div>
-              
-              <div className="col-md-4 text-center">
-                <Link href="/audit-compliance" className="text-decoration-none">
-                  <motion.div 
-                    className="card border-0 shadow-sm h-100" 
-                    style={{
-                  background: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '2rem 1.5rem',
-                  border: '1px solid #e9ecef',
-                  height: '100%',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    whileHover={{ 
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.1 }}
-                  >
-                  <div className="mb-3 d-flex justify-content-center">
-                      <DocumentCheckIcon style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      color: '#14432A'
-                    }} />
-                  </div>
-                  <h6 className="fw-bold mb-2" style={{ 
-                    color: '#14432A',
-                    fontSize: '1rem',
-                    marginBottom: '0.75rem'
-                  }}>
-                      Audit & Compliance
-                  </h6>
-                  <p className="text-muted mb-0" style={{ 
-                    fontSize: '0.9rem',
-                    lineHeight: '1.6'
-                  }}>
-                      Automated smart contract governance and claims handling for financial contracts
-                  </p>
-                  </motion.div>
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>
