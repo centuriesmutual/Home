@@ -3,12 +3,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { supabase } from '../lib/supabase'
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
   const pathname = usePathname()
+  const router = useRouter()
   const isLoginPage = pathname === '/login'
   const isSignupPage = pathname === '/signup'
   const isRentalEquityPage = pathname === '/rentalequity'
@@ -28,6 +32,34 @@ export default function Navbar() {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+
+  useEffect(() => {
+    // Check active session
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      setUser(session?.user ?? null)
+      setLoading(false)
+    }
+
+    checkUser()
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut()
+      router.push('/')
+      router.refresh()
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
+  }
 
   // Calculate responsive sizes - use default values until mounted
   const getLogoSize = () => {
@@ -103,22 +135,49 @@ export default function Navbar() {
               <Link href="/" className="nav-link" style={{ color: '#14432A' }}>
                 Home
               </Link>
-              {!isLoginPage && !isSignupPage && !isRentalEquityPage && !isInvestorRelationsPage && !isCareersPage && !isChildCarePage && !isTrustScorePage && (
-                <Link 
-                  href="/login" 
-                  className="btn btn-primary px-2 px-lg-4 py-1 py-lg-2 mobile-login"
-                  style={{ 
-                    backgroundColor: '#14432A', 
-                    borderColor: '#14432A',
-                    fontSize: '1rem',
-                    whiteSpace: 'nowrap',
-                    minWidth: '120px',
-                    padding: '0.5rem 1rem',
-                    flexShrink: 0
-                  }}
-                >
-                  Client Login
-                </Link>
+              {!loading && (
+                <>
+                  {user ? (
+                    <>
+                      <span className="nav-link text-muted" style={{ fontSize: '0.9rem' }}>
+                        {user.email}
+                      </span>
+                      <button
+                        onClick={handleLogout}
+                        className="btn btn-outline-primary px-2 px-lg-4 py-1 py-lg-2 mobile-login"
+                        style={{ 
+                          borderColor: '#14432A',
+                          color: '#14432A',
+                          fontSize: '1rem',
+                          whiteSpace: 'nowrap',
+                          minWidth: '120px',
+                          padding: '0.5rem 1rem',
+                          flexShrink: 0
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </>
+                  ) : (
+                    !isLoginPage && !isSignupPage && !isRentalEquityPage && !isInvestorRelationsPage && !isCareersPage && !isChildCarePage && !isTrustScorePage && (
+                      <Link 
+                        href="/login" 
+                        className="btn btn-primary px-2 px-lg-4 py-1 py-lg-2 mobile-login"
+                        style={{ 
+                          backgroundColor: '#14432A', 
+                          borderColor: '#14432A',
+                          fontSize: '1rem',
+                          whiteSpace: 'nowrap',
+                          minWidth: '120px',
+                          padding: '0.5rem 1rem',
+                          flexShrink: 0
+                        }}
+                      >
+                        Client Login
+                      </Link>
+                    )
+                  )}
+                </>
               )}
             </div>
           </div>

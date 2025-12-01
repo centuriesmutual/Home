@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { supabase } from '../../lib/supabase'
 
 export default function Login() {
   const router = useRouter()
@@ -13,6 +14,7 @@ export default function Login() {
     rememberMe: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -20,27 +22,35 @@ export default function Login() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }))
+    // Clear error when user types
+    if (error) setError(null)
   }
 
   const handleLogin = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
     
     try {
-      // Accept any credentials and redirect to dashboard
-      // Store user session in localStorage
-      localStorage.setItem('user', JSON.stringify({
+      // Sign in with Supabase
+      const { data, error: signInError } = await supabase.auth.signInWithPassword({
         email: formData.email,
-        loggedIn: true,
-        timestamp: Date.now()
-      }))
-      
-      // Small delay for better UX
-      setTimeout(() => {
+        password: formData.password,
+      })
+
+      if (signInError) {
+        setError(signInError.message || 'Invalid email or password')
+        setIsSubmitting(false)
+        return
+      }
+
+      if (data.user) {
+        // Successfully logged in - redirect to block subdomain
         window.location.href = 'https://block.centuriesmutual.com'
-      }, 500)
+      }
     } catch (error) {
       console.error('Login error:', error)
+      setError('An error occurred during login. Please try again.')
       setIsSubmitting(false)
     }
   }
@@ -148,6 +158,12 @@ export default function Login() {
                       Forgot Password?
                     </Link>
                   </div>
+
+                  {error && (
+                    <div className="alert alert-danger mb-3" role="alert" style={{ fontSize: '0.9rem' }}>
+                      {error}
+                    </div>
+                  )}
 
                   <button 
                     type="submit"

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { supabase } from '../../lib/supabase'
 
 export default function Signup() {
   const router = useRouter()
@@ -16,6 +17,7 @@ export default function Signup() {
     agreeToTerms: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -23,17 +25,55 @@ export default function Signup() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }))
+    // Clear error when user types
+    if (error) setError(null)
   }
 
   const handleSignup = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+    setError(null)
+
+    // Validate passwords match
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match')
+      setIsSubmitting(false)
+      return
+    }
+
+    // Validate password strength
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long')
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      // Redirect to Auth0 signup with email/password connection and return to block subdomain
-      window.location.href = `/api/auth/login?screen_hint=signup&connection=Username-Password-Authentication&login_hint=${encodeURIComponent(formData.email)}&returnTo=https://block.centuriesmutual.com`
+      // Sign up with Supabase
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+          }
+        }
+      })
+
+      if (signUpError) {
+        setError(signUpError.message || 'An error occurred during signup. Please try again.')
+        setIsSubmitting(false)
+        return
+      }
+
+      if (data.user) {
+        // Successfully signed up - redirect to block subdomain
+        window.location.href = 'https://block.centuriesmutual.com'
+      }
     } catch (error) {
       console.error('Signup error:', error)
+      setError('An error occurred during signup. Please try again.')
       setIsSubmitting(false)
     }
   }
@@ -206,6 +246,12 @@ export default function Signup() {
                       </label>
                     </div>
                   </div>
+
+                  {error && (
+                    <div className="alert alert-danger mb-3" role="alert" style={{ fontSize: '0.9rem' }}>
+                      {error}
+                    </div>
+                  )}
 
                   <button 
                     type="submit"
