@@ -28,7 +28,7 @@ export default function Legacy() {
                   src="/deer.jpeg"
                   alt="Legacy of Trust"
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'contain' }}
                   priority
                 />
                 {/* Blue button overlay on bottom right */}
@@ -115,7 +115,7 @@ export default function Legacy() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="fw-bold mb-4" style={{ 
+              <h2 className="mb-4" style={{ 
                 color: 'white',
                 fontSize: '2.5rem',
                 lineHeight: '1.2'
