@@ -13,9 +13,9 @@ export default function BlockchainSection() {
       borderTop: '1px solid #e9ecef',
       borderBottom: '1px solid #e9ecef'
     }}>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-10">
+      <div style={{ width: '100%', padding: '0' }}>
+        <div className="row" style={{ margin: 0 }}>
+          <div className="col-12">
             <motion.div className="text-center mb-5" {...sectionAnimation}>
               <div className="d-inline-flex align-items-center gap-2 mb-3">
                 <CheckBadgeIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
@@ -187,8 +187,8 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div className="container">
-                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
+              <div style={{ width: '100%', padding: '0' }}>
+                <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
@@ -412,8 +412,8 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div className="container">
-                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
+              <div style={{ width: '100%', padding: '0' }}>
+                <div className="row align-items-center" style={{ margin: 0 }}>
                   <motion.div className="col-lg-6" {...slideInLeft}>
                     <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
                       <div className="card-body p-4">
@@ -546,8 +546,8 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div className="container">
-                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
+              <div style={{ width: '100%', padding: '0' }}>
+                <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
