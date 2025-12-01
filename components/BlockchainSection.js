@@ -187,8 +187,8 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0' }}>
-                <div className="row align-items-center" style={{ margin: 0 }}>
+              <div className="container">
+                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
@@ -208,17 +208,17 @@ export default function BlockchainSection() {
                     </motion.div>
                   </div>
                   
-                  <motion.div className="col-lg-12" {...slideInLeft}>
+                  <motion.div className="col-lg-6" {...slideInLeft}>
                     <div className="text-dark" style={{ marginTop: '2rem' }}>
                       <motion.div 
-                        className="row g-3 mb-5" 
+                        className="row g-3 mb-4" 
                         style={{ marginBottom: '2rem' }}
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true, margin: '-50px' }}
                       >
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -234,7 +234,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -250,7 +250,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -266,7 +266,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -285,80 +285,7 @@ export default function BlockchainSection() {
                       </motion.div>
                       
                       <motion.div 
-                        className="position-relative mb-5"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                      >
-                        <div style={{
-                          background: 'rgba(255,255,255,0.95)',
-                          borderRadius: '20px',
-                          padding: '50px',
-                          boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                          backdropFilter: 'blur(10px)'
-                        }}>
-                          <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Roommate Matching Dashboard</h3>
-                          <div className="row g-3 mb-4">
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <UserGroupIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>5,000+</h6>
-                                  <small className="text-muted">Verified Members</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <HeartIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>95%</h6>
-                                  <small className="text-muted">Match Rate</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-6">
-                              <div className="p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Features</h6>
-                                <div className="space-y-2">
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Compatible Matching</span>
-                                    <span className="text-success fw-bold">✓ Active</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Verified Profiles</span>
-                                    <span className="text-success fw-bold">✓ Enabled</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Secure Messaging</span>
-                                    <span className="text-success fw-bold">✓ Secured</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Trust Score System</span>
-                                    <span className="text-success fw-bold">✓ Integrated</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="d-flex gap-3 flex-wrap justify-content-center" 
+                        className="d-flex gap-3 flex-wrap" 
                         style={{ marginTop: '1.5rem' }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -408,6 +335,70 @@ export default function BlockchainSection() {
                       </motion.div>
                     </div>
                   </motion.div>
+                  
+                  <motion.div className="col-lg-6" {...slideInRight}>
+                    <div className="position-relative">
+                      <div style={{
+                        background: 'rgba(255,255,255,0.95)',
+                        borderRadius: '20px',
+                        padding: '50px',
+                        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                        backdropFilter: 'blur(10px)'
+                      }}>
+                        <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Roommate Matching Dashboard</h3>
+                        <div className="row g-3 mb-4">
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ 
+                              background: '#f8f9fa', 
+                              borderRadius: '12px',
+                              border: '2px solid #e9ecef'
+                            }}>
+                              <UserGroupIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                              <div className="mt-2">
+                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>5,000+</h6>
+                                <small className="text-muted">Verified Members</small>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ 
+                              background: '#f8f9fa', 
+                              borderRadius: '12px',
+                              border: '2px solid #e9ecef'
+                            }}>
+                              <HeartIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                              <div className="mt-2">
+                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>95%</h6>
+                                <small className="text-muted">Match Rate</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Features</h6>
+                          <div className="space-y-2">
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Compatible Matching</span>
+                              <span className="text-success fw-bold">✓ Active</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Verified Profiles</span>
+                              <span className="text-success fw-bold">✓ Enabled</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Secure Messaging</span>
+                              <span className="text-success fw-bold">✓ Secured</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Trust Score System</span>
+                              <span className="text-success fw-bold">✓ Integrated</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </section>
@@ -421,221 +412,125 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0' }}>
-                <div className="row align-items-center" style={{ margin: 0 }}>
-                  <div className="col-lg-12">
-                    <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
-                      <h1 className="display-3 fw-bold mb-4" style={{ 
-                        fontFamily: "'Playfair Display', serif",
-                        color: '#14432A'
-                      }}>
-                        In-House Trust Score System
-                      </h1>
-                      <p className="lead mb-4" style={{ 
-                        fontSize: '1.3rem',
-                        color: '#495057',
-                        maxWidth: '800px',
-                        margin: '0 auto'
-                      }}>
-                        Transparent in-house trust score based on our recommendation engine (1-300 scale) and verified member system. Find the perfect room and roommate with our patented member trust rating system.
-                      </p>
-                    </motion.div>
-                  </div>
-                  
-                  <motion.div className="col-lg-12" {...slideInLeft}>
-                    <div className="text-dark" style={{ marginTop: '2rem' }}>
-                      <motion.div 
-                        className="row g-3 mb-5" 
-                        style={{ marginBottom: '2rem' }}
-                        variants={staggerContainer}
-                        initial="initial"
-                        whileInView="animate"
-                        viewport={{ once: true, margin: '-50px' }}
-                      >
-                        <motion.div className="col-md-3" variants={staggerItem}>
-                          <div className="d-flex align-items-center">
-                            <div style={{
-                              background: 'rgba(20, 67, 42, 0.1)',
-                              borderRadius: '12px',
-                              padding: '12px',
-                              marginRight: '15px'
-                            }}>
-                              <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                            </div>
+              <div className="container">
+                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
+                  <motion.div className="col-lg-6" {...slideInLeft}>
+                    <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
+                      <div className="card-body p-4">
+                        <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>In-House Trust Score System</h5>
+                        <p className="text-muted mb-4" style={{ fontSize: '0.9rem' }}>
+                          Transparent in-house trust score based on our recommendation engine (1-300 scale) and verified member system
+                        </p>
+                        
+                        {/* Circular Trust Score Display */}
+                        <div className="text-center mb-4">
+                          <div style={{
+                            width: '120px',
+                            height: '120px',
+                            borderRadius: '50%',
+                            background: 'linear-gradient(135deg, #14432A 0%, #206542 100%)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            margin: '0 auto 16px',
+                            color: 'white',
+                            fontSize: '2.5rem',
+                            fontWeight: 'bold'
+                          }}>
+                            225
+                          </div>
+                          <div className="badge px-3 py-2 mb-2" style={{ backgroundColor: '#14432A', color: 'white' }}>In-House Trust Score</div>
+                          <div className="badge bg-success px-3 py-2 mb-3">EXCELLENT RATING</div>
+                          <div className="progress mb-2" style={{ height: '8px', background: '#e9ecef' }}>
+                            <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A' }}></div>
+                          </div>
+                          <small className="text-muted">1 - 300</small>
+                        </div>
+
+                        {/* Feature List with Icons */}
+                        <div className="mt-4">
+                          <div className="d-flex align-items-start mb-3">
+                            <StarIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <h5 className="mb-1 fw-bold">Verified Profiles</h5>
-                              <small className="opacity-75">ID & background checked</small>
+                              <strong style={{ color: '#14432A' }}>In-House Trust Score Display:</strong>
+                              <span className="text-muted"> Transparent in-house ratings for all members</span>
                             </div>
                           </div>
-                        </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
-                          <div className="d-flex align-items-center">
-                            <div style={{
-                              background: 'rgba(20, 67, 42, 0.1)',
-                              borderRadius: '12px',
-                              padding: '12px',
-                              marginRight: '15px'
-                            }}>
-                              <StarIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                            </div>
+                          <div className="d-flex align-items-start mb-3">
+                            <UserGroupIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <h5 className="mb-1 fw-bold">Trust Score</h5>
-                              <small className="opacity-75">Reliable scoring system</small>
+                              <strong style={{ color: '#14432A' }}>Verified Members:</strong>
+                              <span className="text-muted"> ID verification required</span>
                             </div>
                           </div>
-                        </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
-                          <div className="d-flex align-items-center">
-                            <div style={{
-                              background: 'rgba(20, 67, 42, 0.1)',
-                              borderRadius: '12px',
-                              padding: '12px',
-                              marginRight: '15px'
-                            }}>
-                              <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                            </div>
+                          <div className="d-flex align-items-start">
+                            <ChatBubbleLeftRightIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
                             <div>
-                              <h5 className="mb-1 fw-bold">Secure Messaging</h5>
-                              <small className="opacity-75">Safe communication</small>
-                            </div>
-                          </div>
-                        </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
-                          <div className="d-flex align-items-center">
-                            <div style={{
-                              background: 'rgba(20, 67, 42, 0.1)',
-                              borderRadius: '12px',
-                              padding: '12px',
-                              marginRight: '15px'
-                            }}>
-                              <HeartIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                            </div>
-                            <div>
-                              <h5 className="mb-1 fw-bold">Roommate Matching</h5>
-                              <small className="opacity-75">Compatible preferences</small>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="position-relative mb-5"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                      >
-                        <div style={{
-                          background: 'rgba(255,255,255,0.95)',
-                          borderRadius: '20px',
-                          padding: '50px',
-                          boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                          backdropFilter: 'blur(10px)'
-                        }}>
-                          <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Trust Score Dashboard</h3>
-                          <div className="row g-3 mb-4">
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <StarIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>225</h6>
-                                  <small className="text-muted">Trust Score</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <CheckCircleIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Excellent</h6>
-                                  <small className="text-muted">Rating</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-6">
-                              <div className="p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Status</h6>
-                                <div className="space-y-2">
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">In-House Trust Score</span>
-                                    <span className="text-success fw-bold">✓ Active</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Verified Members</span>
-                                    <span className="text-success fw-bold">✓ Verified</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Review System</span>
-                                    <span className="text-success fw-bold">✓ Enabled</span>
-                                  </div>
-                                </div>
-                              </div>
+                              <strong style={{ color: '#14432A' }}>Review System:</strong>
+                              <span className="text-muted"> Rate your roommates and landlords</span>
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div className="col-lg-6" {...slideInRight}>
+                    <div className="text-dark" style={{ marginTop: '2rem' }}>
+                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.25rem' }}>Member In-House Trust Score System</h5>
+                      <p className="text-muted mb-4" style={{ fontSize: '0.95rem' }}>
+                        Find the perfect room and roommate with our patented member trust rating system. Verified profiles, secure payments, and reliable reviews help you make informed decisions for your next home.
+                      </p>
                       
-                      <motion.div 
-                        className="d-flex gap-3 flex-wrap justify-content-center" 
-                        style={{ marginTop: '1.5rem' }}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                      >
-                        <Link 
-                          href="/rooms" 
-                          className="btn btn-primary btn-lg px-4 py-3 fw-bold"
-                          style={{ 
-                            borderRadius: '12px',
-                            backgroundColor: '#14432A',
-                            borderColor: '#14432A',
-                            boxShadow: '0 4px 15px rgba(20, 67, 42, 0.3)',
-                            transition: 'all 0.3s ease'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                          }}
-                        >
+                      {/* Feature Grid */}
+                      <div className="row g-3 mb-4">
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <UserGroupIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Verified Profiles:</strong>
+                              <div className="text-muted small">ID & background checked</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <StarIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Trust Score:</strong>
+                              <div className="text-muted small">Reliable scoring system</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Secure Messaging:</strong>
+                              <div className="text-muted small">Safe communication</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <HeartIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Roommate Matching:</strong>
+                              <div className="text-muted small">Compatible preferences</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="d-flex gap-3">
+                        <Link href="/rooms" className="btn px-4 py-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', textDecoration: 'none', flex: 1 }}>
                           Find Roommates
                         </Link>
-                        <Link 
-                          href="/trustscore" 
-                          className="btn btn-outline-primary btn-lg px-4 py-3 fw-bold"
-                          style={{ 
-                            borderRadius: '12px',
-                            borderColor: '#14432A',
-                            color: '#14432A',
-                            borderWidth: '2px',
-                            transition: 'all 0.3s ease'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.background = 'rgba(20, 67, 42, 0.1)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.background = 'transparent';
-                          }}
-                        >
+                        <Link href="/trustscore" className="btn px-4 py-2" style={{ border: '2px solid #14432A', color: '#14432A', borderRadius: '8px', textDecoration: 'none', flex: 1, background: 'transparent' }}>
                           More Information
                         </Link>
-                      </motion.div>
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -651,8 +546,8 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0' }}>
-                <div className="row align-items-center" style={{ margin: 0 }}>
+              <div className="container">
+                <div className="row align-items-center" style={{ padding: '1rem 0' }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
                       <h1 className="display-3 fw-bold mb-4" style={{ 
@@ -672,17 +567,17 @@ export default function BlockchainSection() {
                     </motion.div>
                   </div>
                   
-                  <motion.div className="col-lg-12" {...slideInLeft}>
+                  <motion.div className="col-lg-6" {...slideInLeft}>
                     <div className="text-dark" style={{ marginTop: '2rem' }}>
                       <motion.div 
-                        className="row g-3 mb-5" 
+                        className="row g-3 mb-4" 
                         style={{ marginBottom: '2rem' }}
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true, margin: '-50px' }}
                       >
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -698,7 +593,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -714,7 +609,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -730,7 +625,7 @@ export default function BlockchainSection() {
                             </div>
                           </div>
                         </motion.div>
-                        <motion.div className="col-md-3" variants={staggerItem}>
+                        <motion.div className="col-md-6" variants={staggerItem}>
                           <div className="d-flex align-items-center">
                             <div style={{
                               background: 'rgba(20, 67, 42, 0.1)',
@@ -749,76 +644,7 @@ export default function BlockchainSection() {
                       </motion.div>
                       
                       <motion.div 
-                        className="position-relative mb-5"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                      >
-                        <div style={{
-                          background: 'rgba(255,255,255,0.95)',
-                          borderRadius: '20px',
-                          padding: '50px',
-                          boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                          backdropFilter: 'blur(10px)'
-                        }}>
-                          <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>eDocument Dashboard</h3>
-                          <div className="row g-3 mb-4">
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <DocumentCheckIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>15</h6>
-                                  <small className="text-muted">Active Leases</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className="text-center p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <ClockIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                                <div className="mt-2">
-                                  <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>3</h6>
-                                  <small className="text-muted">Pending Docs</small>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-md-6">
-                              <div className="p-3" style={{ 
-                                background: '#f8f9fa', 
-                                borderRadius: '12px',
-                                border: '2px solid #e9ecef'
-                              }}>
-                                <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>Document Status</h6>
-                                <div className="space-y-2">
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Lease Agreement</span>
-                                    <span className="text-success fw-bold">✓ Signed</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Roommate Contract</span>
-                                    <span className="text-success fw-bold">✓ Complete</span>
-                                  </div>
-                                  <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#ffffff', borderRadius: '8px' }}>
-                                    <span className="fw-medium">Property Inspection</span>
-                                    <span className="text-warning fw-bold">⚠ Pending</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div 
-                        className="d-flex gap-3 flex-wrap justify-content-center" 
+                        className="d-flex gap-3 flex-wrap" 
                         style={{ marginTop: '1.5rem' }}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -866,6 +692,66 @@ export default function BlockchainSection() {
                           Learn More
                         </Link>
                       </motion.div>
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div className="col-lg-6" {...slideInRight}>
+                    <div className="position-relative">
+                      <div style={{
+                        background: 'rgba(255,255,255,0.95)',
+                        borderRadius: '20px',
+                        padding: '50px',
+                        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                        backdropFilter: 'blur(10px)'
+                      }}>
+                        <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>eDocument Dashboard</h3>
+                        <div className="row g-3 mb-4">
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ 
+                              background: '#f8f9fa', 
+                              borderRadius: '12px',
+                              border: '2px solid #e9ecef'
+                            }}>
+                              <DocumentCheckIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                              <div className="mt-2">
+                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>15</h6>
+                                <small className="text-muted">Active Leases</small>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div className="text-center p-3" style={{ 
+                              background: '#f8f9fa', 
+                              borderRadius: '12px',
+                              border: '2px solid #e9ecef'
+                            }}>
+                              <ClockIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                              <div className="mt-2">
+                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>3</h6>
+                                <small className="text-muted">Pending Docs</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>Document Status</h6>
+                          <div className="space-y-2">
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Lease Agreement</span>
+                              <span className="text-success fw-bold">✓ Signed</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Roommate Contract</span>
+                              <span className="text-success fw-bold">✓ Complete</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                              <span className="fw-medium">Property Inspection</span>
+                              <span className="text-warning fw-bold">⚠ Pending</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </div>
