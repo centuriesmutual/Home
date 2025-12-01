@@ -38,12 +38,12 @@ export default function Legacy() {
                   right: '20px',
                   background: '#0066cc',
                   borderRadius: '8px',
-                  padding: '20px 30px',
+                  padding: '15px 25px',
                   textAlign: 'center',
                   boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
                 }}>
                   <div style={{ 
-                    fontSize: '2.5rem', 
+                    fontSize: '2rem', 
                     fontWeight: 'bold', 
                     color: 'white',
                     lineHeight: '1'
@@ -51,7 +51,7 @@ export default function Legacy() {
                     2024
                   </div>
                   <div style={{ 
-                    fontSize: '0.9rem', 
+                    fontSize: '0.8rem', 
                     color: 'white',
                     marginTop: '4px'
                   }}>
