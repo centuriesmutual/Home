@@ -40,6 +40,266 @@ export default function BlockchainSection() {
               </p>
             </motion.div>
 
+            {/* Find Your Perfect Room Section */}
+            <motion.div 
+              className="row align-items-center mb-5"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-200px' }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <div className="col-lg-12 mb-4">
+                <div className="text-center">
+                  <h2 className="display-4 fw-bold mb-3" style={{ 
+                    fontFamily: "'Playfair Display', serif",
+                    color: '#14432A'
+                  }}>
+                    Find Your Perfect Room
+                  </h2>
+                  <p className="lead mb-4" style={{ 
+                    fontSize: '1.3rem',
+                    color: '#495057',
+                    maxWidth: '800px',
+                    margin: '0 auto'
+                  }}>
+                    Discover amazing rental opportunities in your area. From cozy studios to shared apartments, we connect you with the perfect living space that fits your lifestyle and budget.
+                  </p>
+                </div>
+              </div>
+
+              <motion.div 
+                className="col-lg-6"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-200px' }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              >
+                <motion.div 
+                  className="row g-3 mb-4"
+                  variants={staggerContainer}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true, margin: '-200px' }}
+                >
+                  <motion.div className="col-md-6" variants={staggerItem}>
+                    <div className="d-flex align-items-center">
+                      <div style={{
+                        background: 'rgba(20, 67, 42, 0.1)',
+                        borderRadius: '12px',
+                        padding: '12px',
+                        marginRight: '15px'
+                      }}>
+                        <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5 className="mb-1 fw-bold">Trust Score Based Community</h5>
+                        <small className="opacity-75">Verified trustworthy renters</small>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <motion.div className="col-md-6" variants={staggerItem}>
+                    <div className="d-flex align-items-center">
+                      <div style={{
+                        background: 'rgba(20, 67, 42, 0.1)',
+                        borderRadius: '12px',
+                        padding: '12px',
+                        marginRight: '15px'
+                      }}>
+                        <HomeIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5 className="mb-1 fw-bold">Beautiful Spaces</h5>
+                        <small className="opacity-75">Great options available</small>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <motion.div className="col-md-6" variants={staggerItem}>
+                    <div className="d-flex align-items-center">
+                      <div style={{
+                        background: 'rgba(20, 67, 42, 0.1)',
+                        borderRadius: '12px',
+                        padding: '12px',
+                        marginRight: '15px'
+                      }}>
+                        <CreditCardIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5 className="mb-1 fw-bold">Secure Access</h5>
+                        <small className="opacity-75">Coinbase wallet integration</small>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <motion.div className="col-md-6" variants={staggerItem}>
+                    <div className="d-flex align-items-center">
+                      <div style={{
+                        background: 'rgba(20, 67, 42, 0.1)',
+                        borderRadius: '12px',
+                        padding: '12px',
+                        marginRight: '15px'
+                      }}>
+                        <DocumentTextIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5 className="mb-1 fw-bold">Document Services</h5>
+                        <small className="opacity-75">Secure digital document management</small>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div 
+                  className="d-flex gap-3 flex-wrap"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-200px' }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <Link 
+                    href="/rooms" 
+                    className="btn btn-primary btn-lg px-4 py-3 fw-bold"
+                    style={{ 
+                      borderRadius: '12px',
+                      backgroundColor: '#14432A',
+                      borderColor: '#14432A',
+                      boxShadow: '0 4px 15px rgba(20, 67, 42, 0.3)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                    }}
+                  >
+                    Browse Rooms
+                  </Link>
+                  <Link 
+                    href="/child-care" 
+                    className="btn btn-outline-primary btn-lg px-4 py-3 fw-bold"
+                    style={{ 
+                      borderRadius: '12px',
+                      borderColor: '#14432A',
+                      color: '#14432A',
+                      borderWidth: '2px',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = 'rgba(20, 67, 42, 0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = 'transparent';
+                    }}
+                  >
+                    Child Care
+                  </Link>
+                </motion.div>
+              </motion.div>
+
+              <motion.div 
+                className="col-lg-6"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-200px' }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              >
+                <div className="position-relative">
+                  <motion.div 
+                    style={{
+                      background: 'rgba(255,255,255,0.95)',
+                      borderRadius: '20px',
+                      padding: '50px',
+                      boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: '-200px' }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <motion.h3 
+                      className="mb-4 fw-bold" 
+                      style={{ color: '#14432A' }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-200px' }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      Start Your Search Today
+                    </motion.h3>
+                    <motion.div 
+                      className="row g-3 mb-4"
+                      variants={staggerContainer}
+                      initial="initial"
+                      whileInView="animate"
+                      viewport={{ once: true, margin: '-50px' }}
+                    >
+                      <motion.div className="col-12" variants={staggerItem}>
+                        <label className="form-label small fw-bold mb-2" style={{ color: '#14432A' }}>Location</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-white border-end-0">
+                            <MapPinIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
+                          </span>
+                          <input
+                            type="text"
+                            className="form-control border-start-0"
+                            placeholder="Enter city or neighborhood"
+                          />
+                        </div>
+                      </motion.div>
+                      <motion.div className="col-12" variants={staggerItem}>
+                        <label className="form-label small fw-bold mb-2" style={{ color: '#14432A' }}>Max Price</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter max monthly rent (e.g., $1200)"
+                        />
+                      </motion.div>
+                      <motion.div className="col-12" variants={staggerItem}>
+                        <label className="form-label small fw-bold mb-2" style={{ color: '#14432A' }}>Room Type</label>
+                        <select className="form-select">
+                          <option>Private Room</option>
+                          <option>Shared Room</option>
+                          <option>Studio</option>
+                          <option>1 Bedroom</option>
+                        </select>
+                      </motion.div>
+                    </motion.div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: '-200px' }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                      <Link 
+                        href="/rooms" 
+                        className="btn w-100 py-3 fw-bold"
+                        style={{ 
+                          backgroundColor: '#D4AF37',
+                          color: 'white',
+                          borderRadius: '12px',
+                          textDecoration: 'none',
+                          boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'translateY(-2px)';
+                          e.target.style.boxShadow = '0 6px 20px rgba(212, 175, 55, 0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'translateY(0)';
+                          e.target.style.boxShadow = '0 4px 15px rgba(212, 175, 55, 0.3)';
+                        }}
+                      >
+                        Search Available Rooms
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+
             {/* In-House Trust Score System */}
               <div className="row g-4 mb-4">
                 <div className="col-md-6">
