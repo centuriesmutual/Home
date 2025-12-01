@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ShieldCheckIcon, LockClosedIcon, CheckBadgeIcon, UserGroupIcon, CubeIcon, DocumentCheckIcon, HomeIcon, DocumentTextIcon, StarIcon, CreditCardIcon, MagnifyingGlassIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { ShieldCheckIcon, LockClosedIcon, CheckBadgeIcon, UserGroupIcon, CubeIcon, DocumentCheckIcon, HomeIcon, DocumentTextIcon, StarIcon, CreditCardIcon, MagnifyingGlassIcon, MapPinIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useState } from 'react'
 import { sectionAnimation, staggerContainer, cardAnimation } from '../utils/animations'
@@ -143,43 +143,121 @@ export default function BlockchainSection() {
               {/* In-House Trust Score System */}
               <div className="row g-4 mb-4">
                 <div className="col-md-6">
-                  <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: 'linear-gradient(135deg, #14432A 0%, #206542 100%)', color: 'white' }}>
-                    <div className="card-body p-4 text-center">
-                      <h5 className="fw-bold mb-3">In-House Trust Score System</h5>
-                      <p className="mb-4" style={{ fontSize: '0.9rem', opacity: 0.95 }}>
+                  <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
+                    <div className="card-body p-4">
+                      <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>In-House Trust Score System</h5>
+                      <p className="text-muted mb-4" style={{ fontSize: '0.9rem' }}>
                         Transparent in-house trust score based on our recommendation engine (1-300 scale) and verified member system
                       </p>
-                      <div className="mb-3">
-                        <div className="display-1 fw-bold mb-2">225</div>
-                        <div className="badge bg-light text-dark px-3 py-2 mb-2">In-House Trust Score</div>
-                        <div className="badge bg-success px-3 py-2">Excellent Rating</div>
+                      
+                      {/* Circular Trust Score Display */}
+                      <div className="text-center mb-4">
+                        <div style={{
+                          width: '120px',
+                          height: '120px',
+                          borderRadius: '50%',
+                          background: 'linear-gradient(135deg, #14432A 0%, #206542 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          margin: '0 auto 16px',
+                          color: 'white',
+                          fontSize: '2.5rem',
+                          fontWeight: 'bold'
+                        }}>
+                          225
+                        </div>
+                        <div className="badge px-3 py-2 mb-2" style={{ backgroundColor: '#14432A', color: 'white' }}>In-House Trust Score</div>
+                        <div className="badge bg-success px-3 py-2 mb-3">EXCELLENT RATING</div>
+                        <div className="progress mb-2" style={{ height: '8px', background: '#e9ecef' }}>
+                          <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: '#14432A' }}></div>
+                        </div>
+                        <small className="text-muted">1 - 300</small>
                       </div>
-                      <div className="progress mb-2" style={{ height: '8px', background: 'rgba(255,255,255,0.3)' }}>
-                        <div className="progress-bar bg-light" role="progressbar" style={{ width: '75%' }}></div>
+
+                      {/* Feature List with Icons */}
+                      <div className="mt-4">
+                        <div className="d-flex align-items-start mb-3">
+                          <StarIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
+                          <div>
+                            <strong style={{ color: '#14432A' }}>In-House Trust Score Display:</strong>
+                            <span className="text-muted"> Transparent in-house ratings for all members</span>
+                          </div>
+                        </div>
+                        <div className="d-flex align-items-start mb-3">
+                          <UserGroupIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
+                          <div>
+                            <strong style={{ color: '#14432A' }}>Verified Members:</strong>
+                            <span className="text-muted"> ID verification required</span>
+                          </div>
+                        </div>
+                        <div className="d-flex align-items-start">
+                          <ChatBubbleLeftRightIcon style={{ width: '20px', height: '20px', color: '#14432A', marginRight: '12px', marginTop: '2px', flexShrink: 0 }} />
+                          <div>
+                            <strong style={{ color: '#14432A' }}>Review System:</strong>
+                            <span className="text-muted"> Rate your roommates and landlords</span>
+                          </div>
+                        </div>
                       </div>
-                      <small style={{ opacity: 0.8 }}>1 - 300 In-House Trust Score Display</small>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="card border-0 shadow-sm h-100" style={{ borderRadius: '16px', background: '#ffffff' }}>
                     <div className="card-body p-4">
-                      <h5 className="fw-bold mb-3" style={{ color: '#14432A' }}>Transparent in-house ratings for all members</h5>
-                      <div className="row g-3">
+                      <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.25rem' }}>Member In-House Trust Score System</h5>
+                      <p className="text-muted mb-4" style={{ fontSize: '0.95rem' }}>
+                        Find the perfect room and roommate with our patented member trust rating system. Verified profiles, secure payments, and reliable reviews help you make informed decisions for your next home.
+                      </p>
+                      
+                      {/* Feature Grid */}
+                      <div className="row g-3 mb-4">
                         <div className="col-6">
-                          <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
-                            <ShieldCheckIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                            <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Verified Members</h6>
-                            <small className="text-muted" style={{ fontSize: '0.75rem' }}>ID verification required</small>
+                          <div className="d-flex align-items-start">
+                            <UserGroupIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Verified Profiles:</strong>
+                              <div className="text-muted small">ID & background checked</div>
+                            </div>
                           </div>
                         </div>
                         <div className="col-6">
-                          <div className="text-center p-3" style={{ background: 'rgba(20, 67, 42, 0.1)', borderRadius: '12px' }}>
-                            <StarIcon style={{ width: '32px', height: '32px', color: '#14432A', marginBottom: '8px' }} />
-                            <h6 className="fw-bold mb-1" style={{ color: '#14432A', fontSize: '0.85rem' }}>Review System</h6>
-                            <small className="text-muted" style={{ fontSize: '0.75rem' }}>Rate your roommates and landlords</small>
+                          <div className="d-flex align-items-start">
+                            <StarIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Trust Score:</strong>
+                              <div className="text-muted small">Reliable scoring system</div>
+                            </div>
                           </div>
                         </div>
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Secure Messaging:</strong>
+                              <div className="text-muted small">Safe communication</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="d-flex align-items-start">
+                            <HeartIcon style={{ width: '24px', height: '24px', color: '#14432A', marginRight: '10px', marginTop: '2px', flexShrink: 0 }} />
+                            <div>
+                              <strong style={{ color: '#14432A', fontSize: '0.9rem' }}>Roommate Matching:</strong>
+                              <div className="text-muted small">Compatible preferences</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="d-flex gap-3">
+                        <Link href="/rooms" className="btn px-4 py-2" style={{ backgroundColor: '#14432A', color: 'white', borderRadius: '8px', textDecoration: 'none', flex: 1 }}>
+                          Find Roommates
+                        </Link>
+                        <Link href="/trustscore" className="btn px-4 py-2" style={{ border: '2px solid #14432A', color: '#14432A', borderRadius: '8px', textDecoration: 'none', flex: 1, background: 'transparent' }}>
+                          More Information
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -423,96 +501,6 @@ export default function BlockchainSection() {
                     lineHeight: '1.6'
                   }}>
                       Automated smart contract governance and claims handling for financial contracts
-                  </p>
-                  </motion.div>
-                </Link>
-              </div>
-              
-              <div className="col-md-4 text-center">
-                <Link href="/rooms" className="text-decoration-none">
-                  <motion.div 
-                    className="card border-0 shadow-sm h-100" 
-                    style={{
-                  background: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '2rem 1.5rem',
-                  border: '1px solid #e9ecef',
-                  height: '100%',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    whileHover={{ 
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.1 }}
-                  >
-                  <div className="mb-3 d-flex justify-content-center">
-                      <HomeIcon style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      color: '#14432A'
-                    }} />
-                  </div>
-                  <h6 className="fw-bold mb-2" style={{ 
-                    color: '#14432A',
-                    fontSize: '1rem',
-                    marginBottom: '0.75rem'
-                  }}>
-                      Find Room
-                  </h6>
-                  <p className="text-muted mb-0" style={{ 
-                    fontSize: '0.9rem',
-                    lineHeight: '1.6'
-                  }}>
-                      Search and find available rooms with our secure platform
-                  </p>
-                  </motion.div>
-                </Link>
-              </div>
-              
-              <div className="col-md-4 text-center">
-                <Link href="/edocument-system" className="text-decoration-none">
-                  <motion.div 
-                    className="card border-0 shadow-sm h-100" 
-                    style={{
-                  background: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '2rem 1.5rem',
-                  border: '1px solid #e9ecef',
-                  height: '100%',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                    whileHover={{ 
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.1 }}
-                  >
-                  <div className="mb-3 d-flex justify-content-center">
-                      <DocumentTextIcon style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      color: '#14432A'
-                    }} />
-                  </div>
-                  <h6 className="fw-bold mb-2" style={{ 
-                    color: '#14432A',
-                    fontSize: '1rem',
-                    marginBottom: '0.75rem'
-                  }}>
-                      eDocument System
-                  </h6>
-                  <p className="text-muted mb-0" style={{ 
-                    fontSize: '0.9rem',
-                    lineHeight: '1.6'
-                  }}>
-                      Legally binding documents with blockchain verification
                   </p>
                   </motion.div>
                 </Link>
