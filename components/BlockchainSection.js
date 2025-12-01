@@ -187,7 +187,7 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0 2rem' }}>
+              <div style={{ width: '100%', padding: '0' }}>
                 <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
@@ -195,7 +195,7 @@ export default function BlockchainSection() {
                         fontFamily: "'Playfair Display', serif",
                         color: '#14432A'
                       }}>
-                        Find Perfect Roommate
+                        Find Your Perfect Roommate
                       </h1>
                       <p className="lead mb-4" style={{ 
                         fontSize: '1.3rem',
@@ -421,7 +421,7 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0 2rem' }}>
+              <div style={{ width: '100%', padding: '0' }}>
                 <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
@@ -651,7 +651,7 @@ export default function BlockchainSection() {
               padding: '2rem 0',
               width: '100%'
             }}>
-              <div style={{ width: '100%', padding: '0 2rem' }}>
+              <div style={{ width: '100%', padding: '0' }}>
                 <div className="row align-items-center" style={{ margin: 0 }}>
                   <div className="col-lg-12">
                     <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
