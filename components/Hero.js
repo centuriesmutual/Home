@@ -138,7 +138,9 @@ export default function Hero() {
                   Spaces
                 </motion.a>
                 <motion.a 
-                  href="https://newspaper.centuriesmutual.com" 
+                  href="https://newspaper.centuriesmutual.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-sm text-white"
                   style={{ 
                     fontSize: '0.7rem',
@@ -158,6 +160,10 @@ export default function Hero() {
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.1 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = 'https://newspaper.centuriesmutual.com';
+                  }}
                 >
                   Newspaper
                 </motion.a>
