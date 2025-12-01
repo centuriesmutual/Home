@@ -137,8 +137,8 @@ export default function Hero() {
                 >
                   Spaces
                 </motion.a>
-                <motion.a 
-                  href="https://newspaper.centuriesmutual.com"
+                <motion.button
+                  type="button"
                   className="btn btn-sm text-white"
                   style={{ 
                     fontSize: '0.7rem',
@@ -147,8 +147,7 @@ export default function Hero() {
                     borderRadius: '4px',
                     background: 'rgba(255,255,255,0.1)',
                     transition: 'all 0.2s ease',
-                    cursor: 'pointer',
-                    textDecoration: 'none'
+                    cursor: 'pointer'
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.background = 'rgba(255,255,255,0.2)';
@@ -164,11 +163,10 @@ export default function Hero() {
                     e.preventDefault();
                     e.stopPropagation();
                     window.location.href = 'https://newspaper.centuriesmutual.com';
-                    return false;
                   }}
                 >
                   Newspaper
-                </motion.a>
+                </motion.button>
                 <motion.a 
                   href="/contact" 
                   className="btn btn-sm text-white"
