@@ -35,7 +35,7 @@ export default function NetworkDevices() {
                 fontFamily: "'Playfair Display', serif",
                 color: '#14432A'
               }}>
-                Custom Network Devices
+                Phone and Messaging Systems
               </h1>
               <p className="lead mb-4" style={{ 
                 fontSize: '1.3rem',
@@ -43,8 +43,7 @@ export default function NetworkDevices() {
                 maxWidth: '800px',
                 margin: '0 auto'
               }}>
-                Build a secure, high-performance home network with our custom network devices, integrated phone systems, and secure messaging systems. 
-                Enterprise-grade networking solutions for your home.
+                Get your own dedicated phone number and secure messaging system. Our private phone and messaging protocol ensures complete privacy and control over your communications with enterprise-grade security.
               </p>
             </motion.div>
           </div>
@@ -76,11 +75,11 @@ export default function NetworkDevices() {
                       padding: '12px',
                       marginRight: '15px'
                     }}>
-                      <ServerIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                      <PhoneIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Routers & Switches</h5>
-                      <small className="opacity-75">High-performance hardware</small>
+                      <h5 className="mb-1 fw-bold">Dedicated Phone Number</h5>
+                      <small className="opacity-75">Your own private phone number</small>
                     </div>
                   </div>
                 </motion.div>
@@ -95,56 +94,8 @@ export default function NetworkDevices() {
                       <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Secure Gateway</h5>
-                      <small className="opacity-75">Advanced threat protection</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <GlobeAltIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Smart Management</h5>
-                      <small className="opacity-75">Remote configuration</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <SignalIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Extended Range</h5>
-                      <small className="opacity-75">Whole home coverage</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <PhoneIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Phone Systems</h5>
-                      <small className="opacity-75">Private phone protocol</small>
+                      <h5 className="mb-1 fw-bold">End-to-End Encryption</h5>
+                      <small className="opacity-75">Complete privacy protection</small>
                     </div>
                   </div>
                 </motion.div>
@@ -159,8 +110,24 @@ export default function NetworkDevices() {
                       <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Messaging Systems</h5>
-                      <small className="opacity-75">Secure messaging protocol</small>
+                      <h5 className="mb-1 fw-bold">Secure Messaging</h5>
+                      <small className="opacity-75">Blockchain-backed protocol</small>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div className="col-md-6" variants={staggerItem}>
+                  <div className="d-flex align-items-center">
+                    <div style={{
+                      background: 'rgba(20, 67, 42, 0.1)',
+                      borderRadius: '12px',
+                      padding: '12px',
+                      marginRight: '15px'
+                    }}>
+                      <GlobeAltIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
+                    </div>
+                    <div>
+                      <h5 className="mb-1 fw-bold">Private Protocol</h5>
+                      <small className="opacity-75">Complete communication control</small>
                     </div>
                   </div>
                 </motion.div>
@@ -234,7 +201,7 @@ export default function NetworkDevices() {
                 boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
                 backdropFilter: 'blur(10px)'
               }}>
-                <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Network Dashboard</h3>
+                <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Communication Dashboard</h3>
                 <div className="row g-3 mb-4">
                   <div className="col-6">
                     <div className="text-center p-3" style={{ 
@@ -242,10 +209,10 @@ export default function NetworkDevices() {
                       borderRadius: '12px',
                       border: '2px solid #e9ecef'
                     }}>
-                      <WifiIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                      <PhoneIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
                       <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>WiFi 6E</h6>
-                        <small className="text-muted">Latest Standard</small>
+                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Private Phone</h6>
+                        <small className="text-muted">Dedicated Number</small>
                       </div>
                     </div>
                   </div>
@@ -255,28 +222,28 @@ export default function NetworkDevices() {
                       borderRadius: '12px',
                       border: '2px solid #e9ecef'
                     }}>
-                      <BoltIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
+                      <ChatBubbleLeftRightIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
                       <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>10Gbps</h6>
-                        <small className="text-muted">Max Speed</small>
+                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Secure Messages</h6>
+                        <small className="text-muted">Encrypted Protocol</small>
                       </div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mb-4">
-                  <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>Network Features</h6>
+                  <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Features</h6>
                   <div className="space-y-2">
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Mesh Networking</span>
-                      <span className="text-success fw-bold">✓ Enabled</span>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">VPN Support</span>
+                      <span className="fw-medium">End-to-End Encryption</span>
                       <span className="text-success fw-bold">✓ Active</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Firewall Protection</span>
+                      <span className="fw-medium">Blockchain Backup</span>
+                      <span className="text-success fw-bold">✓ Enabled</span>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
+                      <span className="fw-medium">Private Protocol</span>
                       <span className="text-success fw-bold">✓ Secured</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
@@ -291,7 +258,7 @@ export default function NetworkDevices() {
                 </div>
                 
                 <div className="mb-3">
-                  <small className="text-muted d-block mb-2">Powered by Centuries Mutual Network Technology</small>
+                  <small className="text-muted d-block mb-2">Powered by Centuries Mutual Communication Technology</small>
                 </div>
               </div>
             </div>
