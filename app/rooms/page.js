@@ -423,15 +423,6 @@ export default function Rooms() {
                           <span className="fw-bold" style={{ color: '#222222', fontSize: '0.9375rem' }}>{room.price}</span>
                           <span className="text-muted" style={{ fontSize: '0.875rem' }}> /month</span>
                         </div>
-                        <span className="badge" style={{ 
-                          background: 'rgba(20, 67, 42, 0.1)',
-                          color: '#14432A',
-                          padding: '4px 8px',
-                          fontSize: '0.75rem',
-                          borderRadius: '4px'
-                        }}>
-                          Trust: {room.trustScore}
-                        </span>
                       </div>
                     </div>
                   </div>

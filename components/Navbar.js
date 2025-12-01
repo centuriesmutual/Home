@@ -132,7 +132,7 @@ export default function Navbar() {
           
           <div className="collapse navbar-collapse" id="navbarNav">
             <div className="navbar-nav ms-auto d-flex align-items-center gap-3">
-              {pathname !== '/' && (
+              {pathname !== '/' && pathname !== '/rooms' && (
                 <Link href="/" className="nav-link" style={{ color: '#14432A' }}>
                   Home
                 </Link>
