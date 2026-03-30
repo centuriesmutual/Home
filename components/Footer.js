@@ -112,20 +112,6 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
-            <h5 className="mb-3">Company</h5>
-            <ul className="list-unstyled footer-links">
-              <li className="mb-2">
-                <Link href="https://newspaper.centuriesmutual.com" className="text-white text-decoration-none">Newspaper</Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/contact" className="text-white text-decoration-none">Help Desk</Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/careers" className="text-white text-decoration-none">Careers</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Services</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">
@@ -136,14 +122,11 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-lg-2 footer-content">
-            <h5 className="mb-3">Documents</h5>
+          <div className="col-lg-4 mb-4 mb-lg-0 footer-content">
+            <h5 className="mb-3">Company</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">
-                <Link href="/terms-and-conditions" className="text-white text-decoration-none">Terms and Conditions</Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/privacy-policy" className="text-white text-decoration-none">Privacy Policy</Link>
+                <Link href="/help-desk" className="text-white text-decoration-none">Help desk</Link>
               </li>
               <li className="mb-2">
                 <Link href="/legal" className="text-white text-decoration-none">Legal</Link>

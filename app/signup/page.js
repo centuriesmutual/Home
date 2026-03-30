@@ -259,11 +259,11 @@ export default function Signup() {
                       />
                       <label className="form-check-label small text-muted" htmlFor="agreeToTerms">
                         I agree to the {' '}
-                        <Link href="/terms-and-conditions" className="text-decoration-none" style={{ color: '#14432A' }}>
+                        <Link href="/legal#terms-and-conditions" className="text-decoration-none" style={{ color: '#14432A' }}>
                           Terms and Conditions
                         </Link>
                         {' '}and{' '}
-                        <Link href="/privacy-policy" className="text-decoration-none" style={{ color: '#14432A' }}>
+                        <Link href="/legal#privacy-policy" className="text-decoration-none" style={{ color: '#14432A' }}>
                           Privacy Policy
                         </Link>
                       </label>
