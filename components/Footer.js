@@ -118,13 +118,16 @@ export default function Footer() {
               <li className="mb-2">
                 <Link href="/claims" className="text-white text-decoration-none">Claims</Link>
               </li>
+              <li className="mb-2">
+                <Link href="/trust" className="text-white text-decoration-none">Trust</Link>
+              </li>
             </ul>
           </div>
           <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Network</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">
-                <Link href="/documents" className="text-white text-decoration-none">Documents</Link>
+                <Link href="/documents" className="text-white text-decoration-none">eDocuments</Link>
               </li>
               <li className="mb-2">
                 <Link href="/blockchain" className="text-white text-decoration-none">Blockchain</Link>
