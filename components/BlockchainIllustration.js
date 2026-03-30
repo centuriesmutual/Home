@@ -2,17 +2,20 @@
 
 /**
  * On-brand blockchain illustration for Patented Technology (Centuries Mutual green).
+ * Use compact for the smaller footprint that matches the original section height.
  */
-export default function BlockchainIllustration({ className = '' }) {
+export default function BlockchainIllustration({ className = '', compact = false }) {
   const primary = '#14432A'
   const primaryMid = '#1d5a38'
   const primaryLight = 'rgba(20, 67, 42, 0.12)'
   const stroke = 'rgba(20, 67, 42, 0.35)'
 
+  const maxWidth = compact ? '220px' : '440px'
+
   return (
     <div
       className={className}
-      style={{ maxWidth: '440px', width: '100%', marginLeft: 'auto', marginRight: 'auto' }}
+      style={{ maxWidth, width: '100%', marginLeft: 'auto', marginRight: 'auto' }}
       aria-hidden
     >
       <svg
