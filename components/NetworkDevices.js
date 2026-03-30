@@ -35,7 +35,7 @@ export default function NetworkDevices() {
                 fontFamily: "'Playfair Display', serif",
                 color: '#14432A'
               }}>
-                Phone and Messaging Systems
+                Social Network & Messaging
               </h1>
               <p className="lead mb-4" style={{ 
                 fontSize: '1.3rem',
@@ -43,7 +43,7 @@ export default function NetworkDevices() {
                 maxWidth: '800px',
                 margin: '0 auto'
               }}>
-                Get your own dedicated phone number and secure messaging system. Our private phone and messaging protocol ensures complete privacy and control over your communications with enterprise-grade security.
+                Build your profile, follow people and join groups, share updates in your feed, and keep conversations private. One network for your identity, connections, and real-time chat—with the same trusted security behind every interaction.
               </p>
             </motion.div>
           </div>
@@ -78,8 +78,8 @@ export default function NetworkDevices() {
                       <PhoneIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Dedicated Phone Number</h5>
-                      <small className="opacity-75">Your own private phone number</small>
+                      <h5 className="mb-1 fw-bold">Profile & Presence</h5>
+                      <small className="opacity-75">Your public profile and how you appear</small>
                     </div>
                   </div>
                 </motion.div>
@@ -94,8 +94,8 @@ export default function NetworkDevices() {
                       <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">End-to-End Encryption</h5>
-                      <small className="opacity-75">Complete privacy protection</small>
+                      <h5 className="mb-1 fw-bold">Privacy Controls</h5>
+                      <small className="opacity-75">Choose who sees posts and activity</small>
                     </div>
                   </div>
                 </motion.div>
@@ -110,8 +110,8 @@ export default function NetworkDevices() {
                       <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Secure Messaging</h5>
-                      <small className="opacity-75">Blockchain-backed protocol</small>
+                      <h5 className="mb-1 fw-bold">Chat & Threads</h5>
+                      <small className="opacity-75">DMs and group conversations</small>
                     </div>
                   </div>
                 </motion.div>
@@ -126,8 +126,8 @@ export default function NetworkDevices() {
                       <GlobeAltIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                     </div>
                     <div>
-                      <h5 className="mb-1 fw-bold">Private Protocol</h5>
-                      <small className="opacity-75">Complete communication control</small>
+                      <h5 className="mb-1 fw-bold">Connections & Circles</h5>
+                      <small className="opacity-75">Follows, friends, and communities</small>
                     </div>
                   </div>
                 </motion.div>
@@ -211,8 +211,8 @@ export default function NetworkDevices() {
                     }}>
                       <PhoneIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
                       <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Private Phone</h6>
-                        <small className="text-muted">Dedicated Number</small>
+                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Your Profile</h6>
+                        <small className="text-muted">Verified presence</small>
                       </div>
                     </div>
                   </div>
@@ -224,8 +224,8 @@ export default function NetworkDevices() {
                     }}>
                       <ChatBubbleLeftRightIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
                       <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Secure Messages</h6>
-                        <small className="text-muted">Encrypted Protocol</small>
+                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>Messages</h6>
+                        <small className="text-muted">Private threads</small>
                       </div>
                     </div>
                   </div>
@@ -235,23 +235,23 @@ export default function NetworkDevices() {
                   <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Features</h6>
                   <div className="space-y-2">
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">End-to-End Encryption</span>
+                      <span className="fw-medium">Profile Privacy</span>
                       <span className="text-success fw-bold">✓ Active</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Blockchain Backup</span>
+                      <span className="fw-medium">Feed & Updates</span>
                       <span className="text-success fw-bold">✓ Enabled</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Private Protocol</span>
+                      <span className="fw-medium">Connection Controls</span>
                       <span className="text-success fw-bold">✓ Secured</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Phone Systems</span>
+                      <span className="fw-medium">Identity Layer</span>
                       <span className="text-success fw-bold">✓ Integrated</span>
                     </div>
                     <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                      <span className="fw-medium">Messaging Systems</span>
+                      <span className="fw-medium">Live Messaging</span>
                       <span className="text-success fw-bold">✓ Active</span>
                     </div>
                   </div>

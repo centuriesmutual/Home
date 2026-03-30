@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
@@ -103,93 +102,6 @@ export default function Hero() {
                   transition={{ duration: 0.1 }}
                 >
                   Download App
-                </motion.a>
-              </motion.div>
-              
-              <motion.div 
-                className="d-flex gap-1 justify-content-center justify-content-lg-start flex-wrap px-3 px-sm-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                style={{ marginBottom: '2rem', position: 'relative', zIndex: 5 }}
-              >
-                <motion.a 
-                  href="/rooms" 
-                  className="btn btn-sm text-white"
-                  style={{ 
-                    fontSize: '0.7rem',
-                    padding: '0.25rem 0.5rem',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: '4px',
-                    background: 'rgba(255,255,255,0.1)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.2)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.1)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.3)';
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  Spaces
-                </motion.a>
-                <motion.button
-                  type="button"
-                  className="btn btn-sm text-white"
-                  style={{ 
-                    fontSize: '0.7rem',
-                    padding: '0.25rem 0.5rem',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: '4px',
-                    background: 'rgba(255,255,255,0.1)',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.2)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.1)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.3)';
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.1 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.location.href = 'https://newspaper.centuriesmutual.com';
-                  }}
-                >
-                  Newspaper
-                </motion.button>
-                <motion.a 
-                  href="/contact" 
-                  className="btn btn-sm text-white"
-                  style={{ 
-                    fontSize: '0.7rem',
-                    padding: '0.25rem 0.5rem',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                    borderRadius: '4px',
-                    background: 'rgba(255,255,255,0.1)',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.2)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.1)';
-                    e.target.style.borderColor = 'rgba(255,255,255,0.3)';
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  Contact Us
                 </motion.a>
               </motion.div>
               

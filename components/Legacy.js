@@ -115,9 +115,10 @@ export default function Legacy() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="mb-4" style={{ 
+              <h2 className="fw-bold mb-4" style={{ 
+                fontFamily: "'Playfair Display', serif",
                 color: 'white',
-                fontSize: '2.5rem',
+                fontSize: '3rem',
                 lineHeight: '1.2'
               }}>
                 About Centuries Mutual
