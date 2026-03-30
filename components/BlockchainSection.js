@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
+import { CheckBadgeIcon, ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
 
@@ -9,87 +9,37 @@ export default function BlockchainSection() {
 
   return (
     <>
-      {/* Patented Technology — same band layout as About Centuries Mutual */}
-      <section className="py-5" style={{ 
-        background: '#14432A',
-        color: 'white',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="container-fluid">
-          <div className="row align-items-center" style={{ margin: 0 }}>
-            <motion.div 
-              className="col-lg-8 p-5"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="mb-2" style={{ 
+      <section className="bg-dark text-white py-5">
+        <div className="container">
+          <motion.div className="text-center" {...sectionAnimation}>
+            <div className="d-inline-flex align-items-center gap-2 mb-3">
+              <CheckBadgeIcon style={{ width: '18px', height: '18px', color: 'rgba(255,255,255,0.9)' }} />
+              <span style={{ 
+                color: 'rgba(255,255,255,0.85)',
                 fontSize: '0.8rem',
                 fontWeight: '600',
                 letterSpacing: '0.5px',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.85)',
-                marginBottom: '0.75rem'
+                textTransform: 'uppercase'
               }}>
                 Patented Technology
-              </p>
-              <h2 className="fw-bold mb-4" style={{ 
-                fontFamily: "'Playfair Display', serif",
-                color: 'white',
-                fontSize: '3rem',
-                lineHeight: '1.2'
-              }}>
-                Patented Blockchain Technology
-              </h2>
-              <p style={{ 
-                fontSize: '1.1rem',
-                color: 'white',
-                lineHeight: '1.8',
-                marginBottom: 0,
-                opacity: 0.95
-              }}>
-                Our proprietary blockchain system ensures immutable, transparent, and secure contract enforcement 
-                across all platform transactions, providing unparalleled trust and reliability in digital agreements.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="col-lg-4 p-5 text-center text-lg-start"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <Link 
-                href="/blockchain"
-                className="btn"
-                style={{
-                  background: '#e9ecef',
-                  color: '#495057',
-                  borderRadius: '8px',
-                  padding: '15px 40px',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  textDecoration: 'none',
-                  border: 'none',
-                  display: 'inline-block',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = '#dee2e6'
-                  e.target.style.transform = 'translateY(-2px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = '#e9ecef'
-                  e.target.style.transform = 'translateY(0)'
-                }}
-              >
-                Learn More
-              </Link>
-            </motion.div>
-          </div>
+              </span>
+            </div>
+            
+            <h5 className="fw-bold mb-3" style={{ color: '#ffffff', fontSize: '1.1rem' }}>
+              Patented Blockchain Technology
+            </h5>
+            
+            <p className="mb-0" style={{ 
+              fontSize: '0.95rem', 
+              lineHeight: '1.6', 
+              maxWidth: '800px', 
+              margin: '0 auto',
+              color: 'rgba(255,255,255,0.85)'
+            }}>
+              Our proprietary blockchain system ensures immutable, transparent, and secure contract enforcement 
+              across all platform transactions, providing unparalleled trust and reliability in digital agreements.
+            </p>
+          </motion.div>
         </div>
       </section>
 
