@@ -132,7 +132,7 @@ export default function Footer() {
             <h5 className="mb-3">Company</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">
-                <Link href="/help-desk" className="text-white text-decoration-none">Help desk</Link>
+                <Link href="/help-desk" className="text-white text-decoration-none">Help Desk</Link>
               </li>
               <li className="mb-2">
                 <Link href="/legal" className="text-white text-decoration-none">Legal</Link>

@@ -21,16 +21,11 @@ export default function BlockchainSection() {
               color: '#14432A',
               fontSize: '0.8rem',
               fontWeight: '600',
-              letterSpacing: '0.5px',
-              textTransform: 'uppercase'
+              letterSpacing: '0.06em'
             }}>
-              Patented Technology
+              PATENTED BLOCKCHAIN TECHNOLOGY
             </span>
           </div>
-          
-          <h5 className="fw-bold mb-0" style={{ color: '#14432A', fontSize: '1.1rem' }}>
-            Patented Blockchain Technology
-          </h5>
         </motion.div>
 
         <div className="row g-3 g-md-4 mb-5 justify-content-center">
