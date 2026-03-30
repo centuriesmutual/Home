@@ -8,48 +8,45 @@ import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerI
 export default function BlockchainSection() {
 
   return (
-    <>
-      <section className="py-5" style={{ background: '#ffffff' }}>
-        <div className="container">
-          <motion.div className="text-center" {...sectionAnimation}>
-            <div className="d-inline-flex align-items-center gap-2 mb-3">
-              <CheckBadgeIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
-              <span style={{ 
-                color: '#14432A',
-                fontSize: '0.8rem',
-                fontWeight: '600',
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase'
-              }}>
-                Patented Technology
-              </span>
-            </div>
-            
-            <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.1rem' }}>
-              Patented Blockchain Technology
-            </h5>
-            
-            <p className="text-muted mb-0" style={{ 
-              fontSize: '0.95rem', 
-              lineHeight: '1.6', 
-              maxWidth: '800px', 
-              margin: '0 auto'
+    <section className="py-5" style={{ 
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)',
+      borderTop: '1px solid #e9ecef',
+      borderBottom: '1px solid #e9ecef'
+    }}>
+      <div className="container">
+        <motion.div className="text-center mb-5" {...sectionAnimation}>
+          <div className="d-inline-flex align-items-center gap-2 mb-3">
+            <CheckBadgeIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
+            <span style={{ 
+              color: '#14432A',
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              letterSpacing: '0.5px',
+              textTransform: 'uppercase'
             }}>
-              Our proprietary blockchain system ensures immutable, transparent, and secure contract enforcement 
-              across all platform transactions, providing unparalleled trust and reliability in digital agreements.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+              Patented Technology
+            </span>
+          </div>
+          
+          <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.1rem' }}>
+            Patented Blockchain Technology
+          </h5>
+          
+          <p className="text-muted mb-0" style={{ 
+            fontSize: '0.95rem', 
+            lineHeight: '1.6', 
+            maxWidth: '800px', 
+            margin: '0 auto'
+          }}>
+            Our proprietary blockchain system ensures immutable, transparent, and secure contract enforcement 
+            across all platform transactions, providing unparalleled trust and reliability in digital agreements.
+          </p>
+        </motion.div>
+      </div>
 
-      <section className="py-5" style={{ 
-        background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)',
-        borderTop: '1px solid #e9ecef',
-        borderBottom: '1px solid #e9ecef'
-      }}>
-        <div style={{ width: '100%', padding: '0' }}>
-          <div className="row" style={{ margin: 0 }}>
-            <div className="col-12">
+      <div style={{ width: '100%', padding: '0' }}>
+        <div className="row" style={{ margin: 0 }}>
+          <div className="col-12">
 
             {/* Find Perfect Roommate Section */}
             <section className="d-flex align-items-center" style={{
@@ -280,7 +277,6 @@ export default function BlockchainSection() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+    </section>
   )
 }
