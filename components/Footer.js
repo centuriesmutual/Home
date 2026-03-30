@@ -2,12 +2,10 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { MapPinIcon } from '@heroicons/react/24/outline'
 
 export default function Footer() {
-  const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
   
@@ -111,18 +109,21 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
+          <div className="col-lg-3 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Services</h5>
             <ul className="list-unstyled footer-links">
+              <li className="mb-2">
+                <Link href="/blockchain" className="text-white text-decoration-none">Blockchain</Link>
+              </li>
               <li className="mb-2">
                 <Link href="/network" className="text-white text-decoration-none">Network</Link>
               </li>
               <li className="mb-2">
-                <Link href="/shop" className="text-white text-decoration-none">Shop</Link>
+                <Link href="/security" className="text-white text-decoration-none">Security</Link>
               </li>
             </ul>
           </div>
-          <div className="col-lg-4 mb-4 mb-lg-0 footer-content">
+          <div className="col-lg-3 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Company</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">

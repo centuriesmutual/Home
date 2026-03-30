@@ -28,50 +28,47 @@ export default function BlockchainSection() {
             </span>
           </div>
           
-          <h5 className="fw-bold mb-3" style={{ color: '#14432A', fontSize: '1.1rem' }}>
+          <h5 className="fw-bold mb-0" style={{ color: '#14432A', fontSize: '1.1rem' }}>
             Patented Blockchain Technology
           </h5>
-          
-          <p className="text-muted mb-0" style={{ 
-            fontSize: '0.95rem', 
-            lineHeight: '1.6', 
-            maxWidth: '800px', 
-            margin: '0 auto'
-          }}>
-            Our platform combines blockchain, network, and security so every agreement, connection, and message 
-            rests on transparent records, trusted connectivity, and enterprise-grade protection across Centuries Mutual services.
-          </p>
         </motion.div>
 
-        <div className="row g-4 mb-5">
+        <div className="row g-3 g-md-4 mb-5 justify-content-center">
           <div className="col-md-4">
-            <Link href="/blockchain" className="text-decoration-none">
+            <Link href="/blockchain" className="text-decoration-none text-reset">
               <motion.div 
-                className="card border-0 shadow-sm h-100"
+                className="h-100"
                 style={{
                   background: '#ffffff',
-                  borderRadius: '12px',
-                  border: '1px solid #e9ecef',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  borderRadius: '16px',
+                  border: '1px solid #e8ebea',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
                 }}
                 whileHover={{ 
-                  y: -5,
-                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                  y: -3,
+                  boxShadow: '0 12px 32px rgba(20, 67, 42, 0.09)',
+                  borderColor: 'rgba(20, 67, 42, 0.22)'
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.99 }}
               >
-                <div className="card-body p-4 text-center text-md-start">
-                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
-                    <CubeIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                <div className="p-4 p-md-4 text-center">
+                  <div 
+                    className="d-inline-flex align-items-center justify-content-center mb-3"
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
+                      background: 'rgba(20, 67, 42, 0.07)'
+                    }}
+                  >
+                    <CubeIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                   </div>
-                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem', letterSpacing: '-0.01em' }}>
                     Blockchain
                   </h6>
-                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-                    Immutable ledger-backed records for leases, eDocuments, and platform activity—so contracts and 
-                    payments stay verifiable and aligned with our patented trust layer.
+                  <p className="mb-0" style={{ fontSize: '0.8125rem', lineHeight: 1.55, color: '#6c757d' }}>
+                    Verifiable records for leases, eDocuments, and payments.
                   </p>
                 </div>
               </motion.div>
@@ -79,33 +76,40 @@ export default function BlockchainSection() {
           </div>
 
           <div className="col-md-4">
-            <Link href="/network" className="text-decoration-none">
+            <Link href="/network" className="text-decoration-none text-reset">
               <motion.div 
-                className="card border-0 shadow-sm h-100"
+                className="h-100"
                 style={{
                   background: '#ffffff',
-                  borderRadius: '12px',
-                  border: '1px solid #e9ecef',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  borderRadius: '16px',
+                  border: '1px solid #e8ebea',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
                 }}
                 whileHover={{ 
-                  y: -5,
-                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                  y: -3,
+                  boxShadow: '0 12px 32px rgba(20, 67, 42, 0.09)',
+                  borderColor: 'rgba(20, 67, 42, 0.22)'
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.99 }}
               >
-                <div className="card-body p-4 text-center text-md-start">
-                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
-                    <GlobeAltIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                <div className="p-4 text-center">
+                  <div 
+                    className="d-inline-flex align-items-center justify-content-center mb-3"
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
+                      background: 'rgba(20, 67, 42, 0.07)'
+                    }}
+                  >
+                    <GlobeAltIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                   </div>
-                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem', letterSpacing: '-0.01em' }}>
                     Network
                   </h6>
-                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-                    The community layer for profiles, messaging, room listings, and discovery—connecting members, 
-                    hosts, and renters with the same brokerage experience on web and mobile.
+                  <p className="mb-0" style={{ fontSize: '0.8125rem', lineHeight: 1.55, color: '#6c757d' }}>
+                    Profiles, messaging, and listings in one brokerage layer.
                   </p>
                 </div>
               </motion.div>
@@ -113,33 +117,40 @@ export default function BlockchainSection() {
           </div>
 
           <div className="col-md-4">
-            <Link href="/in-house-security" className="text-decoration-none">
+            <Link href="/security" className="text-decoration-none text-reset">
               <motion.div 
-                className="card border-0 shadow-sm h-100"
+                className="h-100"
                 style={{
                   background: '#ffffff',
-                  borderRadius: '12px',
-                  border: '1px solid #e9ecef',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  borderRadius: '16px',
+                  border: '1px solid #e8ebea',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
                 }}
                 whileHover={{ 
-                  y: -5,
-                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                  y: -3,
+                  boxShadow: '0 12px 32px rgba(20, 67, 42, 0.09)',
+                  borderColor: 'rgba(20, 67, 42, 0.22)'
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.99 }}
               >
-                <div className="card-body p-4 text-center text-md-start">
-                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
-                    <ShieldCheckIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                <div className="p-4 text-center">
+                  <div 
+                    className="d-inline-flex align-items-center justify-content-center mb-3"
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '14px',
+                      background: 'rgba(20, 67, 42, 0.07)'
+                    }}
+                  >
+                    <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
                   </div>
-                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '0.95rem', letterSpacing: '-0.01em' }}>
                     Security
                   </h6>
-                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-                    Encryption, identity checks, and in-house controls that protect accounts, documents, and 
-                    conversations—so your data stays private across payments, rentals, and social tools.
+                  <p className="mb-0" style={{ fontSize: '0.8125rem', lineHeight: 1.55, color: '#6c757d' }}>
+                    Encryption and controls that keep accounts and data private.
                   </p>
                 </div>
               </motion.div>
