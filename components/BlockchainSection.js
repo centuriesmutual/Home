@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckBadgeIcon, ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
+import { CheckBadgeIcon, CubeIcon, GlobeAltIcon, ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
-import BlockchainIllustration from './BlockchainIllustration'
 
 export default function BlockchainSection() {
 
@@ -15,7 +14,7 @@ export default function BlockchainSection() {
       borderBottom: '1px solid #e9ecef'
     }}>
       <div className="container">
-        <motion.div className="text-center mb-5" {...sectionAnimation}>
+        <motion.div className="text-center mb-4" {...sectionAnimation}>
           <div className="d-inline-flex align-items-center gap-2 mb-3">
             <CheckBadgeIcon style={{ width: '18px', height: '18px', color: '#14432A' }} />
             <span style={{ 
@@ -33,20 +32,120 @@ export default function BlockchainSection() {
             Patented Blockchain Technology
           </h5>
           
-          <p className="text-muted mb-4" style={{ 
+          <p className="text-muted mb-0" style={{ 
             fontSize: '0.95rem', 
             lineHeight: '1.6', 
             maxWidth: '800px', 
             margin: '0 auto'
           }}>
-            Our proprietary blockchain system ensures immutable, transparent, and secure contract enforcement 
-            across all platform transactions, providing unparalleled trust and reliability in digital agreements.
+            Our platform combines blockchain, network, and security so every agreement, connection, and message 
+            rests on transparent records, trusted connectivity, and enterprise-grade protection across Centuries Mutual services.
           </p>
-
-          <div className="d-flex justify-content-center pt-1">
-            <BlockchainIllustration compact />
-          </div>
         </motion.div>
+
+        <div className="row g-4 mb-5">
+          <div className="col-md-4">
+            <Link href="/blockchain" className="text-decoration-none">
+              <motion.div 
+                className="card border-0 shadow-sm h-100"
+                style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  border: '1px solid #e9ecef',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-body p-4 text-center text-md-start">
+                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
+                    <CubeIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                    Blockchain
+                  </h6>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    Immutable ledger-backed records for leases, eDocuments, and platform activity—so contracts and 
+                    payments stay verifiable and aligned with our patented trust layer.
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+
+          <div className="col-md-4">
+            <Link href="/network" className="text-decoration-none">
+              <motion.div 
+                className="card border-0 shadow-sm h-100"
+                style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  border: '1px solid #e9ecef',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-body p-4 text-center text-md-start">
+                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
+                    <GlobeAltIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                    Network
+                  </h6>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    The community layer for profiles, messaging, room listings, and discovery—connecting members, 
+                    hosts, and renters with the same brokerage experience on web and mobile.
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+
+          <div className="col-md-4">
+            <Link href="/in-house-security" className="text-decoration-none">
+              <motion.div 
+                className="card border-0 shadow-sm h-100"
+                style={{
+                  background: '#ffffff',
+                  borderRadius: '12px',
+                  border: '1px solid #e9ecef',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-body p-4 text-center text-md-start">
+                  <div className="mb-3 d-flex justify-content-center justify-content-md-start">
+                    <ShieldCheckIcon style={{ width: '40px', height: '40px', color: '#14432A' }} />
+                  </div>
+                  <h6 className="fw-bold mb-2" style={{ color: '#14432A', fontSize: '1rem' }}>
+                    Security
+                  </h6>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    Encryption, identity checks, and in-house controls that protect accounts, documents, and 
+                    conversations—so your data stays private across payments, rentals, and social tools.
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div style={{ width: '100%', padding: '0' }}>
