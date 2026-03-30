@@ -109,21 +109,26 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-lg-3 mb-4 mb-lg-0 footer-content">
+          <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Services</h5>
             <ul className="list-unstyled footer-links">
-              <li className="mb-2">
-                <Link href="/blockchain" className="text-white text-decoration-none">Blockchain</Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/network" className="text-white text-decoration-none">Network</Link>
-              </li>
               <li className="mb-2">
                 <Link href="/security" className="text-white text-decoration-none">Security</Link>
               </li>
             </ul>
           </div>
-          <div className="col-lg-3 mb-4 mb-lg-0 footer-content">
+          <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
+            <h5 className="mb-3">Network</h5>
+            <ul className="list-unstyled footer-links">
+              <li className="mb-2">
+                <Link href="/network" className="text-white text-decoration-none">Overview</Link>
+              </li>
+              <li className="mb-2">
+                <Link href="/blockchain" className="text-white text-decoration-none">Blockchain</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="col-lg-2 mb-4 mb-lg-0 footer-content">
             <h5 className="mb-3">Company</h5>
             <ul className="list-unstyled footer-links">
               <li className="mb-2">
