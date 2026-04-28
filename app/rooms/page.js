@@ -108,6 +108,17 @@ export default function Rooms() {
     }
   ]
 
+  // Hydrate filters from homepage room search (?location=…)
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search)
+    const loc = sp.get('location')
+    if (loc) {
+      const decoded = decodeURIComponent(loc.replace(/\+/g, ' '))
+      setSearchQuery(decoded)
+      setFilters((f) => ({ ...f, location: decoded }))
+    }
+  }, [])
+
   // Available locations for suggestions
   const availableLocations = [
     'Downtown Seattle, WA',

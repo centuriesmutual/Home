@@ -131,7 +131,21 @@ export default function Navbar() {
           </button>
           
           <div className="collapse navbar-collapse" id="navbarNav">
-            <div className="navbar-nav ms-auto d-flex align-items-center gap-3">
+            <div className="navbar-nav ms-auto d-flex align-items-center flex-wrap justify-content-end gap-2 gap-md-3">
+              <Link
+                href="/downloads"
+                className="btn fw-semibold btn-sm px-3 px-lg-4 py-2 rounded-3 order-lg-1 flex-shrink-0"
+                style={{
+                  backgroundColor: '#ffffff',
+                  color: '#14432A',
+                  border: '2px solid #ffffff',
+                  fontSize: '0.95rem',
+                  whiteSpace: 'nowrap',
+                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
+                }}
+              >
+                Download App
+              </Link>
               {pathname !== '/' && pathname !== '/rooms' && (
                 <Link href="/" className="nav-link" style={{ color: '#14432A' }}>
                   Home
