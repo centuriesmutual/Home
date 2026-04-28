@@ -228,20 +228,32 @@ export default function Hero() {
                             Secure member access — sign in or join Centuries Mutual
                           </motion.h2>
                           <motion.div
-                            className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 gap-sm-3 justify-content-center justify-content-md-start"
+                            className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 gap-sm-2.5 justify-content-center justify-content-md-start"
                             initial={{ opacity: 0, y: 6 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.55 }}
                           >
                             <Link
                               href="/signup"
-                              className="inline-flex min-h-[2.625rem] items-center justify-center rounded-full border border-[rgba(15,50,35,0.65)] bg-gradient-to-br from-[#14432a] via-[#0f3628] to-[#0c2d21] px-5 py-2.5 text-center font-sans text-[0.94rem] font-semibold tracking-wide text-[#faf9f6] no-underline shadow-[0_4px_14px_rgba(8,32,20,0.28),inset_0_1px_0_rgba(255,255,255,0.14)] transition hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-[0_8px_22px_rgba(8,32,20,0.36)] hover:!text-[#faf9f6] sm:min-w-[9.5rem]"
+                              className={
+                                'inline-flex h-8 shrink-0 items-center justify-center rounded-full ' +
+                                'border border-[#0f3d2e]/25 bg-[#14432A] px-3.5 py-1.5 text-center ' +
+                                'font-sans text-[0.8125rem] font-semibold leading-none tracking-wide text-[#faf9f6] ' +
+                                'no-underline shadow-[0_2px_8px_rgba(8,32,20,0.22)] outline-none transition ' +
+                                'hover:-translate-y-px hover:bg-[#0f3628] hover:text-[#faf9f6] hover:shadow-[0_3px_10px_rgba(8,32,20,0.28)] focus-visible:ring-2 focus-visible:ring-[#14432A]/35 sm:min-w-[7rem]'
+                              }
                             >
                               Create Account
                             </Link>
                             <Link
                               href="/login"
-                              className="inline-flex min-h-[2.625rem] items-center justify-center rounded-full border-2 border-[#14432a] bg-white/65 px-[1.05rem] py-2.5 text-center font-sans text-[0.94rem] font-semibold tracking-wide text-[#14432a] no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-[#14432a] hover:bg-[#14432a] hover:shadow-[0_6px_18px_rgba(15,61,46,0.28)] hover:!text-[#faf9f6] sm:min-w-[9.5rem]"
+                              className={
+                                'inline-flex h-8 shrink-0 items-center justify-center rounded-full ' +
+                                'border border-[#14432a] bg-white/75 px-3.5 py-1.5 text-center ' +
+                                'font-sans text-[0.8125rem] font-semibold leading-none tracking-wide text-[#14432a] ' +
+                                'no-underline shadow-sm transition hover:-translate-y-px hover:border-[#14432a] ' +
+                                'hover:bg-[#14432a] hover:text-[#faf9f6] hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#14432A]/30 sm:min-w-[7rem]'
+                              }
                             >
                               Login
                             </Link>
