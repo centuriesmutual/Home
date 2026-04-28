@@ -68,6 +68,47 @@ export default function Hero() {
             inset 0 -1px 0 rgba(21, 60, 40, 0.05);
           transform: translateY(-3px);
         }
+        .hero-card-image-cell {
+          min-height: 200px;
+        }
+        @media (min-width: 768px) {
+          .hero-card-image-cell {
+            min-height: 100%;
+          }
+        }
+        .hero-main-image-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: fit-content;
+          max-width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 1.5rem;
+          padding: clamp(0.65rem, 2vw, 1.35rem);
+          background:
+            radial-gradient(
+              ellipse 92% 88% at 50% 38%,
+              rgba(255, 255, 255, 0.1) 0%,
+              rgba(18, 48, 32, 0.35) 42%,
+              rgba(12, 38, 26, 0.55) 100%
+            );
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            0 18px 40px rgba(0, 0, 0, 0.22);
+        }
+        .hero-main-image-inner {
+          position: relative;
+          width: auto;
+          max-width: min(420px, 42vw);
+          line-height: 0;
+        }
+        .hero-main-image-inner img {
+          width: auto !important;
+          height: auto !important;
+          max-height: min(560px, 58vh);
+          max-width: 100% !important;
+        }
       `}</style>
       <CommunitySearchHotkeys onOpen={openSearch} />
 
@@ -106,28 +147,59 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.35 }}
                 style={{ position: 'relative', zIndex: 5 }}
               >
-                <div className="hero-find-card w-100 text-start px-4 px-lg-5 py-6 overflow-hidden relative">
-                  {/* Ambient depth — stays inside card */}
+                <div className="hero-find-card w-100 text-start overflow-hidden relative rounded-[22px]">
+                  {/* Ambient depth — text column */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute -right-24 -top-20 h-[min(340px,80vw)] w-[min(340px,80vw)] rounded-full opacity-[0.38]"
-                    style={{
-                      background:
-                        'radial-gradient(circle at 30% 30%, rgba(20, 67, 42, 0.12) 0%, transparent 62%)',
-                    }}
-                  />
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -left-16 bottom-[-40%] h-[min(260px,70vw)] w-[min(260px,70vw)] rounded-full opacity-[0.22]"
-                    style={{
-                      background:
-                        'radial-gradient(circle at 70% 50%, rgba(196, 168, 120, 0.18) 0%, transparent 58%)',
-                    }}
-                  />
+                    className="pointer-events-none absolute top-0 bottom-0 right-0 left-0 md:left-[41.666667%]"
+                  >
+                    <div
+                      className="pointer-events-none absolute -right-16 -top-24 h-[min(280px,70vw)] w-[min(280px,70vw)] rounded-full opacity-[0.35]"
+                      style={{
+                        background:
+                          'radial-gradient(circle at 30% 30%, rgba(20, 67, 42, 0.14) 0%, transparent 62%)',
+                      }}
+                    />
+                    <div
+                      className="pointer-events-none absolute -right-8 bottom-0 h-[min(220px,60vw)] w-[min(220px,60vw)] rounded-full opacity-[0.2]"
+                      style={{
+                        background:
+                          'radial-gradient(circle at 70% 50%, rgba(196, 168, 120, 0.2) 0%, transparent 58%)',
+                      }}
+                    />
+                  </div>
 
-                  <div className="relative">
+                  <div className="row g-0 align-items-stretch position-relative">
+                    {/* Left column: image */}
+                    <div className="col-12 col-md-5 hero-card-image-cell p-0">
+                      <div
+                        className="position-relative h-[min(220px,38vw)] w-100 md:h-full md:min-h-[300px]"
+                        style={{ minHeight: '200px' }}
+                      >
+                        <Image
+                          src="/buffalo2.png"
+                          alt=""
+                          fill
+                          className="object-cover object-center"
+                          sizes="(max-width: 767px) 100vw, 35vw"
+                          quality={90}
+                        />
+                        <div
+                          aria-hidden
+                          className="position-absolute inset-0 pointer-events-none"
+                          style={{
+                            background:
+                              'linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 45%), linear-gradient(0deg, rgba(250,247,240,0.25) 0%, transparent 35%)',
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Right column: copy + search */}
+                    <div className="col-12 col-md-7 px-4 py-6 px-lg-5 d-flex flex-column justify-content-center position-relative">
+                      <div>
                     <motion.div
-                      className="flex items-center gap-3 mb-5 justify-center lg:justify-start"
+                      className="flex items-center gap-3 mb-4 justify-center md:justify-start"
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.55, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -156,14 +228,14 @@ export default function Hero() {
                     </motion.div>
 
                     <motion.h2
-                      className="text-center lg:text-left font-serif mb-4 text-balance"
+                      className="text-center md:text-left font-serif mb-3 md:mb-4 text-balance"
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                       style={{
-                        fontSize: 'clamp(1.45rem, 1.05rem + 1.15vw, 2rem)',
+                        fontSize: 'clamp(1.35rem, 1rem + 1vw, 1.85rem)',
                         fontWeight: 600,
-                        lineHeight: 1.15,
+                        lineHeight: 1.18,
                         letterSpacing: '-0.022em',
                         color: '#0f1a13',
                       }}
@@ -183,7 +255,7 @@ export default function Hero() {
                     </motion.h2>
 
                     <motion.p
-                      className="font-sans text-center lg:text-left mb-6 lg:mb-5 mx-auto lg:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
+                      className="font-sans text-center md:text-left mb-6 md:mb-5 mx-auto md:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.55, delay: 0.62 }}
@@ -205,6 +277,8 @@ export default function Hero() {
                     >
                       <CommunitySearchBar onOpen={openSearch} />
                     </motion.div>
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -214,59 +288,52 @@ export default function Hero() {
 
           <div className="col-lg-6 order-lg-1 order-1">
             <motion.div
-              className="position-relative"
+              className="position-relative d-flex justify-content-center justify-content-lg-end align-items-center py-2 py-lg-0"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div
-                className="mb-4 overflow-hidden d-none d-lg-block rounded-4"
-                style={{
-                  width: '100%',
-                  aspectRatio: '4 / 5',
-                  position: 'relative',
-                  marginTop: 20,
-                  maxHeight: 560,
-                  background: 'rgba(0,0,0,0.08)',
-                  boxShadow: '0 20px 56px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.05)',
-                }}
-              >
-                <Image
-                  src="/buffalo2.png"
-                  alt="Centuries Mutual — Majestic American bison"
-                  fill
-                  sizes="50vw"
-                  priority
-                  quality={95}
-                  style={{
-                    objectFit: 'contain',
-                    objectPosition: 'center',
-                  }}
-                />
+              {/* Underlay hugs image; sits on hero green */}
+              <div className="hero-main-image-wrap d-none d-lg-flex">
+                <div className="hero-main-image-inner">
+                  <Image
+                    src="/buffalo2.png"
+                    alt="Centuries Mutual — Majestic American bison"
+                    width={900}
+                    height={1125}
+                    sizes="(max-width: 991px) 90vw, 42vw"
+                    priority
+                    quality={95}
+                    className="d-block mx-auto object-contain"
+                    style={{
+                      width: 'auto',
+                      height: 'auto',
+                      maxWidth: '100%',
+                      maxHeight: 'min(560px, 58vh)',
+                    }}
+                  />
+                </div>
               </div>
               <div
-                className="mb-3 overflow-hidden d-lg-none rounded-4 mx-auto position-relative"
-                style={{
-                  width: '100%',
-                  maxWidth: 480,
-                  aspectRatio: '4 / 3',
-                  background: 'rgba(0,0,0,0.06)',
-                  boxShadow: '0 14px 40px rgba(0,0,0,0.2)',
-                  marginBottom: '1rem',
-                }}
+                className="d-lg-none hero-main-image-wrap w-100 d-flex justify-content-center"
               >
-                <Image
-                  src="/buffalo2.png"
-                  alt=""
-                  fill
-                  sizes="100vw"
-                  quality={92}
-                  className="rounded-4"
-                  style={{
-                    objectFit: 'contain',
-                    objectPosition: 'center bottom',
-                  }}
-                />
+                <div className="hero-main-image-inner">
+                  <Image
+                    src="/buffalo2.png"
+                    alt=""
+                    width={800}
+                    height={1000}
+                    sizes="100vw"
+                    quality={92}
+                    className="d-block mx-auto object-contain"
+                    style={{
+                      width: 'auto',
+                      height: 'auto',
+                      maxWidth: 'min(420px, 92vw)',
+                      maxHeight: 'min(340px, 42vh)',
+                    }}
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
