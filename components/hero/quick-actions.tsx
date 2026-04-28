@@ -16,9 +16,9 @@ export function QuickActions({ className = '' }: { className?: string }) {
         <Link
           key={href}
           href={href}
-          className="inline-flex h-10 shrink-0 items-center gap-2 rounded-full border border-white/20 bg-white/[0.08] px-4 font-sans text-sm font-medium text-white no-underline backdrop-blur-sm transition hover:border-white/30 hover:bg-white/[0.15] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/50 active:bg-white/10"
+          className="inline-flex h-10 shrink-0 items-center gap-2 rounded-full border border-[#0F3D2E]/22 bg-[#FAF7F0]/95 px-4 font-sans text-sm font-medium text-[#0F3D2E] no-underline shadow-sm backdrop-blur-sm transition hover:border-[#0F3D2E]/35 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/55 active:bg-[#FAF7F0]"
         >
-          <Icon className="h-4 w-4 shrink-0 opacity-95" strokeWidth={1.75} aria-hidden />
+          <Icon className="h-4 w-4 shrink-0 text-[#0F3D2E]" strokeWidth={1.75} aria-hidden />
           {label}
         </Link>
       ))}

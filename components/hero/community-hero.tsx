@@ -46,7 +46,6 @@ function TopoPattern({ className = '' }: { className?: string }) {
 }
 
 const portalShadow = 'shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)]'
-
 export function CommunityHero() {
   const [searchOpen, setSearchOpen] = useState(false)
   const openSearch = useCallback(() => setSearchOpen(true), [])
@@ -79,21 +78,20 @@ export function CommunityHero() {
             </div>
           </motion.div>
           <div
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(15,61,46,0.35)_72%,rgba(15,61,46,0.82)_92%,#0F3D2E_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(15,61,46,0.28)_62%,rgba(15,61,46,0.55)_82%,#0F3D2E_100%)]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,#E8DFD6_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,#E8DFD6_100%)]"
             aria-hidden
           />
           <FloatingImageCards />
         </div>
 
-        {/* Columns 8–12: editorial */}
-        <div className="relative col-span-full flex min-h-0 flex-col lg:col-span-5 lg:col-start-8 lg:min-h-[88vh]">
-          {/* Atmosphere: only on green column */}
+        {/* Columns 8–12: editorial tan column */}
+        <div className="relative col-span-full flex min-h-0 flex-col bg-[#E8DFD6] lg:col-span-5 lg:col-start-8 lg:min-h-[88vh]">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#15523D_0%,_transparent_58%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_100%_0%,rgba(201,169,97,0.18)_0%,transparent_50%)]"
           />
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.03]"
+            className="pointer-events-none absolute inset-0 opacity-[0.035]"
             style={{
               backgroundImage: GRAIN_BG,
               backgroundRepeat: 'repeat',
@@ -101,11 +99,7 @@ export function CommunityHero() {
             }}
             aria-hidden
           />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#15523D_0%,_transparent_60%)] opacity-60"
-          />
-          <TopoPattern className="pointer-events-none absolute bottom-0 left-0 z-[2] h-48 w-[min(100%,340px)] text-[#FAF7F0] opacity-[0.055]" />
+          <TopoPattern className="pointer-events-none absolute bottom-0 left-0 z-[2] h-48 w-[min(100%,340px)] text-[#0F3D2E] opacity-[0.07]" />
 
           <motion.div
             variants={fadeUp}
@@ -118,7 +112,7 @@ export function CommunityHero() {
                 — A Centuries Mutual Service
               </p>
               <h1
-                className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#FAF7F0] md:text-4xl lg:text-5xl`}
+                className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#0F3D2E] md:text-4xl lg:text-5xl`}
                 style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif', lineHeight: 1.1 }}
               >
                 <span className="block">Your Community</span>
@@ -156,7 +150,7 @@ export function CommunityHero() {
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
-            <p className="mt-3 text-center text-xs italic text-white/60">
+            <p className="mt-3 text-center text-xs italic leading-relaxed text-[#6B6B66]">
               Every listing verified · Every transaction backed by member trust
             </p>
           </motion.div>
