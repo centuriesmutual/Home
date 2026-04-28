@@ -124,13 +124,20 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`mb-4 rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] p-6 ${portalShadow} transition`}
+              className={`mb-4 grid gap-6 rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] p-6 ${portalShadow} transition md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-10`}
             >
-              <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">Client portal</p>
-              <h2 className="mt-1 max-w-md font-serif text-lg font-medium leading-tight text-[#0F3D2E]" style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}>
-                Secure member access — sign in or join Centuries Mutual
-              </h2>
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="min-w-0">
+                <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
+                  Client portal
+                </p>
+                <h2
+                  className="mt-2 max-w-lg font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
+                  style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
+                >
+                  Secure member access — sign in or join Centuries Mutual
+                </h2>
+              </div>
+              <div className="flex min-w-[min(100%,16rem)] flex-shrink-0 flex-wrap items-start gap-3 sm:flex-nowrap md:justify-end">
                 <Link
                   href="/signup"
                   className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
