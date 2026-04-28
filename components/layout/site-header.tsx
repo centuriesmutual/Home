@@ -25,6 +25,10 @@ const NAV: { href: string; label: string }[] = [
   { href: '/newspaper', label: 'Journal' },
 ]
 
+/** Shared typography for gold download strip (label + link aligned) */
+const DOWNLOAD_STRIP_TEXT =
+  'font-sans text-[11px] font-semibold uppercase leading-none tracking-[0.18em] text-[#FAF7F0]'
+
 /** Primary nav row height */
 export const SITE_HEADER_BAR_PX = 56
 /** Thin gold rule above download strip */
@@ -94,16 +98,16 @@ export function SiteHeader() {
         <div className="h-px w-full shrink-0 bg-[#C9A961]" aria-hidden />
 
         <div
-          className="flex h-[32px] w-full shrink-0 items-center justify-center gap-2 border-b border-[#C9A961]/35 bg-[#C9A961] px-3 py-1 sm:gap-4 sm:px-4"
+          className="flex h-[32px] w-full shrink-0 items-center justify-center gap-x-4 gap-y-1 border-b border-[#C9A961]/35 bg-[#C9A961] px-3 sm:px-4"
           role="region"
           aria-label="Download the Centuries Mutual app"
         >
-          <p className="min-w-0 truncate text-center font-sans text-[9px] font-semibold uppercase leading-tight tracking-[0.16em] text-[#FAF7F0] sm:text-[10px] sm:tracking-[0.22em]">
+          <p className={`min-w-0 whitespace-normal text-center ${DOWNLOAD_STRIP_TEXT}`}>
             Mobile app · Listings · Trust · Secure messaging
           </p>
           <Link
             href="/downloads"
-            className="shrink-0 whitespace-nowrap font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#FAF7F0] underline decoration-[#FAF7F0]/75 underline-offset-2 transition hover:text-white hover:decoration-white sm:text-[11px]"
+            className={`shrink-0 underline decoration-[#FAF7F0]/75 underline-offset-[3px] transition hover:text-white hover:decoration-white ${DOWNLOAD_STRIP_TEXT}`}
           >
             Get the app
           </Link>

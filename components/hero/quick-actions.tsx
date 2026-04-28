@@ -4,14 +4,14 @@ import Link from 'next/link'
 import { BookOpen, Home, MapPin } from 'lucide-react'
 
 const items = [
-  { href: '/rooms', label: 'Browse Listings', Icon: Home },
-  { href: '/search?q=Plano', label: 'By Neighborhood', Icon: MapPin },
-  { href: '/newspaper', label: 'Read the Journal', Icon: BookOpen },
+  { href: '/rooms', label: 'Listings', Icon: Home },
+  { href: '/search?q=Plano', label: 'Neighborhood', Icon: MapPin },
+  { href: '/newspaper', label: 'Newspaper', Icon: BookOpen },
 ] as const
 
 export function QuickActions({ className = '' }: { className?: string }) {
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
+    <div className={`flex flex-nowrap items-center gap-2 overflow-x-auto sm:gap-3 ${className}`}>
       {items.map(({ href, label, Icon }) => (
         <Link
           key={href}
