@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
-import { Download, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const fraunces = Fraunces({
@@ -103,9 +103,8 @@ export function SiteHeader() {
           </p>
           <Link
             href="/downloads"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#FAF7F0] px-3 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-wide text-[#0F3D2E] shadow-sm no-underline transition hover:bg-white sm:text-[11px]"
+            className="shrink-0 whitespace-nowrap font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#FAF7F0] underline decoration-[#FAF7F0]/75 underline-offset-2 transition hover:text-white hover:decoration-white sm:text-[11px]"
           >
-            <Download className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} aria-hidden />
             Get the app
           </Link>
         </div>
