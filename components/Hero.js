@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useCallback, useState } from 'react'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
@@ -193,32 +194,59 @@ export default function Hero() {
                       </div>
 
                       <div className="col-12 col-md-7 px-4 py-6 px-lg-5 pb-5 pb-md-6 d-flex flex-column justify-content-center position-relative">
-                        <motion.h2
-                          className="text-center md:text-left font-serif mb-0 text-balance"
+                        <motion.div
                           initial={{ opacity: 0, y: 12 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.4 }}
-                          style={{
-                            fontSize: 'clamp(1.35rem, 1rem + 1vw, 1.85rem)',
-                            fontWeight: 600,
-                            lineHeight: 1.18,
-                            letterSpacing: '-0.022em',
-                            color: '#0f1a13',
-                          }}
+                          transition={{ duration: 0.6, delay: 0.35 }}
+                          className="text-center text-md-start"
                         >
-                          Search rooms{' '}
-                          <span
-                            className="italic font-medium bg-clip-text"
+                          <p
+                            className="font-sans text-uppercase mb-2 mb-md-3"
                             style={{
-                              color: CM_GREEN,
-                              textDecoration: 'underline',
-                              textDecorationColor: 'rgba(15, 61, 46, 0.22)',
-                              textUnderlineOffset: '0.18em',
+                              letterSpacing: '0.35em',
+                              fontSize: '0.625rem',
+                              fontWeight: 700,
+                              color: 'rgba(15, 61, 46, 0.65)',
                             }}
                           >
-                            anywhere
-                          </span>
-                        </motion.h2>
+                            Client portal
+                          </p>
+                          <motion.h2
+                            className="font-serif mb-3 text-balance"
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.55, delay: 0.45 }}
+                            style={{
+                              fontSize: 'clamp(1.25rem, 0.9rem + 0.95vw, 1.75rem)',
+                              fontWeight: 600,
+                              lineHeight: 1.28,
+                              letterSpacing: '-0.02em',
+                              color: '#0f1a13',
+                              fontFamily: "'Playfair Display', serif",
+                            }}
+                          >
+                            Secure member access — sign in or join Centuries Mutual
+                          </motion.h2>
+                          <motion.div
+                            className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 gap-sm-3 justify-content-center justify-content-md-start"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.55 }}
+                          >
+                            <Link
+                              href="/signup"
+                              className="inline-flex min-h-[2.625rem] items-center justify-center rounded-full border border-[rgba(15,50,35,0.65)] bg-gradient-to-br from-[#14432a] via-[#0f3628] to-[#0c2d21] px-5 py-2.5 text-center font-sans text-[0.94rem] font-semibold tracking-wide text-[#faf9f6] no-underline shadow-[0_4px_14px_rgba(8,32,20,0.28),inset_0_1px_0_rgba(255,255,255,0.14)] transition hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-[0_8px_22px_rgba(8,32,20,0.36)] hover:!text-[#faf9f6] sm:min-w-[9.5rem]"
+                            >
+                              Create Account
+                            </Link>
+                            <Link
+                              href="/login"
+                              className="inline-flex min-h-[2.625rem] items-center justify-center rounded-full border-2 border-[#14432a] bg-white/65 px-[1.05rem] py-2.5 text-center font-sans text-[0.94rem] font-semibold tracking-wide text-[#14432a] no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-[#14432a] hover:bg-[#14432a] hover:shadow-[0_6px_18px_rgba(15,61,46,0.28)] hover:!text-[#faf9f6] sm:min-w-[9.5rem]"
+                            >
+                              Login
+                            </Link>
+                          </motion.div>
+                        </motion.div>
                       </div>
                     </div>
 
