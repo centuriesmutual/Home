@@ -148,10 +148,10 @@ export default function Hero() {
                 style={{ position: 'relative', zIndex: 5 }}
               >
                 <div className="hero-find-card w-100 text-start overflow-hidden relative rounded-[22px]">
-                  {/* Ambient depth — text column */}
+                  {/* Ambient depth */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute top-0 bottom-0 right-0 left-0 md:left-[41.666667%]"
+                    className="pointer-events-none absolute inset-0"
                   >
                     <div
                       className="pointer-events-none absolute -right-16 -top-24 h-[min(280px,70vw)] w-[min(280px,70vw)] rounded-full opacity-[0.35]"
@@ -169,119 +169,73 @@ export default function Hero() {
                     />
                   </div>
 
-                  <div className="row g-0 align-items-stretch position-relative">
-                    {/* Left column: image + horizontal search strip */}
-                    <div className="col-12 col-md-5 hero-card-image-cell p-0 d-flex flex-column">
-                      <div className="position-relative flex-1 min-h-0 h-[min(200px,42vw)] w-100 md:min-h-[260px]">
-                        <Image
-                          src="/buffalo2.png"
-                          alt=""
-                          fill
-                          className="object-cover object-center"
-                          sizes="(max-width: 767px) 100vw, 35vw"
-                          quality={90}
-                        />
-                        <div
-                          aria-hidden
-                          className="position-absolute inset-0 pointer-events-none"
+                  <div className="position-relative">
+                    <div className="row g-0 align-items-stretch">
+                      <div className="col-12 col-md-5 hero-card-image-cell p-0">
+                        <div className="position-relative flex-1 min-h-0 h-[min(200px,42vw)] w-100 md:min-h-[260px]">
+                          <Image
+                            src="/buffalo2.png"
+                            alt=""
+                            fill
+                            className="object-cover object-center"
+                            sizes="(max-width: 767px) 100vw, 35vw"
+                            quality={90}
+                          />
+                          <div
+                            aria-hidden
+                            className="position-absolute inset-0 pointer-events-none"
+                            style={{
+                              background:
+                                'linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 45%), linear-gradient(0deg, rgba(250,247,240,0.28) 0%, transparent 40%)',
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-12 col-md-7 px-4 py-6 px-lg-5 pb-5 pb-md-6 d-flex flex-column justify-content-center position-relative">
+                        <motion.h2
+                          className="text-center md:text-left font-serif mb-0 text-balance"
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
                           style={{
-                            background:
-                              'linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 45%), linear-gradient(0deg, rgba(250,247,240,0.28) 0%, transparent 40%)',
+                            fontSize: 'clamp(1.35rem, 1rem + 1vw, 1.85rem)',
+                            fontWeight: 600,
+                            lineHeight: 1.18,
+                            letterSpacing: '-0.022em',
+                            color: '#0f1a13',
                           }}
-                        />
+                        >
+                          Search rooms{' '}
+                          <span
+                            className="italic font-medium bg-clip-text"
+                            style={{
+                              color: CM_GREEN,
+                              textDecoration: 'underline',
+                              textDecorationColor: 'rgba(15, 61, 46, 0.22)',
+                              textUnderlineOffset: '0.18em',
+                            }}
+                          >
+                            anywhere
+                          </span>
+                        </motion.h2>
                       </div>
-                      <motion.div
-                        className="flex-shrink-0 px-3 py-2.5 sm:px-4 sm:py-3"
-                        style={{
-                          borderTop: '1px solid rgba(21, 60, 40, 0.08)',
-                          background:
-                            'linear-gradient(180deg, rgba(255,255,255,0.42) 0%, rgba(250,247,240,0.95) 100%)',
-                        }}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.62 }}
-                      >
-                        <CommunitySearchBar onOpen={openSearch} compact />
-                      </motion.div>
                     </div>
 
-                    {/* Right column: copy */}
-                    <div className="col-12 col-md-7 px-4 py-6 px-lg-5 pb-5 pb-md-6 d-flex flex-column justify-content-center position-relative">
-                      <div>
+                    {/* Full width of card */}
                     <motion.div
-                      className="flex items-center gap-3 mb-4 justify-center md:justify-start"
-                      initial={{ opacity: 0, x: -8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.55, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                      aria-hidden
+                      className="w-100 px-4 py-3 pb-4 px-md-5 flex-shrink-0"
+                      style={{
+                        borderTop: '1px solid rgba(21, 60, 40, 0.08)',
+                        background:
+                          'linear-gradient(180deg, rgba(255,255,255,0.48) 0%, rgba(250,247,240,0.98) 100%)',
+                      }}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.55 }}
                     >
-                      <span
-                        className="h-px w-10 shrink-0"
-                        style={{
-                          background:
-                            'linear-gradient(90deg, transparent 0%, rgba(15, 61, 46, 0.35) 100%)',
-                        }}
-                      />
-                      <span
-                        className="font-sans text-[0.65rem] font-semibold uppercase whitespace-nowrap"
-                        style={{ letterSpacing: '0.38em', color: 'rgba(15, 61, 46, 0.82)' }}
-                      >
-                        Near you
-                      </span>
-                      <span
-                        className="h-px w-10 sm:w-16 shrink-0"
-                        style={{
-                          background:
-                            'linear-gradient(90deg, rgba(15, 61, 46, 0.28) 0%, transparent 100%)',
-                        }}
-                      />
+                      <CommunitySearchBar onOpen={openSearch} compact />
                     </motion.div>
-
-                    <motion.h2
-                      className="text-center md:text-left font-serif mb-3 md:mb-4 text-balance"
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                      style={{
-                        fontSize: 'clamp(1.35rem, 1rem + 1vw, 1.85rem)',
-                        fontWeight: 600,
-                        lineHeight: 1.18,
-                        letterSpacing: '-0.022em',
-                        color: '#0f1a13',
-                      }}
-                    >
-                      Search rooms{' '}
-                      <span
-                        className="italic font-medium bg-clip-text"
-                        style={{
-                          color: CM_GREEN,
-                          textDecoration: 'underline',
-                          textDecorationColor: 'rgba(15, 61, 46, 0.22)',
-                          textUnderlineOffset: '0.18em',
-                        }}
-                      >
-                        anywhere
-                      </span>
-                    </motion.h2>
-
-                    <motion.p
-                      className="font-sans text-center md:text-left mb-0 mx-auto md:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.55, delay: 0.62 }}
-                      style={{
-                        letterSpacing: '0.011em',
-                      }}
-                    >
-                      Trusted listings for the blocks you walk—open search for{' '}
-                      <span className="text-[rgba(54,61,54,0.92)] font-medium">
-                        neighborhoods, stays, or move-in timing
-                      </span>
-                      .
-                    </motion.p>
-
-                      </div>
-                    </div>
                   </div>
 
                 </div>
