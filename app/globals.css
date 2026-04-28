@@ -134,6 +134,27 @@ body {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
+/* Immersive homepage hero — Ken Burns (respect reduced motion via media in component) */
+@keyframes hero-ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+.hero-ken-burns-inner {
+  animation: hero-ken-burns 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns-inner {
+    animation: none !important;
+  }
+}
+
 /* Add these styles to your existing globals.css */
 
 .form-control:focus {

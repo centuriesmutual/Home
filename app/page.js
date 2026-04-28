@@ -1,17 +1,17 @@
-import Hero from '../components/Hero'
 import BlockchainSection from '../components/BlockchainSection'
 import NetworkDevices from '../components/NetworkDevices'
 import SmartHomeSecurity from '../components/SmartHomeSecurity'
 import Legacy from '../components/Legacy'
 import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import { SiteHeader } from '../components/layout/site-header'
+import { CommunityHero } from '../components/hero/community-hero'
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <SiteHeader />
       <main>
-        <Hero />
+        <CommunityHero />
         <BlockchainSection />
         <NetworkDevices />
         <SmartHomeSecurity />
