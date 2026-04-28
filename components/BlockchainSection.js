@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckBadgeIcon, CubeIcon, GlobeAltIcon, ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon, HeartIcon } from '@heroicons/react/24/outline'
+import { CheckBadgeIcon, CubeIcon, GlobeAltIcon, ShieldCheckIcon, UserGroupIcon, StarIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
+import { RoommateMatchingDashboardImmersive } from './ImmersiveFeatureDashboards'
 
 export default function BlockchainSection() {
 
@@ -318,66 +319,8 @@ export default function BlockchainSection() {
                   </motion.div>
                   
                   <motion.div className="col-lg-6" {...slideInRight}>
-                    <div className="position-relative">
-                      <div style={{
-                        background: 'rgba(255,255,255,0.95)',
-                        borderRadius: '20px',
-                        padding: '50px',
-                        boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                        backdropFilter: 'blur(10px)'
-                      }}>
-                        <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>Roommate Matching Dashboard</h3>
-                        <div className="row g-3 mb-4">
-                          <div className="col-6">
-                            <div className="text-center p-3" style={{ 
-                              background: '#f8f9fa', 
-                              borderRadius: '12px',
-                              border: '2px solid #e9ecef'
-                            }}>
-                              <UserGroupIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                              <div className="mt-2">
-                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>5,000+</h6>
-                                <small className="text-muted">Verified Members</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-6">
-                            <div className="text-center p-3" style={{ 
-                              background: '#f8f9fa', 
-                              borderRadius: '12px',
-                              border: '2px solid #e9ecef'
-                            }}>
-                              <HeartIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                              <div className="mt-2">
-                                <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>95%</h6>
-                                <small className="text-muted">Match Rate</small>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="mb-4">
-                          <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Features</h6>
-                          <div className="space-y-2">
-                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                              <span className="fw-medium">Compatible Matching</span>
-                              <span className="text-success fw-bold">✓ Active</span>
-                            </div>
-                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                              <span className="fw-medium">Verified Profiles</span>
-                              <span className="text-success fw-bold">✓ Enabled</span>
-                            </div>
-                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                              <span className="fw-medium">Secure Messaging</span>
-                              <span className="text-success fw-bold">✓ Secured</span>
-                            </div>
-                            <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                              <span className="fw-medium">Trust Score System</span>
-                              <span className="text-success fw-bold">✓ Integrated</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="position-relative px-2 px-md-0">
+                      <RoommateMatchingDashboardImmersive />
                     </div>
                   </motion.div>
                 </div>

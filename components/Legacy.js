@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LockClosedIcon, DocumentCheckIcon, DocumentTextIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { LockClosedIcon, DocumentCheckIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
 import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
+import { EDocumentDashboardImmersive } from './ImmersiveFeatureDashboards'
 
 export default function Legacy() {
   return (
@@ -40,62 +41,8 @@ export default function Legacy() {
             </div>
             
             <motion.div className="col-lg-6" {...slideInLeft}>
-              <div className="position-relative">
-                <div style={{
-                  background: 'rgba(255,255,255,0.95)',
-                  borderRadius: '20px',
-                  padding: '50px',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                  backdropFilter: 'blur(10px)'
-                }}>
-                  <h3 className="mb-4 fw-bold" style={{ color: '#14432A' }}>eDocument Dashboard</h3>
-                  <div className="row g-3 mb-4">
-                    <div className="col-6">
-                      <div className="text-center p-3" style={{ 
-                        background: '#f8f9fa', 
-                        borderRadius: '12px',
-                        border: '2px solid #e9ecef'
-                      }}>
-                        <DocumentCheckIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                        <div className="mt-2">
-                          <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>15</h6>
-                          <small className="text-muted">Active Leases</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="text-center p-3" style={{ 
-                        background: '#f8f9fa', 
-                        borderRadius: '12px',
-                        border: '2px solid #e9ecef'
-                      }}>
-                        <ClockIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                        <div className="mt-2">
-                          <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>3</h6>
-                          <small className="text-muted">Pending Docs</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>Document Status</h6>
-                    <div className="space-y-2">
-                      <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                        <span className="fw-medium">Lease Agreement</span>
-                        <span className="text-success fw-bold">✓ Signed</span>
-                      </div>
-                      <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                        <span className="fw-medium">Roommate Contract</span>
-                        <span className="text-success fw-bold">✓ Complete</span>
-                      </div>
-                      <div className="d-flex justify-content-between align-items-center p-2" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                        <span className="fw-medium">Property Inspection</span>
-                        <span className="text-warning fw-bold">⚠ Pending</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="position-relative px-2 px-md-0">
+                <EDocumentDashboardImmersive />
               </div>
             </motion.div>
             

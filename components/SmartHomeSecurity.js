@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { HomeIcon, LockClosedIcon, BellIcon, KeyIcon, ShieldCheckIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline'
+import { BellIcon, KeyIcon, ShieldCheckIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { sectionAnimation, slideInLeft, slideInRight, staggerContainer, staggerItem } from '../utils/animations'
+import { SecuritySystemDashboardImmersive } from './ImmersiveFeatureDashboards'
 
 export default function SmartHomeSecurity() {
   return (
@@ -212,108 +213,8 @@ export default function SmartHomeSecurity() {
             viewport={{ once: true, margin: '-200px' }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <div className="position-relative">
-              <motion.div 
-                style={{
-                  background: 'rgba(255,255,255,0.95)',
-                  borderRadius: '20px',
-                  padding: '50px',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: '-200px' }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <motion.h3 
-                  className="mb-4 fw-bold" 
-                  style={{ color: '#14432A' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-200px' }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  Security System Dashboard
-                </motion.h3>
-                <motion.div 
-                  className="row g-3 mb-4"
-                  variants={staggerContainer}
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true, margin: '-50px' }}
-                >
-                  <motion.div className="col-6" variants={staggerItem}>
-                    <div className="text-center p-3" style={{ 
-                      background: '#f8f9fa', 
-                      borderRadius: '12px',
-                      border: '2px solid #e9ecef'
-                    }}>
-                      <HomeIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                      <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>100%</h6>
-                        <small className="text-muted">Coverage</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div className="col-6" variants={staggerItem}>
-                    <div className="text-center p-3" style={{ 
-                      background: '#f8f9fa', 
-                      borderRadius: '12px',
-                      border: '2px solid #e9ecef'
-                    }}>
-                      <LockClosedIcon style={{ width: '32px', height: '32px', color: '#14432A' }} />
-                      <div className="mt-2">
-                        <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>256-bit</h6>
-                        <small className="text-muted">Encryption</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-                
-                <motion.div 
-                  className="mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-200px' }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Status</h6>
-                  <motion.div 
-                    className="space-y-2"
-                    variants={staggerContainer}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true, margin: '-50px' }}
-                  >
-                    <motion.div 
-                      className="d-flex justify-content-between align-items-center p-2" 
-                      style={{ background: '#f8f9fa', borderRadius: '8px' }}
-                      variants={staggerItem}
-                    >
-                      <span className="fw-medium">All Systems Active</span>
-                      <span className="text-success fw-bold">✓ Online</span>
-                    </motion.div>
-                    <motion.div 
-                      className="d-flex justify-content-between align-items-center p-2" 
-                      style={{ background: '#f8f9fa', borderRadius: '8px' }}
-                      variants={staggerItem}
-                    >
-                      <span className="fw-medium">Smart Sensors</span>
-                      <span className="text-success fw-bold">✓ Monitoring</span>
-                    </motion.div>
-                    <motion.div 
-                      className="d-flex justify-content-between align-items-center p-2" 
-                      style={{ background: '#f8f9fa', borderRadius: '8px' }}
-                      variants={staggerItem}
-                    >
-                      <span className="fw-medium">Automated Alerts</span>
-                      <span className="text-success fw-bold">✓ Enabled</span>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
-                
-              </motion.div>
+            <div className="position-relative px-2 px-md-0">
+              <SecuritySystemDashboardImmersive />
             </div>
           </motion.div>
         </div>

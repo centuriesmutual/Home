@@ -2,15 +2,13 @@
 
 import Footer from '../../../components/Footer'
 import Navbar from '../../../components/Navbar'
+import { SecuritySystemDashboardImmersive } from '../../../components/ImmersiveFeatureDashboards'
 import Link from 'next/link'
 import { 
-  HomeIcon, 
-  LockClosedIcon, 
   BellIcon, 
   KeyIcon, 
   ShieldCheckIcon, 
   ComputerDesktopIcon,
-  CheckCircleIcon
 } from '@heroicons/react/24/outline'
 
 export default function SecuritySystemLearnMore() {
@@ -146,54 +144,8 @@ export default function SecuritySystemLearnMore() {
 
             {/* Security Dashboard */}
             <div className="row mb-5">
-              <div className="col-lg-8 mx-auto">
-                <div className="card border-0 shadow-sm" style={{ borderRadius: '16px' }}>
-                  <div className="card-body p-5">
-                    <h3 className="fw-bold mb-4 text-center" style={{ color: '#14432A' }}>Security System Dashboard</h3>
-                    <div className="row g-4 mb-4">
-                      <div className="col-md-6">
-                        <div className="text-center p-4" style={{ 
-                          background: '#f8f9fa', 
-                          borderRadius: '12px',
-                          border: '2px solid #e9ecef'
-                        }}>
-                          <HomeIcon style={{ width: '40px', height: '40px', color: '#14432A', marginBottom: '12px' }} />
-                          <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>100%</h6>
-                          <small className="text-muted">Coverage</small>
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="text-center p-4" style={{ 
-                          background: '#f8f9fa', 
-                          borderRadius: '12px',
-                          border: '2px solid #e9ecef'
-                        }}>
-                          <LockClosedIcon style={{ width: '40px', height: '40px', color: '#14432A', marginBottom: '12px' }} />
-                          <h6 className="mb-1 fw-bold" style={{ color: '#14432A' }}>256-bit</h6>
-                          <small className="text-muted">Encryption</small>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-4">
-                      <h6 className="fw-bold mb-3" style={{ color: '#14432A' }}>System Status</h6>
-                      <div className="space-y-2">
-                        <div className="d-flex justify-content-between align-items-center p-3" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                          <span className="fw-medium">All Systems Active</span>
-                          <span className="text-success fw-bold">✓ Online</span>
-                        </div>
-                        <div className="d-flex justify-content-between align-items-center p-3" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                          <span className="fw-medium">Smart Sensors</span>
-                          <span className="text-success fw-bold">✓ Monitoring</span>
-                        </div>
-                        <div className="d-flex justify-content-between align-items-center p-3" style={{ background: '#f8f9fa', borderRadius: '8px' }}>
-                          <span className="fw-medium">Automated Alerts</span>
-                          <span className="text-success fw-bold">✓ Enabled</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="col-lg-10 mx-auto px-2">
+                <SecuritySystemDashboardImmersive />
               </div>
             </div>
 
