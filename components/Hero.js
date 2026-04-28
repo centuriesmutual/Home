@@ -228,7 +228,7 @@ export default function Hero() {
                             Secure member access — sign in or join Centuries Mutual
                           </motion.h2>
                           <motion.div
-                            className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start"
+                            className="mt-6 flex flex-row flex-wrap items-center gap-x-2 gap-y-2"
                             initial={{ opacity: 0, y: 6 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.55 }}
@@ -236,8 +236,8 @@ export default function Hero() {
                             <Link
                               href="/signup"
                               className={
-                                'inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap ' +
-                                'rounded-full bg-[#0F3D2E] px-6 text-center text-[15px] font-medium leading-none text-white ' +
+                                'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap ' +
+                                'rounded-full bg-[#0F3D2E] px-3.5 text-[13px] font-medium leading-none text-white ' +
                                 'no-underline shadow-sm outline-none ring-0 transition ' +
                                 'hover:bg-[#15523D] hover:shadow-md active:bg-[#0F3D2E] active:shadow-none ' +
                                 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3D2E]/45'
@@ -248,8 +248,8 @@ export default function Hero() {
                             <Link
                               href="/login"
                               className={
-                                'inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap ' +
-                                'rounded-full border border-[#0F3D2E] bg-transparent px-6 text-center text-[15px] ' +
+                                'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap ' +
+                                'rounded-full border border-[#0F3D2E] bg-transparent px-3.5 text-[13px] ' +
                                 'font-medium leading-none text-[#0F3D2E] no-underline outline-none transition ' +
                                 'hover:bg-[rgba(15,61,46,0.08)] hover:text-[#0F3D2E] hover:shadow-none ' +
                                 'active:bg-transparent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ' +
