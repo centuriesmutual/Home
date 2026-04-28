@@ -3,13 +3,50 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { MagnifyingGlassIcon, MapPinIcon, CalendarDaysIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { useRouter } from 'next/navigation'
+import { MapPinIcon } from '@heroicons/react/24/outline'
 import RoomSearchModal from './RoomSearchModal'
 
 const CM_GREEN = '#14432A'
 
 export default function Hero() {
   const [roomModalOpen, setRoomModalOpen] = useState(false)
+  const [location, setLocation] = useState('')
+  const [checkIn, setCheckIn] = useState('')
+  const [checkOut, setCheckOut] = useState('')
+  const [adults, setAdults] = useState('1')
+  const router = useRouter()
+
+  function handleHeroSearch(e) {
+    e.preventDefault()
+    const p = new URLSearchParams()
+    if (location.trim()) p.set('location', location.trim())
+    if (checkIn) p.set('checkIn', checkIn)
+    if (checkOut) p.set('checkOut', checkOut)
+    p.set('adults', adults || '1')
+    router.push(`/rooms?${p.toString()}`)
+  }
+
+  const fieldLabel = {
+    display: 'block',
+    fontSize: 10,
+    fontWeight: 700,
+    letterSpacing: '0.18em',
+    textTransform: 'uppercase',
+    color: '#6b766d',
+    marginBottom: 6,
+  }
+  const controlBase = {
+    width: '100%',
+    fontSize: 14,
+    fontWeight: 500,
+    color: '#162118',
+    border: '1px solid #c9d4cc',
+    borderRadius: 12,
+    padding: '10px 12px',
+    background: '#ffffff',
+    outline: 'none',
+  }
 
   return (
     <section
@@ -72,22 +109,23 @@ export default function Hero() {
               style={{ marginTop: '0' }}
             >
               <motion.h1
-                className="display-3 text-white fw-bold mb-3 text-center text-lg-start"
+                className="text-white fw-bold mb-3 text-center text-lg-start"
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-                  fontSize: 'calc(1.8rem + 1.5vw)',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.28)',
+                  fontSize: 'clamp(1.05rem, 0.82rem + 0.85vw, 1.45rem)',
+                  lineHeight: 1.2,
+                  letterSpacing: '0.04em',
+                  maxWidth: '100%',
+                  fontWeight: 600,
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="d-none d-md-inline">Your Community Brokerage:</span>
-                <span className="d-md-none" style={{ fontSize: 'calc(1.4rem + 1.2vw)' }}>
-                  Your Community Brokerage:
-                </span>
+                Your Community Brokerage:
               </motion.h1>
-              {/* Neighborhood room finder — immersive, solid surfaces (no gradient) */}
+              {/* Professional room search — real controls, submits to /rooms */}
               <motion.div
                 className="mb-4 px-3 px-sm-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -95,151 +133,152 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 style={{ position: 'relative', zIndex: 5 }}
               >
-                <button
-                  type="button"
-                  onClick={() => setRoomModalOpen(true)}
-                  className="hero-find-card border-0 w-100 text-start px-4 px-lg-5 py-4"
-                  aria-haspopup="dialog"
-                  aria-expanded={roomModalOpen}
-                  aria-label="Open room search — where, dates, guests"
-                  style={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  <div aria-hidden style={{ marginBottom: 12, opacity: 0.55 }}>
-                    <span style={{ letterSpacing: '0.55em', textTransform: 'uppercase', fontSize: 9, fontWeight: 700, color: CM_GREEN }}>
+                <form onSubmit={handleHeroSearch} className="hero-find-card w-100 text-start px-3 px-lg-4 py-4" noValidate>
+                  <div aria-hidden className="mb-2" style={{ opacity: 0.55 }}>
+                    <span style={{ letterSpacing: '0.45em', textTransform: 'uppercase', fontSize: 9, fontWeight: 700, color: CM_GREEN }}>
                       Near you
                     </span>
                   </div>
-                  <div className="d-flex align-items-start justify-content-between gap-3 flex-wrap">
-                    <div className="d-flex gap-3 min-w-0 flex-grow-1">
-                      <div
-                        aria-hidden
-                        className="flex-shrink-0 rounded-3 d-flex align-items-center justify-content-center mt-1"
+                  <div className="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-3">
+                    <div className="flex-grow-1 min-w-0" style={{ maxWidth: '100%' }}>
+                      <h2
+                        className="mb-2"
                         style={{
-                          width: 44,
-                          height: 44,
-                          background: 'rgba(20,67,42,0.08)',
-                          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.5)',
-                          border: '1px solid rgba(20,67,42,0.1)',
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: 'clamp(1rem, 0.92rem + 0.35vw, 1.2rem)',
+                          fontWeight: 700,
+                          color: '#162118',
+                          lineHeight: 1.25,
+                          letterSpacing: '-0.015em',
+                          margin: 0,
                         }}
                       >
-                        <MagnifyingGlassIcon width={22} strokeWidth={2} style={{ color: CM_GREEN }} aria-hidden />
-                      </div>
-                      <div className="min-w-0">
-                        <span
-                          style={{
-                            display: 'block',
-                            fontFamily: "'Playfair Display', serif",
-                            fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
-                            fontWeight: 700,
-                            color: '#162118',
-                            lineHeight: 1.25,
-                            letterSpacing: '-0.02em',
-                          }}
-                        >
-                          Search rooms anywhere
-                        </span>
-                        <span
-                          style={{
-                            display: 'block',
-                            marginTop: 8,
-                            fontSize: '0.9rem',
-                            color: '#4f5d52',
-                            lineHeight: 1.55,
-                            maxWidth: 420,
-                          }}
-                        >
-                          Find a roommate-friendly listing on the blocks you actually walk—the same trust tools we use everywhere on Centuries Mutual.
-                        </span>
-                      </div>
+                        Search rooms anywhere
+                      </h2>
+                      <p className="small mb-0" style={{ color: '#4f5d52', lineHeight: 1.5, maxWidth: 460 }}>
+                        Trusted listings for the blocks you walk—refine dates and guests, then explore results.
+                      </p>
                     </div>
-                  </div>
-
-                  <div
-                    className="d-none d-lg-flex mt-4 align-items-center flex-wrap rounded-4 px-3 py-3 gap-3 gap-lg-4 flex-grow-1"
-                    style={{
-                      background: '#ffffff',
-                      border: `1px solid rgba(21,60,40,0.1)`,
-                      boxShadow:
-                        '0 14px 32px rgba(22,62,43,0.07), inset 0 1px 0 rgba(255,255,255,1)',
-                      rowGap: 12,
-                    }}
-                  >
-                    <div className="d-flex align-items-center gap-2 min-w-0 flex-shrink-1" style={{ flex: '1 1 140px' }}>
-                      <MapPinIcon width={20} aria-hidden strokeWidth={2} style={{ color: CM_GREEN, opacity: 0.9 }} />
-                      <div className="min-w-0">
-                        <span className="d-block text-uppercase" style={{ fontSize: 9, letterSpacing: '0.16em', color: '#6b766d', fontWeight: 700 }}>
-                          Where
-                        </span>
-                        <span className="d-block fw-semibold text-dark text-opacity-85 text-truncate" style={{ fontSize: 13 }}>
-                          Neighborhood or city
-                        </span>
-                      </div>
-                    </div>
-                    <div aria-hidden style={{ alignSelf: 'stretch', flex: '0 0 1px', borderLeft: '1px dashed rgba(20,67,42,0.2)', minHeight: 42 }} />
-
-                    <div className="d-flex align-items-center gap-2" style={{ flex: '0 0 auto' }}>
-                      <CalendarDaysIcon width={20} aria-hidden strokeWidth={2} style={{ color: CM_GREEN, opacity: 0.9 }} />
-                      <div>
-                        <span className="d-block text-uppercase" style={{ fontSize: 9, letterSpacing: '0.16em', color: '#6b766d', fontWeight: 700 }}>
-                          Dates
-                        </span>
-                        <span className="fw-semibold text-secondary" style={{ fontSize: 13 }}>
-                          Move-in window
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="d-flex align-items-center gap-2" style={{ flex: '0 0 auto' }}>
-                      <UsersIcon width={20} aria-hidden strokeWidth={2} style={{ color: CM_GREEN, opacity: 0.9 }} />
-                      <div>
-                        <span className="d-block text-uppercase" style={{ fontSize: 9, letterSpacing: '0.16em', color: '#6b766d', fontWeight: 700 }}>
-                          Guests
-                        </span>
-                        <span className="fw-semibold text-secondary" style={{ fontSize: 13 }}>
-                          Who&apos;s joining
-                        </span>
-                      </div>
-                    </div>
-
-                    <span
-                      className="ms-lg-auto rounded-pill text-white fw-bold px-4 py-2 flex-shrink-0"
-                      style={{ fontSize: 13, letterSpacing: '0.06em', background: CM_GREEN, boxShadow: '0 8px 20px rgba(20,67,42,0.28)' }}
+                    <button
+                      type="button"
+                      onClick={() => setRoomModalOpen(true)}
+                      className="btn btn-sm flex-shrink-0 border-0 fw-semibold text-decoration-underline"
+                      style={{
+                        color: CM_GREEN,
+                        background: 'transparent',
+                        fontSize: 13,
+                        boxShadow: 'none',
+                      }}
                     >
-                      Explore
-                    </span>
+                      Full search options
+                    </button>
                   </div>
 
                   <div
-                    className="d-lg-none mt-3 d-flex align-items-start gap-3 flex-wrap px-3 py-3 rounded-4"
+                    className="rounded-4 px-2 py-2 px-lg-3 py-lg-3"
                     style={{
                       background: '#ffffff',
-                      border: `1px solid rgba(21,60,40,0.09)`,
+                      border: '1px solid rgba(21,60,40,0.1)',
+                      boxShadow: '0 12px 36px rgba(22,62,43,0.08), inset 0 1px 0 #fff',
                     }}
                   >
-                    <div className="d-flex gap-4 flex-grow-1 flex-wrap">
-                      <div className="d-flex align-items-center gap-2">
-                        <MapPinIcon width={18} aria-hidden strokeWidth={2} style={{ color: CM_GREEN }} />
-                        <span className="small fw-semibold text-dark opacity-85">City &amp; hood</span>
+                    <div className="row g-3 g-xl-2 align-items-end">
+                      <div className="col-12 col-lg-4">
+                        <label htmlFor="hero-room-where" style={fieldLabel}>
+                          Where
+                        </label>
+                        <div className="position-relative">
+                          <MapPinIcon
+                            className="position-absolute top-50 translate-middle-y"
+                            style={{ left: 12, width: 18, height: 18, color: CM_GREEN, pointerEvents: 'none' }}
+                            aria-hidden
+                          />
+                          <input
+                            id="hero-room-where"
+                            name="location"
+                            type="search"
+                            autoComplete="street-address"
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                            placeholder="Neighborhood or city"
+                            className="border-0 shadow-none"
+                            style={{ ...controlBase, paddingLeft: 40 }}
+                          />
+                        </div>
                       </div>
-                      <div className="d-flex align-items-center gap-2">
-                        <CalendarDaysIcon width={18} aria-hidden strokeWidth={2} style={{ color: CM_GREEN }} />
-                        <span className="small fw-semibold text-secondary">Dates</span>
+                      <div className="col-6 col-xl-2">
+                        <label htmlFor="hero-room-in" style={fieldLabel}>
+                          Check-in
+                        </label>
+                        <input
+                          id="hero-room-in"
+                          name="checkIn"
+                          type="date"
+                          value={checkIn}
+                          onChange={(e) => setCheckIn(e.target.value)}
+                          className="border-0"
+                          style={controlBase}
+                        />
                       </div>
-                      <div className="d-flex align-items-center gap-2">
-                        <UsersIcon width={18} aria-hidden strokeWidth={2} style={{ color: CM_GREEN }} />
-                        <span className="small fw-semibold text-secondary">Guests</span>
+                      <div className="col-6 col-xl-2">
+                        <label htmlFor="hero-room-out" style={fieldLabel}>
+                          Check-out
+                        </label>
+                        <input
+                          id="hero-room-out"
+                          name="checkOut"
+                          type="date"
+                          value={checkOut}
+                          onChange={(e) => setCheckOut(e.target.value)}
+                          min={checkIn || undefined}
+                          className="border-0"
+                          style={controlBase}
+                        />
+                      </div>
+                      <div className="col-12 col-xl-2">
+                        <label htmlFor="hero-room-guests" style={fieldLabel}>
+                          Guests
+                        </label>
+                        <select
+                          id="hero-room-guests"
+                          name="adults"
+                          value={adults}
+                          onChange={(e) => setAdults(e.target.value)}
+                          className="border-0"
+                          style={{ ...controlBase, cursor: 'pointer' }}
+                        >
+                          {[1, 2, 3, 4, 5, 6].map((n) => (
+                            <option key={n} value={String(n)}>
+                              {n} guest{n > 1 ? 's' : ''}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="col-12 col-xl-auto d-flex">
+                        <button
+                          type="submit"
+                          className="w-100 w-xl-auto border-0 fw-bold rounded-pill px-4 py-3 align-self-stretch align-self-xl-center"
+                          style={{
+                            fontSize: 14,
+                            letterSpacing: '0.08em',
+                            textTransform: 'uppercase',
+                            background: CM_GREEN,
+                            color: '#fff',
+                            minHeight: 48,
+                            minWidth: 'min(100%, 220px)',
+                            boxShadow: '0 10px 24px rgba(20,67,42,0.3)',
+                          }}
+                        >
+                          Explore
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3" style={{ borderTop: `1px solid rgba(21,60,40,0.08)` }}>
-                    <p className="mb-0" style={{ fontSize: '0.85rem', color: '#3d4a41', lineHeight: 1.55 }}>
-                      Neighborhood-minded filters · walkable context · listings backed by the Centuries Mutual trust framework
-                    </p>
-                  </div>
-                </button>
+                  <p className="mb-0 mt-3 pt-3" style={{ fontSize: '0.82rem', color: '#3d4a41', lineHeight: 1.55, borderTop: '1px solid rgba(21,60,40,0.08)' }}>
+                    Neighborhood-minded filters · walkable context · listings backed by the Centuries Mutual trust framework
+                  </p>
+                </form>
               </motion.div>
             </motion.div>
           </div>
