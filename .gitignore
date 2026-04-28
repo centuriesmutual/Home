@@ -16,3 +16,5 @@ node_modules/
 # Deployment scripts
 deploy.sh
 rollback.sh
+
+*.tsbuildinfo
