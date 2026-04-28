@@ -105,7 +105,7 @@ export function CommunityHero() {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="relative z-[1] flex flex-1 flex-col justify-center px-8 py-12 lg:px-12 lg:py-16"
+            className="relative z-[1] flex flex-1 flex-col justify-center px-8 py-8 lg:px-12 lg:py-12"
           >
             <div>
               <p className="mb-3 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-[#C9A961]">

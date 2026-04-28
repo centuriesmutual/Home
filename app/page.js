@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main className="m-0 p-0">
+      <main className="m-0 block bg-transparent p-0">
         <CommunityHero />
         <BlockchainSection />
         <NetworkDevices />

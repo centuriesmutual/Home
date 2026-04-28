@@ -88,7 +88,7 @@ export function SiteHeader() {
   }, [mobileOpen])
 
   return (
-    <div className={`${fraunces.variable} font-sans`}>
+    <div className={`${fraunces.variable} m-0 bg-[#0F3D2E] p-0 font-sans leading-normal`}>
       <div className="fixed left-0 right-0 top-0 z-[100]">
         <div className="h-[1px] w-full bg-[#C9A961]" aria-hidden />
 
@@ -229,7 +229,7 @@ export function SiteHeader() {
         </AnimatePresence>
       </div>
 
-      <div aria-hidden className="m-0 block shrink-0 p-0 leading-none" style={{ height: spacerHeight }} />
+      <div aria-hidden className="m-0 block shrink-0 bg-[#0F3D2E] p-0 leading-none" style={{ height: spacerHeight }} />
     </div>
   )
 }
