@@ -170,12 +170,9 @@ export default function Hero() {
                   </div>
 
                   <div className="row g-0 align-items-stretch position-relative">
-                    {/* Left column: image */}
-                    <div className="col-12 col-md-5 hero-card-image-cell p-0">
-                      <div
-                        className="position-relative h-[min(220px,38vw)] w-100 md:h-full md:min-h-[300px]"
-                        style={{ minHeight: '200px' }}
-                      >
+                    {/* Left column: image + horizontal search strip */}
+                    <div className="col-12 col-md-5 hero-card-image-cell p-0 d-flex flex-column">
+                      <div className="position-relative flex-1 min-h-0 h-[min(200px,42vw)] w-100 md:min-h-[260px]">
                         <Image
                           src="/buffalo2.png"
                           alt=""
@@ -189,14 +186,27 @@ export default function Hero() {
                           className="position-absolute inset-0 pointer-events-none"
                           style={{
                             background:
-                              'linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 45%), linear-gradient(0deg, rgba(250,247,240,0.25) 0%, transparent 35%)',
+                              'linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 45%), linear-gradient(0deg, rgba(250,247,240,0.28) 0%, transparent 40%)',
                           }}
                         />
                       </div>
+                      <motion.div
+                        className="flex-shrink-0 px-3 py-2.5 sm:px-4 sm:py-3"
+                        style={{
+                          borderTop: '1px solid rgba(21, 60, 40, 0.08)',
+                          background:
+                            'linear-gradient(180deg, rgba(255,255,255,0.42) 0%, rgba(250,247,240,0.95) 100%)',
+                        }}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.62 }}
+                      >
+                        <CommunitySearchBar onOpen={openSearch} compact />
+                      </motion.div>
                     </div>
 
-                    {/* Right column: copy + search */}
-                    <div className="col-12 col-md-7 px-4 py-6 px-lg-5 d-flex flex-column justify-content-center position-relative">
+                    {/* Right column: copy */}
+                    <div className="col-12 col-md-7 px-4 py-6 px-lg-5 pb-5 pb-md-6 d-flex flex-column justify-content-center position-relative">
                       <div>
                     <motion.div
                       className="flex items-center gap-3 mb-4 justify-center md:justify-start"
@@ -255,7 +265,7 @@ export default function Hero() {
                     </motion.h2>
 
                     <motion.p
-                      className="font-sans text-center md:text-left mb-6 md:mb-5 mx-auto md:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
+                      className="font-sans text-center md:text-left mb-0 mx-auto md:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.55, delay: 0.62 }}
@@ -270,13 +280,6 @@ export default function Hero() {
                       .
                     </motion.p>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.72 }}
-                    >
-                      <CommunitySearchBar onOpen={openSearch} />
-                    </motion.div>
                       </div>
                     </div>
                   </div>
