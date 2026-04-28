@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
-import { Menu, X } from 'lucide-react'
+import { Download, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const fraunces = Fraunces({
@@ -25,8 +25,16 @@ const NAV: { href: string; label: string }[] = [
   { href: '/newspaper', label: 'Journal' },
 ]
 
-/** Single-row header chrome — spacer must match exactly */
+/** Primary nav row height */
 export const SITE_HEADER_BAR_PX = 56
+/** Thin gold rule above download strip */
+export const SITE_HEADER_TOP_RULE_PX = 1
+/** Gold download strip row */
+export const SITE_HEADER_DOWNLOAD_STRIP_PX = 32
+
+/** Match scroll-body offset spacer to combined fixed chrome */
+export const SITE_HEADER_STACK_PX =
+  SITE_HEADER_TOP_RULE_PX + SITE_HEADER_DOWNLOAD_STRIP_PX + SITE_HEADER_BAR_PX
 
 function NavLink({
   href,
@@ -78,11 +86,30 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', cb)
   }, [mobileOpen])
 
-  const spacerHeight = SITE_HEADER_BAR_PX
+  const spacerHeight = SITE_HEADER_STACK_PX
 
   return (
     <div className={`${fraunces.variable} m-0 bg-[#0F3D2E] p-0 font-sans leading-normal`}>
       <div className="fixed left-0 right-0 top-0 z-[100]">
+        <div className="h-px w-full shrink-0 bg-[#C9A961]" aria-hidden />
+
+        <div
+          className="flex h-[32px] w-full shrink-0 items-center justify-center gap-2 border-b border-[#C9A961]/35 bg-[#C9A961] px-3 py-1 sm:gap-4 sm:px-4"
+          role="region"
+          aria-label="Download the Centuries Mutual app"
+        >
+          <p className="min-w-0 truncate text-center font-sans text-[9px] font-semibold uppercase leading-tight tracking-[0.16em] text-[#FAF7F0] sm:text-[10px] sm:tracking-[0.22em]">
+            Mobile app · Listings · Trust · Secure messaging
+          </p>
+          <Link
+            href="/downloads"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#FAF7F0] px-3 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-wide text-[#0F3D2E] shadow-sm no-underline transition hover:bg-white sm:text-[11px]"
+          >
+            <Download className="h-3.5 w-3.5 shrink-0" strokeWidth={2.25} aria-hidden />
+            Get the app
+          </Link>
+        </div>
+
         <motion.header
           animate={{
             backgroundColor: scrolledDeep ? bgCream : bgForest,
