@@ -41,20 +41,31 @@ export default function Hero() {
           }
         }
         .hero-find-card {
-          background: #f9f8f6;
-          border-radius: 20px;
+          background: linear-gradient(
+            165deg,
+            #faf9f6 0%,
+            #f7f5f1 42%,
+            #faf8f5 100%
+          );
+          border-radius: 22px;
           overflow: hidden;
-          box-shadow: 0 28px 56px rgba(8, 32, 20, 0.28),
-            inset 0 1px 0 rgba(255, 255, 255, 0.85);
-          outline: 1px solid rgba(255, 255, 255, 0.2);
-          border: 1px solid rgba(21, 60, 40, 0.16);
+          box-shadow:
+            0 28px 56px rgba(8, 32, 20, 0.26),
+            0 4px 20px rgba(15, 61, 46, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.92),
+            inset 0 -1px 0 rgba(21, 60, 40, 0.04);
+          outline: 1px solid rgba(255, 255, 255, 0.25);
+          border: 1px solid rgba(229, 224, 213, 0.95);
           transition:
             transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
             box-shadow 0.35s ease;
         }
         .hero-find-card:hover {
-          box-shadow: 0 36px 64px rgba(8, 32, 20, 0.34),
-            inset 0 1px 0 rgba(255, 255, 255, 0.88);
+          box-shadow:
+            0 38px 68px rgba(8, 32, 20, 0.3),
+            0 8px 24px rgba(15, 61, 46, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95),
+            inset 0 -1px 0 rgba(21, 60, 40, 0.05);
           transform: translateY(-3px);
         }
       `}</style>
@@ -95,41 +106,106 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.35 }}
                 style={{ position: 'relative', zIndex: 5 }}
               >
-                <div className="hero-find-card w-100 text-start px-3 px-lg-4 py-4">
-                  <div aria-hidden className="mb-2" style={{ opacity: 0.55 }}>
-                    <span
-                      style={{
-                        letterSpacing: '0.45em',
-                        textTransform: 'uppercase',
-                        fontSize: 9,
-                        fontWeight: 700,
-                        color: CM_GREEN,
-                      }}
-                    >
-                      Near you
-                    </span>
-                  </div>
-                  <div className="mb-4">
-                    <h2
-                      className="mb-2 text-center text-lg-start"
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: 'clamp(1rem, 0.92rem + 0.35vw, 1.2rem)',
-                        fontWeight: 700,
-                        color: '#162118',
-                        lineHeight: 1.25,
-                        letterSpacing: '-0.015em',
-                        margin: 0,
-                      }}
-                    >
-                      Search rooms anywhere
-                    </h2>
-                    <p className="small mb-4 mb-lg-3" style={{ color: '#4f5d52', lineHeight: 1.5, maxWidth: 460 }}>
-                      Trusted listings for the blocks you walk—open search for neighborhoods, stays, or move-in timing.
-                    </p>
-                  </div>
+                <div className="hero-find-card w-100 text-start px-4 px-lg-5 py-6 overflow-hidden relative">
+                  {/* Ambient depth — stays inside card */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-24 -top-20 h-[min(340px,80vw)] w-[min(340px,80vw)] rounded-full opacity-[0.38]"
+                    style={{
+                      background:
+                        'radial-gradient(circle at 30% 30%, rgba(20, 67, 42, 0.12) 0%, transparent 62%)',
+                    }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -left-16 bottom-[-40%] h-[min(260px,70vw)] w-[min(260px,70vw)] rounded-full opacity-[0.22]"
+                    style={{
+                      background:
+                        'radial-gradient(circle at 70% 50%, rgba(196, 168, 120, 0.18) 0%, transparent 58%)',
+                    }}
+                  />
 
-                  <CommunitySearchBar onOpen={openSearch} />
+                  <div className="relative">
+                    <motion.div
+                      className="flex items-center gap-3 mb-5 justify-center lg:justify-start"
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.55, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                      aria-hidden
+                    >
+                      <span
+                        className="h-px w-10 shrink-0"
+                        style={{
+                          background:
+                            'linear-gradient(90deg, transparent 0%, rgba(15, 61, 46, 0.35) 100%)',
+                        }}
+                      />
+                      <span
+                        className="font-sans text-[0.65rem] font-semibold uppercase whitespace-nowrap"
+                        style={{ letterSpacing: '0.38em', color: 'rgba(15, 61, 46, 0.82)' }}
+                      >
+                        Near you
+                      </span>
+                      <span
+                        className="h-px w-10 sm:w-16 shrink-0"
+                        style={{
+                          background:
+                            'linear-gradient(90deg, rgba(15, 61, 46, 0.28) 0%, transparent 100%)',
+                        }}
+                      />
+                    </motion.div>
+
+                    <motion.h2
+                      className="text-center lg:text-left font-serif mb-4 text-balance"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      style={{
+                        fontSize: 'clamp(1.45rem, 1.05rem + 1.15vw, 2rem)',
+                        fontWeight: 600,
+                        lineHeight: 1.15,
+                        letterSpacing: '-0.022em',
+                        color: '#0f1a13',
+                      }}
+                    >
+                      Search rooms{' '}
+                      <span
+                        className="italic font-medium bg-clip-text"
+                        style={{
+                          color: CM_GREEN,
+                          textDecoration: 'underline',
+                          textDecorationColor: 'rgba(15, 61, 46, 0.22)',
+                          textUnderlineOffset: '0.18em',
+                        }}
+                      >
+                        anywhere
+                      </span>
+                    </motion.h2>
+
+                    <motion.p
+                      className="font-sans text-center lg:text-left mb-6 lg:mb-5 mx-auto lg:mx-0 max-w-[28rem] text-[15px] sm:text-[0.9625rem] leading-[1.65] text-muted"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.55, delay: 0.62 }}
+                      style={{
+                        letterSpacing: '0.011em',
+                      }}
+                    >
+                      Trusted listings for the blocks you walk—open search for{' '}
+                      <span className="text-[rgba(54,61,54,0.92)] font-medium">
+                        neighborhoods, stays, or move-in timing
+                      </span>
+                      .
+                    </motion.p>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.72 }}
+                    >
+                      <CommunitySearchBar onOpen={openSearch} />
+                    </motion.div>
+                  </div>
 
                 </div>
               </motion.div>
