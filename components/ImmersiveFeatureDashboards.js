@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 import {
   MagnifyingGlassIcon,
-  PhoneIcon,
   ChatBubbleLeftRightIcon,
   HomeIcon,
   LockClosedIcon,
@@ -13,6 +12,15 @@ import {
   DocumentTextIcon,
   MapPinIcon,
   FunnelIcon,
+  HeartIcon,
+  BoltIcon,
+  MusicalNoteIcon,
+  PlusIcon,
+  UserGroupIcon,
+  ArrowUpTrayIcon,
+  BookmarkIcon,
+  VideoCameraIcon,
+  SparklesIcon,
 } from '@heroicons/react/24/outline'
 
 const border = '1px solid #e5e7eb'
@@ -580,6 +588,8 @@ export function RoommateMatchingDashboardImmersive() {
 
 
 export function CommunicationDashboardImmersive() {
+  const [phoneTab, setPhoneTab] = useState('stream')
+
   const rows = [
     { label: 'Profile Privacy', status: 'Active' },
     { label: 'Feed & Updates', status: 'Enabled' },
@@ -588,50 +598,450 @@ export function CommunicationDashboardImmersive() {
     { label: 'Live Messaging', status: 'Active', last: true },
   ].map((r) => ({ ...r, status: `✓ ${r.status}` }))
 
+  const streamPeople = [
+    { name: 'You', active: true, ring: `linear-gradient(135deg, ${green}, #22c55e)` },
+    { name: 'Alex', active: true, ring: 'linear-gradient(135deg, #c9a962, #f4e4bc)' },
+    { name: 'Maya', active: false, ring: 'linear-gradient(135deg, #6366f1, #a5b4fc)' },
+    { name: 'Jordan', active: false, ring: 'linear-gradient(135deg, #ec4899, #fbcfe8)' },
+    { name: '+12', active: false, ring: '#2a3038' },
+  ]
+
+  const threads = [
+    {
+      initials: 'A.M.',
+      ring: '#22c55e',
+      name: 'Alex M.',
+      preview: 'Lease signed — congrats on the duplex 🎉',
+      time: 'now',
+      unread: true,
+    },
+    {
+      initials: 'R.K.',
+      ring: '#a78bfa',
+      name: 'Roommate circle',
+      preview: 'Sofia pinned a roommate agreement pdf',
+      time: '2m',
+      unread: false,
+    },
+    {
+      initials: 'C.M.',
+      ring: '#c9a962',
+      name: 'Centuries Verified',
+      plain: true,
+      preview: 'Your identity tier is Sapphire · Tap to renew',
+      time: '',
+      unread: false,
+    },
+  ]
+
+  const glass = 'rgba(255,255,255,0.07)'
+  const glassBorder = 'rgba(255,255,255,0.1)'
+  const screenBg = '#06080c'
+  const luxGold = '#d4b96a'
+
   return (
-    <WindowShell eyebrow="Network" title="Communication Dashboard" badge="Secure session" badgeTone="muted">
-      <div style={{ padding: 16 }}>
-        <div className="d-flex gap-1 p-1 mb-3 rounded-3" style={{ background: '#e5e7eb', maxWidth: '100%' }}>
-          {['Profile', 'Messages', 'Feed'].map((t, i) => (
-            <button
-              key={t}
-              type="button"
-              className="flex-grow-1 border-0 fw-semibold rounded-3"
+    <WindowShell eyebrow="Network" title="Communication · Social" badge="Secure session" badgeTone="muted">
+      <div className="d-flex flex-column align-items-center py-3 px-2" style={{ background: 'linear-gradient(180deg, #eceff2 0%, #f4f6f8 100%)' }}>
+        <p className="text-center mb-3 mb-md-4 px-2" style={{ fontSize: 12, color: '#64748b', maxWidth: 420, lineHeight: 1.45, margin: 0 }}>
+          Live on a device-class surface: immersive streams, glass DMs, and your friends row—built for the same privacy stack as the features below.
+        </p>
+
+        {/* Luxury iPhone chassis */}
+        <div
+          className="position-relative mx-auto"
+          style={{
+            width: 'min(320px, 100%)',
+            padding: 11,
+            borderRadius: 44,
+            background: 'linear-gradient(160deg, #5c6168 0%, #2f3238 38%, #1a1c21 72%, #3d4249 100%)',
+            boxShadow:
+              '0 48px 80px rgba(15,23,42,0.45), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -2px 6px rgba(0,0,0,0.35)',
+          }}
+        >
+          <div
+            className="overflow-hidden position-relative"
+            style={{
+              borderRadius: 36,
+              background: screenBg,
+              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
+              minHeight: 560,
+            }}
+          >
+            {/* Status + Dynamic Island */}
+            <div
+              className="d-flex align-items-center justify-content-between px-4 pt-2 pb-1"
+              style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.92)', letterSpacing: '0.02em' }}
+            >
+              <span style={{ fontVariantNumeric: 'tabular-nums' }}>9:41</span>
+              <div
+                aria-hidden
+                style={{
+                  width: 108,
+                  height: 30,
+                  borderRadius: 20,
+                  background: '#0a0c10',
+                  boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)',
+                }}
+              />
+              <div className="d-flex align-items-center gap-1" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                <span style={{ fontSize: 9, fontWeight: 700 }}>5G</span>
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor" aria-hidden>
+                  <rect x="0" y="8" width="3" height="4" rx="0.5" opacity="0.5" />
+                  <rect x="5" y="5" width="3" height="7" rx="0.5" opacity="0.7" />
+                  <rect x="10" y="2" width="3" height="10" rx="0.5" />
+                </svg>
+                <span style={{ fontSize: 10, fontWeight: 700 }}>84</span>
+              </div>
+            </div>
+
+            {/* In-app top bar */}
+            <div className="d-flex align-items-center justify-content-between px-3 pt-1 pb-2">
+              <span style={{ fontSize: 15, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>Friends</span>
+              <div className="d-flex gap-2">
+                <span
+                  className="d-inline-flex align-items-center rounded-pill"
+                  style={{ background: glass, border: `1px solid ${glassBorder}`, padding: '6px 10px', gap: 6 }}
+                >
+                  <BoltIcon style={{ width: 14, height: 14, color: '#fbbf24' }} aria-hidden />
+                  <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.9)' }}>For You</span>
+                </span>
+                <span
+                  className="rounded-pill d-inline-flex align-items-center justify-content-center"
+                  style={{
+                    width: 32,
+                    height: 32,
+                    border: `1px solid ${glassBorder}`,
+                    background: glass,
+                    color: '#fff',
+                  }}
+                  aria-hidden
+                >
+                  <MagnifyingGlassIcon style={{ width: 16, height: 16 }} aria-hidden />
+                </span>
+              </div>
+            </div>
+
+            {/* Horizontal friends / stories */}
+            <div className="d-flex gap-3 px-3 pb-3" style={{ overflowX: 'auto', scrollbarWidth: 'none' }}>
+              {streamPeople.map((p) => (
+                <button
+                  key={p.name}
+                  type="button"
+                  className="border-0 bg-transparent flex-shrink-0 d-flex flex-column align-items-center gap-1 p-0"
+                  style={{ width: 64, cursor: 'default' }}
+                >
+                  <div
+                    className="rounded-circle d-grid place-items-center flex-shrink-0"
+                    style={{
+                      width: 56,
+                      height: 56,
+                      padding: 3,
+                      background: p.ring,
+                    }}
+                  >
+                    <span
+                      className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        background: '#141820',
+                        color: '#e2e8f0',
+                        fontSize: p.name.startsWith('+') ? 13 : 12,
+                      }}
+                      aria-hidden
+                    >
+                      {p.name.startsWith('+') ? p.name : p.name.slice(0, 1)}
+                    </span>
+                  </div>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.75)', maxWidth: 64 }} className="text-truncate">
+                    {p.name}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Segmented: Stream · Messages */}
+            <div className="px-3 pb-2">
+              <div
+                className="d-flex rounded-pill p-1"
+                style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${glassBorder}` }}
+                role="tablist"
+                aria-label="Primary view"
+              >
+                {[
+                  { id: 'stream', label: 'Stream', Icon: BoltIcon },
+                  { id: 'messages', label: 'Messages', Icon: ChatBubbleLeftRightIcon },
+                ].map((t) => {
+                  const sel = phoneTab === t.id
+                  const TabIcon = t.Icon
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={sel}
+                      onClick={() => setPhoneTab(t.id)}
+                      className="flex-grow-1 border-0 rounded-pill d-flex align-items-center justify-content-center gap-1"
+                      style={{
+                        padding: '8px 4px',
+                        fontSize: 11,
+                        fontWeight: 800,
+                        color: sel ? '#0f172a' : 'rgba(255,255,255,0.55)',
+                        background: sel ? '#f8fafc' : 'transparent',
+                        boxShadow: sel ? '0 4px 14px rgba(0,0,0,0.35)' : 'none',
+                      }}
+                    >
+                      <TabIcon style={{ width: 14, height: 14 }} aria-hidden />
+                      {t.label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Main panel — bottom padding clears fixed dock */}
+            <div className="px-3" style={{ minHeight: 232, paddingBottom: 82 }}>
+              {phoneTab === 'stream' && (
+                <div
+                  className="position-relative overflow-hidden rounded-4"
+                  style={{
+                    aspectRatio: '9/13',
+                    background: `linear-gradient(165deg, #0f3324 0%, ${green} 42%, #0a1620 85%)`,
+                  }}
+                >
+                  <div className="position-absolute w-100 h-100" style={{ opacity: 0.35 }} aria-hidden>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage: `radial-gradient(circle at 30% 20%, rgba(212,185,106,0.35), transparent 50%),
+                                          radial-gradient(circle at 80% 60%, rgba(34,211,153,0.25), transparent 45%)`,
+                      }}
+                    />
+                  </div>
+                  <span
+                    className="position-absolute px-2 py-1 rounded-pill"
+                    style={{
+                      top: 12,
+                      left: 12,
+                      fontSize: 10,
+                      fontWeight: 800,
+                      letterSpacing: '0.06em',
+                      color: '#fff',
+                      background: 'rgba(0,0,0,0.45)',
+                      border: `1px solid ${glassBorder}`,
+                    }}
+                  >
+                    LIVE NETWORK
+                  </span>
+                  <div
+                    className="position-absolute bottom-0 start-0 end-0 px-3 pb-4 pt-24"
+                    style={{
+                      background: 'linear-gradient(180deg, transparent 0%, rgba(6,8,12,0.92) 55%)',
+                    }}
+                  >
+                    <div className="d-flex align-items-end justify-content-between gap-2 mb-3">
+                      <div className="flex-grow-1 min-w-0">
+                        <p className="mb-2" style={{ color: '#fff', fontWeight: 800, fontSize: 14, margin: '0 0 6px', lineHeight: 1.3 }}>
+                          @trustcircle · roommate walk-through
+                          <span className="d-inline-block px-2 py-0 rounded-pill ms-1" style={{ background: 'rgba(20,67,42,0.65)', fontSize: 10 }}>
+                            Verified
+                          </span>
+                        </p>
+                        <div
+                          className="d-inline-flex align-items-center gap-1 rounded-pill px-2 py-1"
+                          style={{
+                            border: `1px solid ${glassBorder}`,
+                            background: glass,
+                            maxWidth: '100%',
+                          }}
+                        >
+                          <MusicalNoteIcon style={{ width: 13, height: 13, color: luxGold }} aria-hidden />
+                          <span className="text-truncate d-block" style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>
+                            Original · Centuries ambient bed
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* TikTok-style rails */}
+                  <div
+                    className="position-absolute end-0 pe-2 d-flex flex-column align-items-center gap-3"
+                    style={{ bottom: 88, right: 2 }}
+                  >
+                    {[
+                      { Icon: HeartIcon, label: '12.4K', key: 'heart', emphasize: true },
+                      { Icon: ChatBubbleLeftRightIcon, label: '842', key: 'chat', emphasize: false },
+                      { Icon: ArrowUpTrayIcon, label: 'Share', key: 'share', emphasize: false },
+                      { Icon: BookmarkIcon, label: '', key: 'save', emphasize: false },
+                    ].map((a) => {
+                      const ActionIcon = a.Icon
+                      return (
+                        <div key={a.key} className="d-flex flex-column align-items-center gap-1">
+                          <button
+                            type="button"
+                            className="border-0 rounded-circle d-flex align-items-center justify-content-center bg-transparent text-white"
+                            style={{
+                              width: 42,
+                              height: 42,
+                              background: 'rgba(0,0,0,0.35)',
+                              border: `1px solid rgba(255,255,255,0.14)`,
+                              boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
+                            }}
+                            aria-label={a.label || 'Save'}
+                          >
+                            <ActionIcon style={{ width: 22, height: 22, opacity: a.emphasize ? 1 : 0.95 }} aria-hidden />
+                          </button>
+                          {a.label ? (
+                            <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>{a.label}</span>
+                          ) : null}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {phoneTab === 'messages' && (
+                <div className="d-flex flex-column gap-2">
+                  <div className="position-relative mb-1">
+                    <MagnifyingGlassIcon
+                      aria-hidden
+                      className="position-absolute"
+                      style={{ width: 16, height: 16, left: 12, top: '50%', transform: 'translateY(-50%)', color: '#64748b' }}
+                    />
+                    <input
+                      readOnly
+                      type="search"
+                      aria-label="Search people, threads, mentions"
+                      placeholder="Search people, groups, threads, mentions…"
+                      className="w-100 border-0"
+                      style={{
+                        padding: '10px 12px 10px 38px',
+                        borderRadius: 14,
+                        fontSize: 12,
+                        background: 'rgba(255,255,255,0.06)',
+                        border: `1px solid ${glassBorder}`,
+                        color: '#e2e8f0',
+                        outline: 'none',
+                      }}
+                    />
+                  </div>
+                  {threads.map((th) => (
+                    <div
+                      key={th.name}
+                      className="d-flex align-items-center gap-3 rounded-4 p-2"
+                      style={{
+                        background: th.unread ? 'rgba(20,67,42,0.35)' : 'rgba(255,255,255,0.04)',
+                        border: `1px solid ${th.unread ? 'rgba(34,197,94,0.35)' : glassBorder}`,
+                      }}
+                    >
+                      <div
+                        className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center fw-bold"
+                        style={{
+                          width: 44,
+                          height: 44,
+                          fontSize: 12,
+                          color: '#f1f5f9',
+                          border: `2px solid ${th.ring}`,
+                          background: '#11161d',
+                        }}
+                        aria-hidden
+                      >
+                        {th.initials}
+                      </div>
+                      <div className="flex-grow-1 min-w-0">
+                        <div className="d-flex justify-content-between align-items-baseline gap-2">
+                          <span style={{ fontSize: 13, fontWeight: 800, color: '#fff' }}>{th.name}</span>
+                          {th.time && (
+                            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', fontVariantNumeric: 'tabular-nums' }}>{th.time}</span>
+                          )}
+                        </div>
+                        <p className="mb-0 text-truncate" style={{ fontSize: 11, color: 'rgba(226,232,240,0.85)', marginTop: 2 }}>
+                          {th.preview}
+                        </p>
+                      </div>
+                      {th.unread && (
+                        <span
+                          className="rounded-circle flex-shrink-0"
+                          style={{ width: 8, height: 8, background: '#22c55e', boxShadow: '0 0 0 4px rgba(34,197,94,0.25)' }}
+                          aria-label="Unread"
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Bottom dock — TikTok-style */}
+            <div
+              className="position-absolute bottom-0 start-0 end-0 px-2 pt-2 pb-3"
               style={{
-                padding: '8px 6px',
-                fontSize: 12,
-                background: i === 1 ? '#fff' : 'transparent',
-                color: i === 1 ? green : '#6b7280',
-                boxShadow: i === 1 ? '0 2px 6px rgba(0,0,0,0.08)' : 'none',
+                background: 'linear-gradient(180deg, transparent, rgba(6,8,12,0.96) 28%)',
+                borderTop: `1px solid ${glassBorder}`,
               }}
             >
-              {t}
-            </button>
-          ))}
-        </div>
-        <SearchField placeholder="Search people, groups, threads, mentions…" />
-        <div className="row g-2 mb-3">
-          <div className="col-6">
-            <div className="p-3 rounded-3 border bg-white h-100" style={{ borderColor: '#e5e7eb' }}>
-              <PhoneIcon style={{ width: 26, height: 26, color: green, marginBottom: 6 }} aria-hidden />
-              <div style={{ fontWeight: 700, color: '#111827', fontSize: 14 }}>Your Profile</div>
-              <div style={{ fontSize: 12, color: '#6b7280' }}>Verified presence</div>
-              <div style={{ marginTop: 10, paddingTop: 10, borderTop: border, fontSize: 11, color: '#059669', fontWeight: 700 }}>● Identity verified</div>
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="p-3 rounded-3 border bg-white h-100" style={{ borderColor: '#e5e7eb' }}>
-              <ChatBubbleLeftRightIcon style={{ width: 26, height: 26, color: green, marginBottom: 6 }} aria-hidden />
-              <div style={{ fontWeight: 700, color: '#111827', fontSize: 14 }}>Messages</div>
-              <div style={{ fontSize: 12, color: '#6b7280' }}>Private threads</div>
-              <div style={{ marginTop: 10, padding: '8px 10px', background: '#f9fafb', borderRadius: 8, border: '1px solid #e5e7eb', fontSize: 11, color: '#4b5563' }}>
-                <strong style={{ color: '#111827' }}>Alex M.</strong> · “Lease signed — congrats…”
+              <div className="d-flex align-items-end justify-content-between px-1">
+                {[
+                  { Icon: HomeIcon, label: 'Home', active: true },
+                  { Icon: UserGroupIcon, label: 'Friends', active: false },
+                  { Icon: PlusIcon, label: '', active: false, center: true },
+                  { Icon: ChatBubbleLeftRightIcon, label: 'Inbox', active: false },
+                  { Icon: SparklesIcon, label: 'You', active: false },
+                ].map((item, dockIdx) => {
+                  const DockIcon = item.Icon
+                  return (
+                    <button
+                      key={`dock-${dockIdx}`}
+                      type="button"
+                      className="border-0 bg-transparent d-flex flex-column align-items-center gap-0 p-0"
+                      style={{ width: item.center ? 52 : 44, cursor: 'default' }}
+                      aria-label={item.label || 'Create'}
+                    >
+                      {item.center ? (
+                        <span
+                          className="rounded-3 d-flex align-items-center justify-content-center"
+                          style={{
+                            width: 48,
+                            height: 36,
+                            background: `linear-gradient(145deg, #fff, #cbd5e1)`,
+                            border: '3px solid #0c0e12',
+                            color: '#0f172a',
+                            boxShadow: `0 8px 24px rgba(20,67,42,0.45)`,
+                          }}
+                        >
+                          <VideoCameraIcon style={{ width: 20, height: 20 }} aria-hidden />
+                        </span>
+                      ) : (
+                        <>
+                          <DockIcon
+                            style={{
+                              width: 22,
+                              height: 22,
+                              color: item.active ? '#fff' : 'rgba(255,255,255,0.42)',
+                            }}
+                            aria-hidden
+                          />
+                          <span style={{ fontSize: 9, fontWeight: 700, color: item.active ? '#fff' : 'rgba(255,255,255,0.38)', marginTop: 2 }}>
+                            {item.label}
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </div>
         </div>
-        <p style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>System Features</p>
-        <FeatureTable rows={rows} />
+
+        <p className="text-uppercase text-center mt-4 mb-2" style={{ fontSize: 10, fontWeight: 800, color: '#94a3b8', letterSpacing: '0.14em' }}>
+          System features
+        </p>
+        <div className="w-100" style={{ maxWidth: 420 }}>
+          <FeatureTable rows={rows} />
+        </div>
       </div>
     </WindowShell>
   )
