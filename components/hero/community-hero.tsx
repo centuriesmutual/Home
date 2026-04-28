@@ -124,20 +124,31 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`mb-4 grid gap-6 rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] p-6 ${portalShadow} transition md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-10`}
+              className={`mb-4 flex flex-col gap-6 rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] p-6 ${portalShadow} transition`}
             >
-              <div className="min-w-0">
-                <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
-                  Client portal
-                </p>
-                <h2
-                  className="mt-2 max-w-lg font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
-                  style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
-                >
-                  Secure member access — sign in or join Centuries Mutual
-                </h2>
+              {/* Two-column copy above the CTAs */}
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-10 md:gap-y-4">
+                <div className="min-w-0 border-b border-[#E5E0D5]/70 pb-4 md:border-b-0 md:border-r md:border-[#E5E0D5]/70 md:pb-0 md:pr-8">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
+                    Client portal
+                  </p>
+                  <h2
+                    className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
+                    style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
+                  >
+                    Secure member access
+                  </h2>
+                </div>
+                <div className="min-w-0 flex items-center md:border-0 md:pl-0">
+                  <p
+                    className="font-serif text-lg font-medium leading-snug text-[#0F3D2E]"
+                    style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
+                  >
+                    Sign in or join Centuries Mutual
+                  </p>
+                </div>
               </div>
-              <div className="flex min-w-[min(100%,16rem)] flex-shrink-0 flex-wrap items-start gap-3 sm:flex-nowrap md:justify-end">
+              <div className="flex flex-wrap gap-3 border-t border-[#E5E0D5]/70 pt-4">
                 <Link
                   href="/signup"
                   className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
