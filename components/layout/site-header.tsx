@@ -229,7 +229,7 @@ export function SiteHeader() {
         </AnimatePresence>
       </div>
 
-      <div aria-hidden className="shrink-0" style={{ height: spacerHeight }} />
+      <div aria-hidden className="m-0 block shrink-0 p-0 leading-none" style={{ height: spacerHeight }} />
     </div>
   )
 }

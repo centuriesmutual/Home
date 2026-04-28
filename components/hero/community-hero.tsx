@@ -59,28 +59,12 @@ export function CommunityHero() {
   const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
 
   return (
-    <section ref={sectionRef} className={`relative min-h-[88vh] w-full overflow-hidden bg-[#0F3D2E] ${editorial.variable}`}>
+    <section ref={sectionRef} className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pt-0 ${editorial.variable}`}>
       <CommunitySearchHotkeys onOpen={openSearch} />
 
-      {/* Depth: radial highlight + grain + topo */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#15523D_0%,_transparent_58%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: GRAIN_BG,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '220px 220px',
-        }}
-        aria-hidden
-      />
-      <TopoPattern className="pointer-events-none absolute -bottom-8 -left-12 z-[2] h-64 w-[min(100%,420px)] text-[#FAF7F0] opacity-[0.05]" />
-
-      <div className="relative z-[1] grid min-h-[88vh] grid-cols-1 gap-0 lg:grid-cols-12">
-        {/* Immersive image — cinematic anchor */}
-        <div className="relative col-span-full h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:h-auto lg:min-h-[88vh]">
+      <div className="relative z-[1] grid min-h-[88vh] w-full grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-0">
+        {/* Columns 1–7: image column only */}
+        <div className="relative col-span-full min-h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:col-start-1 lg:min-h-[88vh]">
           <motion.div style={{ y: imageParallax }} className="absolute inset-0 lg:-top-[8%] lg:h-[116%]">
             <div className="hero-ken-burns-inner relative h-full w-full">
               <Image
@@ -90,11 +74,10 @@ export function CommunityHero() {
                 priority
                 quality={95}
                 sizes="(max-width: 1023px) 100vw, 62vw"
-                className="object-cover object-[center_35%]"
+                className="h-full w-full object-cover object-[center_35%]"
               />
             </div>
           </motion.div>
-          {/* Strong right-edge vignette: hand-off into forest column */}
           <div
             className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(15,61,46,0.35)_72%,rgba(15,61,46,0.82)_92%,#0F3D2E_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(15,61,46,0.28)_62%,rgba(15,61,46,0.55)_82%,#0F3D2E_100%)]"
             aria-hidden
@@ -102,18 +85,33 @@ export function CommunityHero() {
           <FloatingImageCards />
         </div>
 
-        {/* Editorial column */}
-        <div className="relative col-span-full flex min-h-0 flex-col lg:col-span-5">
-          {/* Atmosphere behind content */}
+        {/* Columns 8–12: editorial */}
+        <div className="relative col-span-full flex min-h-0 flex-col lg:col-span-5 lg:col-start-8 lg:min-h-[88vh]">
+          {/* Atmosphere: only on green column */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#15523D_0%,_transparent_58%)]"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: GRAIN_BG,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '220px 220px',
+            }}
+            aria-hidden
+          />
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#15523D_0%,_transparent_60%)] opacity-60"
           />
+          <TopoPattern className="pointer-events-none absolute bottom-0 left-0 z-[2] h-48 w-[min(100%,340px)] text-[#FAF7F0] opacity-[0.055]" />
+
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="relative z-[1] flex flex-1 flex-col justify-center px-8 py-16 lg:px-12 lg:py-20"
+            className="relative z-[1] flex flex-1 flex-col justify-center px-8 py-12 lg:px-12 lg:py-16"
           >
             <div>
               <p className="mb-3 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-[#C9A961]">
@@ -154,9 +152,7 @@ export function CommunityHero() {
               </div>
             </div>
 
-            <div
-              className={`mt-4 overflow-hidden rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] px-4 py-3 sm:px-5 ${portalShadow}`}
-            >
+            <div className={`mt-4 overflow-hidden rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] px-4 py-3 sm:px-5 ${portalShadow}`}>
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
