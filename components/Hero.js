@@ -198,7 +198,7 @@ export default function Hero() {
                           initial={{ opacity: 0, y: 12 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.35 }}
-                          className="text-center text-md-start"
+                          className="text-start"
                         >
                           <p
                             className="font-sans text-uppercase mb-2 mb-md-3"
@@ -212,7 +212,7 @@ export default function Hero() {
                             Client portal
                           </p>
                           <motion.h2
-                            className="font-serif mb-3 text-balance"
+                            className="font-serif mb-0 max-w-xl text-balance"
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.55, delay: 0.45 }}
@@ -228,7 +228,7 @@ export default function Hero() {
                             Secure member access — sign in or join Centuries Mutual
                           </motion.h2>
                           <motion.div
-                            className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 gap-sm-2.5 justify-content-center justify-content-md-start"
+                            className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start"
                             initial={{ opacity: 0, y: 6 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.55 }}
@@ -236,11 +236,11 @@ export default function Hero() {
                             <Link
                               href="/signup"
                               className={
-                                'inline-flex h-8 shrink-0 items-center justify-center rounded-full ' +
-                                'border border-[#0f3d2e]/25 bg-[#14432A] px-3.5 py-1.5 text-center ' +
-                                'font-sans text-[0.8125rem] font-semibold leading-none tracking-wide text-[#faf9f6] ' +
-                                'no-underline shadow-[0_2px_8px_rgba(8,32,20,0.22)] outline-none transition ' +
-                                'hover:-translate-y-px hover:bg-[#0f3628] hover:text-[#faf9f6] hover:shadow-[0_3px_10px_rgba(8,32,20,0.28)] focus-visible:ring-2 focus-visible:ring-[#14432A]/35 sm:min-w-[7rem]'
+                                'inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap ' +
+                                'rounded-full bg-[#0F3D2E] px-6 text-center text-[15px] font-medium leading-none text-white ' +
+                                'no-underline shadow-sm outline-none ring-0 transition ' +
+                                'hover:bg-[#15523D] hover:shadow-md active:bg-[#0F3D2E] active:shadow-none ' +
+                                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F3D2E]/45'
                               }
                             >
                               Create Account
@@ -248,14 +248,15 @@ export default function Hero() {
                             <Link
                               href="/login"
                               className={
-                                'inline-flex h-8 shrink-0 items-center justify-center rounded-full ' +
-                                'border border-[#14432a] bg-white/75 px-3.5 py-1.5 text-center ' +
-                                'font-sans text-[0.8125rem] font-semibold leading-none tracking-wide text-[#14432a] ' +
-                                'no-underline shadow-sm transition hover:-translate-y-px hover:border-[#14432a] ' +
-                                'hover:bg-[#14432a] hover:text-[#faf9f6] hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#14432A]/30 sm:min-w-[7rem]'
+                                'inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap ' +
+                                'rounded-full border border-[#0F3D2E] bg-transparent px-6 text-center text-[15px] ' +
+                                'font-medium leading-none text-[#0F3D2E] no-underline outline-none transition ' +
+                                'hover:bg-[rgba(15,61,46,0.08)] hover:text-[#0F3D2E] hover:shadow-none ' +
+                                'active:bg-transparent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ' +
+                                'focus-visible:outline-[#0F3D2E]/40'
                               }
                             >
-                              Login
+                              Sign In
                             </Link>
                           </motion.div>
                         </motion.div>
