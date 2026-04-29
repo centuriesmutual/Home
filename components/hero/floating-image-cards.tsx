@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
+import { BarChart3, Heart, LockKeyhole, MonitorPlay, Play, Repeat2, Sparkles, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -53,8 +53,9 @@ const CARDS: CardRow[] = [
     delay: 0.2,
     kind: 'chat',
     href: '/private-phone-messaging',
-    place: 'bottom-[9.75rem] right-7 w-[18.75rem]',
-    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[11rem] max-[480px]:w-[calc(100%-2.5rem)] sm:right-10 lg:bottom-40',
+    place:
+      'bottom-[7.75rem] right-4 w-[min(92vw,22rem)] sm:bottom-[8.75rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[9.25rem] lg:right-12 lg:w-[26.75rem]',
+    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[11rem] max-[480px]:w-[calc(100%-2.5rem)]',
   },
   {
     id: 'stream',
@@ -118,20 +119,50 @@ function IllustrationChat({ titleId }: { titleId: string }) {
 
   return (
     <>
-      <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
-        Chat · ZK-sealed threads
-      </p>
+      {/* Fixed vertical rhythm: header + contextual copy occupy constant block height */}
+      <div className="mb-5 border-b border-white/[0.1] pb-4">
+        <div className="mb-2 flex items-start gap-2.5">
+          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#C9A961]/45 bg-[#0a1812]/90 shadow-[0_0_24px_rgba(201,169,97,0.12)]">
+            <LockKeyhole className="h-4 w-4 text-[#C9A961]" strokeWidth={2} aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p id={titleId} className="font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A961]/95">
+              ZK-sealed threads
+            </p>
+            <p className="mt-1.5 h-[2.25rem] font-sans text-[11px] leading-[1.35] text-white/88 line-clamp-2">
+              Session keys stay on your devices. Proofs attest membership and policy—payloads stay encrypted on our edge; this
+              feed is only a public pulse for context.
+            </p>
+          </div>
+          <span className="hidden shrink-0 sm:flex h-7 w-7 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06]">
+            <Sparkles className="h-3.5 w-3.5 text-emerald-200/90" strokeWidth={2} aria-hidden />
+          </span>
+        </div>
+        <p className="h-4 font-sans text-[9px] leading-tight text-white/55 line-clamp-2">
+          Sealed DMs &amp; listing inquiries use the same trust graph—decrypt scope is proven, not trusted on faith.
+        </p>
+      </div>
 
-      <div className="mt-3 rounded-[22px] border border-black/60 bg-[#1c1c1e] p-[5px] shadow-[0_20px_50px_rgba(0,0,0,0.45)] ring-2 ring-black/40" aria-hidden>
-        <div className="overflow-hidden rounded-[18px] bg-black">
-          <div className="bg-black px-2 pb-2 pt-[7px]">
-            <div className="mb-1.5 flex items-center gap-2">
-              <span className="translate-y-[0.5px] text-[15px] font-bold leading-none text-white">𝕏</span>
-              <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.22em] text-white/52">
-                Live feed
+      <div
+        className="relative rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50"
+        aria-hidden
+      >
+        <div
+          className="pointer-events-none absolute -inset-px rounded-[26px] opacity-[0.35] blur-xl"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 169, 97, 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 80% 100%, rgba(16, 185, 129, 0.12), transparent 50%)',
+          }}
+        />
+        <div className="relative overflow-hidden rounded-[20px] bg-black">
+          <div className="bg-[#050807] px-3 pb-3 pt-2.5">
+            <div className="mb-2 flex items-center gap-2">
+              <span className="translate-y-[0.5px] text-[16px] font-bold leading-none text-white">𝕏</span>
+              <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.2em] text-white/48">
+                Public pulse
               </span>
-              <span className="rounded bg-emerald-500/22 px-[5px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-200/92">
-                For you
+              <span className="rounded bg-emerald-500/18 px-[6px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-200/95">
+                Not your DMs
               </span>
               <span className="relative ml-auto flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60 opacity-65" />
@@ -139,7 +170,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               </span>
             </div>
 
-            <div className="relative min-h-[5.25rem] overflow-hidden rounded-[11px] border border-white/[0.08] bg-[#0f1419] px-2 py-2">
+            <div className="relative isolate overflow-hidden rounded-[13px] border border-white/[0.09] bg-[#0a1014] px-3 py-2.5">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={feedIdx}
@@ -147,25 +178,25 @@ function IllustrationChat({ titleId }: { titleId: string }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none"
+                  className="pointer-events-none flex max-h-[158px] min-h-[158px] gap-2.5"
                 >
-                  <div className="flex gap-[7px]">
-                    <span className="mt-px h-[30px] w-[30px] shrink-0 rounded-full bg-gradient-to-br from-[#556171] to-[#2d353f] shadow-inner ring-1 ring-white/[0.12]" />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                        <span className="truncate font-sans text-[13px] font-bold leading-tight text-neutral-50">{post.name}</span>
-                        <span className="font-sans text-[11px] text-neutral-500">{post.handle}</span>
-                      </div>
-                      <span className="mt-px block truncate font-sans text-[10px] text-neutral-600">{post.vein}</span>
-                      <p className="mt-2 line-clamp-2 font-sans text-[12px] leading-[1.4] text-neutral-200">{post.body}</p>
-                      <div className="mt-2 flex items-center gap-4 text-neutral-600">
-                        <span className="inline-flex items-center gap-px">
-                          <Heart className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden />
-                          <span className="text-[9px] tracking-tight">—</span>
-                        </span>
-                        <Repeat2 className="h-3 w-3 shrink-0 opacity-95" aria-hidden />
-                        <BarChart3 className="h-3 w-3 shrink-0 opacity-95" aria-hidden />
-                      </div>
+                  <span className="mt-px h-[34px] w-[34px] shrink-0 rounded-full bg-gradient-to-br from-[#5a6674] to-[#2a323c] shadow-inner ring-1 ring-white/[0.11]" />
+                  <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
+                      <span className="truncate font-sans text-[13px] font-bold leading-tight text-neutral-50">{post.name}</span>
+                      <span className="font-sans text-[11px] text-neutral-500">{post.handle}</span>
+                    </div>
+                    <span className="mt-px block h-3.5 shrink-0 truncate font-sans text-[10px] leading-none text-neutral-600">{post.vein}</span>
+                    <div className="mt-2 h-[4.4375rem] shrink-0 overflow-hidden">
+                      <p className="font-sans text-[12px] leading-[1.38] text-neutral-200 line-clamp-4">{post.body}</p>
+                    </div>
+                    <div className="mt-auto flex shrink-0 items-center gap-4 pb-px pt-2 text-neutral-600">
+                      <span className="inline-flex items-center gap-px">
+                        <Heart className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
+                        <span className="text-[9px] tracking-tight">—</span>
+                      </span>
+                      <Repeat2 className="h-3.5 w-3.5 shrink-0 opacity-95" aria-hidden />
+                      <BarChart3 className="h-3.5 w-3.5 shrink-0 opacity-95" aria-hidden />
                     </div>
                   </div>
                 </motion.div>
@@ -296,7 +327,13 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
 
   if (row.kind === 'chat') {
     return (
-      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
+      <Link
+        href={row.href}
+        className={cn(
+          slabCls,
+          'flex min-h-[31.75rem] flex-col !h-auto items-stretch !p-5 sm:!p-6 lg:pointer-events-auto',
+        )}
+      >
         <IllustrationChat titleId={titleId} />
       </Link>
     )
