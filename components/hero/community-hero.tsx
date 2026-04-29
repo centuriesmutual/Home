@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useCallback, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useCallback, useState } from 'react'
+import { motion } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
@@ -48,37 +48,29 @@ const portalShadow = 'shadow-[0_8px_32px_-8px_rgba(0,0,0,0.25)]'
 export function CommunityHero() {
   const [searchOpen, setSearchOpen] = useState(false)
   const openSearch = useCallback(() => setSearchOpen(true), [])
-  const sectionRef = useRef<HTMLElement | null>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
 
   return (
-    <section
-      ref={sectionRef}
-      className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pb-8 pt-0 lg:pb-12 ${editorial.variable}`}
-    >
+    <section className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pb-8 pt-0 lg:pb-12 ${editorial.variable}`}>
       <CommunitySearchHotkeys onOpen={openSearch} />
 
       <div className="relative z-[1] grid min-h-[94vh] w-full grid-cols-1 gap-0 lg:min-h-[98vh] lg:grid-cols-12 lg:gap-0">
         {/* Columns 1–7: image column */}
         <div className="relative col-span-full min-h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:col-start-1 lg:min-h-[88vh]">
-          <motion.div style={{ y: imageParallax }} className="absolute inset-0 lg:-top-[8%] lg:h-[116%]">
-            <div className="hero-ken-burns-inner relative h-full w-full">
-              <Image
-                src="/buffalo2.png"
-                alt="Centuries Mutual — American bison on the Texas plains"
-                fill
-                priority
-                quality={95}
-                sizes="(max-width: 1023px) 100vw, 62vw"
-                className="h-full w-full object-cover object-[center_35%]"
-              />
-            </div>
-          </motion.div>
+          <div className="absolute inset-0">
+            <Image
+              src="/buffalo2.png"
+              alt="Centuries Mutual — American bison on the Texas plains"
+              fill
+              priority
+              quality={95}
+              sizes="(max-width: 1023px) 100vw, 62vw"
+              className="h-full w-full object-cover object-[center_58%]"
+            />
+          </div>
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,rgb(232_223_214)_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,rgb(232_223_214)_100%)]"
+            aria-hidden
+          />
         </div>
 
         {/* Columns 8–12: editorial tan column */}
