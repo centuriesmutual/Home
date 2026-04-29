@@ -122,27 +122,29 @@ export function CommunityHero() {
 
             <QuickActions className="mb-6" />
 
-            <div
-              id="client-portal"
-              className={`mb-4 rounded-2xl border border-warm-border bg-cream p-6 md:p-7 ${portalShadow} transition`}
-            >
-              {/* Two symmetrical columns: image + label / image + headline, CTAs aligned below */}
-              <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-10 gap-y-8 md:mx-0 md:max-w-none md:grid-cols-2 lg:gap-x-12">
-                {/* Column 1 — portal + imagery */}
-                <div className="flex flex-col gap-4">
-                  <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl border border-[#D8CEC2] bg-[#EFEAE2] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                    <Image
-                      src="/buffalo2.png"
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 92vw, 22vw"
-                      className="object-cover object-[center_38%]"
-                    />
-                  </div>
-                  <div className="text-center md:text-left">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">Client portal</p>
+            <div id="client-portal" className={`mb-4 overflow-hidden rounded-2xl border border-warm-border ${portalShadow} transition`}>
+              {/* Split panels: bg images flush to outer rounded card (edge-to-edge) */}
+              <div className="grid grid-cols-1 divide-y divide-[#c9c5bc]/90 md:grid-cols-2 md:divide-x md:divide-y-0">
+                {/* Column 1 */}
+                <div className="relative min-h-[min(320px,55vw)] md:min-h-[300px]">
+                  <Image
+                    src="/buffalo2.png"
+                    alt=""
+                    fill
+                    priority={false}
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    className="object-cover object-[center_38%]"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/92 to-[#E8DFD6]/35"
+                    aria-hidden
+                  />
+                  <div className="relative z-[1] flex h-full flex-col justify-end p-6 md:p-7 md:pb-8">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66] drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+                      Client portal
+                    </p>
                     <h2
-                      className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
+                      className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E] drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]"
                       style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
                     >
                       Secure member access
@@ -150,20 +152,23 @@ export function CommunityHero() {
                   </div>
                 </div>
 
-                {/* Column 2 — mirror frame + join copy */}
-                <div className="flex flex-col gap-4">
-                  <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl border border-[#D8CEC2] bg-[#EFEAE2] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                    <Image
-                      src="/buffalo2.png"
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 92vw, 22vw"
-                      className="object-cover object-[center_55%] [transform:scaleX(-1)]"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-center text-center md:text-left">
+                {/* Column 2 — mirrored photo */}
+                <div className="relative min-h-[min(320px,55vw)] md:min-h-[300px]">
+                  <Image
+                    src="/buffalo2.png"
+                    alt=""
+                    fill
+                    priority={false}
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    className="object-cover object-[center_55%] [transform:scaleX(-1)]"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/92 to-[#E8DFD6]/35"
+                    aria-hidden
+                  />
+                  <div className="relative z-[1] flex h-full min-h-[8rem] flex-col justify-end p-6 md:p-7 md:pb-8">
                     <p
-                      className="font-serif text-lg font-medium leading-snug text-[#0F3D2E]"
+                      className="font-serif text-lg font-medium leading-snug text-[#0F3D2E] drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]"
                       style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
                     >
                       Sign in or join Centuries Mutual
@@ -172,19 +177,21 @@ export function CommunityHero() {
                 </div>
               </div>
 
-              <div className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-3 border-t border-[#E5E0D5]/70 pt-8 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
-                <Link
-                  href="/signup"
-                  className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
-                >
-                  Create Account
-                </Link>
-                <Link
-                  href="/login"
-                  className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
-                >
-                  Sign In
-                </Link>
+              <div className="border-t border-[#E5E0D5]/80 bg-cream px-6 py-6 md:px-7 md:py-7">
+                <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
+                  <Link
+                    href="/signup"
+                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
+                  >
+                    Create Account
+                  </Link>
+                  <Link
+                    href="/login"
+                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
+                  >
+                    Sign In
+                  </Link>
+                </div>
               </div>
             </div>
 
