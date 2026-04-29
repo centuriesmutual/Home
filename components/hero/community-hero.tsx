@@ -128,7 +128,7 @@ export function CommunityHero() {
                 />
               </div>
               <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-black/40 via-black/12 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
                 aria-hidden
               />
               <div className="relative z-[1] flex min-h-[20rem] flex-col justify-between gap-8 px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
@@ -146,7 +146,7 @@ export function CommunityHero() {
                     Wintergarden
                   </Link>
                 </div>
-                <div className="relative z-[2] -mx-5 mt-auto rounded-t-2xl border-t border-[#E5E0D5]/35 bg-gradient-to-t from-[#FAFCFB]/92 via-[#FAFCFB]/48 to-transparent px-5 pb-6 pt-10 shadow-[0_-8px_32px_rgba(15,61,46,0.06)] backdrop-blur-md md:-mx-8 md:px-8 md:pb-8 md:pt-11">
+                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-8 backdrop-blur-md md:-mx-8 md:px-8 md:py-9">
                   <div className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mx-0 md:max-w-none">
                     <Link
                       href="/login"
@@ -156,7 +156,7 @@ export function CommunityHero() {
                     </Link>
                     <Link
                       href="/signup"
-                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-[#FAFCFB]/75 px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline shadow-md backdrop-blur-sm transition hover:bg-[#FAFCFB]"
+                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white/92 px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline shadow-md transition hover:bg-white"
                     >
                       Create Account
                     </Link>
