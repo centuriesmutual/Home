@@ -31,30 +31,6 @@ const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
     'lg:left-[5.5rem] lg:bottom-[12rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
 }
 
-function ForYouGlyph({ className = '' }: { className?: string }) {
-  return (
-    <svg
-      className={cn('h-3.5 w-3.5 shrink-0 text-[#C9A53E]', className)}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M12 2l1.2 4.2L17 8l-3.8 1.8L12 14l-1.2-4.2L7 8l3.8-1.8L12 2z"
-        fill="currentColor"
-        opacity="0.95"
-      />
-      <path
-        d="M12 10l.8 2.8L16 14l-2.5 1.2L12 18l-.8-2.8L8 14l2.5-1.2L12 10z"
-        fill="currentColor"
-        opacity="0.75"
-      />
-    </svg>
-  )
-}
-
-type CardRow =
   | {
       id: string
       delay: number
@@ -233,32 +209,9 @@ function IllustrationStream({ titleId }: { titleId: string }) {
 
   return (
     <>
-      <div className="mb-3 pb-3">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-white/[0.1] pb-3">
-          <span className="inline-flex shrink-0 items-center gap-1">
-            <ForYouGlyph />
-            <span
-              className="font-sans text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#C9A53E]"
-              style={{ fontFamily: 'var(--font-sans), ui-sans-serif, system-ui, sans-serif' }}
-            >
-              FOR YOU
-            </span>
-          </span>
-          <span className="h-3 w-px shrink-0 bg-white/20" aria-hidden />
-          <p
-            id={titleId}
-            className="min-w-0 shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A961]/95"
-          >
-            Stream
-          </p>
-          <span className="ml-auto shrink-0 rounded-sm bg-[#b91c1c] px-1.5 py-px font-sans text-[8px] font-bold uppercase tracking-wider text-white shadow-sm">
-            Live
-          </span>
-        </div>
-        <p className="mt-3 font-sans text-[9px] leading-tight text-white/62">
-          Member video · moderated live replay
-        </p>
-      </div>
+      <p id={titleId} className="sr-only">
+        Stream preview
+      </p>
 
       <div
         className="overflow-hidden rounded-[14px] border border-white/[0.14] bg-[#0f0f0f] shadow-[0_22px_56px_rgba(0,0,0,0.5)] ring-1 ring-black/55"
@@ -385,7 +338,7 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
   }
 
   return (
-    <Link href={row.href} className={cn(slabCls, 'flex flex-col justify-between !p-5 sm:!p-6 lg:pointer-events-auto')}>
+    <Link href={row.href} className={cn(slabCls, 'flex flex-col !p-5 sm:!p-6 lg:pointer-events-auto')}>
       <IllustrationStream titleId={titleId} />
     </Link>
   )
