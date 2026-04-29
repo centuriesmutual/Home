@@ -12,8 +12,6 @@ const editorial = Fraunces({
   variable: '--font-neighborhood-editorial',
 })
 
-const gold = '#C9A961'
-
 type Props = { query?: string }
 
 export function NeighborhoodLanding({ query }: Props) {
@@ -29,11 +27,8 @@ export function NeighborhoodLanding({ query }: Props) {
         />
         <TopoPattern className="pointer-events-none absolute bottom-8 left-0 h-48 w-[min(100%,400px)] text-[#C9A961] opacity-[0.1] lg:left-[6%]" />
 
-        <div className="relative mx-auto grid min-h-[min(88vh,820px)] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:gap-6 lg:px-10 lg:py-20">
-          <div className="order-2 flex flex-col justify-center lg:order-1 lg:col-span-6 lg:col-start-1">
-            <p className="mb-4 font-sans text-[10px] font-semibold uppercase tracking-[0.28em]" style={{ color: gold }}>
-              Neighborhood
-            </p>
+        <div className="relative mx-auto grid min-h-[min(88vh,820px)] max-w-[1600px] grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-12 lg:px-10 lg:py-20">
+          <div className="flex flex-col justify-center">
             <h1
               className="mb-6 max-w-xl text-3xl font-medium leading-[1.12] tracking-tight text-[#FAFCFB] md:text-4xl lg:text-[2.6rem]"
               style={{ fontFamily: 'var(--font-neighborhood-editorial), Fraunces, Georgia, serif' }}
@@ -55,35 +50,35 @@ export function NeighborhoodLanding({ query }: Props) {
                 Start from the home search bar, or browse corridors as we expand coverage.
               </p>
             )}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-[#FAFCFB]/35 bg-transparent px-6 py-3 font-sans text-xs font-semibold uppercase tracking-wider text-[#FAFCFB] no-underline transition hover:bg-[#FAFCFB]/10"
-              >
-                Back to home search
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-            </div>
           </div>
 
-          <div className="relative order-1 min-h-[260px] overflow-hidden rounded-2xl border border-[#C9A961]/25 shadow-[0_24px_80px_rgba(0,0,0,0.35)] lg:order-2 lg:col-span-5 lg:col-start-8 lg:min-h-[400px]">
-            <Image
-              src="/buffalo2.png"
-              alt=""
-              fill
-              className="object-cover object-[center_35%]"
-              sizes="(max-width: 1023px) 100vw, 45vw"
-              priority
-            />
-            <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgba(15,61,46,0.5)_0%,transparent_50%)]"
-              aria-hidden
-            />
-            <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 backdrop-blur-md">
-              <MapPin className="h-3.5 w-3.5 text-[#C9A961]" aria-hidden />
-              <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FAFCFB]/95">
-                Corridor map · coming inline
-              </span>
+          <div className="flex min-h-0 flex-row items-stretch gap-4 sm:gap-6">
+            <Link
+              href="/"
+              className="inline-flex shrink-0 items-center justify-center gap-2 self-center rounded-full border border-[#FAFCFB]/35 bg-transparent px-4 py-3 font-sans text-[10px] font-semibold uppercase tracking-wider text-[#FAFCFB] no-underline transition hover:bg-[#FAFCFB]/10 sm:px-5 sm:py-3.5"
+            >
+              Back to home search
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+            </Link>
+            <div className="relative min-h-[220px] min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#C9A961]/25 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:min-h-[320px] md:min-h-[400px]">
+              <Image
+                src="/buffalo2.png"
+                alt=""
+                fill
+                className="object-cover object-[center_35%]"
+                sizes="(max-width: 767px) 55vw, 45vw"
+                priority
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgba(15,61,46,0.5)_0%,transparent_50%)]"
+                aria-hidden
+              />
+              <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 backdrop-blur-md sm:left-6 sm:top-6">
+                <MapPin className="h-3.5 w-3.5 text-[#C9A961]" aria-hidden />
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FAFCFB]/95">
+                  Corridor map · coming inline
+                </span>
+              </div>
             </div>
           </div>
         </div>

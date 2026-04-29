@@ -17,7 +17,7 @@ export const GRAIN_BG =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27220%27 height=%27220%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.82%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27220%27 height=%27220%27 filter=%27url(%23n)%27 opacity=%270.52%27/%3E%3C/svg%3E")'
 
 const NAV: { href: string; label: string }[] = [
-  { href: '/search', label: 'Neighborhood' },
+  { href: '/neighborhood', label: 'Neighborhood' },
   { href: '/treasury', label: 'Treasury' },
   { href: '/shop', label: 'Shop' },
 ]
@@ -123,7 +123,7 @@ export function SiteHeader() {
               </nav>
               <Link
                 href="/login"
-                className="ml-auto inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#FAFCFB] px-3 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white xl:ml-0"
+                className="ml-auto inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-md bg-[#FAFCFB] px-4 py-2 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white xl:ml-0"
               >
                 Client Portal
               </Link>

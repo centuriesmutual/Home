@@ -84,7 +84,7 @@ export function CommunitySearchModal({ open, onOpenChange }: Props) {
     push(v)
     console.log('[CommunitySearch]', v)
     onOpenChange(false)
-    router.push(`/search?q=${encodeURIComponent(v)}`)
+    router.push(`/neighborhood?q=${encodeURIComponent(v)}`)
   }
 
   const showSyntheticEmptyHelp = !!(trimmed && filteredHoods.length === 0)

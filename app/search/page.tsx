@@ -1,28 +1,11 @@
-import type { Metadata } from 'next'
-import Footer from '@/components/Footer'
-import { NeighborhoodLanding } from '@/components/neighborhood/neighborhood-landing'
-import { SiteHeader } from '@/components/layout/site-header'
+import { permanentRedirect } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Neighborhood',
-  description: 'Search rooms, neighborhoods, and dates with Centuries Mutual.',
-}
-
-interface SearchPageProps {
+/** Legacy `/search` URLs redirect to `/neighborhood` (same experience, canonical path). */
+export default function SearchRedirectPage({
+  searchParams,
+}: {
   searchParams?: { q?: string }
-}
-
-/** Results surface for omnibar searches — full marketing layout matches home chrome. */
-export default function SearchPage({ searchParams }: SearchPageProps) {
+}) {
   const q = searchParams?.q?.trim()
-
-  return (
-    <>
-      <SiteHeader />
-      <main className="m-0 block bg-transparent p-0">
-        <NeighborhoodLanding query={q} />
-      </main>
-      <Footer />
-    </>
-  )
+  permanentRedirect(q ? `/neighborhood?q=${encodeURIComponent(q)}` : '/neighborhood')
 }

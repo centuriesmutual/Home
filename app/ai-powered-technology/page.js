@@ -48,7 +48,7 @@ export default function AIPoweredTechnology() {
                   <Link href="/contact" className="btn btn-light btn-lg px-5 py-3">
                     Learn More
                   </Link>
-                  <Link href="/search?q=amenities" className="btn btn-outline-light btn-lg px-5 py-3">
+                  <Link href="/neighborhood?q=amenities" className="btn btn-outline-light btn-lg px-5 py-3">
                     Amenities
                   </Link>
                 </div>

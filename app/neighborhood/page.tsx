@@ -12,7 +12,7 @@ interface NeighborhoodPageProps {
   searchParams?: { q?: string }
 }
 
-/** Marketing Neighborhood — same composition as `/search`; canonical corridor story for members. */
+/** Marketing Neighborhood — corridors, listings, and home search context. */
 export default function NeighborhoodPage({ searchParams }: NeighborhoodPageProps) {
   const q = searchParams?.q?.trim()
 

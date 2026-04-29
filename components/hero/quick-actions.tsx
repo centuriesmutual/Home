@@ -5,9 +5,9 @@ import { UsersRound, Home, Newspaper } from 'lucide-react'
 
 /** Copy for hero column only — imported by `CommunityHero`. */
 export const COMMUNITY_HERO_QUICK_ITEMS = [
-  { href: '/search', label: 'Listings', Icon: Home },
+  { href: '/neighborhood', label: 'Listings', Icon: Home },
   { href: '/newspaper', label: 'Newspaper', Icon: Newspaper },
-  { href: '/search?q=roommates', label: 'Roommates', Icon: UsersRound },
+  { href: '/neighborhood?q=roommates', label: 'Roommates', Icon: UsersRound },
 ] as const
 
 export const quickActionDefaults = [...COMMUNITY_HERO_QUICK_ITEMS]

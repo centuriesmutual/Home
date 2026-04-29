@@ -99,7 +99,7 @@ export default function RentalEquity() {
                       </div>
                     </li>
                   </ul>
-                  <Link href="/search" className="btn btn-primary btn-lg px-5 py-3 fw-bold">
+                  <Link href="/neighborhood" className="btn btn-primary btn-lg px-5 py-3 fw-bold">
                     Browse Available Rooms
                   </Link>
                 </motion.div>

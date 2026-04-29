@@ -525,7 +525,7 @@ export function NeighborhoodExpandedBody() {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/search"
+              href="/neighborhood"
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#b8943a] to-[#C9A53E] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-wider text-[#0f3321] no-underline shadow-lg transition hover:brightness-105"
             >
               Browse listings
