@@ -15,14 +15,14 @@ const INTERVAL_MS = 7500
 
 function BrokenVideoFrame({ line }: { line: string }) {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-[#0f0f0f] p-4 sm:p-6">
-      <div className="relative w-full max-w-[520px] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)]">
-        <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-3">
+    <div className="flex h-full w-full items-center justify-center bg-[#0f0f0f] p-3 sm:p-4">
+      <div className="relative w-full max-w-[min(88vw,300px)] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[340px] md:max-w-[360px]">
+        <div className="flex h-7 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-2.5 sm:h-8 sm:px-3">
           <span className="h-2 w-2 rounded-full bg-[#ff5f57]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#febc2e]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#28c840]/90" aria-hidden />
         </div>
-        <div className="relative flex aspect-video flex-col items-center justify-center gap-3 px-6 py-8">
+        <div className="relative flex aspect-video flex-col items-center justify-center gap-2 px-4 py-5 sm:gap-2.5 sm:px-5 sm:py-6">
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.07]"
             style={{
@@ -36,13 +36,13 @@ function BrokenVideoFrame({ line }: { line: string }) {
             }}
             aria-hidden
           />
-          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" className="relative z-[1] text-[#8a8a8a]" aria-hidden>
+          <svg width="56" height="56" viewBox="0 0 72 72" fill="none" className="relative z-[1] h-14 w-14 text-[#8a8a8a] sm:h-[4.25rem] sm:w-[4.25rem]" aria-hidden>
             <rect x="10" y="16" width="52" height="36" rx="4" stroke="currentColor" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
             <path d="M30 28L46 36L30 44V28Z" fill="currentColor" opacity="0.35" />
             <path d="M22 52L50 52" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
             <path d="M26 56L46 48" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
           </svg>
-          <p className="relative z-[1] max-w-[16rem] text-center font-sans text-[12px] font-medium leading-snug text-[#e8e8e8]/88 sm:text-[13px]">
+          <p className="relative z-[1] max-w-[14rem] text-center font-sans text-[11px] font-medium leading-snug text-[#e8e8e8]/88 sm:max-w-[16rem] sm:text-[12px]">
             {line}
           </p>
           <p className="relative z-[1] font-sans text-[10px] uppercase tracking-[0.12em] text-[#8a8a8a]">Error code · player</p>
@@ -89,7 +89,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
   return (
     <div
       className={cn(
-        'group relative min-h-[20rem] overflow-hidden rounded-2xl md:min-h-[24rem]',
+        'group relative min-h-[16rem] overflow-hidden rounded-2xl sm:min-h-[18rem] md:min-h-[20rem]',
         className,
       )}
       role="region"
