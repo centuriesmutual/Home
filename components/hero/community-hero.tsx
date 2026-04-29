@@ -136,10 +136,10 @@ export function CommunityHero() {
               />
               <div className="relative z-[1] flex min-h-[22rem] flex-col px-5 py-3 sm:min-h-[26rem] md:min-h-[30rem] md:px-8 md:py-4">
                 <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-4 backdrop-blur-md md:-mx-8 md:px-8 md:py-5">
-                  <div className="mx-auto w-full max-w-xl md:mx-0 md:max-w-2xl">
-                    <div className="overflow-hidden rounded-xl border border-[#E5E0D5]/90 bg-[#FAFCFB]/95 shadow-[0_6px_28px_rgba(15,61,46,0.12)]">
+                  <div className="mx-auto w-full max-w-xl md:max-w-2xl">
+                    <div className="flex min-h-[14rem] items-center justify-center overflow-hidden rounded-xl border border-[#E5E0D5]/90 bg-[#FAFCFB]/95 p-5 shadow-[0_6px_28px_rgba(15,61,46,0.12)] sm:min-h-[17rem] md:min-h-[19rem]">
                       <HeroEditorialCarousel
-                        className="min-h-[14rem] rounded-none border-0 shadow-none sm:min-h-[17rem] md:min-h-[19rem]"
+                        className="w-[90%] max-w-full min-h-[13rem] shrink-0 rounded-none border-0 shadow-none sm:min-h-[15rem] md:min-h-[17rem]"
                         controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
                       />
                     </div>

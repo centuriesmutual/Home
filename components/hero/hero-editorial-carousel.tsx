@@ -15,8 +15,8 @@ const INTERVAL_MS = 7500
 
 function BrokenVideoFrame({ line }: { line: string }) {
   return (
-    <div className="flex h-full min-h-0 w-full items-center justify-center bg-[#0f0f0f] p-3 sm:p-4">
-      <div className="relative w-full max-w-[min(92vw,480px)] shrink-0 overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[540px] md:max-w-[580px]">
+    <div className="flex h-full min-h-0 w-full items-center justify-center bg-[#0f0f0f]">
+      <div className="relative w-full max-w-none shrink-0 overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)]">
         <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-3 sm:px-4">
           <span className="h-2 w-2 rounded-full bg-[#ff5f57]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#febc2e]/90" aria-hidden />
@@ -103,7 +103,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
   return (
     <div
       className={cn(
-        'group relative min-h-[14rem] overflow-hidden rounded-2xl sm:min-h-[17rem] md:min-h-[19rem]',
+        'group relative w-full min-h-0 overflow-hidden rounded-2xl',
         className,
       )}
       role="region"
