@@ -19,7 +19,7 @@ export const GRAIN_BG =
 const NAV: { href: string; label: string }[] = [
   { href: '/search', label: 'Neighborhood' },
   { href: '/treasury', label: 'Treasury' },
-  { href: '/newspaper', label: 'Journal' },
+  { href: '/shop', label: 'Shop' },
 ]
 
 /** Primary header row height */

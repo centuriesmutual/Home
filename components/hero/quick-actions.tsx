@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { UsersRound, Home, MapPin } from 'lucide-react'
+import { UsersRound, Home, Newspaper } from 'lucide-react'
 
 /** Copy for hero column only — imported by `CommunityHero`. */
 export const COMMUNITY_HERO_QUICK_ITEMS = [
   { href: '/search', label: 'Listings', Icon: Home },
-  { href: '/shop', label: 'Shop', Icon: MapPin },
+  { href: '/newspaper', label: 'Journal', Icon: Newspaper },
   { href: '/search?q=roommates', label: 'Roommates', Icon: UsersRound },
 ] as const
 
@@ -15,7 +15,7 @@ export const quickActionDefaults = [...COMMUNITY_HERO_QUICK_ITEMS]
 type Item = {
   readonly href: string
   readonly label: string
-  readonly Icon: (typeof Home) | typeof MapPin | typeof UsersRound
+  readonly Icon: (typeof Home) | typeof Newspaper | typeof UsersRound
 }
 
 export function QuickActions({
