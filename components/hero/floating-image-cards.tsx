@@ -9,8 +9,9 @@ import { cn } from '@/lib/utils'
 const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
-const glassCls = cn(
-  'block h-full rounded-xl border border-white/22 bg-black/74 p-4 shadow-lg backdrop-blur-md transition hover:bg-black/83 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/38 text-white',
+/** Nearly solid so News headline stays readable on the bison hero */
+const newsGlassCls = cn(
+  'block h-full rounded-xl border border-white/45 bg-[#131816]/96 p-4 shadow-xl shadow-black/55 backdrop-blur-[3px] transition hover:bg-[#151c19]/[0.99] hover:shadow-black/65 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/48 text-white',
   linkReset,
 )
 
@@ -32,17 +33,6 @@ type CardRow =
       headline: string
       sub: string
     }
-  | {
-      id: string
-      delay: number
-      place: string
-      hidden?: string
-      kind: 'glass-article'
-      href: string
-      eyebrow: string
-      headline: string
-      sub: string
-    }
   | { id: string; delay: number; place: string; hidden?: string; kind: 'stream'; href: string }
   | { id: string; delay: number; place: string; hidden?: string; kind: 'chat'; href: string }
 
@@ -57,17 +47,6 @@ const CARDS: CardRow[] = [
     eyebrow: 'News',
     headline: 'Texas co-op housing starts edge up amid rate pause',
     sub: 'Morning wire · Opens in Journal · 3 min read',
-  },
-  {
-    id: 'treasury-digest',
-    delay: 0.07,
-    kind: 'glass-article',
-    place: 'top-[7rem] right-6 w-[13.75rem]',
-    hidden: 'max-md:hidden sm:right-10 lg:top-28 lg:right-12 lg:w-[15rem]',
-    href: '/pay',
-    eyebrow: 'Treasury',
-    headline: 'Neighborhoods you follow first · zero noise in your digest',
-    sub: 'Member digest · Personalized',
   },
   {
     id: 'chat',
@@ -139,10 +118,6 @@ function IllustrationChat({ titleId }: { titleId: string }) {
           </div>
         </div>
       </div>
-
-      <p className="mt-3 font-sans text-[11px] leading-snug text-white">
-        Direct messaging with member-verified envelopes.
-      </p>
     </>
   )
 }
@@ -189,10 +164,6 @@ function IllustrationStream({ titleId }: { titleId: string }) {
           </div>
         </div>
       </div>
-
-      <p className="font-sans text-[11px] leading-snug text-white">
-        Circle broadcasts, town halls & listing walkthroughs · HD & encrypted.
-      </p>
     </>
   )
 }
@@ -203,8 +174,8 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
       <Link
         href={row.href}
         className={cn(
-          glassCls,
-          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-lg hover:shadow-black/35',
+          newsGlassCls,
+          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-xl hover:shadow-black/45',
         )}
       >
         <div className="relative z-[1] pb-px">
@@ -263,18 +234,6 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
             <span className="mt-1 block truncate font-normal text-white/92">{row.headline}</span>
           </p>
         </div>
-      </Link>
-    )
-  }
-
-  if (row.kind === 'glass-article') {
-    return (
-      <Link href={row.href} className={cn(glassCls, 'lg:pointer-events-auto')}>
-        <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white">{row.eyebrow}</p>
-        <h3 id={titleId} className="mt-2 font-serif text-[0.9375rem] font-medium leading-snug text-white">
-          {row.headline}
-        </h3>
-        <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
       </Link>
     )
   }

@@ -78,14 +78,14 @@ export function CommunityHero() {
             </div>
           </motion.div>
           <div
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,#E8DFD6_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,#E8DFD6_100%)]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(250,247,240,0.42)_74%,rgba(250,247,240,0.92)_93%,#FAF7F0_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(250,247,240,0.34)_62%,rgba(250,247,240,0.74)_82%,#FAF7F0_100%)]"
             aria-hidden
           />
           <FloatingImageCards />
         </div>
 
         {/* Columns 8–12: editorial tan column */}
-        <div className="relative col-span-full flex min-h-0 flex-col bg-[#E8DFD6] lg:col-span-5 lg:col-start-8 lg:min-h-[88vh]">
+        <div className="relative col-span-full flex min-h-0 flex-col bg-[#FAF7F0] lg:col-span-5 lg:col-start-8 lg:min-h-[88vh]">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_100%_0%,rgba(201,169,97,0.18)_0%,transparent_50%)]"
@@ -124,7 +124,7 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`mb-4 flex flex-col gap-6 rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] p-6 ${portalShadow} transition`}
+              className={`mb-4 flex flex-col gap-6 rounded-2xl border border-[#E5E0D5] bg-[#E8DFD6] p-6 ${portalShadow} transition`}
             >
               {/* Two-column copy above the CTAs */}
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-10 md:gap-y-4">
@@ -164,7 +164,7 @@ export function CommunityHero() {
               </div>
             </div>
 
-            <div className={`mt-4 overflow-hidden rounded-2xl border border-[#E5E0D5] bg-[#FAF7F0] px-4 py-3 sm:px-5 ${portalShadow}`}>
+            <div className={`mt-4 overflow-hidden rounded-2xl border border-[#E5E0D5] bg-[#E8DFD6] px-4 py-3 sm:px-5 ${portalShadow}`}>
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
