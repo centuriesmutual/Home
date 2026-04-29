@@ -46,12 +46,12 @@ export function TreasuryExpandedBody() {
 
       <section className="border-t border-[#E5E0D5]/80 bg-[#E8DFD6]/55 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <SectionTitle>Your dollar wallet.</SectionTitle>
+          <SectionTitle>Reserve.</SectionTitle>
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div className="space-y-5">
               {[
-                `Every Centuries Mutual member receives a dollar wallet backed one-to-one with the U.S. dollar — redeemable anytime you choose. It behaves like currency you already trust, on rails engineered to finalize in moments instead of chasing batch windows.`,
-                `Fund from your bank account, receive from another member or a landlord counterpart, settle rent or shared bills, withdraw back to banking channels when you decide. The wallet is intentional: balances do not drift with speculative markets — Treasury is shelter, not speculation.`,
+                `Reserve is the prudential backbone of Treasury: assets administered so your balance stays one-to-one with the U.S. dollar — redeemable on the terms you agreed to — without turning your rent plan into exposure to speculative tokens or opaque pools.`,
+                `Fund from your bank, receive from another member or a landlord counterpart, pay rent or shared bills, and withdraw when you choose. Flows post on fast settlement rails, while reserve accounting stays deliberately boring: segregation, clear netting, and balances that do not drift with unrelated markets — shelter and clarity, not speculation.`,
               ].map((para, i) => (
                 <p key={i} className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
                   {para}

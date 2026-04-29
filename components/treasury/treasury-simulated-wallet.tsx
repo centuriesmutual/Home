@@ -56,7 +56,7 @@ export function TreasurySimulatedWallet() {
         <div className="rounded-t-2xl border-b border-[#E5E0D5]/80 bg-[#14432A] px-4 py-3 sm:px-5">
           <div className="flex items-center justify-between gap-3">
             <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-[#FAFCFB]/95">
-              Treasury Wallet
+              Treasury Reserve
             </span>
             <span className="flex items-center gap-1.5 rounded-full bg-[#0f3321] px-2 py-0.5">
               <span className="relative flex h-2 w-2">
@@ -98,7 +98,7 @@ export function TreasurySimulatedWallet() {
           </div>
 
           <div className="mt-8 border-t border-[#E5E0D5] pt-5">
-            <p className="mb-3 font-sans text-[10px] font-semibold uppercase tracking-[0.15em] text-[#14432A]">Recent activity</p>
+            <p className="mb-3 font-sans text-[10px] font-semibold uppercase tracking-[0.15em] text-[#14432A]">Reserve activity</p>
             <ul className="space-y-3">
               {activity.map((row) => {
                 const RowIcon = row.icon
@@ -124,7 +124,7 @@ export function TreasurySimulatedWallet() {
           </div>
 
           <div className="mt-6 flex items-center justify-between gap-2 border-t border-[#E5E0D5]/80 pt-4">
-            <span className="font-sans text-[0.75rem] text-[#6B6B66]">Wallet address</span>
+            <span className="font-sans text-[0.75rem] text-[#6B6B66]">Reserve reference</span>
             <div className="flex min-w-0 items-center gap-2 font-mono text-[11px] text-[#3d4a41]">
               <span className="truncate">{walletAddr}</span>
               <button
