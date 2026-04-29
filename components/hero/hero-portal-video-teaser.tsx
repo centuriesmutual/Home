@@ -9,10 +9,7 @@ const PREVIEW_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-vide
 
 type Props = { className?: string; title?: string }
 
-export function HeroPortalVideoTeaser({
-  className,
-  title = 'Welcome home to your corridor',
-}: Props) {
+export function HeroPortalVideoTeaser({ className, title }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
@@ -105,9 +102,11 @@ export function HeroPortalVideoTeaser({
         </div>
         <div className="flex h-7 items-center justify-center border-t border-white/[0.07] bg-[#1c1c1c] px-3" aria-hidden />
       </div>
-      <p className="mt-3 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-[#0F3D2E] sm:text-xs">
-        {title}
-      </p>
+      {title ? (
+        <p className="mt-3 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-[#0F3D2E] sm:text-xs">
+          {title}
+        </p>
+      ) : null}
     </div>
   )
 }
