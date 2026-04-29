@@ -117,17 +117,17 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50 sm:mb-4"
               aria-hidden
             >
-              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
-                <span className="flex gap-[6px]" aria-hidden>
+              <div className="flex items-center justify-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
+                <span className="flex shrink-0 gap-[6px]" aria-hidden>
                   <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
                   <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
                   <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
                 </span>
                 <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
-                <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
+                <span className="min-w-0 truncate text-center font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
                   youtu.be · Centuries Mutual
                 </span>
-                <Users className="h-3 w-3 shrink-0 text-white/75" />
+                <Users className="h-3 w-3 shrink-0 text-white/75" aria-hidden />
               </div>
               <div className="relative w-full pt-[54%] sm:pt-[50%]">
                 <div className="absolute inset-0 bg-[#050505]" />
@@ -160,7 +160,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               </AnimatePresence>
             </div>
 
-            <div className="mb-2 flex items-center gap-2 opacity-80">
+            <div className="mb-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 px-1 text-center opacity-80">
               <span className="translate-y-[0.5px] text-[14px] font-semibold leading-none text-white/45">𝕏</span>
               <span className="translate-y-[0.5px] font-sans text-[7px] font-medium uppercase tracking-[0.18em] text-white/30">
                 Public pulse
@@ -168,13 +168,13 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[5px] py-px font-sans text-[6.5px] font-semibold uppercase tracking-wide text-emerald-200/65">
                 Not your DMs
               </span>
-              <span className="relative ml-auto hidden h-1.5 w-1.5 sm:inline-flex">
+              <span className="relative hidden h-1.5 w-1.5 sm:inline-flex">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/25" aria-hidden />
                 <span className="relative m-auto inline-flex h-[3px] w-[3px] rounded-full bg-emerald-400/80" aria-hidden />
               </span>
             </div>
 
-            <div className="relative isolate overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 backdrop-blur-[2px] sm:px-3 sm:py-2.5">
+            <div className="relative isolate overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 text-center backdrop-blur-[2px] sm:px-3 sm:py-2.5">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={feedIdx}
@@ -182,19 +182,19 @@ function IllustrationChat({ titleId }: { titleId: string }) {
                   animate={{ opacity: 0.88, y: 0 }}
                   exit={{ opacity: 0, y: -3 }}
                   transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none flex gap-2"
+                  className="pointer-events-none flex flex-col items-center gap-2"
                 >
-                  <span className="mt-px h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
-                  <div className="flex min-h-0 min-w-0 flex-1 flex-col">
-                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                      <span className="truncate font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
+                  <span className="h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
+                  <div className="flex min-h-0 w-full min-w-0 flex-col items-center">
+                    <div className="flex min-w-0 flex-wrap items-baseline justify-center gap-x-1 gap-y-0.5">
+                      <span className="font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
                       <span className="font-sans text-[10px] text-neutral-600">{post.handle}</span>
                     </div>
-                    <span className="mt-px block h-3 shrink-0 truncate font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
-                    <div className="mt-1.5 overflow-hidden">
-                      <p className="line-clamp-3 font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
+                    <span className="mt-px block min-h-[0.75rem] font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
+                    <div className="mt-1.5 w-full overflow-hidden">
+                      <p className="line-clamp-3 text-center font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
                     </div>
-                    <div className="mt-2 flex shrink-0 items-center gap-3 text-neutral-700/95">
+                    <div className="mt-2 flex shrink-0 items-center justify-center gap-3 text-neutral-700/95">
                       <span className="inline-flex items-center gap-px opacity-85">
                         <Heart className="h-3 w-3 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
                         <span className="text-[8px] tracking-tight">—</span>
@@ -246,7 +246,8 @@ export function FloatingImageCards({ className = '' }: { className?: string }) {
     <div
       className={cn(
         'pointer-events-none fixed z-[90] flex w-[min(calc(100vw-2rem),28rem)] max-w-[28rem] flex-col',
-        'left-[max(1rem,calc((100vw_-_min(1600px,_100vw))*0.5+1rem))]',
+        /* Center in band: full screen on mobile; midline of first 7/12 cols on lg+ (image column) */
+        'left-1/2 -translate-x-1/2 lg:left-[calc(100vw*7/24)] lg:-translate-x-1/2',
         '[&_a]:pointer-events-auto',
         className,
       )}
