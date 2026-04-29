@@ -126,7 +126,7 @@ export function CommunityHero() {
               {/* Split panels: bg images flush to outer rounded card (edge-to-edge) */}
               <div className="grid grid-cols-1 divide-y divide-[#c9c5bc]/90 md:grid-cols-2 md:divide-x md:divide-y-0">
                 {/* Column 1 */}
-                <div className="relative min-h-[min(320px,55vw)] md:min-h-[300px]">
+                <div className="relative min-h-[min(400px,62vw)] md:min-h-[360px]">
                   <Image
                     src="/buffalo2.png"
                     alt=""
@@ -136,10 +136,10 @@ export function CommunityHero() {
                     className="object-cover object-[center_38%]"
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/92 to-[#E8DFD6]/35"
+                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/95 to-[#E8DFD6]/35"
                     aria-hidden
                   />
-                  <div className="relative z-[1] flex h-full flex-col justify-end p-6 md:p-7 md:pb-8">
+                  <div className="relative z-[1] flex h-full flex-col justify-end px-6 pb-10 pt-10 md:px-7 md:pb-12 md:pt-12 lg:pb-14">
                     <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66] drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
                       Client portal
                     </p>
@@ -153,7 +153,7 @@ export function CommunityHero() {
                 </div>
 
                 {/* Column 2 — mirrored photo */}
-                <div className="relative min-h-[min(320px,55vw)] md:min-h-[300px]">
+                <div className="relative min-h-[min(400px,62vw)] md:min-h-[360px]">
                   <Image
                     src="/buffalo2.png"
                     alt=""
@@ -163,10 +163,10 @@ export function CommunityHero() {
                     className="object-cover object-[center_55%] [transform:scaleX(-1)]"
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/92 to-[#E8DFD6]/35"
+                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/95 to-[#E8DFD6]/35"
                     aria-hidden
                   />
-                  <div className="relative z-[1] flex h-full min-h-[8rem] flex-col justify-end p-6 md:p-7 md:pb-8">
+                  <div className="relative z-[1] flex h-full min-h-[10rem] flex-col justify-end px-6 pb-10 pt-10 md:px-7 md:pb-12 md:pt-12 lg:pb-14">
                     <p
                       className="font-serif text-lg font-medium leading-snug text-[#0F3D2E] drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]"
                       style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
@@ -177,7 +177,7 @@ export function CommunityHero() {
                 </div>
               </div>
 
-              <div className="border-t border-[#E5E0D5]/80 bg-cream px-6 py-6 md:px-7 md:py-7">
+              <div className="border-t border-[#E5E0D5]/80 bg-cream px-6 pb-7 pt-9 md:px-8 md:pb-8 md:pt-11">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                   <Link
                     href="/signup"
