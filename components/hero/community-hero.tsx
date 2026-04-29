@@ -128,19 +128,19 @@ export function CommunityHero() {
                   className="object-cover object-top"
                 />
                 <div
-                  className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#FAFCFB] via-[#FAFCFB]/80 to-transparent sm:h-[32%]"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#FAFCFB] via-[#FAFCFB]/92 via-45% to-transparent sm:h-[40%]"
                   aria-hidden
                 />
                 <div className="absolute inset-x-0 bottom-0 flex justify-between gap-3 px-4 pb-4 pt-8 md:px-8 md:pb-5">
                   <Link
                     href="/my-brothers-keeper"
-                    className="inline-flex h-9 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB]/95 px-4 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-[#0F3D2E] no-underline shadow-[0_3px_12px_rgba(15,61,46,0.16)] transition hover:bg-[#FAFCFB]"
+                    className="inline-flex h-7 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB] px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#0F3D2E] no-underline shadow-[0_2px_8px_rgba(15,61,46,0.14)] transition hover:bg-[#FAFCFB]"
                   >
                     My Brothers Keeper
                   </Link>
                   <Link
                     href="/wintergarden"
-                    className="inline-flex h-9 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB]/95 px-4 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-[#0F3D2E] no-underline shadow-[0_3px_12px_rgba(15,61,46,0.16)] transition hover:bg-[#FAFCFB]"
+                    className="inline-flex h-7 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB] px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#0F3D2E] no-underline shadow-[0_2px_8px_rgba(15,61,46,0.14)] transition hover:bg-[#FAFCFB]"
                   >
                     Wintergarden
                   </Link>
