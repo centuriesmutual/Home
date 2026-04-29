@@ -124,40 +124,64 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`mb-4 flex flex-col gap-6 rounded-2xl border border-warm-border bg-cream p-6 ${portalShadow} transition`}
+              className={`mb-4 rounded-2xl border border-warm-border bg-cream p-6 md:p-7 ${portalShadow} transition`}
             >
-              {/* Two-column copy above the CTAs */}
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-10 md:gap-y-4">
-                <div className="min-w-0 border-b border-[#E5E0D5]/70 pb-4 md:border-b-0 md:border-r md:border-[#E5E0D5]/70 md:pb-0 md:pr-8">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
-                    Client portal
-                  </p>
-                  <h2
-                    className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
-                    style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
-                  >
-                    Secure member access
-                  </h2>
+              {/* Two symmetrical columns: image + label / image + headline, CTAs aligned below */}
+              <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-10 gap-y-8 md:mx-0 md:max-w-none md:grid-cols-2 lg:gap-x-12">
+                {/* Column 1 — portal + imagery */}
+                <div className="flex flex-col gap-4">
+                  <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl border border-[#D8CEC2] bg-[#EFEAE2] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                    <Image
+                      src="/buffalo2.png"
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 92vw, 22vw"
+                      className="object-cover object-[center_38%]"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">Client portal</p>
+                    <h2
+                      className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E]"
+                      style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
+                    >
+                      Secure member access
+                    </h2>
+                  </div>
                 </div>
-                <div className="min-w-0 flex items-center md:border-0 md:pl-0">
-                  <p
-                    className="font-serif text-lg font-medium leading-snug text-[#0F3D2E]"
-                    style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
-                  >
-                    Sign in or join Centuries Mutual
-                  </p>
+
+                {/* Column 2 — mirror frame + join copy */}
+                <div className="flex flex-col gap-4">
+                  <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl border border-[#D8CEC2] bg-[#EFEAE2] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                    <Image
+                      src="/buffalo2.png"
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 92vw, 22vw"
+                      className="object-cover object-[center_55%] [transform:scaleX(-1)]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-center text-center md:text-left">
+                    <p
+                      className="font-serif text-lg font-medium leading-snug text-[#0F3D2E]"
+                      style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
+                    >
+                      Sign in or join Centuries Mutual
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-3 border-t border-[#E5E0D5]/70 pt-4">
+
+              <div className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-3 border-t border-[#E5E0D5]/70 pt-8 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                 <Link
                   href="/signup"
-                  className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
+                  className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
                 >
                   Create Account
                 </Link>
                 <Link
                   href="/login"
-                  className="inline-flex h-10 shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
+                  className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
                 >
                   Sign In
                 </Link>

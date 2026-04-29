@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { BarChart3, Heart, LockKeyhole, MonitorPlay, Play, Repeat2, Sparkles, Users } from 'lucide-react'
+import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -131,30 +131,6 @@ function IllustrationChat({ titleId }: { titleId: string }) {
 
   return (
     <>
-      {/* Fixed vertical rhythm: header + contextual copy occupy constant block height */}
-      <div className="mb-5 border-b border-white/[0.1] pb-4">
-        <div className="mb-2 flex items-start gap-2.5">
-          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#C9A961]/45 bg-[#0a1812]/90 shadow-[0_0_24px_rgba(201,169,97,0.12)]">
-            <LockKeyhole className="h-4 w-4 text-[#C9A961]" strokeWidth={2} aria-hidden />
-          </span>
-          <div className="min-w-0 flex-1">
-            <p id={titleId} className="font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A961]/95">
-              ZK-sealed threads
-            </p>
-            <p className="mt-1.5 h-[2.25rem] font-sans text-[11px] leading-[1.35] text-white/88 line-clamp-2">
-              Session keys stay on your devices. Proofs attest membership and policy—payloads stay encrypted on our edge; this
-              feed is only a public pulse for context.
-            </p>
-          </div>
-          <span className="hidden shrink-0 sm:flex h-7 w-7 items-center justify-center rounded-lg border border-white/12 bg-white/[0.06]">
-            <Sparkles className="h-3.5 w-3.5 text-emerald-200/90" strokeWidth={2} aria-hidden />
-          </span>
-        </div>
-        <p className="h-4 font-sans text-[9px] leading-tight text-white/55 line-clamp-2">
-          Sealed DMs &amp; listing inquiries use the same trust graph—decrypt scope is proven, not trusted on faith.
-        </p>
-      </div>
-
       <div
         className="relative rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50"
         aria-hidden
@@ -168,6 +144,9 @@ function IllustrationChat({ titleId }: { titleId: string }) {
         />
         <div className="relative overflow-hidden rounded-[20px] bg-black">
           <div className="bg-[#050807] px-3 pb-3 pt-2.5">
+            <p id={titleId} className="sr-only">
+              ZK-sealed threads · public pulse preview
+            </p>
             <div className="mb-2 flex items-center gap-2">
               <span className="translate-y-[0.5px] text-[16px] font-bold leading-none text-white">𝕏</span>
               <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.2em] text-white/48">
@@ -369,7 +348,7 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
         href={row.href}
         className={cn(
           slabCls,
-          'flex min-h-[31.75rem] flex-col !h-auto items-stretch !p-5 sm:!p-6 lg:pointer-events-auto',
+          'flex min-h-[24.5rem] flex-col !h-auto items-stretch !p-5 sm:min-h-[25rem] sm:!p-6 lg:pointer-events-auto',
         )}
       >
         <IllustrationChat titleId={titleId} />
