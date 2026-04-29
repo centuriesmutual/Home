@@ -10,57 +10,28 @@ import { cn } from '@/lib/utils'
 const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
-const newsGlassCls = cn(
-  'block h-full rounded-xl border border-white/28 bg-black/80 p-4 shadow-xl shadow-black/35 ring-1 ring-white/12 backdrop-blur-md backdrop-saturate-150 transition hover:bg-black/[0.86] hover:border-white/38 hover:shadow-black/50 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#C9A961]/55 text-white',
-  linkReset,
-)
-
 const slabCls = cn(
   'block h-auto rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
   linkReset,
 )
 
-type Kind = 'news' | 'chat'
+type CardRow = { id: string; delay: number; kind: 'chat'; href: string }
 
-/** Desktop (lg+) — rem-based; cards sit well inside the hero column (not hugging edges). */
-const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
-  news: 'lg:left-[5rem] lg:top-[6.5rem] lg:w-[14rem]',
-  chat:
-    'lg:right-[7rem] lg:top-[calc(50%-17.75rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
-}
-
-type CardRow =
-  | {
-      id: string
-      delay: number
-      kind: 'news'
-      href: string
-      eyebrow: string
-      headline: string
-      sub: string
-    }
-  | { id: string; delay: number; kind: 'chat'; href: string }
+/** Desktop (lg+) — sole floating card positioning */
+const ARTICLE_CHAT_DESKTOP =
+  'lg:right-[7rem] lg:top-[calc(50%-14rem)] lg:w-[min(calc(100%-1.5rem),28rem)] lg:max-w-[28rem] lg:-translate-y-1/2'
 
 const CARDS: CardRow[] = [
   {
-    id: 'news',
-    delay: 0,
-    kind: 'news',
-    href: '/newspaper',
-    eyebrow: 'News',
-    headline: 'Texas co-op housing starts edge up amid rate pause',
-    sub: 'Morning wire · Opens in Journal · 3 min read',
-  },
-  {
     id: 'chat',
-    delay: 0.2,
+    delay: 0.15,
     kind: 'chat',
     href: '/private-phone-messaging',
   },
 ]
 
-/** Elevate overlapping cards — news under combined pulse card. */
-const CARD_Z = { news: 24, chat: 46 } as const
+/** Single card z-index */
+const CHAT_Z = 40 as const
 
 const X_FEED_ROTATE_MS = 10000
 
@@ -139,35 +110,35 @@ function IllustrationChat({ titleId }: { titleId: string }) {
           }}
         />
         <div className="relative overflow-hidden rounded-[20px] bg-black">
-          <div className="bg-[#050807] px-3 pb-6 pt-2.5">
+          <div className="bg-[#050807] px-3 pb-5 pt-2.5 sm:px-4">
             <p id={titleId} className="sr-only">
               Public pulse: member video preview and live X timeline (not your DMs).
             </p>
 
-            {/* YouTube-style preview — stacked above 𝕏 feed */}
+            {/* YouTube-style preview — taller window above muted 𝕏 feed */}
             <div
-              className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50"
+              className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50 sm:mb-4"
               aria-hidden
             >
-              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-2.5 py-1.5">
-                <span className="flex gap-[5px]" aria-hidden>
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5f56]" />
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#febc2e]" />
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28c840]" />
+              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
+                <span className="flex gap-[6px]" aria-hidden>
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
                 </span>
-                <MonitorPlay className="h-2.5 w-2.5 shrink-0 text-white/72" aria-hidden />
-                <span className="min-w-0 flex-1 truncate font-sans text-[7px] font-medium uppercase tracking-[0.14em] text-white/92">
+                <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
+                <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
                   youtu.be · Centuries Mutual
                 </span>
-                <Users className="h-2.5 w-2.5 shrink-0 text-white/75" />
+                <Users className="h-3 w-3 shrink-0 text-white/75" />
               </div>
-              <div className="relative w-full pt-[42%] sm:pt-[38%]">
+              <div className="relative w-full pt-[54%] sm:pt-[50%]">
                 <div className="absolute inset-0 bg-[#050505]" />
                 <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_6px_24px_rgba(0,0,0,0.45)] ring-2 ring-black/65 sm:h-[3rem] sm:w-[3rem]">
+                  <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-2 ring-black/65 sm:h-[4rem] sm:w-[4rem]">
                     <Play
-                      className="relative left-[2px] h-8 w-8 shrink-0 text-[#050505] sm:h-10 sm:w-10"
+                      className="relative left-[2px] h-10 w-10 shrink-0 text-[#050505] sm:h-12 sm:w-12"
                       fill="currentColor"
                       strokeWidth={0}
                       aria-hidden
@@ -177,7 +148,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               </div>
             </div>
 
-            <div className="mb-3 flex min-h-[2.5rem] items-start justify-center">
+            <div className="mb-3 flex min-h-[2.25rem] items-start justify-center sm:mb-4">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.p
                   key={captionIdx}
@@ -192,47 +163,47 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               </AnimatePresence>
             </div>
 
-            <div className="mb-2 flex items-center gap-2">
-              <span className="translate-y-[0.5px] text-[16px] font-bold leading-none text-white">𝕏</span>
-              <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.2em] text-white/48">
+            <div className="mb-2 flex items-center gap-2 opacity-80">
+              <span className="translate-y-[0.5px] text-[14px] font-semibold leading-none text-white/45">𝕏</span>
+              <span className="translate-y-[0.5px] font-sans text-[7px] font-medium uppercase tracking-[0.18em] text-white/30">
                 Public pulse
               </span>
-              <span className="rounded bg-emerald-500/18 px-[6px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-200/95">
+              <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[5px] py-px font-sans text-[6.5px] font-semibold uppercase tracking-wide text-emerald-200/65">
                 Not your DMs
               </span>
-              <span className="relative ml-auto flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60 opacity-65" />
-                <span className="relative m-auto inline-flex h-[5px] w-[5px] rounded-full bg-emerald-400" />
+              <span className="relative ml-auto hidden h-1.5 w-1.5 sm:inline-flex">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/25" aria-hidden />
+                <span className="relative m-auto inline-flex h-[3px] w-[3px] rounded-full bg-emerald-400/80" aria-hidden />
               </span>
             </div>
 
-            <div className="relative isolate overflow-hidden rounded-[13px] border border-white/[0.09] bg-[#0a1014] px-3 py-2.5">
+            <div className="relative isolate overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 backdrop-blur-[2px] sm:px-3 sm:py-2.5">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={feedIdx}
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none flex gap-2.5"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 0.88, y: 0 }}
+                  exit={{ opacity: 0, y: -3 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="pointer-events-none flex gap-2"
                 >
-                  <span className="mt-px h-[34px] w-[34px] shrink-0 rounded-full bg-gradient-to-br from-[#5a6674] to-[#2a323c] shadow-inner ring-1 ring-white/[0.11]" />
+                  <span className="mt-px h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
                   <div className="flex min-h-0 min-w-0 flex-1 flex-col">
                     <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                      <span className="truncate font-sans text-[13px] font-bold leading-tight text-neutral-50">{post.name}</span>
-                      <span className="font-sans text-[11px] text-neutral-500">{post.handle}</span>
+                      <span className="truncate font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
+                      <span className="font-sans text-[10px] text-neutral-600">{post.handle}</span>
                     </div>
-                    <span className="mt-px block h-3.5 shrink-0 truncate font-sans text-[10px] leading-none text-neutral-600">{post.vein}</span>
-                    <div className="mt-2 overflow-hidden">
-                      <p className="line-clamp-4 font-sans text-[12px] leading-[1.38] text-neutral-200">{post.body}</p>
+                    <span className="mt-px block h-3 shrink-0 truncate font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
+                    <div className="mt-1.5 overflow-hidden">
+                      <p className="line-clamp-3 font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
                     </div>
-                    <div className="mt-3 flex shrink-0 items-center gap-4 text-neutral-600">
-                      <span className="inline-flex items-center gap-px">
-                        <Heart className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
-                        <span className="text-[9px] tracking-tight">—</span>
+                    <div className="mt-2 flex shrink-0 items-center gap-3 text-neutral-700/95">
+                      <span className="inline-flex items-center gap-px opacity-85">
+                        <Heart className="h-3 w-3 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
+                        <span className="text-[8px] tracking-tight">—</span>
                       </span>
-                      <Repeat2 className="h-3.5 w-3.5 shrink-0 opacity-95" aria-hidden />
-                      <BarChart3 className="h-3.5 w-3.5 shrink-0 opacity-95" aria-hidden />
+                      <Repeat2 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
+                      <BarChart3 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
                     </div>
                   </div>
                 </motion.div>
@@ -246,83 +217,11 @@ function IllustrationChat({ titleId }: { titleId: string }) {
 }
 
 function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
-  if (row.kind === 'news') {
-    return (
-      <Link
-        href={row.href}
-        className={cn(
-          newsGlassCls,
-          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-2xl hover:shadow-black/60',
-        )}
-      >
-        <div className="relative z-[1] pb-px">
-          <div className="mb-2 flex items-center gap-2">
-            <span className="h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden />
-            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white">{row.eyebrow}</span>
-          </div>
-          <h3 id={titleId} className="font-serif text-[0.9375rem] font-medium leading-snug text-white">
-            {row.headline}
-          </h3>
-          <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
-        </div>
-
-        <div
-          className="pointer-events-none absolute inset-0 z-[2] flex flex-col justify-end rounded-xl bg-black/0 p-3 opacity-0 transition-all duration-300 ease-out backdrop-blur-0 group-hover/card-news:bg-black/82 group-hover/card-news:opacity-100 group-hover/card-news:backdrop-blur-sm group-focus-within/card-news:bg-black/82 group-focus-within/card-news:opacity-100 group-focus-within/card-news:backdrop-blur-sm motion-reduce:transition-none motion-reduce:group-hover/card-news:bg-black/92"
-          aria-hidden
-        >
-          <div
-            data-news-video-slot
-            className="relative w-full overflow-hidden rounded-lg bg-[#0f0f0f] pt-1 shadow-[0_14px_40px_rgba(0,0,0,0.55)] ring-1 ring-white/12"
-          >
-            <div className="flex items-center justify-between gap-1 border-b border-white/10 bg-[#272727] px-2 py-[5px]">
-              <span className="truncate font-sans text-[9px] font-semibold uppercase tracking-[0.12em] text-white/92">
-                Centuries Mutual · Briefing
-              </span>
-              <span className="shrink-0 rounded bg-black/65 px-[4px] py-px font-sans text-[7px] font-bold uppercase tracking-wider text-emerald-200/92">
-                CC
-              </span>
-            </div>
-            <div className="relative aspect-video w-full bg-black">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(201,169,97,0.18),transparent_52%),linear-gradient(to_bottom,#1a261f,#050807)]" />
-              <div className="absolute inset-0 opacity-[0.085] bg-[repeating-linear-gradient(180deg,#fff,#fff_1px,transparent_1px_10px)]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-white/30 bg-black/62 text-white shadow-[0_8px_32px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-transform duration-300 motion-safe:group-hover/card-news:scale-105 motion-reduce:group-hover/card-news:scale-100">
-                  <Play className="relative left-[2px] h-7 w-7 shrink-0" fill="currentColor" strokeWidth={0} aria-hidden />
-                </span>
-              </div>
-              <div className="pointer-events-none absolute bottom-1.5 left-2 right-2">
-                <div className="mb-1 flex items-center gap-2">
-                  <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-white/22">
-                    <div className="h-full w-[31%] rounded-full bg-[#ff0000] shadow-[0_0_12px_rgba(255,0,0,0.65)] motion-safe:group-hover/card-news:w-[54%] motion-safe:transition-all motion-safe:duration-[1.75s] motion-safe:ease-out" />
-                  </div>
-                  <span className="font-mono text-[8px] tracking-tight text-white/88">4:52</span>
-                </div>
-                <div className="flex items-center gap-3 opacity-95">
-                  <span className="h-5 w-[3.75rem] rounded-sm bg-black/72 ring-1 ring-white/14" aria-hidden />
-                  <span className="text-[9px] text-white/80">/</span>
-                  <span className="h-5 flex-1 rounded-sm bg-black/72 ring-1 ring-white/12" aria-hidden />
-                </div>
-              </div>
-            </div>
-          </div>
-          <p className="mt-2 px-1 text-center font-sans text-[10px] font-semibold leading-tight text-white">
-            Hover · preview playback
-            <span className="mt-1 block truncate font-normal text-white/92">{row.headline}</span>
-          </p>
-        </div>
-      </Link>
-    )
-  }
-
-  if (row.kind === 'chat') {
-    return (
-      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
-        <IllustrationChat titleId={titleId} />
-      </Link>
-    )
-  }
-
-  return null
+  return (
+    <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
+      <IllustrationChat titleId={titleId} />
+    </Link>
+  )
 }
 
 function FloaterArticle({ row }: { row: CardRow }) {
@@ -337,9 +236,9 @@ function FloaterArticle({ row }: { row: CardRow }) {
       className={cn(
         'relative z-10 mx-auto w-full max-w-md',
         'lg:absolute lg:mx-0',
-        ARTICLE_DESKTOP_POS[row.kind],
+        ARTICLE_CHAT_DESKTOP,
       )}
-      style={{ zIndex: CARD_Z[row.id as keyof typeof CARD_Z] }}
+      style={{ zIndex: CHAT_Z }}
       aria-labelledby={titleId}
     >
       <FloatingInner row={row} titleId={titleId} />
