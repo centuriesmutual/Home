@@ -140,15 +140,6 @@ export function CommunityHero() {
                     <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
                       Client portal
                     </p>
-                    <h2
-                      className="mt-2 font-serif text-[1.1rem] font-medium leading-snug text-[#14432A]"
-                      style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
-                    >
-                      Secure member access
-                    </h2>
-                    <p className="mt-2 font-sans text-[0.875rem] leading-relaxed text-[#6B6B66]" style={{ fontFamily: 'var(--font-sans), Inter, sans-serif' }}>
-                      Sign in to manage listings, messages, and documents.
-                    </p>
                   </div>
                 </div>
 
@@ -166,15 +157,6 @@ export function CommunityHero() {
                   <div className="rounded-b-2xl bg-[#FAFCFB] p-4">
                     <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
                       Membership
-                    </p>
-                    <h2
-                      className="mt-2 font-serif text-[1.1rem] font-medium leading-snug text-[#14432A]"
-                      style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
-                    >
-                      Sign in or join Centuries Mutual
-                    </h2>
-                    <p className="mt-2 font-sans text-[0.875rem] leading-relaxed text-[#6B6B66]" style={{ fontFamily: 'var(--font-sans), Inter, sans-serif' }}>
-                      New members get guided onboarding · returning members resume where they left off.
                     </p>
                   </div>
                 </div>
