@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
-import { FloatingImageCards } from '@/components/hero/floating-image-cards'
 import { QuickActions, COMMUNITY_HERO_QUICK_ITEMS } from '@/components/hero/quick-actions'
 import { fadeUp } from '@/lib/animations'
 import { GRAIN_BG } from '@/components/layout/site-header'
@@ -62,7 +61,7 @@ export function CommunityHero() {
       <CommunitySearchHotkeys onOpen={openSearch} />
 
       <div className="relative z-[1] grid min-h-[88vh] w-full grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-0">
-        {/* Columns 1–7: image column only — pulse card centered in this column (scrolls with hero, not viewport-fixed) */}
+        {/* Columns 1–7: image column */}
         <div className="relative col-span-full min-h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:col-start-1 lg:min-h-[88vh]">
           <motion.div style={{ y: imageParallax }} className="absolute inset-0 lg:-top-[8%] lg:h-[116%]">
             <div className="hero-ken-burns-inner relative h-full w-full">
@@ -81,9 +80,6 @@ export function CommunityHero() {
             className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,rgb(232_223_214)_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,rgb(232_223_214)_100%)]"
             aria-hidden
           />
-          <div className="pointer-events-none absolute inset-0 z-[6] flex items-center justify-center px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-            <FloatingImageCards />
-          </div>
         </div>
 
         {/* Columns 8–12: editorial tan column */}
