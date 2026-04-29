@@ -1,21 +1,56 @@
 'use client'
 
-import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const SLIDES = [
-  {
-    src: '/buffalo2.png',
-    alt: 'American bison on the Texas plains — Centuries Mutual',
-  },
-  { src: '/deer.jpeg', alt: 'Wildlife on the range' },
-  { src: '/Bison.jpeg', alt: 'Bison in open landscape' },
-  { src: '/mountians.jpeg', alt: 'Mountain horizon' },
+  { id: '1', alt: 'Broken video placeholder — playback unavailable', line: 'This video is no longer available.' },
+  { id: '2', alt: 'Broken video placeholder — playback error', line: 'An error occurred. Playback stopped.' },
+  { id: '3', alt: 'Broken video placeholder — connection issue', line: 'Check your connection and try again.' },
+  { id: '4', alt: 'Broken video placeholder — content unavailable', line: 'This content cannot be played here.' },
 ] as const
 
 const INTERVAL_MS = 7500
+
+function BrokenVideoFrame({ line }: { line: string }) {
+  return (
+    <div className="flex h-full w-full items-center justify-center bg-[#0f0f0f] p-4 sm:p-6">
+      <div className="relative w-full max-w-[520px] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)]">
+        <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-3">
+          <span className="h-2 w-2 rounded-full bg-[#ff5f57]/90" aria-hidden />
+          <span className="h-2 w-2 rounded-full bg-[#febc2e]/90" aria-hidden />
+          <span className="h-2 w-2 rounded-full bg-[#28c840]/90" aria-hidden />
+        </div>
+        <div className="relative flex aspect-video flex-col items-center justify-center gap-3 px-6 py-8">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.04) 2px,
+                rgba(255,255,255,0.04) 4px
+              )`,
+            }}
+            aria-hidden
+          />
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" className="relative z-[1] text-[#8a8a8a]" aria-hidden>
+            <rect x="10" y="16" width="52" height="36" rx="4" stroke="currentColor" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
+            <path d="M30 28L46 36L30 44V28Z" fill="currentColor" opacity="0.35" />
+            <path d="M22 52L50 52" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M26 56L46 48" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+          <p className="relative z-[1] max-w-[16rem] text-center font-sans text-[12px] font-medium leading-snug text-[#e8e8e8]/88 sm:text-[13px]">
+            {line}
+          </p>
+          <p className="relative z-[1] font-sans text-[10px] uppercase tracking-[0.12em] text-[#8a8a8a]">Error code · player</p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 type Props = {
   className?: string
@@ -63,21 +98,14 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
     >
       {SLIDES.map((slide, i) => (
         <div
-          key={slide.src}
+          key={slide.id}
           className={cn(
             'absolute inset-0 transition-opacity duration-700 ease-out motion-reduce:transition-none',
             i === index ? 'z-[1] opacity-100' : 'pointer-events-none z-0 opacity-0',
           )}
           aria-hidden={i !== index}
         >
-          <Image
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            priority={i === 0}
-            sizes="(max-width: 1023px) 100vw, 42vw"
-            className="object-cover object-center [transform:scale(1.08)] motion-reduce:transform-none"
-          />
+          <BrokenVideoFrame line={slide.line} />
         </div>
       ))}
 
@@ -105,7 +133,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
         <div className="flex flex-1 justify-center gap-1.5" role="tablist" aria-label="Slide indicators">
           {SLIDES.map((s, i) => (
             <button
-              key={s.src}
+              key={s.id}
               type="button"
               role="tab"
               aria-selected={i === index}
