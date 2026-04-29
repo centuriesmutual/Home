@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { CircleStackIcon } from '@heroicons/react/24/solid'
 import { TreasuryFaqAccordion } from '@/components/treasury/treasury-faq'
+import { TreasuryCharterIllustration } from '@/components/treasury/treasury-charter-illustration'
 import { Eyebrow, LuxuryCard, ProseBody, SectionTitle } from '@/components/treasury/treasury-luxury'
 import { cn } from '@/lib/utils'
 
@@ -262,36 +263,49 @@ export function TreasuryExpandedBodyContinued() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="border-t border-[#E5E0D5]/90 bg-[#14432A] py-24">
-        <div className="relative mx-auto max-w-[900px] overflow-hidden rounded-3xl border border-[#C9A53E]/30 bg-[linear-gradient(140deg,#0f3321_0%,#14432A_52%,#0f3d28_100%)] px-8 py-14 md:px-16">
-          <div className="pointer-events-none absolute right-10 top-8 flex gap-1 opacity-65" aria-hidden>
-            {[0, 1, 2].map((i) => (
-              <span key={i} className="inline-block h-4 w-4 rotate-45 border border-[#C9A53E]/60" />
-            ))}
-          </div>
-          <h2
-            className="max-w-lg font-serif text-[clamp(1.75rem,3.5vw,2.35rem)] font-semibold leading-[1.18] tracking-[-0.02em] text-[#FAFCFB]"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-          >
-            Ready to put Treasury beside your lease or corridor?
-          </h2>
-          <p className="mt-4 max-w-[55ch] font-sans text-[15px] leading-[1.65] text-[#E8DFD6]/95">
-            Open an account to connect agreements, messaging, and settlement in one platform experience.
-          </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#b8943a] to-[#C9A53E] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-wider text-[#0f3321] no-underline shadow-lg transition hover:brightness-105"
-            >
-              Open an account
-            </Link>
-            <Link
-              href="/help-desk"
-              className="inline-flex items-center justify-center rounded-full border-2 border-[#FAFCFB]/40 px-8 py-3.5 font-sans text-sm font-semibold text-[#FAFCFB] no-underline transition hover:border-[#C9A53E]"
-            >
-              Talk to us
-            </Link>
+      {/* Charter & governance CTA */}
+      <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-24">
+        <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+            <div className="order-2 min-w-0 lg:order-1">
+              <Eyebrow>Charter</Eyebrow>
+              <h2
+                className="mt-3 max-w-[22rem] font-serif text-[1.65rem] font-semibold leading-snug tracking-tight text-[#0f3321] sm:max-w-[26rem] sm:text-[1.85rem] md:text-[2rem]"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              >
+                Governance that stays beside your lease or corridor.
+              </h2>
+              <div className="mt-5 max-w-[36rem] space-y-4 font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
+                <p>
+                  Your charter sets the rules Treasury follows: how money moves, how disputes escalate, and how records stay
+                  visible to everyone those rules protect. Governance is not a hidden back office — it is the structure that
+                  keeps agreements, messaging, and settlement aligned.
+                </p>
+                <p>
+                  Open an account to connect those pieces in one experience: plain-language commitments you can read, a ledger
+                  that carries context, and paths to talk to us when something needs a human decision.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link
+                  href="/signup"
+                  className="inline-flex items-center justify-center rounded-full bg-[#0F3D2E] px-7 py-3 font-sans text-sm font-semibold text-[#FAFCFB] no-underline shadow-md transition hover:bg-[#0c3328]"
+                >
+                  Open an account
+                </Link>
+                <Link
+                  href="/help-desk"
+                  className="inline-flex items-center justify-center rounded-full border border-[#0F3D2E]/25 bg-[#FAFCFB] px-7 py-3 font-sans text-sm font-semibold text-[#0f3321] no-underline transition hover:border-[#C9A53E]/60 hover:bg-[#F3EDE4]/80"
+                >
+                  Talk to us
+                </Link>
+              </div>
+            </div>
+            <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+              <div className="w-full max-w-[440px] shrink-0">
+                <TreasuryCharterIllustration />
+              </div>
+            </div>
           </div>
         </div>
       </section>
