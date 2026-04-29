@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
-import { Menu, X } from 'lucide-react'
+import { ArrowRight, Download, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const fraunces = Fraunces({
@@ -23,16 +23,12 @@ const NAV: { href: string; label: string }[] = [
   { href: '/newspaper', label: 'Journal' },
 ]
 
-/** Shared typography for gold download strip (label + link aligned) */
-const DOWNLOAD_STRIP_TEXT =
-  'font-sans text-[11px] font-semibold uppercase leading-none tracking-[0.18em] text-[#FAF7F0]'
-
 /** Primary nav row height */
 export const SITE_HEADER_BAR_PX = 56
 /** Thin gold rule above download strip */
 export const SITE_HEADER_TOP_RULE_PX = 1
-/** Gold download strip row */
-export const SITE_HEADER_DOWNLOAD_STRIP_PX = 32
+/** Gold download strip row (CTA-only bar) */
+export const SITE_HEADER_DOWNLOAD_STRIP_PX = 40
 
 /** Match scroll-body offset spacer to combined fixed chrome */
 export const SITE_HEADER_STACK_PX =
@@ -96,19 +92,22 @@ export function SiteHeader() {
         <div className="h-px w-full shrink-0 bg-[#C9A961]" aria-hidden />
 
         <div
-          className="flex h-[32px] w-full shrink-0 items-center justify-center gap-x-4 gap-y-1 border-b border-[#C9A961]/35 bg-[#C9A961] px-3 sm:px-4"
+          className="flex h-10 w-full shrink-0 items-center justify-center border-b border-[#C9A961]/40 bg-[#C9A961] px-4"
           role="region"
-          aria-label="Download the Centuries Mutual app"
+          aria-label="Download the Centuries Mutual mobile app"
         >
-          <p className={`min-w-0 whitespace-normal text-center ${DOWNLOAD_STRIP_TEXT}`}>
-            Mobile app · Search · Secure messaging
-          </p>
           <Link
             href="/downloads"
-            className={`shrink-0 underline decoration-[#FAF7F0]/75 underline-offset-[3px] transition hover:text-white hover:decoration-white ${DOWNLOAD_STRIP_TEXT}`}
+            className="group inline-flex items-center gap-2.5 rounded-full bg-[#14432A] px-5 py-2 text-[11px] font-bold uppercase leading-none tracking-[0.2em] text-[#FAFCFB] no-underline shadow-[0_3px_14px_rgba(0,0,0,0.22)] ring-2 ring-[#FAF7F0]/30 transition hover:bg-[#0f3321] hover:text-[#FAFCFB] hover:ring-[#FAF7F0]/50"
           >
-            Get the app
+            <Download className="h-3.5 w-3.5 shrink-0 opacity-95" aria-hidden />
+            <span>Get the app</span>
+            <ArrowRight
+              className="h-3.5 w-3.5 shrink-0 opacity-90 transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
           </Link>
+          <span className="sr-only">iOS and Android · search, messaging, and member tools</span>
         </div>
 
         <motion.header
