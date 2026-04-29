@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
@@ -137,26 +136,12 @@ export function CommunityHero() {
               />
               <div className="relative z-[1] flex min-h-[20rem] flex-col px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
                 <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
-                  <div className="mx-auto w-full max-w-md space-y-4 md:mx-0 md:max-w-md">
+                  <div className="mx-auto w-full max-w-md md:mx-0 md:max-w-md">
                     <div className="overflow-hidden rounded-xl border border-[#E5E0D5]/90 bg-[#FAFCFB]/95 shadow-[0_6px_28px_rgba(15,61,46,0.12)]">
                       <HeroEditorialCarousel
                         className="min-h-[11rem] rounded-none border-0 shadow-none sm:min-h-[13rem] md:min-h-[15rem]"
                         controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
                       />
-                    </div>
-                    <div className="flex w-full flex-col gap-2 sm:gap-2.5">
-                      <Link
-                        href="/wintergarden"
-                        className="inline-flex h-9 w-full items-center justify-center rounded-full border-0 bg-[#0F3D2E] px-4 py-2 text-xs font-semibold tracking-tight text-white no-underline shadow-sm transition hover:bg-[#0c3328] sm:h-10 sm:text-sm"
-                      >
-                        Wintergarden
-                      </Link>
-                      <Link
-                        href="/my-brothers-keeper"
-                        className="inline-flex h-9 w-full items-center justify-center rounded-full border-0 bg-white px-4 py-2 text-xs font-semibold tracking-tight text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white hover:shadow-md sm:h-10 sm:text-sm"
-                      >
-                        My Brothers Keeper
-                      </Link>
                     </div>
                   </div>
                 </div>
