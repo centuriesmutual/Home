@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, Home, MapPin } from 'lucide-react'
+import { UsersRound, Home, MapPin } from 'lucide-react'
 
 const items = [
   { href: '/rooms', label: 'Listings', Icon: Home },
   { href: '/search?q=Plano', label: 'Neighborhood', Icon: MapPin },
-  { href: '/newspaper', label: 'Newspaper', Icon: BookOpen },
+  { href: '/search?q=roommates', label: 'Roommates', Icon: UsersRound },
 ] as const
 
 export function QuickActions({ className = '' }: { className?: string }) {
