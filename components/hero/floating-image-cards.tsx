@@ -20,15 +20,13 @@ const slabCls = cn(
   linkReset,
 )
 
-type Kind = 'news' | 'stream' | 'chat'
+type Kind = 'news' | 'chat'
 
-/** Desktop (lg+) — rem-based; cards sit well inside the hero column (not hugging edges). Pulse & stream lifted for visibility. */
+/** Desktop (lg+) — rem-based; cards sit well inside the hero column (not hugging edges). */
 const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
   news: 'lg:left-[5rem] lg:top-[6.5rem] lg:w-[14rem]',
   chat:
     'lg:right-[7rem] lg:top-[calc(50%-17.75rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
-  stream:
-    'lg:left-[5.5rem] lg:bottom-[12rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
 }
 
 type CardRow =
@@ -41,7 +39,6 @@ type CardRow =
       headline: string
       sub: string
     }
-  | { id: string; delay: number; kind: 'stream'; href: string }
   | { id: string; delay: number; kind: 'chat'; href: string }
 
 const CARDS: CardRow[] = [
@@ -60,16 +57,10 @@ const CARDS: CardRow[] = [
     kind: 'chat',
     href: '/private-phone-messaging',
   },
-  {
-    id: 'stream',
-    delay: 0.28,
-    kind: 'stream',
-    href: '/network',
-  },
 ]
 
-/** Elevate overlapping cards — news under chat/stream so previews never cloak pulse. */
-const CARD_Z = { news: 24, chat: 46, stream: 34 } as const
+/** Elevate overlapping cards — news under combined pulse card. */
+const CARD_Z = { news: 24, chat: 46 } as const
 
 const X_FEED_ROTATE_MS = 10000
 
@@ -122,8 +113,13 @@ const STREAM_CAPTIONS: readonly string[] = [
 
 function IllustrationChat({ titleId }: { titleId: string }) {
   const [feedIdx, setFeedIdx] = useState(0)
+  const [captionIdx, setCaptionIdx] = useState(0)
   useEffect(() => {
     const id = window.setInterval(() => setFeedIdx((i) => (i + 1) % MOCK_X_FEED.length), X_FEED_ROTATE_MS)
+    return () => window.clearInterval(id)
+  }, [])
+  useEffect(() => {
+    const id = window.setInterval(() => setCaptionIdx((i) => (i + 1) % STREAM_CAPTIONS.length), STREAM_CAPTION_ROTATE_MS)
     return () => window.clearInterval(id)
   }, [])
 
@@ -145,8 +141,57 @@ function IllustrationChat({ titleId }: { titleId: string }) {
         <div className="relative overflow-hidden rounded-[20px] bg-black">
           <div className="bg-[#050807] px-3 pb-6 pt-2.5">
             <p id={titleId} className="sr-only">
-              ZK-sealed threads · public pulse preview
+              Public pulse: member video preview and live X timeline (not your DMs).
             </p>
+
+            {/* YouTube-style preview — stacked above 𝕏 feed */}
+            <div
+              className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50"
+              aria-hidden
+            >
+              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-2.5 py-1.5">
+                <span className="flex gap-[5px]" aria-hidden>
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5f56]" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#febc2e]" />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#28c840]" />
+                </span>
+                <MonitorPlay className="h-2.5 w-2.5 shrink-0 text-white/72" aria-hidden />
+                <span className="min-w-0 flex-1 truncate font-sans text-[7px] font-medium uppercase tracking-[0.14em] text-white/92">
+                  youtu.be · Centuries Mutual
+                </span>
+                <Users className="h-2.5 w-2.5 shrink-0 text-white/75" />
+              </div>
+              <div className="relative w-full pt-[42%] sm:pt-[38%]">
+                <div className="absolute inset-0 bg-[#050505]" />
+                <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_6px_24px_rgba(0,0,0,0.45)] ring-2 ring-black/65 sm:h-[3rem] sm:w-[3rem]">
+                    <Play
+                      className="relative left-[2px] h-8 w-8 shrink-0 text-[#050505] sm:h-10 sm:w-10"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      aria-hidden
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-3 flex min-h-[2.5rem] items-start justify-center">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.p
+                  key={captionIdx}
+                  initial={{ opacity: 0, y: 2 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -2 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="line-clamp-2 text-center font-sans text-[9px] leading-snug tracking-[0.015em] text-white/72"
+                >
+                  {STREAM_CAPTIONS[captionIdx]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+
             <div className="mb-2 flex items-center gap-2">
               <span className="translate-y-[0.5px] text-[16px] font-bold leading-none text-white">𝕏</span>
               <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.2em] text-white/48">
@@ -195,67 +240,6 @@ function IllustrationChat({ titleId }: { titleId: string }) {
             </div>
           </div>
         </div>
-      </div>
-    </>
-  )
-}
-
-function IllustrationStream({ titleId }: { titleId: string }) {
-  const [captionIdx, setCaptionIdx] = useState(0)
-  useEffect(() => {
-    const id = window.setInterval(() => setCaptionIdx((i) => (i + 1) % STREAM_CAPTIONS.length), STREAM_CAPTION_ROTATE_MS)
-    return () => window.clearInterval(id)
-  }, [])
-  const caption = STREAM_CAPTIONS[captionIdx]
-
-  return (
-    <>
-      <p id={titleId} className="sr-only">
-        Stream preview
-      </p>
-
-      <div
-        className="overflow-hidden rounded-[14px] border border-white/[0.14] bg-[#0f0f0f] shadow-[0_22px_56px_rgba(0,0,0,0.5)] ring-1 ring-black/55"
-        aria-hidden
-      >
-        <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
-          <span className="flex gap-[6px]" aria-hidden>
-            <span className="h-2 w-2 shrink-0 rounded-full bg-[#ff5f56]" />
-            <span className="h-2 w-2 shrink-0 rounded-full bg-[#febc2e]" />
-            <span className="h-2 w-2 shrink-0 rounded-full bg-[#28c840]" />
-          </span>
-          <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
-          <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.16em] text-white/92">
-            youtu.be · Centuries Mutual
-          </span>
-          <Users className="h-3 w-3 shrink-0 text-white/75" />
-        </div>
-
-        <div className="relative w-full pt-[56.25%]">
-          <div className="absolute inset-0 bg-[#050505]" />
-          <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.55)] ring-2 ring-black/65">
-              <Play className="relative left-[3px] h-10 w-10 shrink-0 text-[#050505]" fill="currentColor" strokeWidth={0} aria-hidden />
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex min-h-[2.75rem] items-start justify-center pt-2">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.p
-            key={captionIdx}
-            initial={{ opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -2 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="line-clamp-2 text-center font-sans text-[10px] leading-snug tracking-[0.015em] text-white/74"
-          >
-            {caption}
-          </motion.p>
-        </AnimatePresence>
       </div>
     </>
   )
@@ -338,11 +322,7 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
     )
   }
 
-  return (
-    <Link href={row.href} className={cn(slabCls, 'flex flex-col !p-5 sm:!p-6 lg:pointer-events-auto')}>
-      <IllustrationStream titleId={titleId} />
-    </Link>
-  )
+  return null
 }
 
 function FloaterArticle({ row }: { row: CardRow }) {
