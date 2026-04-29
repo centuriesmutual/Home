@@ -128,7 +128,7 @@ export function ShopMain() {
             className="max-w-3xl font-serif text-[clamp(1.85rem,4.5vw,2.85rem)] font-medium leading-[1.12] tracking-[-0.02em] text-[#FAFCFB]"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
           >
-            Network products shop
+            Network Products Shop
           </h1>
           <p className="mt-5 max-w-2xl font-sans text-[0.9375rem] leading-[1.65] text-[#E8DFD6]/92 md:text-base">
             Custom-built network products. Secure your home with our advanced security cameras, network devices, and smart home
@@ -240,7 +240,7 @@ function ShopCollectionGrid() {
                 className="font-serif text-2xl font-medium text-[#FAFCFB] md:text-[1.75rem]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Need custom solutions?
+                Need Custom Solutions?
               </h3>
               <p className="mx-auto mt-4 max-w-2xl font-sans text-[0.9375rem] leading-[1.65] text-[#E8DFD6]/95">
                 Our team can design and build custom network and security solutions tailored to your specific needs.
@@ -249,7 +249,7 @@ function ShopCollectionGrid() {
                 href="/contact"
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FAFCFB] px-8 py-3.5 font-sans text-sm font-semibold text-[#14432A] no-underline shadow-md transition hover:bg-[#E8DFD6]"
               >
-                Contact us
+                Contact Us
               </Link>
             </div>
           </div>
