@@ -15,34 +15,63 @@ const newsGlassCls = cn(
   linkReset,
 )
 
-
 const slabCls = cn(
-  'block h-full rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
+  'block h-auto rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
   linkReset,
 )
+
+type Kind = 'news' | 'stream' | 'chat'
+
+/** Desktop (lg+) absolute positions — rem units; staircase Z-layout on hero column. */
+const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
+  news: 'lg:left-[2rem] lg:top-[6rem] lg:w-[14rem]',
+  chat:
+    'lg:right-[2.75rem] lg:top-1/2 lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
+  stream:
+    'lg:left-[2rem] lg:bottom-[4rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
+}
+
+function ForYouGlyph({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={cn('h-3.5 w-3.5 shrink-0 text-[#C9A53E]', className)}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path
+        d="M12 2l1.2 4.2L17 8l-3.8 1.8L12 14l-1.2-4.2L7 8l3.8-1.8L12 2z"
+        fill="currentColor"
+        opacity="0.95"
+      />
+      <path
+        d="M12 10l.8 2.8L16 14l-2.5 1.2L12 18l-.8-2.8L8 14l2.5-1.2L12 10z"
+        fill="currentColor"
+        opacity="0.75"
+      />
+    </svg>
+  )
+}
 
 type CardRow =
   | {
       id: string
       delay: number
-      place: string
-      hidden?: string
       kind: 'news'
       href: string
       eyebrow: string
       headline: string
       sub: string
     }
-  | { id: string; delay: number; place: string; hidden?: string; kind: 'stream'; href: string }
-  | { id: string; delay: number; place: string; hidden?: string; kind: 'chat'; href: string }
+  | { id: string; delay: number; kind: 'stream'; href: string }
+  | { id: string; delay: number; kind: 'chat'; href: string }
 
 const CARDS: CardRow[] = [
   {
     id: 'news',
     delay: 0,
     kind: 'news',
-    place: 'left-5 top-2 w-56 sm:left-7 sm:top-3 lg:left-10 lg:top-4',
-    hidden: 'max-[420px]:left-4 max-[420px]:top-2 max-[420px]:w-[calc(100%-2.5rem)]',
     href: '/newspaper',
     eyebrow: 'News',
     headline: 'Texas co-op housing starts edge up amid rate pause',
@@ -53,27 +82,20 @@ const CARDS: CardRow[] = [
     delay: 0.2,
     kind: 'chat',
     href: '/private-phone-messaging',
-    place:
-      'bottom-[14rem] right-4 w-[min(92vw,22rem)] sm:bottom-[15.5rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[16.25rem] lg:right-12 lg:w-[26.75rem]',
-    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[17.5rem] max-[480px]:w-[calc(100%-2.5rem)]',
   },
   {
     id: 'stream',
     delay: 0.28,
     kind: 'stream',
     href: '/network',
-    place:
-      'bottom-36 left-5 w-[min(92vw,18.75rem)] sm:bottom-40 sm:left-8 sm:w-[19.75rem] lg:bottom-44',
-    hidden: 'max-[420px]:bottom-[21.5rem] max-[420px]:left-4 max-[420px]:w-[calc(100%-2.5rem)]',
   },
 ]
 
-/** Elevate overlapping cards — news sits under chat/stream so previews never cloak ZK messaging. */
+/** Elevate overlapping cards — news under chat/stream so previews never cloak pulse. */
 const CARD_Z = { news: 24, chat: 46, stream: 34 } as const
 
 const X_FEED_ROTATE_MS = 10000
 
-/** Presentation-only mock timeline (not wired to 𝕏 / external APIs). */
 const MOCK_X_FEED: ReadonlyArray<{
   name: string
   handle: string
@@ -144,7 +166,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
           }}
         />
         <div className="relative overflow-hidden rounded-[20px] bg-black">
-          <div className="bg-[#050807] px-3 pb-3 pt-2.5">
+          <div className="bg-[#050807] px-3 pb-6 pt-2.5">
             <p id={titleId} className="sr-only">
               ZK-sealed threads · public pulse preview
             </p>
@@ -170,7 +192,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none flex max-h-[158px] min-h-[158px] gap-2.5"
+                  className="pointer-events-none flex gap-2.5"
                 >
                   <span className="mt-px h-[34px] w-[34px] shrink-0 rounded-full bg-gradient-to-br from-[#5a6674] to-[#2a323c] shadow-inner ring-1 ring-white/[0.11]" />
                   <div className="flex min-h-0 min-w-0 flex-1 flex-col">
@@ -179,10 +201,10 @@ function IllustrationChat({ titleId }: { titleId: string }) {
                       <span className="font-sans text-[11px] text-neutral-500">{post.handle}</span>
                     </div>
                     <span className="mt-px block h-3.5 shrink-0 truncate font-sans text-[10px] leading-none text-neutral-600">{post.vein}</span>
-                    <div className="mt-2 h-[4.4375rem] shrink-0 overflow-hidden">
-                      <p className="font-sans text-[12px] leading-[1.38] text-neutral-200 line-clamp-4">{post.body}</p>
+                    <div className="mt-2 overflow-hidden">
+                      <p className="line-clamp-4 font-sans text-[12px] leading-[1.38] text-neutral-200">{post.body}</p>
                     </div>
-                    <div className="mt-auto flex shrink-0 items-center gap-4 pb-px pt-2 text-neutral-600">
+                    <div className="mt-3 flex shrink-0 items-center gap-4 text-neutral-600">
                       <span className="inline-flex items-center gap-px">
                         <Heart className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
                         <span className="text-[9px] tracking-tight">—</span>
@@ -211,22 +233,33 @@ function IllustrationStream({ titleId }: { titleId: string }) {
 
   return (
     <>
-      <div className="mb-4 flex items-center gap-3 border-b border-white/[0.1] pb-3">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#C9A961]/40 bg-black/25">
-          <MonitorPlay className="h-4 w-4 text-[#C9A961]" strokeWidth={1.95} aria-hidden />
-        </span>
-        <div className="min-w-0 flex flex-1 flex-col gap-1">
-          <p id={titleId} className="font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A961]/95">
+      <div className="mb-3 pb-3">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-white/[0.1] pb-3">
+          <span className="inline-flex shrink-0 items-center gap-1">
+            <ForYouGlyph />
+            <span
+              className="font-sans text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#C9A53E]"
+              style={{ fontFamily: 'var(--font-sans), ui-sans-serif, system-ui, sans-serif' }}
+            >
+              FOR YOU
+            </span>
+          </span>
+          <span className="h-3 w-px shrink-0 bg-white/20" aria-hidden />
+          <p
+            id={titleId}
+            className="min-w-0 shrink-0 font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A961]/95"
+          >
             Stream
           </p>
-          <span className="font-sans text-[9px] leading-tight text-white/62">Member video · moderated live replay</span>
+          <span className="ml-auto shrink-0 rounded-sm bg-[#b91c1c] px-1.5 py-px font-sans text-[8px] font-bold uppercase tracking-wider text-white shadow-sm">
+            Live
+          </span>
         </div>
-        <span className="rounded-sm bg-[#b91c1c] px-1.5 py-px font-sans text-[8px] font-bold uppercase tracking-wider text-white shadow-sm">
-          Live
-        </span>
+        <p className="mt-3 font-sans text-[9px] leading-tight text-white/62">
+          Member video · moderated live replay
+        </p>
       </div>
 
-      {/* YouTube-style player chrome: 16:9 surface */}
       <div
         className="overflow-hidden rounded-[14px] border border-white/[0.14] bg-[#0f0f0f] shadow-[0_22px_56px_rgba(0,0,0,0.5)] ring-1 ring-black/55"
         aria-hidden
@@ -237,6 +270,7 @@ function IllustrationStream({ titleId }: { titleId: string }) {
             <span className="h-2 w-2 shrink-0 rounded-full bg-[#febc2e]" />
             <span className="h-2 w-2 shrink-0 rounded-full bg-[#28c840]" />
           </span>
+          <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
           <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.16em] text-white/92">
             youtu.be · Centuries Mutual
           </span>
@@ -255,20 +289,20 @@ function IllustrationStream({ titleId }: { titleId: string }) {
         </div>
       </div>
 
-        <div className="flex min-h-[2.75rem] items-start justify-center pt-2">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.p
-              key={captionIdx}
-              initial={{ opacity: 0, y: 3 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -2 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="line-clamp-2 text-center font-sans text-[10px] leading-snug tracking-[0.015em] text-white/74"
-            >
-              {caption}
-            </motion.p>
-          </AnimatePresence>
-        </div>
+      <div className="flex min-h-[2.75rem] items-start justify-center pt-2">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.p
+            key={captionIdx}
+            initial={{ opacity: 0, y: 3 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -2 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="line-clamp-2 text-center font-sans text-[10px] leading-snug tracking-[0.015em] text-white/74"
+          >
+            {caption}
+          </motion.p>
+        </AnimatePresence>
+      </div>
     </>
   )
 }
@@ -294,7 +328,6 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
           <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
         </div>
 
-        {/* YouTube-style preview layer — clipped to card; inactive state cannot paint over sibling floating cards */}
         <div
           className="pointer-events-none absolute inset-0 z-[2] flex flex-col justify-end rounded-xl bg-black/0 p-3 opacity-0 transition-all duration-300 ease-out backdrop-blur-0 group-hover/card-news:bg-black/82 group-hover/card-news:opacity-100 group-hover/card-news:backdrop-blur-sm group-focus-within/card-news:bg-black/82 group-focus-within/card-news:opacity-100 group-focus-within/card-news:backdrop-blur-sm motion-reduce:transition-none motion-reduce:group-hover/card-news:bg-black/92"
           aria-hidden
@@ -345,46 +378,54 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
 
   if (row.kind === 'chat') {
     return (
-      <Link
-        href={row.href}
-        className={cn(
-          slabCls,
-          'flex min-h-[24.5rem] flex-col !h-auto items-stretch !p-5 sm:min-h-[25rem] sm:!p-6 lg:pointer-events-auto',
-        )}
-      >
+      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
         <IllustrationChat titleId={titleId} />
       </Link>
     )
   }
 
   return (
-    <Link href={row.href} className={cn(slabCls, 'flex min-h-[22rem] flex-col !h-auto justify-between !p-5 sm:min-h-[23rem] sm:!p-6 lg:pointer-events-auto')}>
+    <Link href={row.href} className={cn(slabCls, 'flex flex-col justify-between !p-5 sm:!p-6 lg:pointer-events-auto')}>
       <IllustrationStream titleId={titleId} />
     </Link>
   )
 }
 
+function FloaterArticle({ row }: { row: CardRow }) {
+  const titleId = `floater-${row.id}-title`
+  return (
+    <motion.article
+      variants={cardFloat}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.14 }}
+      transition={{ delay: row.delay }}
+      className={cn(
+        'relative z-10 mx-auto w-full max-w-md',
+        'lg:absolute lg:mx-0',
+        ARTICLE_DESKTOP_POS[row.kind],
+      )}
+      style={{ zIndex: CARD_Z[row.id as keyof typeof CARD_Z] }}
+      aria-labelledby={titleId}
+    >
+      <FloatingInner row={row} titleId={titleId} />
+    </motion.article>
+  )
+}
+
 export function FloatingImageCards({ className = '' }: { className?: string }) {
   return (
-    <div className={cn('pointer-events-none absolute inset-0 z-10 lg:pointer-events-auto', className)}>
-      {CARDS.map((c) => {
-        const titleId = `floater-${c.id}-title`
-        return (
-          <motion.article
-            key={c.id}
-            variants={cardFloat}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.14 }}
-            transition={{ delay: c.delay }}
-            className={cn('absolute', c.place, c.hidden)}
-            style={{ zIndex: CARD_Z[c.id as keyof typeof CARD_Z] }}
-            aria-labelledby={titleId}
-          >
-            <FloatingInner row={c} titleId={titleId} />
-          </motion.article>
-        )
-      })}
+    <div
+      className={cn(
+        'pointer-events-none relative z-10 flex min-h-0 flex-col gap-5 px-4 pb-32 pt-[6rem]',
+        '[&_a]:pointer-events-auto',
+        'lg:pointer-events-auto lg:absolute lg:inset-0 lg:block lg:gap-0 lg:px-0 lg:pb-8 lg:pt-0',
+        className,
+      )}
+    >
+      {CARDS.map((c) => (
+        <FloaterArticle key={c.id} row={c} />
+      ))}
     </div>
   )
 }

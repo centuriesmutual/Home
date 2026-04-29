@@ -122,62 +122,65 @@ export function CommunityHero() {
 
             <QuickActions className="mb-6" />
 
-            <div id="client-portal" className={`mb-4 overflow-hidden rounded-2xl border border-warm-border ${portalShadow} transition`}>
-              {/* Split panels: bg images flush to outer rounded card (edge-to-edge) */}
-              <div className="grid grid-cols-1 divide-y divide-[#c9c5bc]/90 md:grid-cols-2 md:divide-x md:divide-y-0">
-                {/* Column 1 */}
-                <div className="relative min-h-[min(400px,62vw)] md:min-h-[360px]">
-                  <Image
-                    src="/buffalo2.png"
-                    alt=""
-                    fill
-                    priority={false}
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    className="object-cover object-[center_38%]"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/95 to-[#E8DFD6]/35"
-                    aria-hidden
-                  />
-                  <div className="relative z-[1] flex h-full flex-col justify-end px-6 pb-10 pt-10 md:px-7 md:pb-12 md:pt-12 lg:pb-14">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#6B6B66] drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+            <div id="client-portal" className={`mb-4 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
+              <div className="grid grid-cols-1 gap-4 px-4 py-4 sm:px-5 sm:py-5 md:grid-cols-2 md:gap-5">
+                {/* Client portal card — split image / paper text */}
+                <div className="overflow-hidden rounded-2xl border border-[#E5E0D5]/90 bg-[#FAFCFB] shadow-[0_10px_40px_-12px_rgba(0,0,0,0.12)]">
+                  <div className="relative h-[14rem] w-full shrink-0 overflow-hidden rounded-t-2xl border-b border-[#E5E0D5]/90">
+                    <Image
+                      src="/buffalo2.png"
+                      alt=""
+                      fill
+                      priority={false}
+                      sizes="(max-width: 767px) 100vw, 25vw"
+                      className="object-cover object-[center_38%]"
+                    />
+                  </div>
+                  <div className="rounded-b-2xl bg-[#FAFCFB] p-4">
+                    <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
                       Client portal
                     </p>
                     <h2
-                      className="mt-2 font-serif text-lg font-medium leading-tight text-[#0F3D2E] drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]"
+                      className="mt-2 font-serif text-[1.1rem] font-medium leading-snug text-[#14432A]"
                       style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
                     >
                       Secure member access
                     </h2>
+                    <p className="mt-2 font-sans text-[0.875rem] leading-relaxed text-[#6B6B66]" style={{ fontFamily: 'var(--font-sans), Inter, sans-serif' }}>
+                      Sign in to manage listings, messages, and documents.
+                    </p>
                   </div>
                 </div>
 
-                {/* Column 2 — mirrored photo */}
-                <div className="relative min-h-[min(400px,62vw)] md:min-h-[360px]">
-                  <Image
-                    src="/buffalo2.png"
-                    alt=""
-                    fill
-                    priority={false}
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    className="object-cover object-[center_55%] [transform:scaleX(-1)]"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-[#E8DFD6] via-[#E8DFD6]/95 to-[#E8DFD6]/35"
-                    aria-hidden
-                  />
-                  <div className="relative z-[1] flex h-full min-h-[10rem] flex-col justify-end px-6 pb-10 pt-10 md:px-7 md:pb-12 md:pt-12 lg:pb-14">
-                    <p
-                      className="font-serif text-lg font-medium leading-snug text-[#0F3D2E] drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]"
+                <div className="overflow-hidden rounded-2xl border border-[#E5E0D5]/90 bg-[#FAFCFB] shadow-[0_10px_40px_-12px_rgba(0,0,0,0.12)]">
+                  <div className="relative h-[14rem] w-full shrink-0 overflow-hidden rounded-t-2xl border-b border-[#E5E0D5]/90">
+                    <Image
+                      src="/buffalo2.png"
+                      alt=""
+                      fill
+                      priority={false}
+                      sizes="(max-width: 767px) 100vw, 25vw"
+                      className="object-cover object-[center_52%] [transform:scaleX(-1)]"
+                    />
+                  </div>
+                  <div className="rounded-b-2xl bg-[#FAFCFB] p-4">
+                    <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
+                      Membership
+                    </p>
+                    <h2
+                      className="mt-2 font-serif text-[1.1rem] font-medium leading-snug text-[#14432A]"
                       style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif' }}
                     >
                       Sign in or join Centuries Mutual
+                    </h2>
+                    <p className="mt-2 font-sans text-[0.875rem] leading-relaxed text-[#6B6B66]" style={{ fontFamily: 'var(--font-sans), Inter, sans-serif' }}>
+                      New members get guided onboarding · returning members resume where they left off.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="border-t border-[#E5E0D5]/80 bg-cream px-6 pb-7 pt-9 md:px-8 md:pb-8 md:pt-11">
+              <div className="rounded-b-2xl border-t border-[#E5E0D5]/80 bg-cream px-6 pb-7 pt-8 md:px-8 md:pb-8 md:pt-9">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                   <Link
                     href="/signup"
