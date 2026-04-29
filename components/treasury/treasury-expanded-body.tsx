@@ -119,8 +119,8 @@ export function TreasuryExpandedBody() {
       <section className="border-t border-[#E5E0D5]/80 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
           <SectionTitle>Ledger.</SectionTitle>
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
+          <div className="mt-8 grid grid-cols-1 items-start gap-10 lg:mt-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0">
+            <div className="min-w-0">
               <ProseBody>
                 The Centuries Mutual ledger is the shared record where money, documents, and messages travel together. Settlements
                 and escrows post alongside the leases, receipts, amendments, and member messages that belong to the same agreement
@@ -133,7 +133,7 @@ export function TreasuryExpandedBody() {
                 wallet portability without surrendering escalating cuts as agreements grow.
               </ProseBody>
             </div>
-            <LuxuryCard>
+            <LuxuryCard className="w-full shrink-0 self-start lg:-mt-2 xl:-mt-4">
               <dl className="space-y-4 font-sans">
                 <div className="border-b border-[#E5E0D5]/80 pb-3">
                   <div className="flex justify-between gap-3 font-mono text-[13px] text-[#14432A]">
