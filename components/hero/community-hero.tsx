@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
+import { HeroEditorialCarousel } from '@/components/hero/hero-editorial-carousel'
 import { HeroPortalVideoTeaser } from '@/components/hero/hero-portal-video-teaser'
 import { QuickActions, COMMUNITY_HERO_QUICK_ITEMS } from '@/components/hero/quick-actions'
 import { fadeUp } from '@/lib/animations'
@@ -72,6 +73,14 @@ export function CommunityHero() {
             className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,rgb(232_223_214)_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,rgb(232_223_214)_100%)]"
             aria-hidden
           />
+          <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-t from-black/25 via-transparent to-transparent lg:from-black/20" aria-hidden />
+          <div className="absolute bottom-6 left-6 right-6 z-[3] max-w-md lg:bottom-10 lg:left-10 lg:right-auto">
+            <div
+              className={`pointer-events-auto overflow-hidden rounded-2xl border border-white/25 bg-[#FAFCFB]/90 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-md sm:p-5 ${portalShadow}`}
+            >
+              <HeroPortalVideoTeaser className="mx-0 max-w-none" />
+            </div>
+          </div>
         </div>
 
         {/* Columns 8–12: editorial tan column */}
@@ -117,25 +126,18 @@ export function CommunityHero() {
 
             <QuickActions className="mb-6" items={COMMUNITY_HERO_QUICK_ITEMS} />
 
-            <div id="client-portal" className={`relative mb-0 min-h-[20rem] overflow-hidden rounded-2xl border border-[#E5E0D5]/90 md:min-h-[24rem] ${portalShadow}`}>
-              <div className="absolute inset-0 overflow-hidden">
-                <Image
-                  src="/buffalo2.png"
-                  alt=""
-                  fill
-                  priority={false}
-                  sizes="(max-width: 1023px) 100vw, 42vw"
-                  className="object-cover object-[50%_0%] [transform:scale(2.05)] [transform-origin:center_top]"
+            <div
+              id="client-portal"
+              className={`mb-0 flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-[#E5E0D5]/90 md:min-h-[24rem] ${portalShadow}`}
+            >
+              <div className="relative min-h-[12.5rem] flex-1 md:min-h-[16rem]">
+                <HeroEditorialCarousel
+                  className="absolute inset-0 min-h-full rounded-none border-0 shadow-none"
+                  controlsClassName="bottom-4 sm:bottom-5"
                 />
               </div>
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
-                aria-hidden
-              />
-              <div className="relative z-[1] flex min-h-[20rem] flex-col px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
-                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
-                  <HeroPortalVideoTeaser className="mb-5 md:mb-6" />
-                  <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
+              <div className="relative shrink-0 border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/88 px-5 py-6 backdrop-blur-md md:px-8 md:py-8">
+                <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
                     <Link
                       href="/wintergarden"
                       className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm outline-none ring-0 transition hover:bg-[#0c3328] focus-visible:ring-2 focus-visible:ring-[#0F3D2E]/40 sm:h-10 sm:px-3 sm:text-xs"
