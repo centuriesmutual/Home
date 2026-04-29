@@ -131,8 +131,8 @@ export function ShopMain() {
             Network products shop
           </h1>
           <p className="mt-5 max-w-2xl font-sans text-[0.9375rem] leading-[1.65] text-[#E8DFD6]/92 md:text-base">
-            Custom-built network products. Secure your home with advanced security cameras, network devices, and smart home
-            systems — specified and supported like the rest of our member experience.
+            Custom-built network products. Secure your home with our advanced security cameras, network devices, and smart home
+            systems.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -188,10 +188,10 @@ function ShopCollectionGrid() {
               className="font-serif text-[clamp(1.65rem,3vw,2.25rem)] font-medium leading-[1.15] text-[#14432A]"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Featured solutions
+              Our Products
             </h2>
             <p className="mt-3 max-w-xl font-sans text-[0.9375rem] leading-[1.65] text-[#55655D]">
-              Enterprise-grade networking and security for your home — presented in a clear, catalog-style layout.
+              Enterprise-grade networking and security solutions for your home
             </p>
           </div>
           <p className="font-sans text-sm tabular-nums text-[#6B6B66]">
