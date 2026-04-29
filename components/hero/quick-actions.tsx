@@ -6,7 +6,7 @@ import { UsersRound, Home, MapPin } from 'lucide-react'
 /** Copy for hero column only — imported by `CommunityHero`. */
 export const COMMUNITY_HERO_QUICK_ITEMS = [
   { href: '/search', label: 'Listings', Icon: Home },
-  { href: '/search?q=Plano', label: 'Neighborhood', Icon: MapPin },
+  { href: '/search?q=amenities', label: 'Amenities', Icon: MapPin },
   { href: '/search?q=roommates', label: 'Roommates', Icon: UsersRound },
 ] as const
 
