@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
+import { HeroPortalVideoTeaser } from '@/components/hero/hero-portal-video-teaser'
 import { QuickActions, COMMUNITY_HERO_QUICK_ITEMS } from '@/components/hero/quick-actions'
 import { fadeUp } from '@/lib/animations'
 import { GRAIN_BG } from '@/components/layout/site-header'
@@ -133,6 +134,7 @@ export function CommunityHero() {
               />
               <div className="relative z-[1] flex min-h-[20rem] flex-col px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
                 <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
+                  <HeroPortalVideoTeaser className="mb-5 md:mb-6" />
                   <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
                     <Link
                       href="/wintergarden"
