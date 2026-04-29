@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import { Fraunces } from 'next/font/google'
+import { NeighborhoodExpandedBody } from '@/components/neighborhood/neighborhood-expanded-body'
 import { TopoPattern } from '@/components/ui/topo-pattern'
 import { GRAIN_BG } from '@/components/layout/site-header'
 
@@ -88,62 +89,7 @@ export function NeighborhoodLanding({ query }: Props) {
         </div>
       </section>
 
-      <section className="relative border-t border-[#E5E0D5]/90 bg-[#E8DFD6] py-20 md:py-28">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-7">
-              <h2
-                className="text-2xl font-medium tracking-tight text-[#0F3D2E] md:text-3xl"
-                style={{ fontFamily: 'var(--font-neighborhood-editorial), Fraunces, Georgia, serif' }}
-              >
-                Grid-first layout for how people actually search
-              </h2>
-              <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-[#3d4a41]">
-                Full-width sections use CSS grid so copy, illustrations, and callouts breathe on desktop and stack cleanly on
-                small screens — same structural discipline as the home hero.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-5">
-              <div className="rounded-2xl border border-[#E5E0D5] bg-[#FAFCFB] p-6 shadow-sm">
-                <p className="font-sans text-[10px] font-bold uppercase tracking-[0.22em] text-[#C9A961]">Listings</p>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-[#3d4a41]">Room and unit-level detail with media and dates.</p>
-              </div>
-              <div className="rounded-2xl border border-[#E5E0D5] bg-[#FAFCFB] p-6 shadow-sm sm:translate-y-4">
-                <p className="font-sans text-[10px] font-bold uppercase tracking-[0.22em] text-[#C9A961]">Amenities</p>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-[#3d4a41]">Corridor rules, shared spaces, and filters that match how members talk about home.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-[#E5E0D5] bg-[#FAFCFB] py-20 md:py-24">
-        <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-10 px-6 md:grid-cols-12 md:gap-12 lg:px-10">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-[#E5E0D5] md:col-span-7">
-            <Image
-              src="/buffalo2.png"
-              alt=""
-              fill
-              className="object-cover object-[center_50%]"
-              sizes="(max-width: 767px) 100vw, 58vw"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,61,46,0.45)_0%,transparent_55%)]" aria-hidden />
-          </div>
-          <div className="flex flex-col justify-center md:col-span-5">
-            <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C9A961]">Illustrated sections</p>
-            <h3
-              className="mt-2 text-xl font-medium text-[#0F3D2E] md:text-2xl"
-              style={{ fontFamily: 'var(--font-neighborhood-editorial), Fraunces, Georgia, serif' }}
-            >
-              Photography and topo lines, not stock clutter
-            </h3>
-            <p className="mt-4 font-sans text-[15px] leading-relaxed text-[#3d4a41]">
-              We carry the same bison photography and light line-work used on the homepage so Neighborhood feels like a chapter
-              of one story — not a detached directory.
-            </p>
-          </div>
-        </div>
-      </section>
+      <NeighborhoodExpandedBody />
     </div>
   )
 }
