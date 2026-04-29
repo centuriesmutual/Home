@@ -31,6 +31,7 @@ const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
     'lg:left-[5.5rem] lg:bottom-[12rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
 }
 
+type CardRow =
   | {
       id: string
       delay: number
