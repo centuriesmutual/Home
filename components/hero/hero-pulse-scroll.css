@@ -1,0 +1,44 @@
+/* Progressive enhancement: scroll-linked opacity + translate on #community-hero view timeline */
+
+@supports (animation-timeline: view()) {
+  #community-hero {
+    view-timeline-name: --cm-community-hero;
+    view-timeline-axis: block;
+  }
+
+  @keyframes cm-hero-pulse-dismiss-timeline {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+  }
+
+  @keyframes cm-hero-pulse-dismiss-opacity-only {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .hero-pulse-shell-inner--timeline {
+    animation-name: cm-hero-pulse-dismiss-timeline;
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: --cm-community-hero;
+    animation-range: cover 0% contain 55%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pulse-shell-inner--timeline {
+      animation-name: cm-hero-pulse-dismiss-opacity-only;
+      animation-range: cover 0% contain 40%;
+    }
+  }
+}
