@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+
+export const metadata: Metadata = {
+  title: 'Neighborhood',
+  description: 'Search rooms, neighborhoods, and dates with Centuries Mutual.',
+}
 
 interface SearchPageProps {
   searchParams?: { q?: string }
@@ -15,7 +21,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
       <main className="min-h-screen bg-cream pb-24 pt-[max(12vh,96px)]">
       <div className="mx-auto max-w-3xl px-6">
         <h1 className="font-serif text-3xl font-semibold tracking-tight text-[#0F3D2E] md:text-[2rem]">
-          Search
+          Neighborhood
         </h1>
         {q ? (
           <p className="mt-6 font-sans text-lg text-[#3d4a41]">

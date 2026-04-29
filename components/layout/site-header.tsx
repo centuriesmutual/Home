@@ -18,7 +18,7 @@ export const GRAIN_BG =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27220%27 height=%27220%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.82%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27220%27 height=%27220%27 filter=%27url(%23n)%27 opacity=%270.52%27/%3E%3C/svg%3E")'
 
 const NAV: { href: string; label: string }[] = [
-  { href: '/search', label: 'Neighborhoods' },
+  { href: '/search', label: 'Neighborhood' },
   { href: '/treasury', label: 'Treasury' },
   { href: '/newspaper', label: 'Journal' },
 ]
