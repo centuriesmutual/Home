@@ -134,11 +134,11 @@ export function CommunityHero() {
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
                 aria-hidden
               />
-              <div className="relative z-[1] flex min-h-[22rem] flex-col px-5 pb-3 pt-0 sm:min-h-[26rem] md:min-h-[30rem] md:px-8 md:pb-4 md:pt-0">
-                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 pb-4 pt-0 backdrop-blur-md md:-mx-8 md:px-8 md:pb-5 md:pt-0">
+              <div className="relative z-[1] flex min-h-[22rem] flex-col justify-end px-5 pb-16 pt-0 sm:min-h-[26rem] sm:pb-20 md:min-h-[30rem] md:px-8 md:pb-24 md:pt-0">
+                <div className="relative z-[2] -mx-5 border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 pb-4 pt-0 backdrop-blur-md md:-mx-8 md:px-8 md:pb-5 md:pt-0">
                   <div className="mx-auto flex w-full max-w-xl items-center justify-center md:max-w-2xl">
                     <HeroEditorialCarousel
-                      className="w-full max-w-full min-h-[13rem] shrink-0 rounded-none border-0 shadow-none sm:min-h-[15rem] md:min-h-[17rem]"
+                      className="w-full max-w-full min-h-[10.5rem] shrink-0 rounded-none border-0 shadow-none sm:min-h-[12rem] md:min-h-[13.5rem]"
                       controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
                     />
                   </div>
