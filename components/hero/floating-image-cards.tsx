@@ -15,6 +15,11 @@ const slabCls = cn(
   linkReset,
 )
 
+/** Outer chrome for the larger YouTube card — matches previous single-card shell */
+const youtubeFrameCls = cn(
+  'relative rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50',
+)
+
 type CardRow = { id: string; delay: number; kind: 'chat'; href: string }
 
 const CARDS: CardRow[] = [
@@ -26,7 +31,6 @@ const CARDS: CardRow[] = [
   },
 ]
 
-/** Single card z-index */
 const CHAT_Z = 40 as const
 
 const X_FEED_ROTATE_MS = 10000
@@ -78,145 +82,157 @@ const STREAM_CAPTIONS: readonly string[] = [
   'Watch parties for rate and market updates — moderated chat.',
 ]
 
-function IllustrationChat({ titleId }: { titleId: string }) {
-  const [feedIdx, setFeedIdx] = useState(0)
+function YoutubeCard({ labelId }: { labelId: string }) {
   const [captionIdx, setCaptionIdx] = useState(0)
   useEffect(() => {
-    const id = window.setInterval(() => setFeedIdx((i) => (i + 1) % MOCK_X_FEED.length), X_FEED_ROTATE_MS)
+    const id = window.setInterval(() => setCaptionIdx((i) => (i + 1) % STREAM_CAPTIONS.length), STREAM_CAPTION_ROTATE_MS)
     return () => window.clearInterval(id)
   }, [])
+
+  return (
+    <div className={youtubeFrameCls}>
+      <div
+        className="pointer-events-none absolute -inset-px rounded-[26px] opacity-[0.35] blur-xl"
+        aria-hidden
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 169, 97, 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 80% 100%, rgba(16, 185, 129, 0.12), transparent 50%)',
+        }}
+      />
+      <div className="relative overflow-hidden rounded-[20px] bg-black">
+        <div className="bg-[#050807] px-3 pb-4 pt-2.5 sm:px-4 sm:pb-5">
+          <p id={labelId} className="sr-only">
+            Member video preview with rotating captions.
+          </p>
+
+          <div
+            className="overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50"
+            aria-hidden
+          >
+            <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
+              <span className="flex shrink-0 gap-[6px]" aria-hidden>
+                <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
+                <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
+                <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
+              </span>
+              <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
+              <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
+                youtu.be · Centuries Mutual
+              </span>
+              <Users className="h-3 w-3 shrink-0 text-white/75" aria-hidden />
+            </div>
+            {/* Same proportional video area as the original combined modal */}
+            <div className="relative w-full pt-[54%] sm:pt-[50%]">
+              <div className="absolute inset-0 bg-[#050505]" />
+              <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-2 ring-black/65 sm:h-[4rem] sm:w-[4rem]">
+                  <Play
+                    className="relative left-[2px] h-10 w-10 shrink-0 text-[#050505] sm:h-12 sm:w-12"
+                    fill="currentColor"
+                    strokeWidth={0}
+                    aria-hidden
+                  />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 flex min-h-[2.25rem] items-start justify-start sm:mt-4">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.p
+                key={captionIdx}
+                initial={{ opacity: 0, y: 2 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -2 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="line-clamp-2 text-left font-sans text-[9px] leading-snug tracking-[0.015em] text-white/72"
+              >
+                {STREAM_CAPTIONS[captionIdx]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function PulseCard({ labelId }: { labelId: string }) {
+  const [feedIdx, setFeedIdx] = useState(0)
   useEffect(() => {
-    const id = window.setInterval(() => setCaptionIdx((i) => (i + 1) % STREAM_CAPTIONS.length), STREAM_CAPTION_ROTATE_MS)
+    const id = window.setInterval(() => setFeedIdx((i) => (i + 1) % MOCK_X_FEED.length), X_FEED_ROTATE_MS)
     return () => window.clearInterval(id)
   }, [])
 
   const post = MOCK_X_FEED[feedIdx]
 
   return (
-    <>
-      <div
-        className="relative rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50"
-        aria-hidden
-      >
-        <div
-          className="pointer-events-none absolute -inset-px rounded-[26px] opacity-[0.35] blur-xl"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 169, 97, 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 80% 100%, rgba(16, 185, 129, 0.12), transparent 50%)',
-          }}
-        />
-        <div className="relative overflow-hidden rounded-[20px] bg-black">
-          <div className="bg-[#050807] px-3 pb-5 pt-2.5 sm:px-4">
-            <p id={titleId} className="sr-only">
-              Public pulse: member video preview and live X timeline (not your DMs).
-            </p>
+    <div className="relative rounded-[18px] border border-[#C9A961]/28 bg-gradient-to-b from-[#161c18] via-[#101512] to-[#0a0e0c] p-1 shadow-[0_18px_40px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.04)] ring-1 ring-black/40">
+      <div className="relative overflow-hidden rounded-[14px] bg-[#050807] px-2.5 pb-2.5 pt-2 sm:px-3">
+        <p id={labelId} className="sr-only">
+          Public pulse: live X-style timeline preview (not your DMs).
+        </p>
 
-            {/* YouTube-style preview — taller window above muted 𝕏 feed */}
-            <div
-              className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50 sm:mb-4"
-              aria-hidden
+        <div className="mb-1.5 flex items-center gap-2 opacity-85">
+          <span className="translate-y-[0.5px] text-[13px] font-semibold leading-none text-white/50">𝕏</span>
+          <span className="translate-y-[0.5px] font-sans text-[6.5px] font-medium uppercase tracking-[0.18em] text-white/32">
+            Public pulse
+          </span>
+          <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[4px] py-px font-sans text-[6px] font-semibold uppercase tracking-wide text-emerald-200/65">
+            Not your DMs
+          </span>
+        </div>
+
+        <div className="relative isolate overflow-hidden rounded-[10px] border border-white/[0.06] bg-[#060a0c]/92 px-2 py-1.5 backdrop-blur-[2px] sm:px-2.5 sm:py-2">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={feedIdx}
+              initial={{ opacity: 0, y: 3 }}
+              animate={{ opacity: 0.88, y: 0 }}
+              exit={{ opacity: 0, y: -2 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="pointer-events-none flex gap-1.5"
             >
-              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
-                <span className="flex shrink-0 gap-[6px]" aria-hidden>
-                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
-                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
-                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
-                </span>
-                <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
-                <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
-                  youtu.be · Centuries Mutual
-                </span>
-                <Users className="h-3 w-3 shrink-0 text-white/75" aria-hidden />
-              </div>
-              <div className="relative w-full pt-[54%] sm:pt-[50%]">
-                <div className="absolute inset-0 bg-[#050505]" />
-                <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-2 ring-black/65 sm:h-[4rem] sm:w-[4rem]">
-                    <Play
-                      className="relative left-[2px] h-10 w-10 shrink-0 text-[#050505] sm:h-12 sm:w-12"
-                      fill="currentColor"
-                      strokeWidth={0}
-                      aria-hidden
-                    />
+              <span className="mt-px h-[24px] w-[24px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
+                  <span className="truncate font-sans text-[10px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
+                  <span className="font-sans text-[9px] text-neutral-600">{post.handle}</span>
+                </div>
+                <span className="mt-px block h-2.5 shrink-0 truncate font-sans text-[8px] leading-none text-neutral-700">{post.vein}</span>
+                <div className="mt-1 overflow-hidden">
+                  <p className="line-clamp-2 font-sans text-[10px] leading-[1.35] text-neutral-500/95">{post.body}</p>
+                </div>
+                <div className="mt-1.5 flex shrink-0 items-center gap-2.5 text-neutral-700/95">
+                  <span className="inline-flex items-center gap-px opacity-85">
+                    <Heart className="h-2.5 w-2.5 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
+                    <span className="text-[7px] tracking-tight">—</span>
                   </span>
+                  <Repeat2 className="h-2.5 w-2.5 shrink-0 opacity-75" aria-hidden />
+                  <BarChart3 className="h-2.5 w-2.5 shrink-0 opacity-75" aria-hidden />
                 </div>
               </div>
-            </div>
-
-            <div className="mb-3 flex min-h-[2.25rem] items-start justify-start sm:mb-4">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.p
-                  key={captionIdx}
-                  initial={{ opacity: 0, y: 2 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -2 }}
-                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="line-clamp-2 text-left font-sans text-[9px] leading-snug tracking-[0.015em] text-white/72"
-                >
-                  {STREAM_CAPTIONS[captionIdx]}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-
-            <div className="mb-2 flex items-center gap-2 opacity-80">
-              <span className="translate-y-[0.5px] text-[14px] font-semibold leading-none text-white/45">𝕏</span>
-              <span className="translate-y-[0.5px] font-sans text-[7px] font-medium uppercase tracking-[0.18em] text-white/30">
-                Public pulse
-              </span>
-              <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[5px] py-px font-sans text-[6.5px] font-semibold uppercase tracking-wide text-emerald-200/65">
-                Not your DMs
-              </span>
-              <span className="relative ml-auto hidden h-1.5 w-1.5 sm:inline-flex">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/25" aria-hidden />
-                <span className="relative m-auto inline-flex h-[3px] w-[3px] rounded-full bg-emerald-400/80" aria-hidden />
-              </span>
-            </div>
-
-            <div className="relative isolate overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 backdrop-blur-[2px] sm:px-3 sm:py-2.5">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={feedIdx}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 0.88, y: 0 }}
-                  exit={{ opacity: 0, y: -3 }}
-                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                  className="pointer-events-none flex gap-2"
-                >
-                  <span className="mt-px h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
-                  <div className="flex min-h-0 min-w-0 flex-1 flex-col">
-                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                      <span className="truncate font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
-                      <span className="font-sans text-[10px] text-neutral-600">{post.handle}</span>
-                    </div>
-                    <span className="mt-px block h-3 shrink-0 truncate font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
-                    <div className="mt-1.5 overflow-hidden">
-                      <p className="line-clamp-3 font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
-                    </div>
-                    <div className="mt-2 flex shrink-0 items-center gap-3 text-neutral-700/95">
-                      <span className="inline-flex items-center gap-px opacity-85">
-                        <Heart className="h-3 w-3 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
-                        <span className="text-[8px] tracking-tight">—</span>
-                      </span>
-                      <Repeat2 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
-                      <BarChart3 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
 function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
+  const youtubeLabel = `${titleId}-youtube`
+  const pulseLabel = `${titleId}-pulse`
   return (
-    <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
-      <IllustrationChat titleId={titleId} />
-    </Link>
+    <div className="flex w-full flex-col gap-3 sm:gap-4">
+      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto p-2 sm:p-3')} aria-labelledby={youtubeLabel}>
+        <YoutubeCard labelId={youtubeLabel} />
+      </Link>
+      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto p-2.5 sm:p-3')} aria-labelledby={pulseLabel}>
+        <PulseCard labelId={pulseLabel} />
+      </Link>
+    </div>
   )
 }
 
@@ -226,14 +242,11 @@ function FloaterArticle({ row }: { row: CardRow }) {
     <motion.article
       variants={cardFloat}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.14 }}
+      animate="show"
       transition={{ delay: row.delay }}
-      className={cn(
-        'relative z-10 w-full max-w-md',
-      )}
+      className="relative z-10 w-full max-w-md"
       style={{ zIndex: CHAT_Z }}
-      aria-labelledby={titleId}
+      aria-label="Member video and public pulse shortcuts"
     >
       <FloatingInner row={row} titleId={titleId} />
     </motion.article>
@@ -244,7 +257,6 @@ export function FloatingImageCards({ className = '' }: { className?: string }) {
   return (
     <div
       className={cn(
-        /* Centered in hero image column by parent flex; not fixed — scrolls with hero, no viewport drift */
         'pointer-events-none relative z-[1] flex w-full max-w-[min(28rem,100%)] flex-col',
         '[&_a]:pointer-events-auto',
         className,
