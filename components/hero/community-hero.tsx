@@ -147,9 +147,9 @@ export function CommunityHero() {
                 </div>
               </div>
 
-              <div className="relative bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
+              <div className="relative -mt-8 bg-[#FAFCFB] px-6 pb-8 pt-12 md:px-8 md:pb-9 md:pt-14">
                 <div
-                  className="pointer-events-none absolute inset-x-0 -top-10 h-10 bg-gradient-to-b from-transparent to-[#FAFCFB]"
+                  className="pointer-events-none absolute inset-x-0 -top-16 h-16 bg-gradient-to-b from-transparent via-[#FAFCFB]/70 to-[#FAFCFB]"
                   aria-hidden
                 />
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
