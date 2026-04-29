@@ -16,6 +16,12 @@ const fraunces = Fraunces({
 export const GRAIN_BG =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27220%27 height=%27220%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.82%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27220%27 height=%27220%27 filter=%27url(%23n)%27 opacity=%270.52%27/%3E%3C/svg%3E")'
 
+const NAV: { href: string; label: string }[] = [
+  { href: '/search', label: 'Neighborhood' },
+  { href: '/treasury', label: 'Treasury' },
+  { href: '/newspaper', label: 'Journal' },
+]
+
 /** Primary header row height */
 export const SITE_HEADER_BAR_PX = 56
 /** Thin gold rule above header */
@@ -25,6 +31,17 @@ export const SITE_HEADER_DOWNLOAD_STRIP_PX = 0
 
 /** Match scroll-body offset spacer to combined fixed chrome */
 export const SITE_HEADER_STACK_PX = SITE_HEADER_TOP_RULE_PX + SITE_HEADER_BAR_PX
+
+function NavLink({ href, label }: { href: string; label: string }) {
+  return (
+    <Link
+      href={href}
+      className="whitespace-nowrap py-2 font-sans text-xs font-medium uppercase tracking-wider text-[#FAF7F0]/90 no-underline transition-colors hover:text-[#FAF7F0]"
+    >
+      {label}
+    </Link>
+  )
+}
 
 export function SiteHeader() {
   const { scrollY } = useScroll()
@@ -98,7 +115,11 @@ export function SiteHeader() {
               </span>
             </Link>
 
-            <div className="relative z-[1] h-9 w-9 shrink-0" aria-hidden />
+            <nav className="relative z-[1] hidden min-w-0 items-center gap-6 xl:flex" aria-label="Primary">
+              {NAV.map((item) => (
+                <NavLink key={item.href} href={item.href} label={item.label} />
+              ))}
+            </nav>
           </div>
         </header>
       </motion.div>

@@ -57,10 +57,13 @@ export function CommunityHero() {
   const imageParallax = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
 
   return (
-    <section ref={sectionRef} className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pt-0 ${editorial.variable}`}>
+    <section
+      ref={sectionRef}
+      className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pb-8 pt-0 lg:pb-12 ${editorial.variable}`}
+    >
       <CommunitySearchHotkeys onOpen={openSearch} />
 
-      <div className="relative z-[1] grid min-h-[88vh] w-full grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-0">
+      <div className="relative z-[1] grid min-h-[94vh] w-full grid-cols-1 gap-0 lg:min-h-[98vh] lg:grid-cols-12 lg:gap-0">
         {/* Columns 1–7: image column */}
         <div className="relative col-span-full min-h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:col-start-1 lg:min-h-[88vh]">
           <motion.div style={{ y: imageParallax }} className="absolute inset-0 lg:-top-[8%] lg:h-[116%]">
@@ -76,10 +79,6 @@ export function CommunityHero() {
               />
             </div>
           </motion.div>
-          <div
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,rgb(232_223_214)_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,rgb(232_223_214)_100%)]"
-            aria-hidden
-          />
         </div>
 
         {/* Columns 8–12: editorial tan column */}
