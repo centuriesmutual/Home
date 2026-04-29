@@ -140,7 +140,7 @@ export function NeighborhoodExpandedBody() {
               },
               {
                 Icon: NewspaperIcon,
-                title: 'Local Journal',
+                title: 'Local Newspaper',
                 body:
                   'A steady, human-scale feed about the corridor — notes and news selected to be useful when you decide where home should be.',
               },
