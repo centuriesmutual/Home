@@ -70,7 +70,7 @@ const CARDS: CardRow[] = [
 /** Elevate overlapping cards — news sits under chat/stream so previews never cloak ZK messaging. */
 const CARD_Z = { news: 24, chat: 46, stream: 34 } as const
 
-const X_FEED_ROTATE_MS = 2600
+const X_FEED_ROTATE_MS = 10000
 
 /** Presentation-only mock timeline (not wired to 𝕏 / external APIs). */
 const MOCK_X_FEED: ReadonlyArray<{
@@ -111,7 +111,7 @@ const MOCK_X_FEED: ReadonlyArray<{
   },
 ]
 
-const STREAM_CAPTION_ROTATE_MS = 5200
+const STREAM_CAPTION_ROTATE_MS = 12000
 
 const STREAM_CAPTIONS: readonly string[] = [
   'Member walks and policy Q&A — replay trims by chapter.',
