@@ -128,7 +128,7 @@ export function CommunityHero() {
                 />
               </div>
               <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/55 via-black/20 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-black/40 via-black/12 to-transparent"
                 aria-hidden
               />
               <div className="relative z-[1] flex min-h-[20rem] flex-col justify-between gap-8 px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
@@ -146,19 +146,21 @@ export function CommunityHero() {
                     Wintergarden
                   </Link>
                 </div>
-                <div className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mx-0 md:max-w-none">
-                  <Link
-                    href="/login"
-                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline shadow-lg transition hover:bg-[#15523D]"
-                  >
-                    Client Portal
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border-2 border-[#FAFCFB]/85 bg-[#FAFCFB]/12 px-5 text-sm font-medium leading-none text-[#FAFCFB] no-underline shadow-lg backdrop-blur-sm transition hover:bg-[#FAFCFB]/22"
-                  >
-                    Create Account
-                  </Link>
+                <div className="relative z-[2] -mx-5 mt-auto rounded-t-2xl border-t border-[#E5E0D5]/35 bg-gradient-to-t from-[#FAFCFB]/92 via-[#FAFCFB]/48 to-transparent px-5 pb-6 pt-10 shadow-[0_-8px_32px_rgba(15,61,46,0.06)] backdrop-blur-md md:-mx-8 md:px-8 md:pb-8 md:pt-11">
+                  <div className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mx-0 md:max-w-none">
+                    <Link
+                      href="/login"
+                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline shadow-md transition hover:bg-[#15523D]"
+                    >
+                      Client Portal
+                    </Link>
+                    <Link
+                      href="/signup"
+                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-[#FAFCFB]/75 px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline shadow-md backdrop-blur-sm transition hover:bg-[#FAFCFB]"
+                    >
+                      Create Account
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
