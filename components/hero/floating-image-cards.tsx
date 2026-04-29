@@ -70,17 +70,6 @@ const CARDS: CardRow[] = [
     sub: 'Member digest · Personalized',
   },
   {
-    id: 'treasury',
-    delay: 0.14,
-    kind: 'glass-article',
-    place: 'left-[8%] top-[40%] w-[13rem] -translate-y-1 sm:left-[10%]',
-    hidden: 'max-lg:hidden',
-    href: '/pay',
-    eyebrow: 'Treasury',
-    headline: 'On-ledger payouts settle nightly with quorum receipts',
-    sub: 'Trust rails · Institutional guardrails · Tap to inspect',
-  },
-  {
     id: 'chat',
     delay: 0.2,
     kind: 'chat',
