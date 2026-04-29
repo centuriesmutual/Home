@@ -61,6 +61,8 @@ export function CommunityHero() {
     <section ref={sectionRef} className={`relative mt-0 w-full overflow-hidden bg-[#0F3D2E] pt-0 ${editorial.variable}`}>
       <CommunitySearchHotkeys onOpen={openSearch} />
 
+      <FloatingImageCards />
+
       <div className="relative z-[1] grid min-h-[88vh] w-full grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-0">
         {/* Columns 1–7: image column only */}
         <div className="relative col-span-full min-h-[min(52vh,520px)] overflow-hidden lg:col-span-7 lg:col-start-1 lg:min-h-[88vh]">
@@ -81,7 +83,6 @@ export function CommunityHero() {
             className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_45%,rgba(232,223,214,0.42)_74%,rgba(232,223,214,0.92)_93%,rgb(232_223_214)_100%)] lg:bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(232,223,214,0.34)_62%,rgba(232,223,214,0.74)_82%,rgb(232_223_214)_100%)]"
             aria-hidden
           />
-          <FloatingImageCards />
         </div>
 
         {/* Columns 8–12: editorial tan column */}

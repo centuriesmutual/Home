@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
+import { SITE_HEADER_STACK_PX } from '@/components/layout/site-header'
 import { cn } from '@/lib/utils'
 
 const linkReset =
@@ -231,7 +232,6 @@ function FloaterArticle({ row }: { row: CardRow }) {
       transition={{ delay: row.delay }}
       className={cn(
         'relative z-10 mx-auto w-full max-w-md',
-        'lg:absolute lg:inset-x-0 lg:top-1/2 lg:mx-auto lg:w-[min(calc(100%-2rem),28rem)] lg:max-w-[28rem] lg:-translate-y-1/2',
       )}
       style={{ zIndex: CHAT_Z }}
       aria-labelledby={titleId}
@@ -245,11 +245,12 @@ export function FloatingImageCards({ className = '' }: { className?: string }) {
   return (
     <div
       className={cn(
-        'pointer-events-none relative z-10 flex min-h-0 flex-col gap-5 px-4 pb-32 pt-[6rem]',
+        'pointer-events-none fixed z-[90] flex w-[min(calc(100vw-2rem),28rem)] max-w-[28rem] flex-col',
+        'left-[max(1rem,calc((100vw_-_min(1600px,_100vw))*0.5+1rem))]',
         '[&_a]:pointer-events-auto',
-        'lg:pointer-events-auto lg:absolute lg:inset-0 lg:block lg:gap-0 lg:px-0 lg:pb-8 lg:pt-0',
         className,
       )}
+      style={{ top: SITE_HEADER_STACK_PX + 10 }}
     >
       {CARDS.map((c) => (
         <FloaterArticle key={c.id} row={c} />
