@@ -173,12 +173,7 @@ export function CommunityHero() {
               </div>
             </div>
 
-            <div
-              className="mb-11 min-h-[3.5rem] w-full rounded-2xl border border-[#E5E0D5]/65 bg-[#FAFCFB] shadow-[inset_0_1px_0_rgba(255,255,255,0.95)]"
-              aria-hidden
-            />
-
-            <div className={`overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}>
+            <div className={`mt-4 overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}>
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
