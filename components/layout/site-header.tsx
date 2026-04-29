@@ -115,11 +115,19 @@ export function SiteHeader() {
               </span>
             </Link>
 
-            <nav className="relative z-[1] hidden min-w-0 items-center gap-6 xl:flex" aria-label="Primary">
-              {NAV.map((item) => (
-                <NavLink key={item.href} href={item.href} label={item.label} />
-              ))}
-            </nav>
+            <div className="relative z-[1] flex min-w-0 items-center gap-4 xl:gap-6">
+              <nav className="hidden min-w-0 items-center gap-5 xl:flex" aria-label="Primary">
+                {NAV.map((item) => (
+                  <NavLink key={item.href} href={item.href} label={item.label} />
+                ))}
+              </nav>
+              <Link
+                href="/login"
+                className="ml-auto inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#FAFCFB] px-3 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white xl:ml-0"
+              >
+                Client Portal
+              </Link>
+            </div>
           </div>
         </header>
       </motion.div>

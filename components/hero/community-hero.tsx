@@ -124,41 +124,27 @@ export function CommunityHero() {
                   fill
                   priority={false}
                   sizes="(max-width: 1023px) 100vw, 42vw"
-                  className="object-cover object-[50%_0%] [transform:scale(1.34)] [transform-origin:center_top]"
+                  className="object-cover object-[50%_0%] [transform:scale(1.52)] [transform-origin:center_top]"
                 />
               </div>
               <div
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
                 aria-hidden
               />
-              <div className="relative z-[1] flex min-h-[20rem] flex-col justify-between gap-8 px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
-                <div className="flex justify-between gap-3 pt-2 md:pt-4">
-                  <Link
-                    href="/my-brothers-keeper"
-                    className="inline-flex h-7 items-center rounded-full border border-white/35 bg-black/35 px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#FAFCFB] no-underline shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm transition hover:bg-black/45"
-                  >
-                    My Brothers Keeper
-                  </Link>
-                  <Link
-                    href="/wintergarden"
-                    className="inline-flex h-7 items-center rounded-full border border-white/35 bg-black/35 px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#FAFCFB] no-underline shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm transition hover:bg-black/45"
-                  >
-                    Wintergarden
-                  </Link>
-                </div>
-                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-8 backdrop-blur-md md:-mx-8 md:px-8 md:py-9">
-                  <div className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mx-0 md:max-w-none">
+              <div className="relative z-[1] flex min-h-[20rem] flex-col px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
+                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
+                  <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
                     <Link
-                      href="/login"
-                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline shadow-md transition hover:bg-[#15523D]"
+                      href="/wintergarden"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-md transition hover:bg-[#15523D] sm:h-10 sm:px-3 sm:text-xs"
                     >
-                      Client Portal
+                      Wintergarden
                     </Link>
                     <Link
-                      href="/signup"
-                      className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white/92 px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline shadow-md transition hover:bg-white"
+                      href="/my-brothers-keeper"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0F3D2E] bg-white/92 px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-md transition hover:bg-white sm:h-10 sm:px-3 sm:text-xs"
                     >
-                      Create Account
+                      My Brothers Keeper
                     </Link>
                   </div>
                 </div>
