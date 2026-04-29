@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Maximize2, Mic, MonitorPlay, Play, Users } from 'lucide-react'
+import { Lock, Maximize2, Mic, MonitorPlay, Play, ShieldCheck, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -59,14 +59,14 @@ const CARDS: CardRow[] = [
     sub: 'Morning wire · Opens in Journal · 3 min read',
   },
   {
-    id: 'for-you',
+    id: 'treasury-digest',
     delay: 0.07,
     kind: 'glass-article',
     place: 'top-[7rem] right-6 w-[13.75rem]',
     hidden: 'max-md:hidden sm:right-10 lg:top-28 lg:right-12 lg:w-[15rem]',
-    href: '/newspaper',
-    eyebrow: 'For You',
-    headline: 'Feed tuned to neighborhoods you follow · zero noise',
+    href: '/pay',
+    eyebrow: 'Treasury',
+    headline: 'Neighborhoods you follow first · zero noise in your digest',
     sub: 'Member digest · Personalized',
   },
   {
@@ -108,24 +108,40 @@ function IllustrationChat({ titleId }: { titleId: string }) {
       <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
         Chat · ZK-sealed threads
       </p>
-      <div className="mt-3 space-y-2" aria-hidden>
-        <div className="flex justify-end">
-          <div className="max-w-[88%] rounded-2xl rounded-br-sm border border-white/12 bg-black/35 px-2.5 py-1.5">
-            <div className="h-2 w-[5.5rem] rounded-full bg-white/25" />
-            <div className="mt-1.5 h-2 w-20 rounded-full bg-white/14" />
-          </div>
-        </div>
-        <div className="flex justify-start">
-          <div className="max-w-[92%] rounded-2xl rounded-bl-sm border border-emerald-500/35 bg-emerald-900/55 px-2.5 py-2">
-            <div className="flex items-center gap-1">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/65" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/50 [animation-delay:150ms]" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/40 [animation-delay:300ms]" />
+      <div className="mt-3 space-y-3" aria-hidden>
+        {/* Outbound — ciphertext envelope */}
+        <div className="flex items-end justify-end gap-2">
+          <span className="mb-1 h-8 w-8 shrink-0 rounded-[14px] border border-emerald-500/35 bg-emerald-900/40 shadow-inner shadow-emerald-900/45" />
+          <div className="max-w-[86%] rounded-[1.125rem] rounded-br-md border border-emerald-500/35 bg-gradient-to-br from-emerald-950/80 to-black/65 px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-emerald-500/25">
+            <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-semibold uppercase tracking-wider text-emerald-200/92">
+              <Lock className="h-3 w-3 shrink-0" strokeWidth={2.25} aria-hidden />
+              Zero-knowledge envelope
+            </span>
+            <div className="space-y-1.5">
+              <div className="h-2 max-w-[6.5rem] rounded-full bg-white/38" />
+              <div className="h-2 w-[4.75rem] rounded-full bg-white/16" />
             </div>
           </div>
         </div>
-        <div className="flex justify-end pt-1">
-          <span className="rounded-full bg-white/10 px-2 py-[3px] font-sans text-[9px] font-medium uppercase tracking-wide text-white">
+
+        {/* Inbound — verifier reply + typing */}
+        <div className="flex items-end justify-start gap-2">
+          <span className="mb-1 h-8 w-8 shrink-0 rounded-[14px] border border-white/15 bg-black/55" />
+          <div className="max-w-[90%] rounded-[1.125rem] rounded-bl-md border border-white/12 bg-black/55 px-3 py-2 ring-1 ring-white/8">
+            <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-semibold uppercase tracking-wider text-emerald-300/90">
+              <ShieldCheck className="h-3 w-3 shrink-0 text-emerald-400/95" strokeWidth={2.25} aria-hidden />
+              Verified ring
+            </span>
+            <div className="flex items-center gap-1 px-0.5">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-white/72" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-white/55 [animation-delay:150ms]" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-white/42 [animation-delay:300ms]" />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end pt-0.5">
+          <span className="rounded-full border border-white/10 bg-black/55 px-2 py-[3px] font-sans text-[8px] font-medium uppercase tracking-wide text-white/95 backdrop-blur-sm">
             Read receipt · quorum key
           </span>
         </div>
@@ -227,29 +243,83 @@ function IllustrationStream({ titleId }: { titleId: string }) {
 }
 
 function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
-  if (row.kind === 'news' || row.kind === 'glass-article') {
+  if (row.kind === 'news') {
+    return (
+      <Link
+        href={row.href}
+        className={cn(
+          glassCls,
+          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-lg hover:shadow-black/35',
+        )}
+      >
+        <div className="relative z-[1] pb-px">
+          <div className="mb-2 flex items-center gap-2">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden />
+            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white">{row.eyebrow}</span>
+          </div>
+          <h3 id={titleId} className="font-serif text-[0.9375rem] font-medium leading-snug text-white">
+            {row.headline}
+          </h3>
+          <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
+        </div>
+
+        {/* YouTube-style preview layer (wired for future iframe embed later) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[2] flex flex-col justify-end rounded-xl bg-black/0 p-3 opacity-0 transition-all duration-300 ease-out backdrop-blur-0 group-hover/card-news:bg-black/82 group-hover/card-news:opacity-100 group-hover/card-news:backdrop-blur-sm group-focus-within/card-news:bg-black/82 group-focus-within/card-news:opacity-100 group-focus-within/card-news:backdrop-blur-sm motion-reduce:transition-none motion-reduce:group-hover/card-news:bg-black/92"
+          aria-hidden
+        >
+          <div
+            data-news-video-slot
+            className="relative w-full overflow-hidden rounded-lg bg-[#0f0f0f] pt-1 shadow-[0_14px_40px_rgba(0,0,0,0.55)] ring-1 ring-white/12"
+          >
+            <div className="flex items-center justify-between gap-1 border-b border-white/10 bg-[#272727] px-2 py-[5px]">
+              <span className="truncate font-sans text-[9px] font-semibold uppercase tracking-[0.12em] text-white/92">
+                Centuries Mutual · Briefing
+              </span>
+              <span className="shrink-0 rounded bg-black/65 px-[4px] py-px font-sans text-[7px] font-bold uppercase tracking-wider text-emerald-200/92">
+                CC
+              </span>
+            </div>
+            <div className="relative aspect-video w-full bg-black">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(201,169,97,0.18),transparent_52%),linear-gradient(to_bottom,#1a261f,#050807)]" />
+              <div className="absolute inset-0 opacity-[0.085] bg-[repeating-linear-gradient(180deg,#fff,#fff_1px,transparent_1px_10px)]" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-white/30 bg-black/62 text-white shadow-[0_8px_32px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-transform duration-300 motion-safe:group-hover/card-news:scale-105 motion-reduce:group-hover/card-news:scale-100">
+                  <Play className="relative left-[2px] h-7 w-7 shrink-0" fill="currentColor" strokeWidth={0} aria-hidden />
+                </span>
+              </div>
+              <div className="pointer-events-none absolute bottom-1.5 left-2 right-2">
+                <div className="mb-1 flex items-center gap-2">
+                  <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-white/22">
+                    <div className="h-full w-[31%] rounded-full bg-[#ff0000] shadow-[0_0_12px_rgba(255,0,0,0.65)] motion-safe:group-hover/card-news:w-[54%] motion-safe:transition-all motion-safe:duration-[1.75s] motion-safe:ease-out" />
+                  </div>
+                  <span className="font-mono text-[8px] tracking-tight text-white/88">4:52</span>
+                </div>
+                <div className="flex items-center gap-3 opacity-95">
+                  <span className="h-5 w-[3.75rem] rounded-sm bg-black/72 ring-1 ring-white/14" aria-hidden />
+                  <span className="text-[9px] text-white/80">/</span>
+                  <span className="h-5 flex-1 rounded-sm bg-black/72 ring-1 ring-white/12" aria-hidden />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="mt-2 px-1 text-center font-sans text-[10px] font-semibold leading-tight text-white">
+            Hover · preview playback
+            <span className="mt-1 block truncate font-normal text-white/92">{row.headline}</span>
+          </p>
+        </div>
+      </Link>
+    )
+  }
+
+  if (row.kind === 'glass-article') {
     return (
       <Link href={row.href} className={cn(glassCls, 'lg:pointer-events-auto')}>
-        {row.kind === 'news' ? (
-          <>
-            <div className="mb-2 flex items-center gap-2">
-              <span className="h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden />
-              <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white">{row.eyebrow}</span>
-            </div>
-            <h3 id={titleId} className="font-serif text-[0.9375rem] font-medium leading-snug text-white">
-              {row.headline}
-            </h3>
-            <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
-          </>
-        ) : (
-          <>
-            <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white">{row.eyebrow}</p>
-            <h3 id={titleId} className="mt-2 font-serif text-[0.9375rem] font-medium leading-snug text-white">
-              {row.headline}
-            </h3>
-            <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
-          </>
-        )}
+        <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white">{row.eyebrow}</p>
+        <h3 id={titleId} className="mt-2 font-serif text-[0.9375rem] font-medium leading-snug text-white">
+          {row.headline}
+        </h3>
+        <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
       </Link>
     )
   }
