@@ -110,11 +110,10 @@ export function CommunityHero() {
                 — A Centuries Mutual Service
               </p>
               <h1
-                className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#0F3D2E] md:text-4xl lg:text-5xl`}
+                className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#0F3D2E] md:text-4xl lg:max-w-none lg:text-[2.65rem] lg:whitespace-nowrap`}
                 style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif', lineHeight: 1.18 }}
               >
-                <span className="block">Your Community</span>
-                <span className="block">Brokerage</span>
+                <span>Your Community Brokerage</span>
               </h1>
             </div>
 
