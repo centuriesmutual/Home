@@ -146,7 +146,7 @@ export default function Navbar() {
               >
                 Download App
               </Link>
-              {pathname !== '/' && pathname !== '/rooms' && (
+              {pathname !== '/' && (
                 <Link href="/" className="nav-link" style={{ color: '#14432A' }}>
                   Home
                 </Link>

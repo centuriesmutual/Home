@@ -36,7 +36,7 @@ export default function NetworkPage() {
                   host, or invest with Centuries Mutual on web or mobile.
                 </p>
                 <div className="d-flex flex-wrap gap-3">
-                  <Link href="/rooms" className="btn btn-light btn-lg px-4 py-3">
+                  <Link href="/search" className="btn btn-light btn-lg px-4 py-3">
                     Browse rooms
                   </Link>
                   <Link href="/learnmore/network" className="btn btn-outline-light btn-lg px-4 py-3">

@@ -8,7 +8,6 @@ import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
 import { FloatingImageCards } from '@/components/hero/floating-image-cards'
-import { QuickActions } from '@/components/hero/quick-actions'
 import { fadeUp } from '@/lib/animations'
 import { GRAIN_BG } from '@/components/layout/site-header'
 
@@ -120,7 +119,11 @@ export function CommunityHero() {
               </h1>
             </div>
 
-            <QuickActions className="mb-6" />
+            <div
+              className={`mb-6 overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}
+            >
+              <CommunitySearchBar onOpen={openSearch} compact />
+            </div>
 
             <div id="client-portal" className={`mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
               {/* Single panel: twin images with labels overlaid — not separate bordered cards */}
@@ -171,10 +174,6 @@ export function CommunityHero() {
                   </Link>
                 </div>
               </div>
-            </div>
-
-            <div className={`mt-4 overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}>
-              <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
             <p className="mt-3 text-center text-xs italic leading-relaxed text-[#6B6B66]">

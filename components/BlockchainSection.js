@@ -275,7 +275,7 @@ export default function BlockchainSection() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                       >
                         <Link 
-                          href="/rooms" 
+                          href="/search" 
                           className="btn btn-primary btn-lg px-4 py-3 fw-bold"
                           style={{ 
                             borderRadius: '12px',
