@@ -41,8 +41,8 @@ const CARDS: CardRow[] = [
     id: 'news',
     delay: 0,
     kind: 'news',
-    place: 'left-6 top-4 w-56 sm:left-8 sm:top-5 lg:left-10 lg:top-6',
-    hidden: 'max-[420px]:left-5 max-[420px]:top-4 max-[420px]:w-[calc(100%-2.5rem)]',
+    place: 'left-5 top-2 w-56 sm:left-7 sm:top-3 lg:left-10 lg:top-4',
+    hidden: 'max-[420px]:left-4 max-[420px]:top-2 max-[420px]:w-[calc(100%-2.5rem)]',
     href: '/newspaper',
     eyebrow: 'News',
     headline: 'Texas co-op housing starts edge up amid rate pause',
@@ -54,8 +54,8 @@ const CARDS: CardRow[] = [
     kind: 'chat',
     href: '/private-phone-messaging',
     place:
-      'bottom-[10.5rem] right-4 w-[min(92vw,22rem)] sm:bottom-[11.75rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[12.25rem] lg:right-12 lg:w-[26.75rem]',
-    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[13.75rem] max-[480px]:w-[calc(100%-2.5rem)]',
+      'bottom-[14rem] right-4 w-[min(92vw,22rem)] sm:bottom-[15.5rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[16.25rem] lg:right-12 lg:w-[26.75rem]',
+    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[17.5rem] max-[480px]:w-[calc(100%-2.5rem)]',
   },
   {
     id: 'stream',
@@ -63,8 +63,8 @@ const CARDS: CardRow[] = [
     kind: 'stream',
     href: '/network',
     place:
-      'bottom-24 left-6 w-[min(92vw,18.75rem)] sm:bottom-28 sm:left-8 sm:w-[19.75rem] lg:bottom-32',
-    hidden: 'max-[420px]:bottom-[18rem] max-[420px]:left-5 max-[420px]:w-[calc(100%-2.5rem)]',
+      'bottom-36 left-5 w-[min(92vw,18.75rem)] sm:bottom-40 sm:left-8 sm:w-[19.75rem] lg:bottom-44',
+    hidden: 'max-[420px]:bottom-[21.5rem] max-[420px]:left-4 max-[420px]:w-[calc(100%-2.5rem)]',
   },
 ]
 
