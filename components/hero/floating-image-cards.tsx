@@ -11,7 +11,7 @@ const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
 const newsGlassCls = cn(
-  'block h-full rounded-xl border border-white/42 bg-neutral-950 p-4 shadow-2xl shadow-black/65 ring-1 ring-black/55 backdrop-blur-[2px] transition hover:bg-neutral-950 hover:border-white/52 hover:shadow-black/75 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#C9A961]/55 text-white',
+  'block h-full rounded-xl border border-white/28 bg-black/80 p-4 shadow-xl shadow-black/35 ring-1 ring-white/12 backdrop-blur-md backdrop-saturate-150 transition hover:bg-black/[0.86] hover:border-white/38 hover:shadow-black/50 focus-visible:outline focus-visible:ring-2 focus-visible:ring-[#C9A961]/55 text-white',
   linkReset,
 )
 
