@@ -22,13 +22,13 @@ const slabCls = cn(
 
 type Kind = 'news' | 'stream' | 'chat'
 
-/** Desktop (lg+) absolute positions — rem units; staircase Z-layout on hero column. Pulse & stream biased upward so bottoms stay in view. */
+/** Desktop (lg+) — rem-based; cards sit well inside the hero column (not hugging edges). Pulse & stream lifted for visibility. */
 const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
-  news: 'lg:left-[2rem] lg:top-[6rem] lg:w-[14rem]',
+  news: 'lg:left-[5rem] lg:top-[6.5rem] lg:w-[14rem]',
   chat:
-    'lg:right-[2.75rem] lg:top-[calc(50%-5.75rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
+    'lg:right-[7rem] lg:top-[calc(50%-6.5rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
   stream:
-    'lg:left-[2rem] lg:bottom-[11rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
+    'lg:left-[5.5rem] lg:bottom-[12rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
 }
 
 function ForYouGlyph({ className = '' }: { className?: string }) {
