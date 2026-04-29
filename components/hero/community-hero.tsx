@@ -118,7 +118,7 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`relative mb-0 min-h-[28rem] overflow-hidden rounded-2xl border border-[#E5E0D5]/90 sm:min-h-[32rem] md:min-h-[38rem] ${portalShadow}`}
+              className={`relative mb-0 min-h-[20rem] overflow-hidden rounded-2xl border border-[#E5E0D5]/90 sm:min-h-[22rem] md:min-h-[24rem] ${portalShadow}`}
             >
               <div className="absolute inset-0 overflow-hidden">
                 <Image
@@ -134,12 +134,12 @@ export function CommunityHero() {
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
                 aria-hidden
               />
-              <div className="relative z-[1] flex min-h-[28rem] flex-col px-5 py-6 sm:min-h-[32rem] md:min-h-[38rem] md:px-8 md:py-8">
-                <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
+              <div className="relative z-[1] flex min-h-[20rem] flex-col justify-start px-5 pb-6 pt-3 sm:min-h-[22rem] md:min-h-[24rem] md:px-8 md:pb-8 md:pt-4">
+                <div className="relative z-[2] -mx-5 border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-4 backdrop-blur-md md:-mx-8 md:px-8 md:py-5">
                   <div className="mx-auto w-full max-w-xl md:mx-0 md:max-w-2xl">
                     <div className="overflow-hidden rounded-xl border border-[#E5E0D5]/90 bg-[#FAFCFB]/95 shadow-[0_6px_28px_rgba(15,61,46,0.12)]">
                       <HeroEditorialCarousel
-                        className="min-h-[16rem] rounded-none border-0 shadow-none sm:min-h-[20rem] md:min-h-[24rem]"
+                        className="min-h-[10rem] rounded-none border-0 shadow-none sm:min-h-[11rem] md:min-h-[12rem]"
                         controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
                       />
                     </div>

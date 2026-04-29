@@ -15,14 +15,20 @@ const INTERVAL_MS = 7500
 
 function BrokenVideoFrame({ line }: { line: string }) {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-[#0f0f0f] p-4 sm:p-6 md:p-8">
-      <div className="relative w-full max-w-[min(94vw,560px)] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[600px] md:max-w-[640px]">
-        <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-3 sm:px-4">
+    <div className="flex h-full w-full items-start justify-center bg-[#0f0f0f] px-2 pb-3 pt-1 sm:px-3 sm:pb-4 sm:pt-1.5">
+      <div className="relative w-full max-w-[min(92vw,380px)] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[420px] md:max-w-[460px]">
+        <div className="flex h-7 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-2.5 sm:h-8 sm:px-3">
           <span className="h-2 w-2 rounded-full bg-[#ff5f57]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#febc2e]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#28c840]/90" aria-hidden />
         </div>
-        <div className="relative flex aspect-video flex-col items-center justify-center gap-3 px-6 py-10 sm:px-8 sm:py-12">
+        {/* Shorter than 16:9 so the player reads compact */}
+        <div className="relative w-full pt-[38%] sm:pt-[36%]">
+          <div className="absolute inset-0 bg-[#050505]" aria-hidden />
+          <div
+            className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.06),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]"
+            aria-hidden
+          />
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.07]"
             style={{
@@ -36,16 +42,25 @@ function BrokenVideoFrame({ line }: { line: string }) {
             }}
             aria-hidden
           />
-          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" className="relative z-[1] h-[4.5rem] w-[4.5rem] text-[#8a8a8a] sm:h-20 sm:w-20" aria-hidden>
-            <rect x="10" y="16" width="52" height="36" rx="4" stroke="currentColor" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
-            <path d="M30 28L46 36L30 44V28Z" fill="currentColor" opacity="0.35" />
-            <path d="M22 52L50 52" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M26 56L46 48" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
-          </svg>
-          <p className="relative z-[1] max-w-[18rem] text-center font-sans text-[12px] font-medium leading-snug text-[#e8e8e8]/88 sm:max-w-[22rem] sm:text-[13px] md:text-[14px]">
-            {line}
-          </p>
-          <p className="relative z-[1] font-sans text-[10px] uppercase tracking-[0.12em] text-[#8a8a8a]">Error code · player</p>
+          <div className="absolute inset-0 z-[1] flex flex-col items-center justify-center gap-2 px-4 py-3 sm:gap-2.5 sm:px-5 sm:py-4">
+            <svg
+              width="72"
+              height="72"
+              viewBox="0 0 72 72"
+              fill="none"
+              className="h-12 w-12 shrink-0 text-[#8a8a8a] sm:h-14 sm:w-14"
+              aria-hidden
+            >
+              <rect x="10" y="16" width="52" height="36" rx="4" stroke="currentColor" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
+              <path d="M30 28L46 36L30 44V28Z" fill="currentColor" opacity="0.35" />
+              <path d="M22 52L50 52" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
+              <path d="M26 56L46 48" stroke="#c54b4b" strokeWidth="2.2" strokeLinecap="round" />
+            </svg>
+            <p className="max-w-[16rem] text-center font-sans text-[11px] font-medium leading-snug text-[#e8e8e8]/88 sm:max-w-[18rem] sm:text-[12px]">
+              {line}
+            </p>
+            <p className="font-sans text-[9px] uppercase tracking-[0.12em] text-[#8a8a8a] sm:text-[10px]">Error code · player</p>
+          </div>
         </div>
       </div>
     </div>
@@ -89,7 +104,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
   return (
     <div
       className={cn(
-        'group relative min-h-[22rem] overflow-hidden rounded-2xl sm:min-h-[26rem] md:min-h-[30rem]',
+        'group relative min-h-[10rem] overflow-hidden rounded-2xl sm:min-h-[11rem] md:min-h-[12rem]',
         className,
       )}
       role="region"
@@ -110,7 +125,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
       ))}
 
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[38%] bg-gradient-to-t from-black/35 via-black/10 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[28%] bg-gradient-to-t from-black/35 via-black/10 to-transparent sm:h-[32%]"
         aria-hidden
       />
 
