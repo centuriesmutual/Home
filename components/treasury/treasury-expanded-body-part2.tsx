@@ -20,6 +20,11 @@ const iconWrap = 'relative mb-4 flex h-12 w-12 items-center justify-center round
 const stepNum =
   'flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#C9A53E] bg-[#FAFCFB] font-serif text-sm font-semibold text-[#14432A]'
 
+const treasuryTwoCol = 'grid grid-cols-1 items-start gap-8 md:gap-8 lg:grid-cols-2 lg:gap-16'
+const treasuryTextStack = 'flex min-w-0 flex-col gap-6'
+const treasuryBody = 'max-w-[36rem] font-sans text-[0.9375rem] leading-[1.65] text-[#55655D]'
+const titleInCol = 'max-w-[48rem]'
+
 export function TreasuryExpandedBodyContinued() {
   return (
     <>
@@ -115,26 +120,26 @@ export function TreasuryExpandedBodyContinued() {
       {/* Statement */}
       <section className="border-t border-[#E5E0D5]/80 bg-[#E8DFD6]/35 py-20 md:py-28">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <SectionTitle>A statement you can actually read.</SectionTitle>
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <ProseBody>
+          <div className={treasuryTwoCol}>
+            <div className={cn(treasuryTextStack, 'min-w-0')}>
+              <SectionTitle className={titleInCol}>A statement you can actually read.</SectionTitle>
+              <ProseBody className={treasuryBody}>
                 Treasury statements prioritize plain language — descriptions read like captions you recognize, with detail available when you drill in for proof.
               </ProseBody>
-              <ProseBody className="mt-6">
+              <ProseBody className={treasuryBody}>
                 When you run recurring bills through Centuries Mutual, you get the practical upside of enterprise-grade bill-pay
                 rails adapted for members: payees and amounts stay organized in one place, you can schedule draws before due dates,
                 and confirmations post back in the same vocabulary you authorized — instead of chasing separate utility logins,
                 landlord portals, and chat threads.
               </ProseBody>
-              <ProseBody className="mt-6">
+              <ProseBody className={treasuryBody}>
                 Rent, deposits, shared utilities, and one-off invoices land on a single chronological feed, each line tied to the
                 agreement or pool it belongs to. Status is explicit — scheduled, sent, settled, or reversed — so reconciliation
                 feels like reading a bank-aware ledger, not decoding cryptic codes. Fewer missed windows, fewer “did that
                 actually post?” moments, and a trail you can export or share when someone else needs to verify the same facts.
               </ProseBody>
             </div>
-            <LuxuryCard>
+            <LuxuryCard className="min-w-0">
               <div className="rounded-lg border border-[#E5E0D5]/70">
                 <div className="bg-[#14432A] px-4 py-2.5">
                   <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.15em] text-[#FAFCFB]">
@@ -195,7 +200,7 @@ export function TreasuryExpandedBodyContinued() {
                   'Structured remedies lean on exhaustive records produced inside Treasury so adjudication aligns with factual sequence.',
               },
             ].map((c) => (
-              <LuxuryCard key={c.k} className="min-h-[280px]">
+              <LuxuryCard key={c.k}>
                 <Eyebrow>Principle</Eyebrow>
                 <svg className="mb-6 h-16 w-full text-[#C9A53E]" viewBox="0 0 200 52" aria-hidden>
                   <rect x="4" y="8" width="192" height="36" rx="6" stroke="currentColor" fill="#14432A08" opacity="0.9" strokeWidth="1" />
@@ -266,27 +271,28 @@ export function TreasuryExpandedBodyContinued() {
       {/* Governance CTA */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-24">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-12 xl:gap-16">
-            <div className="min-w-0 lg:flex-1">
-              <Eyebrow>Governance</Eyebrow>
+          <div className={treasuryTwoCol}>
+            <div className={cn(treasuryTextStack, 'min-w-0')}>
+              <Eyebrow className="mb-0">Governance</Eyebrow>
               <h2
-                className="mt-3 max-w-[22rem] font-serif text-[1.65rem] font-semibold leading-snug tracking-tight text-[#0f3321] sm:max-w-[26rem] sm:text-[1.85rem] md:text-[2rem]"
+                className={cn(
+                  titleInCol,
+                  'font-serif font-medium leading-[1.15] tracking-[-0.02em] text-[#14432A] text-[clamp(1.75rem,4vw,2.5rem)]',
+                )}
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Governance that stays beside your lease or corridor.
               </h2>
-              <div className="mt-5 max-w-[36rem] space-y-4 font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
-                <p>
-                  Your charter sets the rules Treasury follows: how money moves, how disputes escalate, and how records stay
-                  visible to everyone those rules protect. Governance is not a hidden back office — it is the structure that
-                  keeps agreements, messaging, and settlement aligned.
-                </p>
-                <p>
-                  Open an account to connect those pieces in one experience: plain-language commitments you can read, a ledger
-                  that carries context, and paths to talk to us when something needs a human decision.
-                </p>
-              </div>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <p className={treasuryBody}>
+                Your charter sets the rules Treasury follows: how money moves, how disputes escalate, and how records stay
+                visible to everyone those rules protect. Governance is not a hidden back office — it is the structure that
+                keeps agreements, messaging, and settlement aligned.
+              </p>
+              <p className={treasuryBody}>
+                Open an account to connect those pieces in one experience: plain-language commitments you can read, a ledger
+                that carries context, and paths to talk to us when something needs a human decision.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   href="/signup"
                   className="inline-flex items-center justify-center rounded-full bg-[#0F3D2E] px-7 py-3 font-sans text-sm font-semibold text-[#FAFCFB] no-underline shadow-md transition hover:bg-[#0c3328]"
@@ -301,10 +307,8 @@ export function TreasuryExpandedBodyContinued() {
                 </Link>
               </div>
             </div>
-            <div className="flex justify-center lg:shrink-0 lg:justify-end">
-              <div className="w-full max-w-[440px]">
-                <TreasuryGovernanceIllustration />
-              </div>
+            <div className="min-w-0 w-full max-w-[480px] lg:max-w-none">
+              <TreasuryGovernanceIllustration className="lg:mx-0" />
             </div>
           </div>
         </div>

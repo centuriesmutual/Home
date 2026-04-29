@@ -25,9 +25,14 @@ export function LuxuryCard({
   )
 }
 
-export function Eyebrow({ children }: { children: React.ReactNode }) {
+export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className="mb-3 flex items-center gap-2 font-sans text-[0.75rem] font-medium uppercase tracking-[0.12em] text-[#C9A53E]">
+    <p
+      className={cn(
+        'mb-3 flex items-center gap-2 font-sans text-[0.75rem] font-medium uppercase tracking-[0.12em] text-[#C9A53E]',
+        className,
+      )}
+    >
       <span className="inline-block h-2 w-2 rotate-45 bg-[#C9A53E]" aria-hidden />
       {children}
     </p>

@@ -14,6 +14,12 @@ const serifCard = 'font-serif font-semibold text-[1.125rem] leading-snug text-[#
 const bodySmall = 'font-sans text-[0.9375rem] leading-[1.65] text-[#3d4a41]'
 const iconWrap = 'mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#14432A]/[0.08] text-[#14432A]'
 
+/** Two-column Treasury rows: top-aligned grid, ~2rem gap tablet / ~4rem desktop */
+const treasuryTwoCol = 'grid grid-cols-1 items-start gap-8 md:gap-8 lg:grid-cols-2 lg:gap-16'
+const treasuryTextStack = 'flex min-w-0 flex-col gap-6'
+const treasuryBody = 'max-w-[36rem] font-sans text-[0.9375rem] leading-[1.65] text-[#55655D]'
+const titleInCol = 'max-w-[48rem]'
+
 /** All sections appended below the Treasury hero — server-rendered shell + isolated client widgets */
 export function TreasuryExpandedBody() {
   return (
@@ -21,22 +27,24 @@ export function TreasuryExpandedBody() {
       {/* Governance */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <Eyebrow>Governance</Eyebrow>
-          <SectionTitle>Governance you do not have to decode.</SectionTitle>
-          <ProseBody className="mt-6">
-            Governance is how Centuries Mutual keeps Treasury legible in plain sight — who may move funds, under which checks,
-            how disagreements escalate, and how the same words reach every party to a home, lease, or corridor instead of a
-            patchwork of private side deals and forgotten attachments.
-          </ProseBody>
-          <div className="mt-14 flex flex-col gap-10 lg:flex-row lg:gap-14">
-            <p className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
-              It sits next to your charter and your ledger: the charter states the promises, the ledger shows what happened,
-              and governance ties them together so audits, disputes, and everyday coordination share one vocabulary. The
-              schematic panel is a summary; in-product notices, policies, and signed agreements remain what you rely on when
-              details matter.
-            </p>
-            <div className="w-full max-w-[480px] shrink-0">
-              <TreasuryGovernanceIllustration />
+          <div className={treasuryTwoCol}>
+            <div className={treasuryTextStack}>
+              <Eyebrow className="mb-0">Governance</Eyebrow>
+              <SectionTitle className={titleInCol}>Governance you do not have to decode.</SectionTitle>
+              <p className={treasuryBody}>
+                Governance is how Centuries Mutual keeps Treasury legible in plain sight — who may move funds, under which
+                checks, how disagreements escalate, and how the same words reach every party to a home, lease, or corridor
+                instead of a patchwork of private side deals and forgotten attachments.
+              </p>
+              <p className={treasuryBody}>
+                It sits next to your charter and your ledger: the charter states the promises, the ledger shows what happened,
+                and governance ties them together so audits, disputes, and everyday coordination share one vocabulary. The
+                schematic panel is a summary; in-product notices, policies, and signed agreements remain what you rely on when
+                details matter.
+              </p>
+            </div>
+            <div className="min-w-0 w-full max-w-[480px] lg:max-w-none">
+              <TreasuryGovernanceIllustration className="lg:mx-0" />
             </div>
           </div>
         </div>
@@ -44,19 +52,21 @@ export function TreasuryExpandedBody() {
 
       <section className="border-t border-[#E5E0D5]/80 bg-[#E8DFD6]/55 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <SectionTitle>Reserve.</SectionTitle>
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <div className="space-y-5">
+          <div className={treasuryTwoCol}>
+            <div className={treasuryTextStack}>
+              <SectionTitle className={titleInCol}>Reserve.</SectionTitle>
               {[
                 `Reserve is the prudential backbone of Treasury: assets administered so your balance stays one-to-one with the U.S. dollar — redeemable on the terms you agreed to — without turning your rent plan into exposure to speculative tokens or opaque pools.`,
                 `Fund from your bank, receive from another member or a landlord counterpart, pay rent or shared bills, and withdraw when you choose. Flows post on fast settlement rails, while reserve accounting stays deliberately boring: segregation, clear netting, and balances that do not drift with unrelated markets — shelter and clarity, not speculation.`,
               ].map((para, i) => (
-                <p key={i} className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
+                <p key={i} className={treasuryBody}>
                   {para}
                 </p>
               ))}
             </div>
-            <TreasurySimulatedWallet />
+            <div className="min-w-0">
+              <TreasurySimulatedWallet />
+            </div>
           </div>
         </div>
       </section>
@@ -99,39 +109,44 @@ export function TreasuryExpandedBody() {
 
       <section className="border-t border-[#E5E0D5]/80 bg-[#E8DFD6]/40 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <SectionTitle>Settlement on a fast network.</SectionTitle>
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
-            <div>
-              <ProseBody>
-                Wallet-to-wallet settlements run on an efficient settlement layer engineered for recurring payments instead of speculative trading — near-instant confirmation, transparent postings, predictable costs that reward network operators rather than inflating silently with unrelated market noise.
+          <div className={treasuryTwoCol}>
+            <div className={treasuryTextStack}>
+              <SectionTitle className={titleInCol}>Settlement on a fast network.</SectionTitle>
+              <ProseBody className={treasuryBody}>
+                Wallet-to-wallet settlements run on an efficient settlement layer engineered for recurring payments instead of
+                speculative trading — near-instant confirmation, transparent postings, predictable costs that reward network
+                operators rather than inflating silently with unrelated market noise.
               </ProseBody>
-              <ProseBody className="mt-6">
-                Typical network costs sit at a modest few cents paid to settlement infrastructure itself — enabling Centuries Mutual to prioritize orchestration transparency instead of taxing every proportional rent dollar.
+              <ProseBody className={treasuryBody}>
+                Typical network costs sit at a modest few cents paid to settlement infrastructure itself — enabling Centuries
+                Mutual to prioritize orchestration transparency instead of taxing every proportional rent dollar.
               </ProseBody>
             </div>
-            <TreasurySettlementViz />
+            <div className="min-w-0">
+              <TreasurySettlementViz />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="border-t border-[#E5E0D5]/80 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <SectionTitle>Ledger.</SectionTitle>
-          <div className="mt-8 grid grid-cols-1 items-start gap-10 lg:mt-10 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0">
-            <div className="min-w-0">
-              <ProseBody>
+          <div className={treasuryTwoCol}>
+            <div className={cn(treasuryTextStack, 'min-w-0')}>
+              <SectionTitle className={titleInCol}>Ledger.</SectionTitle>
+              <ProseBody className={treasuryBody}>
                 The Centuries Mutual ledger is the shared record where money, documents, and messages travel together. Settlements
                 and escrows post alongside the leases, receipts, amendments, and member messages that belong to the same agreement
                 — so auditing, disputes, and day-to-day coordination share one chronological trail instead of splitting across
                 inboxes and file folders.
               </ProseBody>
-              <ProseBody className="mt-6">
+              <ProseBody className={treasuryBody}>
                 Economically, Centuries Mutual does not issue a speculative storefront token nor stack percentage rents
                 indiscriminately. Revenue aligns with memberships and transparent flat orchestration — everyday members retain
                 wallet portability without surrendering escalating cuts as agreements grow.
               </ProseBody>
             </div>
-            <LuxuryCard className="w-full shrink-0 self-start lg:-mt-2 xl:-mt-4">
+            <LuxuryCard className="w-full shrink-0">
               <dl className="space-y-4 font-sans">
                 <div className="border-b border-[#E5E0D5]/80 pb-3">
                   <div className="flex justify-between gap-3 font-mono text-[13px] text-[#14432A]">

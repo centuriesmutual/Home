@@ -1,10 +1,15 @@
+import { cn } from '@/lib/utils'
+
 /**
  * Governance panel — formal certificate layout; policies, visibility, and accountability.
  */
-export function TreasuryGovernanceIllustration() {
+export function TreasuryGovernanceIllustration({ className }: { className?: string }) {
   return (
     <figure
-      className="relative mx-auto w-full max-w-[480px] rounded-2xl border border-[#E0D8CC] bg-[#FAF7F0] p-6 shadow-[0_20px_50px_rgba(15,51,33,0.08),0_2px_0_rgba(255,255,255,0.8)_inset] sm:p-8"
+      className={cn(
+        'relative mx-auto w-full max-w-[480px] rounded-2xl border border-[#E0D8CC] bg-[#FAF7F0] p-6 shadow-[0_20px_50px_rgba(15,51,33,0.08),0_2px_0_rgba(255,255,255,0.8)_inset] sm:p-8',
+        className,
+      )}
       aria-label="Illustration of Centuries Mutual governance for members"
     >
       <div className="pointer-events-none absolute inset-3 rounded-xl border border-[#C9A53E]/25 sm:inset-4" aria-hidden />
