@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react'
 import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
-import { HeroPulseScrollShell } from '@/components/hero/hero-pulse-scroll-shell'
+import { SITE_HEADER_STACK_PX } from '@/components/layout/site-header'
 import { cn } from '@/lib/utils'
 
 const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
 const slabCls = cn(
-  'block h-full min-h-0 max-h-full overflow-hidden rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
+  'block h-auto rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
   linkReset,
 )
 
@@ -27,6 +27,7 @@ const CARDS: CardRow[] = [
   },
 ]
 
+/** Single card z-index */
 const CHAT_Z = 40 as const
 
 const X_FEED_ROTATE_MS = 10000
@@ -95,7 +96,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
   return (
     <>
       <div
-        className="relative flex h-full max-h-full min-h-0 flex-col overflow-hidden rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50"
+        className="relative rounded-[26px] border border-[#C9A961]/25 bg-gradient-to-b from-[#1a2420] via-[#121816] to-[#0a0f0c] p-[6px] shadow-[0_28px_64px_rgba(0,0,0,0.55),0_0_0_1px_rgba(201,169,97,0.08),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-black/50"
         aria-hidden
       >
         <div
@@ -105,113 +106,105 @@ function IllustrationChat({ titleId }: { titleId: string }) {
               'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 169, 97, 0.22), transparent 55%), radial-gradient(ellipse 70% 50% at 80% 100%, rgba(16, 185, 129, 0.12), transparent 50%)',
           }}
         />
-        <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[20px] bg-black">
-          <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[#050807] px-3 pb-3 pt-2.5 sm:px-4 sm:pb-4">
+        <div className="relative overflow-hidden rounded-[20px] bg-black">
+          <div className="bg-[#050807] px-3 pb-5 pt-2.5 sm:px-4">
             <p id={titleId} className="sr-only">
               Public pulse: member video preview and live X timeline (not your DMs).
             </p>
 
-            {/* ~55%: YouTube preview + captions */}
-            <div className="flex min-h-0 flex-[11_1_0] flex-col overflow-hidden">
-              <div
-                className="mb-2 min-h-0 shrink overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50 sm:mb-3"
-                aria-hidden
-              >
-                <div className="flex shrink-0 items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
-                  <span className="flex shrink-0 gap-[6px]" aria-hidden>
-                    <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
-                    <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
-                    <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
-                  </span>
-                  <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
-                  <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
-                    youtu.be · Centuries Mutual
-                  </span>
-                  <Users className="h-3 w-3 shrink-0 text-white/75" aria-hidden />
-                </div>
-                <div className="relative w-full pt-[46%] min-[480px]:pt-[52%] sm:pt-[50%]">
-                  <div className="absolute inset-0 bg-[#050505]" />
-                  <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-2 ring-black/65 sm:h-[4rem] sm:w-[4rem]">
-                      <Play
-                        className="relative left-[2px] h-10 w-10 shrink-0 text-[#050505] sm:h-12 sm:w-12"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        aria-hidden
-                      />
-                    </span>
-                  </div>
-                </div>
+            {/* YouTube-style preview — taller window above muted 𝕏 feed */}
+            <div
+              className="mb-3 overflow-hidden rounded-[12px] border border-white/[0.14] bg-[#0f0f0f] shadow-inner ring-1 ring-black/50 sm:mb-4"
+              aria-hidden
+            >
+              <div className="flex items-center gap-2 border-b border-white/[0.07] bg-[#282828] px-3 py-2">
+                <span className="flex shrink-0 gap-[6px]" aria-hidden>
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#ff5f56]" />
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#febc2e]" />
+                  <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#28c840]" />
+                </span>
+                <MonitorPlay className="h-3 w-3 shrink-0 text-white/72" aria-hidden />
+                <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-[0.12em] text-white/92 sm:text-[9px]">
+                  youtu.be · Centuries Mutual
+                </span>
+                <Users className="h-3 w-3 shrink-0 text-white/75" aria-hidden />
               </div>
-
-              <div className="flex min-h-0 shrink items-start justify-start py-1 sm:py-2">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.p
-                    key={captionIdx}
-                    initial={{ opacity: 0, y: 2 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -2 }}
-                    transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="line-clamp-2 text-left font-sans text-[9px] leading-snug tracking-[0.015em] text-white/72"
-                  >
-                    {STREAM_CAPTIONS[captionIdx]}
-                  </motion.p>
-                </AnimatePresence>
+              <div className="relative w-full pt-[54%] sm:pt-[50%]">
+                <div className="absolute inset-0 bg-[#050505]" />
+                <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.08),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-2 ring-black/65 sm:h-[4rem] sm:w-[4rem]">
+                    <Play
+                      className="relative left-[2px] h-10 w-10 shrink-0 text-[#050505] sm:h-12 sm:w-12"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      aria-hidden
+                    />
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Divider — splits video block vs 𝕏 */}
-            <div className="my-2 shrink-0 border-t border-[#C9A961]/22" aria-hidden />
+            <div className="mb-3 flex min-h-[2.25rem] items-start justify-start sm:mb-4">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.p
+                  key={captionIdx}
+                  initial={{ opacity: 0, y: 2 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -2 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="line-clamp-2 text-left font-sans text-[9px] leading-snug tracking-[0.015em] text-white/72"
+                >
+                  {STREAM_CAPTIONS[captionIdx]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
 
-            {/* ~45%: Public pulse 𝕏 */}
-            <div className="flex min-h-0 flex-[9_1_0] flex-col overflow-hidden">
-              <div className="mb-1 flex shrink-0 items-center gap-2 opacity-80">
-                <span className="translate-y-[0.5px] text-[14px] font-semibold leading-none text-white/45">𝕏</span>
-                <span className="translate-y-[0.5px] font-sans text-[7px] font-medium uppercase tracking-[0.18em] text-white/30">
-                  Public pulse
-                </span>
-                <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[5px] py-px font-sans text-[6.5px] font-semibold uppercase tracking-wide text-emerald-200/65">
-                  Not your DMs
-                </span>
-                <span className="relative ml-auto hidden h-1.5 w-1.5 sm:inline-flex">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/25" aria-hidden />
-                  <span className="relative m-auto inline-flex h-[3px] w-[3px] rounded-full bg-emerald-400/80" />
-                </span>
-              </div>
+            <div className="mb-2 flex items-center gap-2 opacity-80">
+              <span className="translate-y-[0.5px] text-[14px] font-semibold leading-none text-white/45">𝕏</span>
+              <span className="translate-y-[0.5px] font-sans text-[7px] font-medium uppercase tracking-[0.18em] text-white/30">
+                Public pulse
+              </span>
+              <span className="rounded border border-emerald-500/10 bg-emerald-500/[0.09] px-[5px] py-px font-sans text-[6.5px] font-semibold uppercase tracking-wide text-emerald-200/65">
+                Not your DMs
+              </span>
+              <span className="relative ml-auto hidden h-1.5 w-1.5 sm:inline-flex">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/25" aria-hidden />
+                <span className="relative m-auto inline-flex h-[3px] w-[3px] rounded-full bg-emerald-400/80" aria-hidden />
+              </span>
+            </div>
 
-              <div className="relative isolate min-h-0 flex-1 overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 backdrop-blur-[2px] sm:px-3 sm:py-2.5">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={feedIdx}
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 0.88, y: 0 }}
-                    exit={{ opacity: 0, y: -3 }}
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className="pointer-events-none flex gap-2"
-                  >
-                    <span className="mt-px h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
-                    <div className="flex min-h-0 min-w-0 flex-1 flex-col">
-                      <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                        <span className="truncate font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
-                        <span className="font-sans text-[10px] text-neutral-600">{post.handle}</span>
-                      </div>
-                      <span className="mt-px block h-3 shrink-0 truncate font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
-                      <div className="mt-1.5 min-h-0 overflow-hidden">
-                        <p className="line-clamp-3 font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
-                      </div>
-                      <div className="mt-2 flex shrink-0 items-center gap-3 text-neutral-700/95">
-                        <span className="inline-flex items-center gap-px opacity-85">
-                          <Heart className="h-3 w-3 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
-                          <span className="text-[8px] tracking-tight">—</span>
-                        </span>
-                        <Repeat2 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
-                        <BarChart3 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
-                      </div>
+            <div className="relative isolate overflow-hidden rounded-[11px] border border-white/[0.05] bg-[#060a0c]/92 px-2.5 py-2 backdrop-blur-[2px] sm:px-3 sm:py-2.5">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={feedIdx}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 0.88, y: 0 }}
+                  exit={{ opacity: 0, y: -3 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="pointer-events-none flex gap-2"
+                >
+                  <span className="mt-px h-[28px] w-[28px] shrink-0 rounded-full bg-gradient-to-br from-[#3d4650]/90 to-[#1e232a] opacity-90 shadow-inner ring-1 ring-white/[0.07]" />
+                  <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                    <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
+                      <span className="truncate font-sans text-[11px] font-medium leading-tight text-neutral-400/95">{post.name}</span>
+                      <span className="font-sans text-[10px] text-neutral-600">{post.handle}</span>
                     </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+                    <span className="mt-px block h-3 shrink-0 truncate font-sans text-[9px] leading-none text-neutral-700">{post.vein}</span>
+                    <div className="mt-1.5 overflow-hidden">
+                      <p className="line-clamp-3 font-sans text-[11px] leading-[1.4] text-neutral-500/95">{post.body}</p>
+                    </div>
+                    <div className="mt-2 flex shrink-0 items-center gap-3 text-neutral-700/95">
+                      <span className="inline-flex items-center gap-px opacity-85">
+                        <Heart className="h-3 w-3 shrink-0 opacity-90" strokeWidth={2} aria-hidden />
+                        <span className="text-[8px] tracking-tight">—</span>
+                      </span>
+                      <Repeat2 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
+                      <BarChart3 className="h-3 w-3 shrink-0 opacity-75" aria-hidden />
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -237,7 +230,9 @@ function FloaterArticle({ row }: { row: CardRow }) {
       whileInView="show"
       viewport={{ once: true, amount: 0.14 }}
       transition={{ delay: row.delay }}
-      className="relative z-10 w-full max-w-md"
+      className={cn(
+        'relative z-10 w-full max-w-md',
+      )}
       style={{ zIndex: CHAT_Z }}
       aria-labelledby={titleId}
     >
@@ -248,26 +243,19 @@ function FloaterArticle({ row }: { row: CardRow }) {
 
 export function FloatingImageCards({ className = '' }: { className?: string }) {
   return (
-    <HeroPulseScrollShell
+    <div
       className={cn(
-        'pointer-events-none z-[4] flex w-full max-w-md flex-col',
+        'pointer-events-none fixed z-[90] flex w-[min(calc(100vw-2rem),28rem)] max-w-[28rem] flex-col',
+        /* Left-aligned in viewport; inset matches hero max-width gutters on wide screens */
+        'left-[max(1rem,calc((100vw_-_min(1600px,_100vw))*0.5+1rem))] right-auto',
         '[&_a]:pointer-events-auto',
-        /* Mobile / tablet: document flow, full width, bounded height */
-        'relative mx-auto max-h-[min(68vh,28rem)] min-h-0 px-4 pb-8 pt-20 sm:max-h-[min(62vh,30rem)] sm:px-6 sm:pt-24',
-        /* Large desktop: absolute to hero column — 3rem left, 4rem below column top (~nav band), ≥3rem above hero bottom */
-        'lg:absolute lg:left-12 lg:top-16 lg:bottom-12 lg:z-[4]',
-        'lg:mx-0 lg:max-h-[min(calc(100vh-16rem),calc(100%-7rem))] lg:max-w-none lg:w-[min(28rem,calc(100%-3rem))]',
-        'lg:min-h-0 lg:overflow-hidden lg:p-0',
-        'lg:h-auto',
         className,
       )}
+      style={{ top: SITE_HEADER_STACK_PX + 10 }}
     >
-      {/* Inner frame clamps modal content */}
-      <div className="flex h-full max-h-full min-h-0 w-full flex-1 flex-col overflow-hidden">
-        {CARDS.map((c) => (
-          <FloaterArticle key={c.id} row={c} />
-        ))}
-      </div>
-    </HeroPulseScrollShell>
+      {CARDS.map((c) => (
+        <FloaterArticle key={c.id} row={c} />
+      ))}
+    </div>
   )
 }
