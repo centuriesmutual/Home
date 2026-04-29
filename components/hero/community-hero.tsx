@@ -127,14 +127,23 @@ export function CommunityHero() {
                   sizes="(max-width: 1023px) 100vw, 42vw"
                   className="object-cover object-top"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-black/70 via-black/30 to-transparent sm:h-[28%]" aria-hidden />
-                <div className="absolute inset-x-0 bottom-0 flex justify-between gap-4 px-4 pb-4 pt-8 md:px-8 md:pb-5">
-                  <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
-                    Client portal
-                  </p>
-                  <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
-                    Membership
-                  </p>
+                <div
+                  className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#FAFCFB] via-[#FAFCFB]/80 to-transparent sm:h-[32%]"
+                  aria-hidden
+                />
+                <div className="absolute inset-x-0 bottom-0 flex justify-between gap-3 px-4 pb-4 pt-8 md:px-8 md:pb-5">
+                  <Link
+                    href="/my-brothers-keeper"
+                    className="inline-flex h-9 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB]/95 px-4 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-[#0F3D2E] no-underline shadow-[0_3px_12px_rgba(15,61,46,0.16)] transition hover:bg-[#FAFCFB]"
+                  >
+                    My Brothers Keeper
+                  </Link>
+                  <Link
+                    href="/wintergarden"
+                    className="inline-flex h-9 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB]/95 px-4 font-sans text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-[#0F3D2E] no-underline shadow-[0_3px_12px_rgba(15,61,46,0.16)] transition hover:bg-[#FAFCFB]"
+                  >
+                    Wintergarden
+                  </Link>
                 </div>
               </div>
 
