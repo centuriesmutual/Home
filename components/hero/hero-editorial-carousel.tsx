@@ -15,15 +15,14 @@ const INTERVAL_MS = 7500
 
 function BrokenVideoFrame({ line }: { line: string }) {
   return (
-    <div className="flex h-full w-full items-end justify-center bg-[#0f0f0f] px-2 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2">
-      <div className="relative w-full max-w-[min(92vw,480px)] overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[540px] md:max-w-[580px]">
+    <div className="flex h-full min-h-0 w-full items-center justify-center bg-[#0f0f0f] p-3 sm:p-4">
+      <div className="relative w-full max-w-[min(92vw,480px)] shrink-0 overflow-hidden rounded-lg border border-white/[0.08] bg-[#181818] shadow-[0_8px_32px_rgba(0,0,0,0.45)] sm:max-w-[540px] md:max-w-[580px]">
         <div className="flex h-8 items-center gap-1.5 border-b border-white/[0.06] bg-[#212121] px-3 sm:px-4">
           <span className="h-2 w-2 rounded-full bg-[#ff5f57]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#febc2e]/90" aria-hidden />
           <span className="h-2 w-2 rounded-full bg-[#28c840]/90" aria-hidden />
         </div>
-        {/* Taller viewport — anchored to bottom of slide; reads as a full player */}
-        <div className="relative w-full pt-[52%] sm:pt-[50%] md:pt-[48%]">
+        <div className="relative w-full aspect-video">
           <div className="absolute inset-0 bg-[#050505]" aria-hidden />
           <div
             className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.06),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]"
