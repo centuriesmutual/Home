@@ -138,13 +138,13 @@ export function CommunityHero() {
                   <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
                     <Link
                       href="/wintergarden"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0F3D2E]/35 bg-[#0F3D2E]/88 px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm backdrop-blur-sm transition hover:bg-[#0F3D2E]/95 sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0F3D2E] bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm transition hover:bg-[#0c3328] hover:border-[#0c3328] sm:h-10 sm:px-3 sm:text-xs"
                     >
                       Wintergarden
                     </Link>
                     <Link
                       href="/my-brothers-keeper"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0F3D2E]/22 bg-white/78 px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-sm backdrop-blur-sm transition hover:bg-white/88 sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-white bg-white px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white hover:shadow-md sm:h-10 sm:px-3 sm:text-xs"
                     >
                       My Brothers Keeper
                     </Link>
