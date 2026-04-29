@@ -18,22 +18,23 @@ const iconWrap = 'mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-
 export function TreasuryExpandedBody() {
   return (
     <>
-      {/* Money, handled with care */}
+      {/* Charter */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <Eyebrow>Treasury</Eyebrow>
-          <SectionTitle>Money, handled with care.</SectionTitle>
+          <Eyebrow>Charter</Eyebrow>
+          <SectionTitle>Charter, and the details behind it.</SectionTitle>
           <ProseBody className="mt-6">
-            Treasury is the part of Centuries Mutual that holds, moves, and protects money on your behalf — denominated in a
-            fully-backed digital dollar so every balance stays one-to-one with the U.S. dollar throughout the lifecycle of your
-            home, lease, or shared corridor.
+            Your charter is the formal frame Centuries Mutual uses to spell out how Treasury serves you — how balances are kept
+            one-to-one with the U.S. dollar, how escrow and releases behave, and which promises apply for the life of your home,
+            lease, or shared corridor.
           </ProseBody>
           <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14">
             <div className="flex flex-col justify-center">
               <p className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
-                Each dollar routed through Centuries Mutual is recorded on a fast settlement rail: traceable sender to recipient,
-                with structured rules surfaced to both sides of an agreement — so budgeting, escrow, rent, refunds, or gifts feel
-                like one coherent surface instead of fragmented apps and threads.
+                The charter names the commitments you can rely on: reserve alignment, settlement traceability, dispute handling,
+                and withdrawal paths — so every member sees the same terms instead of a maze of hidden screens. The panel beside
+                this text is a visual summary; the underlying agreement remains the source of truth for what Treasury may and may
+                not do on your behalf.
               </p>
             </div>
             <div className="flex flex-col justify-center">
@@ -117,11 +118,19 @@ export function TreasuryExpandedBody() {
 
       <section className="border-t border-[#E5E0D5]/80 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <SectionTitle>Predictable economics.</SectionTitle>
+          <SectionTitle>Ledger.</SectionTitle>
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
               <ProseBody>
-                Centuries Mutual does not issue a speculative storefront token nor stack percentage rents indiscriminately. Revenue aligns with memberships and transparent flat orchestration — everyday members retain wallet portability without surrendering escalating cuts as agreements grow.
+                The Centuries Mutual ledger is the shared record where money, documents, and messages travel together. Settlements
+                and escrows post alongside the leases, receipts, amendments, and member messages that belong to the same agreement
+                — so auditing, disputes, and day-to-day coordination share one chronological trail instead of splitting across
+                inboxes and file folders.
+              </ProseBody>
+              <ProseBody className="mt-6">
+                Economically, Centuries Mutual does not issue a speculative storefront token nor stack percentage rents
+                indiscriminately. Revenue aligns with memberships and transparent flat orchestration — everyday members retain
+                wallet portability without surrendering escalating cuts as agreements grow.
               </ProseBody>
             </div>
             <LuxuryCard>

@@ -10,7 +10,7 @@ export function TreasuryCharterIllustration() {
       <div className="pointer-events-none absolute inset-3 rounded-xl border border-[#C9A53E]/25 sm:inset-4" aria-hidden />
 
       <figcaption className="relative text-center">
-        <p className="font-sans text-[10px] font-medium uppercase tracking-[0.35em] text-[#6B6B66]">Treasury · member record</p>
+        <p className="font-sans text-[10px] font-medium uppercase tracking-[0.35em] text-[#6B6B66]">Charter · member record</p>
         <p className="mt-4 font-sans text-[9px] font-semibold uppercase tracking-[0.42em] text-[#55655D]">
           Centuries Mutual · charter
         </p>
