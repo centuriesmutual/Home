@@ -16,6 +16,8 @@ module.exports = {
         cream: {
           DEFAULT: '#FAF7F0',
           dark: '#F0EBE0',
+          /** Darker dusty tan — editorial column / hero “wall”; lighter `#FAF7F0` sits on cards / chips */
+          wall: '#E8DFD6',
         },
         'warm-border': '#E5E0D5',
         muted: {
