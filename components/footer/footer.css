@@ -1,0 +1,61 @@
+/* Immersive footer — entrance motion (trigger via data-cm-visible on .cm-footer-mid; CSS-only) */
+.cm-footer-mid .cm-footer-brand-block,
+.cm-footer-mid .cm-footer-nav-col {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 420ms ease-out,
+    transform 420ms ease-out;
+}
+
+.cm-footer-mid .cm-footer-brand-block {
+  transform: translateY(6px);
+  transition-duration: 380ms;
+}
+
+.cm-footer-mid[data-cm-visible='true'] .cm-footer-brand-block,
+.cm-footer-mid[data-cm-visible='true'] .cm-footer-nav-col {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cm-footer-mid-inner > .cm-footer-nav-col:nth-child(2) {
+  transition-delay: 0ms;
+}
+.cm-footer-mid-inner > .cm-footer-nav-col:nth-child(3) {
+  transition-delay: 60ms;
+}
+.cm-footer-mid-inner > .cm-footer-nav-col:nth-child(4) {
+  transition-delay: 120ms;
+}
+.cm-footer-mid-inner > .cm-footer-nav-col:nth-child(5) {
+  transition-delay: 180ms;
+}
+
+@keyframes cm-footer-pulse-dot {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cm-footer-status-dot {
+  animation: cm-footer-pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-footer-mid .cm-footer-brand-block,
+  .cm-footer-mid .cm-footer-nav-col {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cm-footer-status-dot {
+    animation: none !important;
+    opacity: 0.85;
+  }
+}
