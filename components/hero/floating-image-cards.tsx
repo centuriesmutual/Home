@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Lock, Maximize2, Mic, MonitorPlay, Play, ShieldCheck, Users } from 'lucide-react'
+import { Lock, MonitorPlay, Play, ShieldCheck, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -10,7 +10,7 @@ const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
 const glassCls = cn(
-  'block h-full rounded-xl border border-white/15 bg-black/40 p-4 shadow-lg backdrop-blur-md transition hover:bg-black/52 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/35 text-white',
+  'block h-full rounded-xl border border-white/22 bg-black/74 p-4 shadow-lg backdrop-blur-md transition hover:bg-black/83 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/38 text-white',
   linkReset,
 )
 
@@ -98,54 +98,59 @@ const CARDS: CardRow[] = [
   },
 ]
 
-const STREAM_WAVE = [
-  44, 58, 52, 62, 48, 64, 54, 57, 51, 60, 55, 52, 59, 56, 63, 50, 57, 54, 61, 53, 58, 55, 60, 52, 54, 59, 56, 51, 61, 55, 53, 57,
-]
-
 function IllustrationChat({ titleId }: { titleId: string }) {
   return (
     <>
       <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
         Chat · ZK-sealed threads
       </p>
-      <div className="mt-3 space-y-3" aria-hidden>
-        {/* Outbound — ciphertext envelope */}
-        <div className="flex items-end justify-end gap-2">
-          <span className="mb-1 h-8 w-8 shrink-0 rounded-[14px] border border-emerald-500/35 bg-emerald-900/40 shadow-inner shadow-emerald-900/45" />
-          <div className="max-w-[86%] rounded-[1.125rem] rounded-br-md border border-emerald-500/35 bg-gradient-to-br from-emerald-950/80 to-black/65 px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-emerald-500/25">
-            <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-semibold uppercase tracking-wider text-emerald-200/92">
-              <Lock className="h-3 w-3 shrink-0" strokeWidth={2.25} aria-hidden />
-              Zero-knowledge envelope
-            </span>
-            <div className="space-y-1.5">
-              <div className="h-2 max-w-[6.5rem] rounded-full bg-white/38" />
-              <div className="h-2 w-[4.75rem] rounded-full bg-white/16" />
+
+      {/* Device bezel + gray LCD: copy reads like text on-screen */}
+      <div className="mt-3 rounded-[1.125rem] border border-zinc-900/80 bg-[linear-gradient(160deg,#3f4147_0%,#1e2024_100%)] p-[5px] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_16px_40px_rgba(0,0,0,0.45)]" aria-hidden>
+        <div className="overflow-hidden rounded-[0.875rem] border border-black/55 bg-black/60 px-1.5 pb-2 pt-1.5">
+          <div className="mx-auto mb-1.5 h-[3px] w-8 rounded-full bg-zinc-800/95" />
+
+          <div className="rounded-[0.625rem] border border-black/35 bg-[linear-gradient(178deg,#c8ccd4_0%,#9ca3af_45%,#8b929d_100%)] p-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.45)]">
+            <div className="space-y-2.5">
+              <div className="flex items-end justify-end gap-2">
+                <span className="mb-0.5 h-7 w-7 shrink-0 rounded-xl border border-black/25 bg-[#dfe2e9] shadow-sm" />
+                <div className="max-w-[88%] rounded-2xl rounded-br-md border border-black/14 bg-white/95 px-2.5 py-2 shadow-sm">
+                  <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-bold uppercase tracking-wider text-zinc-800">
+                    <Lock className="h-3 w-3 shrink-0 text-emerald-800" strokeWidth={2.25} aria-hidden />
+                    Zero-knowledge envelope
+                  </span>
+                  <div className="space-y-1.5">
+                    <div className="h-[3px] max-w-[5.75rem] rounded-full bg-zinc-300" />
+                    <div className="h-[3px] w-[4rem] rounded-full bg-zinc-200" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-end justify-start gap-2">
+                <span className="mb-0.5 h-7 w-7 shrink-0 rounded-xl border border-black/28 bg-[#e8eaef]" />
+                <div className="max-w-[90%] rounded-2xl rounded-bl-md border border-black/14 bg-[#f8fafc]/95 px-2.5 py-2 shadow-sm">
+                  <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-bold uppercase tracking-wider text-zinc-800">
+                    <ShieldCheck className="h-3 w-3 shrink-0 text-emerald-800" strokeWidth={2.25} aria-hidden />
+                    Verified ring
+                  </span>
+                  <div className="flex items-center gap-[3px] px-px">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/72" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/52 [animation-delay:150ms]" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/42 [animation-delay:300ms]" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-end pt-0.5">
+                <span className="rounded-full border border-zinc-600/65 bg-[#374151] px-2 py-[3px] font-sans text-[8px] font-semibold uppercase tracking-wide text-[#fafaf9] shadow-sm shadow-black/25">
+                  Read receipt · quorum key
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Inbound — verifier reply + typing */}
-        <div className="flex items-end justify-start gap-2">
-          <span className="mb-1 h-8 w-8 shrink-0 rounded-[14px] border border-white/15 bg-black/55" />
-          <div className="max-w-[90%] rounded-[1.125rem] rounded-bl-md border border-white/12 bg-black/55 px-3 py-2 ring-1 ring-white/8">
-            <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-semibold uppercase tracking-wider text-emerald-300/90">
-              <ShieldCheck className="h-3 w-3 shrink-0 text-emerald-400/95" strokeWidth={2.25} aria-hidden />
-              Verified ring
-            </span>
-            <div className="flex items-center gap-1 px-0.5">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/72" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/55 [animation-delay:150ms]" />
-              <span className="h-2 w-2 animate-pulse rounded-full bg-white/42 [animation-delay:300ms]" />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-end pt-0.5">
-          <span className="rounded-full border border-white/10 bg-black/55 px-2 py-[3px] font-sans text-[8px] font-medium uppercase tracking-wide text-white/95 backdrop-blur-sm">
-            Read receipt · quorum key
-          </span>
         </div>
       </div>
+
       <p className="mt-3 font-sans text-[11px] leading-snug text-white">
         Direct messaging with member-verified envelopes.
       </p>
@@ -166,72 +171,33 @@ function IllustrationStream({ titleId }: { titleId: string }) {
         </span>
       </div>
 
+      {/* YouTube-style player chrome: 16:9 surface, centered play only (no scrubber / PiP / time) */}
       <div
-        className="mb-3 overflow-hidden rounded-lg border border-white/15 bg-[#040a08] shadow-inner ring-1 ring-black/50"
+        className="mb-3 overflow-hidden rounded-lg border border-white/15 bg-[#0f0f0f] shadow-[0_20px_50px_rgba(0,0,0,0.55)] ring-1 ring-black/60"
         aria-hidden
       >
-        <div className="flex items-center gap-2 border-b border-white/10 bg-black/65 px-2.5 py-1.5">
-          <span className="flex gap-1">
-            <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
-            <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-            <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+        <div className="flex items-center gap-2 border-b border-white/[0.08] bg-[#282828] px-2 py-1.5">
+          <span className="flex gap-[5px]" aria-hidden>
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#ff5f56]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#febc2e]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#28c840]" />
           </span>
-          <span className="font-sans text-[8px] font-medium uppercase tracking-wide text-white/90">Network hub · live</span>
-          <Users className="ml-auto h-3.5 w-3.5 shrink-0 text-white/85" aria-hidden />
+          <span className="min-w-0 flex-1 truncate font-sans text-[8px] font-medium uppercase tracking-wide text-white/92">
+            youtu.be · Centuries Mutual — stream
+          </span>
+          <Users className="h-3 w-3 shrink-0 text-white/75" />
         </div>
 
-        <div className="relative px-2 pb-2 pt-2">
-          <div className="relative aspect-[16/11] overflow-hidden rounded-md border border-white/12 bg-[linear-gradient(165deg,#0d3022_0%,#05140e_52%,#020807_100%)]">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.06]"
-              style={{
-                backgroundImage:
-                  'repeating-linear-gradient(90deg,#fff,#fff 1px,transparent 1px,transparent 13px),repeating-linear-gradient(0deg,#fff,#fff 1px,transparent 1px,transparent 13px)',
-              }}
-            />
-            <span className="absolute right-2 top-2 rounded border border-emerald-500/35 bg-black/72 px-[5px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-100/95">
-              HD · E2EE
-            </span>
-            <div className="absolute bottom-2 left-2 flex gap-1.5">
-              {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="h-8 w-[2.25rem] rounded border border-white/15 bg-gradient-to-b from-white/12 to-black/40 shadow-sm"
-                />
-              ))}
-            </div>
-            <span className="pointer-events-none absolute left-1/2 top-[38%] flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white shadow-[0_6px_24px_rgba(0,0,0,0.45)] backdrop-blur-sm">
-              <Play className="relative left-[1px] ml-0.5 h-5 w-5 shrink-0" fill="currentColor" strokeWidth={0} aria-hidden />
+        <div className="relative w-full pt-[56.25%]">
+          <div className="absolute inset-0 bg-[#050505]" />
+          <div className="absolute inset-[1px] bg-[radial-gradient(ellipse_at_50%_20%,rgba(201,169,97,0.07),transparent_52%),linear-gradient(to_bottom,#0a0a0a,#000)]" />
+
+          {/* Centered playback affordance */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-[rgba(255,255,255,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.55)] ring-2 ring-black/65">
+              <Play className="relative left-[3px] h-10 w-10 shrink-0 text-[#050505]" fill="currentColor" strokeWidth={0} aria-hidden />
             </span>
           </div>
-
-          <div className="mt-2 space-y-1.5">
-            <div className="flex h-7 items-end justify-between gap-[1px] px-0.5">
-              {STREAM_WAVE.map((pct, i) => (
-                <span
-                  key={i}
-                  className="w-[2px] shrink-0 rounded-[1px] bg-emerald-400/55"
-                  style={{ height: `${pct}%` }}
-                />
-              ))}
-            </div>
-            <div className="flex items-center gap-2 px-0.5">
-              <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/12">
-                <div className="h-full w-[41%] rounded-full bg-white/70" />
-              </div>
-              <span className="font-mono text-[8px] text-white/80">12:04</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between border-t border-white/10 bg-black/58 px-2 py-1.5">
-          <span className="flex items-center gap-2">
-            <Mic className="h-3.5 w-3.5 text-white/90" aria-hidden />
-            <span className="rounded bg-white/10 px-1 py-px font-sans text-[8px] uppercase tracking-wide text-white/90">
-              Muted
-            </span>
-          </span>
-          <Maximize2 className="h-3.5 w-3.5 text-white/70" aria-hidden />
         </div>
       </div>
 
