@@ -111,6 +111,9 @@ export function CommunitySearchModal({ open, onOpenChange }: Props) {
                   autoFocus
                   value={query}
                   onValueChange={setQuery}
+                  spellCheck={false}
+                  autoCorrect="off"
+                  autoCapitalize="off"
                   className="flex-1 border-0 bg-transparent font-sans text-lg font-medium text-[#262626] outline-none placeholder:text-[#838383]"
                 />
                 <span className="hidden shrink-0 items-center gap-1 text-[11px] text-[#838383] sm:flex" aria-hidden>

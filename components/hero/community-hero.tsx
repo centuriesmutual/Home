@@ -113,7 +113,7 @@ export function CommunityHero() {
               </p>
               <h1
                 className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#0F3D2E] md:text-4xl lg:text-5xl`}
-                style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif', lineHeight: 1.1 }}
+                style={{ fontFamily: 'var(--font-hero-editorial), Fraunces, Georgia, serif', lineHeight: 1.18 }}
               >
                 <span className="block">Your Community</span>
                 <span className="block">Brokerage</span>

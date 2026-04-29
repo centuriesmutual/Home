@@ -225,7 +225,7 @@ export default function Hosts() {
                     A co-host can help you get started
                   </h4>
                   <p className="text-muted">
-                    Now you can hire a local co‑host to help create your listing, get your space ready, and more.
+                    Now you can hire a local co-host to help create your listing, get your space ready, and more.
                   </p>
                 </div>
               </motion.div>

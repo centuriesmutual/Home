@@ -11,11 +11,27 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  hyphens: manual;
+}
+
+/* Avoid broken or “dotted” hyphenation at line breaks (reads like typos or clipped words) */
+blockquote,
+h1, h2, h3, h4, h5, h6,
+p, li, figcaption {
+  hyphens: manual;
+  hyphenate-limit-chars: auto 6;
 }
 
 /* Bootstrap overrides and custom classes */

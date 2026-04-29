@@ -48,7 +48,7 @@ const CARDS: CardRow[] = [
     hidden: 'max-[420px]:left-5 max-[420px]:top-6 max-[420px]:w-[calc(100%-2.5rem)]',
     href: '/newspaper',
     eyebrow: 'News',
-    headline: 'Texas co‑op housing starts edge up amid rate pause',
+    headline: 'Texas co-op housing starts edge up amid rate pause',
     sub: 'Morning wire · Opens in Journal · 3 min read',
   },
   {
@@ -70,7 +70,7 @@ const CARDS: CardRow[] = [
     hidden: 'max-lg:hidden',
     href: '/pay',
     eyebrow: 'Treasury',
-    headline: 'On‑ledger payouts settle nightly with quorum receipts',
+    headline: 'On-ledger payouts settle nightly with quorum receipts',
     sub: 'Trust rails · Institutional guardrails · Tap to inspect',
   },
   {
@@ -95,7 +95,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
   return (
     <>
       <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[#C9A961]/95">
-        Chat · ZK‑sealed threads
+        Chat · ZK-sealed threads
       </p>
       <div className="mt-3 space-y-2" aria-hidden>
         <div className="flex justify-end">
@@ -119,7 +119,7 @@ function IllustrationChat({ titleId }: { titleId: string }) {
           </span>
         </div>
       </div>
-      <p className="mt-3 font-sans text-[11px] leading-snug text-white/72">Direct messaging with member‑verified envelopes.</p>
+      <p className="mt-3 font-sans text-[11px] leading-snug text-white/72">Direct messaging with member-verified envelopes.</p>
     </>
   )
 }
