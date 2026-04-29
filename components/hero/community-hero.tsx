@@ -136,13 +136,13 @@ export function CommunityHero() {
                   <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
                     <Link
                       href="/wintergarden"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-md transition hover:bg-[#15523D] sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0a2818]/90 bg-gradient-to-b from-[#165a42] to-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_4px_0_#082818,0_6px_14px_rgba(0,0,0,0.18)] transition hover:from-[#186b4f] hover:to-[#114d38] active:translate-y-px active:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_0_#082818,0_3px_8px_rgba(0,0,0,0.14)] sm:h-10 sm:px-3 sm:text-xs"
                     >
                       Wintergarden
                     </Link>
                     <Link
                       href="/my-brothers-keeper"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#0F3D2E] bg-white/92 px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-md transition hover:bg-white sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-[#E3DED4] bg-white px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-[inset_0_1px_0_#fff,0_4px_0_#cfc8bc,0_6px_14px_rgba(15,61,46,0.12)] transition hover:brightness-[1.02] active:translate-y-px active:shadow-[inset_0_1px_0_#fff,0_2px_0_#cfc8bc,0_3px_8px_rgba(15,61,46,0.1)] sm:h-10 sm:px-3 sm:text-xs"
                     >
                       My Brothers Keeper
                     </Link>
