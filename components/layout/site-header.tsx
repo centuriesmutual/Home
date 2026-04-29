@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { Fraunces } from 'next/font/google'
-import { ArrowRight, Download, Menu, X } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const fraunces = Fraunces({
@@ -16,12 +16,6 @@ const fraunces = Fraunces({
 
 export const GRAIN_BG =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27220%27 height=%27220%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.82%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27220%27 height=%27220%27 filter=%27url(%23n)%27 opacity=%270.52%27/%3E%3C/svg%3E")'
-
-const NAV: { href: string; label: string }[] = [
-  { href: '/search', label: 'Neighborhood' },
-  { href: '/treasury', label: 'Treasury' },
-  { href: '/newspaper', label: 'Journal' },
-]
 
 /** Primary nav row height */
 export const SITE_HEADER_BAR_PX = 56
@@ -34,35 +28,24 @@ export const SITE_HEADER_DOWNLOAD_STRIP_PX = 40
 export const SITE_HEADER_STACK_PX =
   SITE_HEADER_TOP_RULE_PX + SITE_HEADER_DOWNLOAD_STRIP_PX + SITE_HEADER_BAR_PX
 
-function NavLink({
-  href,
-  children,
-  creamMode,
-}: {
-  href: string
-  children: React.ReactNode
-  creamMode: boolean
-}) {
-  return (
-    <Link
-      href={href}
-      className={cn(
-        'whitespace-nowrap py-2 font-sans text-xs font-medium uppercase tracking-wider text-[#FAF7F0]/90 no-underline transition-colors hover:opacity-90',
-        creamMode && 'text-[#0F3D2E] hover:text-[#0F3D2E]',
-      )}
-    >
-      {children}
-    </Link>
-  )
-}
-
 export function SiteHeader() {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
   const [y, setY] = useState(0)
+  const prevY = useRef(0)
+  const [hidden, setHidden] = useState(false)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    setY(latest ?? 0)
+    const current = latest ?? 0
+    setY(current)
+    if (current < 40) {
+      setHidden(false)
+    } else if (current > prevY.current + 4) {
+      setHidden(true)
+    } else if (current < prevY.current - 4) {
+      setHidden(false)
+    }
+    prevY.current = current
   })
 
   useEffect(() => {
@@ -75,20 +58,16 @@ export function SiteHeader() {
   const creamMode = scrolledDeep
   const bgForest = '#0F3D2E'
   const bgCream = '#FAF7F0'
-  const [mobileOpen, setMobileOpen] = useState(false)
-
-  useEffect(() => {
-    if (!mobileOpen) return
-    const cb = () => setMobileOpen(false)
-    window.addEventListener('scroll', cb)
-    return () => window.removeEventListener('scroll', cb)
-  }, [mobileOpen])
 
   const spacerHeight = SITE_HEADER_STACK_PX
 
   return (
     <div className={`${fraunces.variable} m-0 bg-[#0F3D2E] p-0 font-sans leading-normal`}>
-      <div className="fixed left-0 right-0 top-0 z-[100]">
+      <motion.div
+        className="fixed left-0 right-0 top-0 z-[100]"
+        animate={{ y: hidden ? -SITE_HEADER_STACK_PX : 0 }}
+        transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="h-px w-full shrink-0 bg-[#C9A961]" aria-hidden />
 
         <div
@@ -157,61 +136,10 @@ export function SiteHeader() {
               </motion.span>
             </Link>
 
-            <div className="relative z-[1] flex min-w-0 items-center gap-6">
-              <nav className="hidden min-w-0 items-center gap-6 xl:flex" aria-label="Primary">
-                {NAV.map((item) => (
-                  <NavLink key={item.href} href={item.href} creamMode={creamMode}>
-                    {item.label}
-                  </NavLink>
-                ))}
-              </nav>
-
-              <motion.button
-                type="button"
-                aria-expanded={mobileOpen}
-                aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border xl:hidden"
-                onClick={() => setMobileOpen((o) => !o)}
-                animate={{
-                  borderColor: scrolledDeep ? 'rgba(15,61,46,0.2)' : 'rgba(250,247,240,0.25)',
-                  color: scrolledDeep ? '#0F3D2E' : '#FAF7F0',
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </motion.button>
-            </div>
+            <div className="relative z-[1] h-9 w-9 shrink-0" aria-hidden />
           </div>
         </motion.header>
-
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.nav
-              key="mobnav"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22 }}
-              aria-label="Mobile primary"
-              className="absolute left-0 right-0 top-full z-[110] xl:hidden rounded-b-xl border-x border-b border-[#E5E0D5] bg-[#FAF7F0] px-4 py-3 shadow-xl"
-            >
-              <ul className="flex flex-col gap-0 border-t border-[#E5E0D5]/70 pt-2">
-                {NAV.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-lg px-2 py-2.5 font-sans text-[13px] font-semibold uppercase tracking-wider text-[#0F3D2E] no-underline hover:bg-[rgba(15,61,46,0.06)]"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.nav>
-          )}
-        </AnimatePresence>
-      </div>
+      </motion.div>
 
       <div aria-hidden className="m-0 block shrink-0 bg-[#0F3D2E] p-0 leading-none" style={{ height: spacerHeight }} />
     </div>
