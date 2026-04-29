@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { Lock, MonitorPlay, Play, ShieldCheck, Users } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 
@@ -52,7 +53,7 @@ const CARDS: CardRow[] = [
     delay: 0.2,
     kind: 'chat',
     href: '/private-phone-messaging',
-    place: 'bottom-[9.75rem] right-7 w-[17rem]',
+    place: 'bottom-[9.75rem] right-7 w-[18.75rem]',
     hidden: 'max-[480px]:right-5 max-[480px]:bottom-[11rem] max-[480px]:w-[calc(100%-2.5rem)] sm:right-10 lg:bottom-40',
   },
   {
@@ -65,54 +66,147 @@ const CARDS: CardRow[] = [
   },
 ]
 
+const X_FEED_ROTATE_MS = 4400
+
+/** Presentation-only mock timeline (not wired to 𝕏 / external APIs). */
+const MOCK_X_FEED: ReadonlyArray<{
+  name: string
+  handle: string
+  body: string
+  vein: string
+}> = [
+  {
+    name: 'Reuters Live',
+    handle: '@Reuters',
+    vein: '2.8M impressions',
+    body: 'U.S. co-op lending resilient as borrowers favor member-backed networks over traditional banks.',
+  },
+  {
+    name: 'CNN Business',
+    handle: '@CNNBusiness',
+    vein: '4.9M impressions',
+    body: 'Neighborhood-centric listing apps see spike in weekend searches — brokers adopt feed-first UX.',
+  },
+  {
+    name: 'The Wall Street Journal',
+    handle: '@WSJmarkets',
+    vein: '1.3M impressions',
+    body: 'Trust-heavy housing platforms outperform on retention when quotes run end-to-end encrypted.',
+  },
+  {
+    name: 'Bloomberg Opinion',
+    handle: '@opinion',
+    vein: '890K impressions',
+    body: 'Member-owned brokerage rails draw capital as renters prize transparent fee structures.',
+  },
+  {
+    name: 'The Verge',
+    handle: '@verge',
+    vein: '1.0M impressions',
+    body: '“Posts-first home search” rewired how renters compare corridors — incumbent portals respond.',
+  },
+]
+
 function IllustrationChat({ titleId }: { titleId: string }) {
+  const [feedIdx, setFeedIdx] = useState(0)
+  useEffect(() => {
+    const id = window.setInterval(() => setFeedIdx((i) => (i + 1) % MOCK_X_FEED.length), X_FEED_ROTATE_MS)
+    return () => window.clearInterval(id)
+  }, [])
+
+  const post = MOCK_X_FEED[feedIdx]
+
   return (
     <>
       <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
         Chat · ZK-sealed threads
       </p>
 
-      {/* Device bezel + gray LCD: copy reads like text on-screen */}
-      <div className="mt-3 rounded-[1.125rem] border border-zinc-900/80 bg-[linear-gradient(160deg,#3f4147_0%,#1e2024_100%)] p-[5px] shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_16px_40px_rgba(0,0,0,0.45)]" aria-hidden>
-        <div className="overflow-hidden rounded-[0.875rem] border border-black/55 bg-black/60 px-1.5 pb-2 pt-1.5">
-          <div className="mx-auto mb-1.5 h-[3px] w-8 rounded-full bg-zinc-800/95" />
-
-          <div className="rounded-[0.625rem] border border-black/35 bg-[linear-gradient(178deg,#c8ccd4_0%,#9ca3af_45%,#8b929d_100%)] p-2 shadow-[inset_0_2px_4px_rgba(255,255,255,0.45)]">
-            <div className="space-y-2.5">
-              <div className="flex items-end justify-end gap-2">
-                <span className="mb-0.5 h-7 w-7 shrink-0 rounded-xl border border-black/25 bg-[#dfe2e9] shadow-sm" />
-                <div className="max-w-[88%] rounded-2xl rounded-br-md border border-black/14 bg-white/95 px-2.5 py-2 shadow-sm">
-                  <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-bold uppercase tracking-wider text-zinc-800">
-                    <Lock className="h-3 w-3 shrink-0 text-emerald-800" strokeWidth={2.25} aria-hidden />
-                    Zero-knowledge envelope
-                  </span>
-                  <div className="space-y-1.5">
-                    <div className="h-[3px] max-w-[5.75rem] rounded-full bg-zinc-300" />
-                    <div className="h-[3px] w-[4rem] rounded-full bg-zinc-200" />
+      <div className="mt-3 rounded-[22px] border border-black/60 bg-[#1c1c1e] p-[5px] shadow-[0_20px_50px_rgba(0,0,0,0.45)] ring-2 ring-black/40" aria-hidden>
+        <div className="overflow-hidden rounded-[18px] bg-black">
+          {/* iOS Messages — system stack + #E5E5EA canvas, iMessage blue outbound */}
+          <div className="font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI','Helvetica_Neue',sans-serif]">
+            <div className="flex justify-center bg-[#E5E5EA] px-2 pb-1.5 pt-2">
+              <span className="rounded-[32px] bg-black px-10 py-[4px] text-[11px] font-semibold tabular-nums tracking-tight text-white">
+                9:41
+              </span>
+            </div>
+            <div className="space-y-2.5 bg-[#E5E5EA] px-2 pb-3 pt-2">
+              <div className="flex items-end gap-2">
+                <span className="h-9 w-9 shrink-0 rounded-[10px] bg-gradient-to-br from-[#cfd4dc] to-[#9ea5b5] shadow-[inset_0_-1px_0_rgba(0,0,0,0.08)] ring-1 ring-black/15" />
+                <div className="min-w-0 max-w-[88%]">
+                  <span className="mb-0.5 block pl-[3px] text-[10px] font-medium tracking-tight text-black/52">ZK · Threads</span>
+                  <div className="rounded-[17px] rounded-bl-[6px] bg-[#E9E9EB] px-[10px] py-[7px] text-[13px] leading-snug tracking-tight text-black shadow-[0_1px_0_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04]">
+                    New secured thread · identities verified before delivery.
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-end justify-start gap-2">
-                <span className="mb-0.5 h-7 w-7 shrink-0 rounded-xl border border-black/28 bg-[#e8eaef]" />
-                <div className="max-w-[90%] rounded-2xl rounded-bl-md border border-black/14 bg-[#f8fafc]/95 px-2.5 py-2 shadow-sm">
-                  <span className="mb-2 flex items-center gap-1 font-sans text-[8px] font-bold uppercase tracking-wider text-zinc-800">
-                    <ShieldCheck className="h-3 w-3 shrink-0 text-emerald-800" strokeWidth={2.25} aria-hidden />
-                    Verified ring
-                  </span>
-                  <div className="flex items-center gap-[3px] px-px">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/72" />
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/52 [animation-delay:150ms]" />
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-800/42 [animation-delay:300ms]" />
+              <div className="flex justify-end pt-px">
+                <div className="min-w-0 max-w-[92%] text-right">
+                  <span className="mb-0.5 block pr-[4px] text-[10px] font-medium text-black/48">ZK-sealed threads</span>
+                  <div className="inline-block rounded-[17px] rounded-br-[6px] bg-[#007AFF] px-[11px] py-[7px] text-left shadow-[0_1px_0_rgba(0,0,0,0.12)]">
+                    <span className="text-[13px] leading-snug tracking-tight text-white">
+                      Delivered · ciphertext attested
+                      <span className="text-[13px] text-white/95" aria-hidden>
+                        {' '}
+                        ✓
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="flex justify-end pt-0.5">
-                <span className="rounded-full border border-zinc-600/65 bg-[#374151] px-2 py-[3px] font-sans text-[8px] font-semibold uppercase tracking-wide text-[#fafaf9] shadow-sm shadow-black/25">
-                  Read receipt · quorum key
-                </span>
-              </div>
+          <div className="h-px bg-white/[0.08]" />
+
+          {/* 𝕏-style live timeline (mock, rotating) */}
+          <div className="bg-black px-2 pb-2 pt-[7px]">
+            <div className="mb-1.5 flex items-center gap-2">
+              <span className="translate-y-[0.5px] text-[15px] font-bold leading-none text-white">𝕏</span>
+              <span className="translate-y-[0.5px] font-sans text-[8px] font-bold uppercase tracking-[0.22em] text-white/52">
+                Live feed
+              </span>
+              <span className="rounded bg-emerald-500/22 px-[5px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-200/92">
+                For you
+              </span>
+              <span className="relative ml-auto flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60 opacity-65" />
+                <span className="relative m-auto inline-flex h-[5px] w-[5px] rounded-full bg-emerald-400" />
+              </span>
+            </div>
+
+            <div className="relative min-h-[5.25rem] overflow-hidden rounded-[11px] border border-white/[0.08] bg-[#0f1419] px-2 py-2">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={feedIdx}
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="pointer-events-none"
+                >
+                  <div className="flex gap-[7px]">
+                    <span className="mt-px h-[30px] w-[30px] shrink-0 rounded-full bg-gradient-to-br from-[#556171] to-[#2d353f] shadow-inner ring-1 ring-white/[0.12]" />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex min-w-0 flex-wrap items-baseline gap-x-1">
+                        <span className="truncate font-sans text-[13px] font-bold leading-tight text-neutral-50">{post.name}</span>
+                        <span className="font-sans text-[11px] text-neutral-500">{post.handle}</span>
+                      </div>
+                      <span className="mt-px block truncate font-sans text-[10px] text-neutral-600">{post.vein}</span>
+                      <p className="mt-2 line-clamp-2 font-sans text-[12px] leading-[1.4] text-neutral-200">{post.body}</p>
+                      <div className="mt-2 flex items-center gap-4 text-neutral-600">
+                        <span className="inline-flex items-center gap-px">
+                          <Heart className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden />
+                          <span className="text-[9px] tracking-tight">—</span>
+                        </span>
+                        <Repeat2 className="h-3 w-3 shrink-0 opacity-95" aria-hidden />
+                        <BarChart3 className="h-3 w-3 shrink-0 opacity-95" aria-hidden />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
