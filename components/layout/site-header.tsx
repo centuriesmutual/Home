@@ -20,8 +20,8 @@ export const GRAIN_BG =
 const NAV: { href: string; label: string }[] = [
   { href: '/rooms', label: 'Listings' },
   { href: '/search', label: 'Neighborhoods' },
-  { href: '/trust-system', label: 'Trust Framework' },
-  { href: '/trust', label: 'About' },
+  { href: '/trust', label: 'Trust' },
+  { href: '/treasury', label: 'Treasury' },
   { href: '/newspaper', label: 'Journal' },
 ]
 
