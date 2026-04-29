@@ -48,9 +48,15 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
     return () => window.clearInterval(t)
   }, [go, reducedMotion])
 
+  const controlsBar =
+    'opacity-0 transition-opacity duration-200 ease-out motion-reduce:transition-none group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:opacity-100'
+
   return (
     <div
-      className={cn('relative min-h-[20rem] overflow-hidden rounded-2xl md:min-h-[24rem]', className)}
+      className={cn(
+        'group relative min-h-[20rem] overflow-hidden rounded-2xl md:min-h-[24rem]',
+        className,
+      )}
       role="region"
       aria-roledescription="carousel"
       aria-label="Featured scenes"
@@ -83,16 +89,17 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
       <div
         className={cn(
           'absolute bottom-4 left-4 right-4 z-[3] flex items-center justify-between gap-3 sm:left-5 sm:right-5',
+          controlsBar,
           controlsClassName,
         )}
       >
         <button
           type="button"
           onClick={() => go(-1)}
-          className="pointer-events-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/70"
+          className="pointer-events-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-0 bg-black/45 text-white shadow-none backdrop-blur-md outline-none ring-0 transition hover:bg-black/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/70"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-5 w-5" aria-hidden />
+          <ChevronLeft className="h-5 w-5 shrink-0 text-white" strokeWidth={2.25} aria-hidden />
         </button>
 
         <div className="flex flex-1 justify-center gap-1.5" role="tablist" aria-label="Slide indicators">
@@ -105,7 +112,7 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => setIndex(i)}
               className={cn(
-                'h-1.5 rounded-full transition-all motion-reduce:transition-none',
+                'h-1.5 rounded-full border-0 shadow-none outline-none ring-0 transition-all motion-reduce:transition-none',
                 i === index ? 'w-6 bg-[#FAFCFB]' : 'w-1.5 bg-white/45 hover:bg-white/70',
               )}
             />
@@ -115,10 +122,10 @@ export function HeroEditorialCarousel({ className, controlsClassName }: Props) {
         <button
           type="button"
           onClick={() => go(1)}
-          className="pointer-events-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 bg-black/35 text-white backdrop-blur-md transition hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/70"
+          className="pointer-events-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-0 bg-black/45 text-white shadow-none backdrop-blur-md outline-none ring-0 transition hover:bg-black/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C9A961]/70"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-5 w-5" aria-hidden />
+          <ChevronRight className="h-5 w-5 shrink-0 text-white" strokeWidth={2.25} aria-hidden />
         </button>
       </div>
 
