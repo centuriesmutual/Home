@@ -120,11 +120,28 @@ export function TreasuryExpandedBodyContinued() {
               <ProseBody>
                 Treasury statements prioritize plain language — descriptions read like captions you recognize, with detail available when you drill in for proof.
               </ProseBody>
+              <ProseBody className="mt-6">
+                When you run recurring bills through Centuries Mutual, you get the practical upside of enterprise-grade bill-pay
+                rails adapted for members: payees and amounts stay organized in one place, you can schedule draws before due dates,
+                and confirmations post back in the same vocabulary you authorized — instead of chasing separate utility logins,
+                landlord portals, and chat threads.
+              </ProseBody>
+              <ProseBody className="mt-6">
+                Rent, deposits, shared utilities, and one-off invoices land on a single chronological feed, each line tied to the
+                agreement or pool it belongs to. Status is explicit — scheduled, sent, settled, or reversed — so reconciliation
+                feels like reading a bank-aware ledger, not decoding cryptic codes. Fewer missed windows, fewer “did that
+                actually post?” moments, and a trail you can export or share when someone else needs to verify the same facts.
+              </ProseBody>
             </div>
             <LuxuryCard>
               <div className="rounded-lg border border-[#E5E0D5]/70">
-                <div className="bg-[#14432A] px-4 py-2.5 font-sans text-[11px] font-semibold uppercase tracking-[0.15em] text-[#FAFCFB]">
-                  Statement · Apr 1–Apr 28
+                <div className="bg-[#14432A] px-4 py-2.5">
+                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.15em] text-[#FAFCFB]">
+                    Statement · Apr 1–Apr 28
+                  </p>
+                  <p className="mt-1 font-sans text-[10px] font-medium leading-snug text-[#E8DFD6]/90">
+                    Rent, utilities, and member activity — scheduled bill-pay and corridor transfers in one view.
+                  </p>
                 </div>
                 <ul className="divide-y divide-[#E5E0D5]/70">
                   {[
