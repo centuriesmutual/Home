@@ -138,19 +138,18 @@ export function CommunityHero() {
               </div>
               <div className="relative shrink-0 border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/88 px-5 py-6 backdrop-blur-md md:px-8 md:py-8">
                 <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
-                    <Link
-                      href="/wintergarden"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm outline-none ring-0 transition hover:bg-[#0c3328] focus-visible:ring-2 focus-visible:ring-[#0F3D2E]/40 sm:h-10 sm:px-3 sm:text-xs"
-                    >
-                      Wintergarden
-                    </Link>
-                    <Link
-                      href="/my-brothers-keeper"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-white px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-sm outline-none ring-0 transition hover:bg-white hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#0F3D2E]/25 sm:h-10 sm:px-3 sm:text-xs"
-                    >
-                      My Brothers Keeper
-                    </Link>
-                  </div>
+                  <Link
+                    href="/wintergarden"
+                    className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm outline-none ring-0 transition hover:bg-[#0c3328] focus-visible:ring-2 focus-visible:ring-[#0F3D2E]/40 sm:h-10 sm:px-3 sm:text-xs"
+                  >
+                    Wintergarden
+                  </Link>
+                  <Link
+                    href="/my-brothers-keeper"
+                    className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-white px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-sm outline-none ring-0 transition hover:bg-white hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#0F3D2E]/25 sm:h-10 sm:px-3 sm:text-xs"
+                  >
+                    My Brothers Keeper
+                  </Link>
                 </div>
               </div>
             </div>
