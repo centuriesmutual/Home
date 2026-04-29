@@ -122,47 +122,40 @@ export function CommunityHero() {
 
             <QuickActions className="mb-6" />
 
-            <div id="client-portal" className={`mb-4 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
-              <div className="grid grid-cols-1 gap-4 px-4 py-4 sm:px-5 sm:py-5 md:grid-cols-2 md:gap-5">
-                {/* Client portal card — split image / paper text */}
-                <div className="overflow-hidden rounded-2xl border border-[#E5E0D5]/90 bg-[#FAFCFB] shadow-[0_10px_40px_-12px_rgba(0,0,0,0.12)]">
-                  <div className="relative h-[14rem] w-full shrink-0 overflow-hidden rounded-t-2xl border-b border-[#E5E0D5]/90">
-                    <Image
-                      src="/buffalo2.png"
-                      alt=""
-                      fill
-                      priority={false}
-                      sizes="(max-width: 767px) 100vw, 25vw"
-                      className="object-cover object-[center_38%]"
-                    />
-                  </div>
-                  <div className="rounded-b-2xl bg-[#FAFCFB] p-4">
-                    <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
-                      Client portal
-                    </p>
-                  </div>
+            <div id="client-portal" className={`mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
+              {/* Single panel: twin images with labels overlaid — not separate bordered cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-[#E5E0D5]/85">
+                <div className="relative aspect-[5/4] min-h-[11rem] w-full md:aspect-auto md:min-h-[14rem]">
+                  <Image
+                    src="/buffalo2.png"
+                    alt=""
+                    fill
+                    priority={false}
+                    sizes="(max-width: 767px) 100vw, 25vw"
+                    className="object-cover object-[center_38%]"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/65 via-black/35 to-transparent" aria-hidden />
+                  <p className="absolute bottom-4 left-4 font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
+                    Client portal
+                  </p>
                 </div>
-
-                <div className="overflow-hidden rounded-2xl border border-[#E5E0D5]/90 bg-[#FAFCFB] shadow-[0_10px_40px_-12px_rgba(0,0,0,0.12)]">
-                  <div className="relative h-[14rem] w-full shrink-0 overflow-hidden rounded-t-2xl border-b border-[#E5E0D5]/90">
-                    <Image
-                      src="/buffalo2.png"
-                      alt=""
-                      fill
-                      priority={false}
-                      sizes="(max-width: 767px) 100vw, 25vw"
-                      className="object-cover object-[center_52%] [transform:scaleX(-1)]"
-                    />
-                  </div>
-                  <div className="rounded-b-2xl bg-[#FAFCFB] p-4">
-                    <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#6B6B66]">
-                      Membership
-                    </p>
-                  </div>
+                <div className="relative aspect-[5/4] min-h-[11rem] w-full md:aspect-auto md:min-h-[14rem]">
+                  <Image
+                    src="/buffalo2.png"
+                    alt=""
+                    fill
+                    priority={false}
+                    sizes="(max-width: 767px) 100vw, 25vw"
+                    className="object-cover object-[center_52%] [transform:scaleX(-1)]"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/65 via-black/35 to-transparent" aria-hidden />
+                  <p className="absolute bottom-4 left-4 font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
+                    Membership
+                  </p>
                 </div>
               </div>
 
-              <div className="rounded-b-2xl border-t border-[#E5E0D5]/80 bg-cream px-6 pb-7 pt-8 md:px-8 md:pb-8 md:pt-9">
+              <div className="border-t border-[#E5E0D5]/85 bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                   <Link
                     href="/signup"
@@ -180,7 +173,12 @@ export function CommunityHero() {
               </div>
             </div>
 
-            <div className={`mt-4 overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}>
+            <div
+              className="mb-11 min-h-[3.5rem] w-full rounded-2xl border border-[#E5E0D5]/65 bg-[#FAFCFB] shadow-[inset_0_1px_0_rgba(255,255,255,0.95)]"
+              aria-hidden
+            />
+
+            <div className={`overflow-hidden rounded-2xl border border-warm-border bg-cream px-4 py-3 sm:px-5 ${portalShadow}`}>
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 

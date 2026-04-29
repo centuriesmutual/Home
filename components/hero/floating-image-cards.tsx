@@ -26,7 +26,7 @@ type Kind = 'news' | 'stream' | 'chat'
 const ARTICLE_DESKTOP_POS: Record<Kind, string> = {
   news: 'lg:left-[5rem] lg:top-[6.5rem] lg:w-[14rem]',
   chat:
-    'lg:right-[7rem] lg:top-[calc(50%-12rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
+    'lg:right-[7rem] lg:top-[calc(50%-17.75rem)] lg:w-[min(calc(100%-1.5rem),26.75rem)] lg:max-w-[26.75rem] lg:-translate-y-1/2',
   stream:
     'lg:left-[5.5rem] lg:bottom-[12rem] lg:w-[min(calc(100%-1.5rem),19.75rem)] lg:max-w-[19.75rem]',
 }
