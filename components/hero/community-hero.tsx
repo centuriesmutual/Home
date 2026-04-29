@@ -131,33 +131,22 @@ export function CommunityHero() {
             <QuickActions className="mb-6" items={COMMUNITY_HERO_QUICK_ITEMS} />
 
             <div id="client-portal" className={`mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
-              {/* Single panel: twin images with labels overlaid — not separate bordered cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-[#E5E0D5]/85">
-                <div className="relative aspect-[5/4] min-h-[11rem] w-full md:aspect-auto md:min-h-[14rem]">
-                  <Image
-                    src="/buffalo2.png"
-                    alt=""
-                    fill
-                    priority={false}
-                    sizes="(max-width: 767px) 100vw, 25vw"
-                    className="object-cover object-[center_38%]"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/65 via-black/35 to-transparent" aria-hidden />
-                  <p className="absolute bottom-4 left-4 font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
+              {/* Single full-bleed image — previously two columns */}
+              <div className="relative aspect-[21/11] min-h-[12rem] w-full md:aspect-[24/11] md:min-h-[15rem]">
+                <Image
+                  src="/buffalo2.png"
+                  alt=""
+                  fill
+                  priority={false}
+                  sizes="(max-width: 1023px) 100vw, 42vw"
+                  className="object-cover object-[center_36%]"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 via-black/35 to-transparent" aria-hidden />
+                <div className="absolute inset-x-0 bottom-0 flex justify-between gap-4 px-4 pb-4 pt-8 md:px-8 md:pb-5">
+                  <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
                     Client portal
                   </p>
-                </div>
-                <div className="relative aspect-[5/4] min-h-[11rem] w-full md:aspect-auto md:min-h-[14rem]">
-                  <Image
-                    src="/buffalo2.png"
-                    alt=""
-                    fill
-                    priority={false}
-                    sizes="(max-width: 767px) 100vw, 25vw"
-                    className="object-cover object-[center_52%] [transform:scaleX(-1)]"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/65 via-black/35 to-transparent" aria-hidden />
-                  <p className="absolute bottom-4 left-4 font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
+                  <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
                     Membership
                   </p>
                 </div>
@@ -166,16 +155,16 @@ export function CommunityHero() {
               <div className="border-t border-[#E5E0D5]/85 bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                   <Link
-                    href="/signup"
+                    href="/login"
                     className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
                   >
-                    Create Account
+                    Client Portal
                   </Link>
                   <Link
-                    href="/login"
+                    href="/signup"
                     className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
                   >
-                    Sign In
+                    Create Account
                   </Link>
                 </div>
               </div>
