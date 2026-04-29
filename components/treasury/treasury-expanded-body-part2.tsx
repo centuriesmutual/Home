@@ -266,8 +266,8 @@ export function TreasuryExpandedBodyContinued() {
       {/* Governance CTA */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-24">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-            <div className="order-2 min-w-0 lg:order-1">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-12 xl:gap-16">
+            <div className="min-w-0 lg:flex-1">
               <Eyebrow>Governance</Eyebrow>
               <h2
                 className="mt-3 max-w-[22rem] font-serif text-[1.65rem] font-semibold leading-snug tracking-tight text-[#0f3321] sm:max-w-[26rem] sm:text-[1.85rem] md:text-[2rem]"
@@ -301,8 +301,8 @@ export function TreasuryExpandedBodyContinued() {
                 </Link>
               </div>
             </div>
-            <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-              <div className="w-full max-w-[440px] shrink-0">
+            <div className="flex justify-center lg:shrink-0 lg:justify-end">
+              <div className="w-full max-w-[440px]">
                 <TreasuryGovernanceIllustration />
               </div>
             </div>

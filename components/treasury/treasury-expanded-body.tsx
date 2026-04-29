@@ -28,16 +28,14 @@ export function TreasuryExpandedBody() {
             how disagreements escalate, and how the same words reach every party to a home, lease, or corridor instead of a
             patchwork of private side deals and forgotten attachments.
           </ProseBody>
-          <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14">
-            <div className="flex flex-col justify-center">
-              <p className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
-                It sits next to your charter and your ledger: the charter states the promises, the ledger shows what happened,
-                and governance ties them together so audits, disputes, and everyday coordination share one vocabulary. The panel
-                beside this text is a schematic summary; in-product notices, policies, and signed agreements remain what you rely
-                on when details matter.
-              </p>
-            </div>
-            <div className="flex flex-col justify-center">
+          <div className="mt-14 flex flex-col gap-10 lg:flex-row lg:gap-14">
+            <p className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
+              It sits next to your charter and your ledger: the charter states the promises, the ledger shows what happened,
+              and governance ties them together so audits, disputes, and everyday coordination share one vocabulary. The
+              schematic panel is a summary; in-product notices, policies, and signed agreements remain what you rely on when
+              details matter.
+            </p>
+            <div className="w-full max-w-[480px] shrink-0">
               <TreasuryGovernanceIllustration />
             </div>
           </div>
