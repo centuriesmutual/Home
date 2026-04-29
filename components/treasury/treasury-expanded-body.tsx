@@ -4,7 +4,7 @@ import {
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline'
 import { Eyebrow, LuxuryCard, ProseBody, SectionTitle } from '@/components/treasury/treasury-luxury'
-import { TreasuryCharterIllustration } from '@/components/treasury/treasury-charter-illustration'
+import { TreasuryGovernanceIllustration } from '@/components/treasury/treasury-governance-illustration'
 import { TreasuryExpandedBodyContinued } from '@/components/treasury/treasury-expanded-body-part2'
 import { TreasurySettlementViz } from '@/components/treasury/treasury-settlement-viz'
 import { TreasurySimulatedWallet } from '@/components/treasury/treasury-simulated-wallet'
@@ -18,27 +18,27 @@ const iconWrap = 'mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-
 export function TreasuryExpandedBody() {
   return (
     <>
-      {/* Charter */}
+      {/* Governance */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-28">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-          <Eyebrow>Charter</Eyebrow>
-          <SectionTitle>Charter, and the details behind it.</SectionTitle>
+          <Eyebrow>Governance</Eyebrow>
+          <SectionTitle>Governance you do not have to decode.</SectionTitle>
           <ProseBody className="mt-6">
-            Your charter is the formal frame Centuries Mutual uses to spell out how Treasury serves you — how balances are kept
-            one-to-one with the U.S. dollar, how escrow and releases behave, and which promises apply for the life of your home,
-            lease, or shared corridor.
+            Governance is how Centuries Mutual keeps Treasury legible in plain sight — who may move funds, under which checks,
+            how disagreements escalate, and how the same words reach every party to a home, lease, or corridor instead of a
+            patchwork of private side deals and forgotten attachments.
           </ProseBody>
           <div className="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-14">
             <div className="flex flex-col justify-center">
               <p className="max-w-[65ch] font-sans text-[15px] leading-[1.65] text-[#3d4a41]">
-                The charter names the commitments you can rely on: reserve alignment, settlement traceability, dispute handling,
-                and withdrawal paths — so every member sees the same terms instead of a maze of hidden screens. The panel beside
-                this text is a visual summary; the underlying agreement remains the source of truth for what Treasury may and may
-                not do on your behalf.
+                It sits next to your charter and your ledger: the charter states the promises, the ledger shows what happened,
+                and governance ties them together so audits, disputes, and everyday coordination share one vocabulary. The panel
+                beside this text is a schematic summary; in-product notices, policies, and signed agreements remain what you rely
+                on when details matter.
               </p>
             </div>
             <div className="flex flex-col justify-center">
-              <TreasuryCharterIllustration />
+              <TreasuryGovernanceIllustration />
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { CircleStackIcon } from '@heroicons/react/24/solid'
 import { TreasuryFaqAccordion } from '@/components/treasury/treasury-faq'
-import { TreasuryCharterIllustration } from '@/components/treasury/treasury-charter-illustration'
+import { TreasuryGovernanceIllustration } from '@/components/treasury/treasury-governance-illustration'
 import { Eyebrow, LuxuryCard, ProseBody, SectionTitle } from '@/components/treasury/treasury-luxury'
 import { cn } from '@/lib/utils'
 
@@ -263,12 +263,12 @@ export function TreasuryExpandedBodyContinued() {
         </div>
       </section>
 
-      {/* Charter & governance CTA */}
+      {/* Governance CTA */}
       <section className="border-t border-[#E5E0D5]/90 bg-[#FAFCFB] py-20 md:py-24">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div className="order-2 min-w-0 lg:order-1">
-              <Eyebrow>Charter</Eyebrow>
+              <Eyebrow>Governance</Eyebrow>
               <h2
                 className="mt-3 max-w-[22rem] font-serif text-[1.65rem] font-semibold leading-snug tracking-tight text-[#0f3321] sm:max-w-[26rem] sm:text-[1.85rem] md:text-[2rem]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
@@ -303,7 +303,7 @@ export function TreasuryExpandedBodyContinued() {
             </div>
             <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
               <div className="w-full max-w-[440px] shrink-0">
-                <TreasuryCharterIllustration />
+                <TreasuryGovernanceIllustration />
               </div>
             </div>
           </div>
