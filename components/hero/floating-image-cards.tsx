@@ -124,43 +124,6 @@ function IllustrationChat({ titleId }: { titleId: string }) {
 
       <div className="mt-3 rounded-[22px] border border-black/60 bg-[#1c1c1e] p-[5px] shadow-[0_20px_50px_rgba(0,0,0,0.45)] ring-2 ring-black/40" aria-hidden>
         <div className="overflow-hidden rounded-[18px] bg-black">
-          {/* iOS Messages — system stack + #E5E5EA canvas, iMessage blue outbound */}
-          <div className="font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI','Helvetica_Neue',sans-serif]">
-            <div className="flex justify-center bg-[#E5E5EA] px-2 pb-1.5 pt-2">
-              <span className="rounded-[32px] bg-black px-10 py-[4px] text-[11px] font-semibold tabular-nums tracking-tight text-white">
-                9:41
-              </span>
-            </div>
-            <div className="space-y-2.5 bg-[#E5E5EA] px-2 pb-3 pt-2">
-              <div className="flex items-end gap-2">
-                <span className="h-9 w-9 shrink-0 rounded-[10px] bg-gradient-to-br from-[#cfd4dc] to-[#9ea5b5] shadow-[inset_0_-1px_0_rgba(0,0,0,0.08)] ring-1 ring-black/15" />
-                <div className="min-w-0 max-w-[88%]">
-                  <span className="mb-0.5 block pl-[3px] text-[10px] font-medium tracking-tight text-black/52">ZK · Threads</span>
-                  <div className="rounded-[17px] rounded-bl-[6px] bg-[#E9E9EB] px-[10px] py-[7px] text-[13px] leading-snug tracking-tight text-black shadow-[0_1px_0_rgba(0,0,0,0.06)] ring-1 ring-black/[0.04]">
-                    New secured thread · identities verified before delivery.
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-end pt-px">
-                <div className="min-w-0 max-w-[92%] text-right">
-                  <span className="mb-0.5 block pr-[4px] text-[10px] font-medium text-black/48">ZK-sealed threads</span>
-                  <div className="inline-block rounded-[17px] rounded-br-[6px] bg-[#007AFF] px-[11px] py-[7px] text-left shadow-[0_1px_0_rgba(0,0,0,0.12)]">
-                    <span className="text-[13px] leading-snug tracking-tight text-white">
-                      Delivered · ciphertext attested
-                      <span className="text-[13px] text-white/95" aria-hidden>
-                        {' '}
-                        ✓
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="h-px bg-white/[0.08]" />
-
-          {/* 𝕏-style live timeline (mock, rotating) */}
           <div className="bg-black px-2 pb-2 pt-[7px]">
             <div className="mb-1.5 flex items-center gap-2">
               <span className="translate-y-[0.5px] text-[15px] font-bold leading-none text-white">𝕏</span>
