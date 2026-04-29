@@ -1,17 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { Play, Radio, Video } from 'lucide-react'
+import { Maximize2, Mic, MonitorPlay, Play, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 
-const glassCls =
-  'block h-full rounded-xl border border-white/15 bg-black/40 p-4 shadow-lg backdrop-blur-md transition hover:bg-black/52 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/35'
+const linkReset =
+  'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
-/** Forest “editorial slab” chrome (aligned with Sarah-style cards) */
-const slabCls =
-  'block h-full rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95'
+const glassCls = cn(
+  'block h-full rounded-xl border border-white/15 bg-black/40 p-4 shadow-lg backdrop-blur-md transition hover:bg-black/52 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/35 text-white',
+  linkReset,
+)
+
+/** Forest “editorial slab” chrome */
+const slabCls = cn(
+  'block h-full rounded-xl border border-[#C9A961]/35 bg-[#0F3D2E]/90 p-4 shadow-lg backdrop-blur-md transition hover:bg-[#0F3D2E]/95 text-white',
+  linkReset,
+)
 
 type CardRow =
   | {
@@ -91,10 +98,14 @@ const CARDS: CardRow[] = [
   },
 ]
 
+const STREAM_WAVE = [
+  44, 58, 52, 62, 48, 64, 54, 57, 51, 60, 55, 52, 59, 56, 63, 50, 57, 54, 61, 53, 58, 55, 60, 52, 54, 59, 56, 51, 61, 55, 53, 57,
+]
+
 function IllustrationChat({ titleId }: { titleId: string }) {
   return (
     <>
-      <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[#C9A961]/95">
+      <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
         Chat · ZK-sealed threads
       </p>
       <div className="mt-3 space-y-2" aria-hidden>
@@ -114,12 +125,14 @@ function IllustrationChat({ titleId }: { titleId: string }) {
           </div>
         </div>
         <div className="flex justify-end pt-1">
-          <span className="rounded-full bg-white/10 px-2 py-[3px] font-sans text-[9px] font-medium uppercase tracking-wide text-white/75">
+          <span className="rounded-full bg-white/10 px-2 py-[3px] font-sans text-[9px] font-medium uppercase tracking-wide text-white">
             Read receipt · quorum key
           </span>
         </div>
       </div>
-      <p className="mt-3 font-sans text-[11px] leading-snug text-white/72">Direct messaging with member-verified envelopes.</p>
+      <p className="mt-3 font-sans text-[11px] leading-snug text-white">
+        Direct messaging with member-verified envelopes.
+      </p>
     </>
   )
 }
@@ -127,23 +140,86 @@ function IllustrationChat({ titleId }: { titleId: string }) {
 function IllustrationStream({ titleId }: { titleId: string }) {
   return (
     <>
-      <div className="mb-2 flex items-center gap-2">
-        <Radio className="h-4 w-4 shrink-0 text-emerald-300" strokeWidth={1.95} aria-hidden />
-        <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[#C9A961]/95">
+      <div className="mb-3 flex items-center gap-2">
+        <MonitorPlay className="h-4 w-4 shrink-0 text-white" strokeWidth={1.95} aria-hidden />
+        <p id={titleId} className="font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-white">
           Stream
         </p>
         <span className="ml-auto rounded-sm bg-[#b91c1c] px-[5px] py-px font-sans text-[8px] font-bold uppercase tracking-wider text-white shadow-sm">
           Live
         </span>
       </div>
-      <div className="relative mx-auto mb-3 aspect-video w-full max-w-none overflow-hidden rounded-lg bg-gradient-to-br from-[#154a38] via-[#0f2d23] to-[#060908] shadow-inner ring-1 ring-black/35">
-        <div className="absolute inset-[12%_18%_18%_18%] rounded-md bg-gradient-to-t from-black/65 via-transparent to-white/12" aria-hidden />
-        <span className="absolute inset-0 m-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/55 text-[#faf7f0] shadow-xl backdrop-blur-md" aria-hidden>
-          <Play className="relative left-px ml-0.5 h-5 w-5 shrink-0" fill="currentColor" strokeWidth={0} aria-hidden />
-        </span>
-        <Video className="pointer-events-none absolute bottom-2 right-2 h-4 w-4 text-white/35" aria-hidden />
+
+      <div
+        className="mb-3 overflow-hidden rounded-lg border border-white/15 bg-[#040a08] shadow-inner ring-1 ring-black/50"
+        aria-hidden
+      >
+        <div className="flex items-center gap-2 border-b border-white/10 bg-black/65 px-2.5 py-1.5">
+          <span className="flex gap-1">
+            <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
+            <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+            <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+          </span>
+          <span className="font-sans text-[8px] font-medium uppercase tracking-wide text-white/90">Network hub · live</span>
+          <Users className="ml-auto h-3.5 w-3.5 shrink-0 text-white/85" aria-hidden />
+        </div>
+
+        <div className="relative px-2 pb-2 pt-2">
+          <div className="relative aspect-[16/11] overflow-hidden rounded-md border border-white/12 bg-[linear-gradient(165deg,#0d3022_0%,#05140e_52%,#020807_100%)]">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  'repeating-linear-gradient(90deg,#fff,#fff 1px,transparent 1px,transparent 13px),repeating-linear-gradient(0deg,#fff,#fff 1px,transparent 1px,transparent 13px)',
+              }}
+            />
+            <span className="absolute right-2 top-2 rounded border border-emerald-500/35 bg-black/72 px-[5px] py-[2px] font-sans text-[7px] font-semibold uppercase tracking-wide text-emerald-100/95">
+              HD · E2EE
+            </span>
+            <div className="absolute bottom-2 left-2 flex gap-1.5">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="h-8 w-[2.25rem] rounded border border-white/15 bg-gradient-to-b from-white/12 to-black/40 shadow-sm"
+                />
+              ))}
+            </div>
+            <span className="pointer-events-none absolute left-1/2 top-[38%] flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white shadow-[0_6px_24px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+              <Play className="relative left-[1px] ml-0.5 h-5 w-5 shrink-0" fill="currentColor" strokeWidth={0} aria-hidden />
+            </span>
+          </div>
+
+          <div className="mt-2 space-y-1.5">
+            <div className="flex h-7 items-end justify-between gap-[1px] px-0.5">
+              {STREAM_WAVE.map((pct, i) => (
+                <span
+                  key={i}
+                  className="w-[2px] shrink-0 rounded-[1px] bg-emerald-400/55"
+                  style={{ height: `${pct}%` }}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-2 px-0.5">
+              <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/12">
+                <div className="h-full w-[41%] rounded-full bg-white/70" />
+              </div>
+              <span className="font-mono text-[8px] text-white/80">12:04</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between border-t border-white/10 bg-black/58 px-2 py-1.5">
+          <span className="flex items-center gap-2">
+            <Mic className="h-3.5 w-3.5 text-white/90" aria-hidden />
+            <span className="rounded bg-white/10 px-1 py-px font-sans text-[8px] uppercase tracking-wide text-white/90">
+              Muted
+            </span>
+          </span>
+          <Maximize2 className="h-3.5 w-3.5 text-white/70" aria-hidden />
+        </div>
       </div>
-      <p className="font-sans text-[11px] leading-snug text-white/76">
+
+      <p className="font-sans text-[11px] leading-snug text-white">
         Circle broadcasts, town halls & listing walkthroughs · HD & encrypted.
       </p>
     </>
@@ -153,27 +229,25 @@ function IllustrationStream({ titleId }: { titleId: string }) {
 function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
   if (row.kind === 'news' || row.kind === 'glass-article') {
     return (
-      <Link href={row.href} className={`${glassCls} lg:pointer-events-auto`}>
+      <Link href={row.href} className={cn(glassCls, 'lg:pointer-events-auto')}>
         {row.kind === 'news' ? (
           <>
             <div className="mb-2 flex items-center gap-2">
-              <span className="h-2 w-2 shrink-0 rounded-full bg-[#C9A961]" aria-hidden />
-              <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[#C9A961]/95">
-                {row.eyebrow}
-              </span>
+              <span className="h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden />
+              <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white">{row.eyebrow}</span>
             </div>
             <h3 id={titleId} className="font-serif text-[0.9375rem] font-medium leading-snug text-white">
               {row.headline}
             </h3>
-            <p className="mt-2 font-sans text-[11px] leading-snug text-white/74">{row.sub}</p>
+            <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
           </>
         ) : (
           <>
-            <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-[#C9A961]/95">{row.eyebrow}</p>
+            <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white">{row.eyebrow}</p>
             <h3 id={titleId} className="mt-2 font-serif text-[0.9375rem] font-medium leading-snug text-white">
               {row.headline}
             </h3>
-            <p className="mt-2 font-sans text-[11px] leading-snug text-white/74">{row.sub}</p>
+            <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
           </>
         )}
       </Link>
@@ -182,14 +256,14 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
 
   if (row.kind === 'chat') {
     return (
-      <Link href={row.href} className={`${slabCls} lg:pointer-events-auto`}>
+      <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
         <IllustrationChat titleId={titleId} />
       </Link>
     )
   }
 
   return (
-    <Link href={row.href} className={`${slabCls} lg:pointer-events-auto`}>
+    <Link href={row.href} className={cn(slabCls, 'lg:pointer-events-auto')}>
       <IllustrationStream titleId={titleId} />
     </Link>
   )
