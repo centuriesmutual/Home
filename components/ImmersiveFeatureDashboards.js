@@ -640,7 +640,7 @@ export function CommunicationDashboardImmersive() {
   const luxGold = '#d4b96a'
 
   return (
-    <WindowShell eyebrow="Network" title="Communication · Social" badge="Secure session" badgeTone="muted">
+    <WindowShell eyebrow="Amenities" title="Communication · Social" badge="Secure session" badgeTone="muted">
       <div className="d-flex flex-column align-items-center py-3 px-2" style={{ background: 'linear-gradient(180deg, #eceff2 0%, #f4f6f8 100%)' }}>
         <p className="text-center mb-3 mb-md-4 px-2" style={{ fontSize: 12, color: '#64748b', maxWidth: 420, lineHeight: 1.45, margin: 0 }}>
           Live on a device-class surface: immersive streams, glass DMs, and your friends row—built for the same privacy stack as the features below.
