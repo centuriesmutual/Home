@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils'
 const linkReset =
   'no-underline !text-white hover:!text-white hover:no-underline focus-visible:no-underline active:!text-white visited:!text-white'
 
-/** Nearly solid so News headline stays readable on the bison hero */
+/** Nearly solid News card — emerald copy (no global !text-white on this Link) */
 const newsGlassCls = cn(
-  'block h-full rounded-xl border border-white/45 bg-[#131816]/96 p-4 shadow-xl shadow-black/55 backdrop-blur-[3px] transition hover:bg-[#151c19]/[0.99] hover:shadow-black/65 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/48 text-white',
-  linkReset,
+  'block h-full rounded-xl border border-emerald-900/60 bg-[#131816]/96 p-4 shadow-xl shadow-black/55 backdrop-blur-[3px] transition hover:bg-[#151c19]/[0.99] hover:shadow-black/65 focus-visible:outline focus-visible:ring-2 focus-visible:ring-emerald-500/50',
+  'no-underline hover:no-underline focus-visible:no-underline',
 )
 
 /** Forest “editorial slab” chrome */
@@ -175,18 +175,23 @@ function FloatingInner({ row, titleId }: { row: CardRow; titleId: string }) {
         href={row.href}
         className={cn(
           newsGlassCls,
-          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-xl hover:shadow-black/45',
+          'group/card-news relative isolate overflow-hidden lg:pointer-events-auto motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-xl hover:shadow-black/45 visited:text-current hover:text-current active:text-current',
         )}
       >
-        <div className="relative z-[1] pb-px">
+        <div className="relative z-[1] pb-px text-emerald-50">
           <div className="mb-2 flex items-center gap-2">
-            <span className="h-2 w-2 shrink-0 rounded-full bg-white" aria-hidden />
-            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white">{row.eyebrow}</span>
+            <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" aria-hidden />
+            <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-emerald-400">
+              {row.eyebrow}
+            </span>
           </div>
-          <h3 id={titleId} className="font-serif text-[0.9375rem] font-medium leading-snug text-white">
+          <h3
+            id={titleId}
+            className="font-serif text-[0.9375rem] font-medium leading-snug text-emerald-100"
+          >
             {row.headline}
           </h3>
-          <p className="mt-2 font-sans text-[11px] leading-snug text-white">{row.sub}</p>
+          <p className="mt-2 font-sans text-[11px] leading-snug text-emerald-300/95">{row.sub}</p>
         </div>
 
         {/* YouTube-style preview layer (wired for future iframe embed later) */}
