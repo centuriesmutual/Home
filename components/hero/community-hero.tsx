@@ -139,9 +139,9 @@ export function CommunityHero() {
                   fill
                   priority={false}
                   sizes="(max-width: 1023px) 100vw, 42vw"
-                  className="object-cover object-[center_36%]"
+                  className="object-cover object-top"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 via-black/35 to-transparent" aria-hidden />
+                <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-black/70 via-black/30 to-transparent sm:h-[28%]" aria-hidden />
                 <div className="absolute inset-x-0 bottom-0 flex justify-between gap-4 px-4 pb-4 pt-8 md:px-8 md:pb-5">
                   <p className="font-sans text-[0.625rem] font-medium uppercase tracking-[0.28em] text-[#FAFCFB] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]">
                     Client portal
