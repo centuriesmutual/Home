@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { BarChart3, Heart, MonitorPlay, Play, Repeat2, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cardFloat } from '@/lib/animations'
-import { SITE_HEADER_STACK_PX } from '@/components/layout/site-header'
 import { cn } from '@/lib/utils'
 
 const linkReset =
@@ -245,13 +244,11 @@ export function FloatingImageCards({ className = '' }: { className?: string }) {
   return (
     <div
       className={cn(
-        'pointer-events-none fixed z-[90] flex w-[min(calc(100vw-2rem),28rem)] max-w-[28rem] flex-col',
-        /* Left-aligned in viewport; inset matches hero max-width gutters on wide screens */
-        'left-[max(1rem,calc((100vw_-_min(1600px,_100vw))*0.5+1rem))] right-auto',
+        /* Centered in hero image column by parent flex; not fixed — scrolls with hero, no viewport drift */
+        'pointer-events-none relative z-[1] flex w-full max-w-[min(28rem,100%)] flex-col',
         '[&_a]:pointer-events-auto',
         className,
       )}
-      style={{ top: SITE_HEADER_STACK_PX + 10 }}
     >
       {CARDS.map((c) => (
         <FloaterArticle key={c.id} row={c} />
