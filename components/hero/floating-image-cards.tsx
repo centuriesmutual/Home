@@ -17,10 +17,6 @@ const slabCls = cn(
 
 type CardRow = { id: string; delay: number; kind: 'chat'; href: string }
 
-/** Desktop (lg+) — sole floating card positioning */
-const ARTICLE_CHAT_DESKTOP =
-  'lg:right-[7rem] lg:top-[calc(50%-14rem)] lg:w-[min(calc(100%-1.5rem),28rem)] lg:max-w-[28rem] lg:-translate-y-1/2'
-
 const CARDS: CardRow[] = [
   {
     id: 'chat',
@@ -235,8 +231,7 @@ function FloaterArticle({ row }: { row: CardRow }) {
       transition={{ delay: row.delay }}
       className={cn(
         'relative z-10 mx-auto w-full max-w-md',
-        'lg:absolute lg:mx-0',
-        ARTICLE_CHAT_DESKTOP,
+        'lg:absolute lg:inset-x-0 lg:top-1/2 lg:mx-auto lg:w-[min(calc(100%-2rem),28rem)] lg:max-w-[28rem] lg:-translate-y-1/2',
       )}
       style={{ zIndex: CHAT_Z }}
       aria-labelledby={titleId}

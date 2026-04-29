@@ -8,7 +8,7 @@ import { Fraunces } from 'next/font/google'
 import { CommunitySearchBar } from '@/components/search/community-search-bar'
 import { CommunitySearchHotkeys, CommunitySearchModal } from '@/components/search/community-search-modal'
 import { FloatingImageCards } from '@/components/hero/floating-image-cards'
-import { QuickActions } from '@/components/hero/quick-actions'
+import { QuickActions, COMMUNITY_HERO_QUICK_ITEMS } from '@/components/hero/quick-actions'
 import { fadeUp } from '@/lib/animations'
 import { GRAIN_BG } from '@/components/layout/site-header'
 
@@ -126,7 +126,7 @@ export function CommunityHero() {
               <CommunitySearchBar onOpen={openSearch} compact />
             </div>
 
-            <QuickActions className="mb-6" />
+            <QuickActions className="mb-6" items={COMMUNITY_HERO_QUICK_ITEMS} />
 
             <div id="client-portal" className={`mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
               {/* Single panel: twin images with labels overlaid — not separate bordered cards */}
