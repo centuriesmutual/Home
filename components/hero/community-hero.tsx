@@ -147,7 +147,11 @@ export function CommunityHero() {
                 </div>
               </div>
 
-              <div className="border-t border-[#E5E0D5]/85 bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
+              <div className="relative bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
+                <div
+                  className="pointer-events-none absolute inset-x-0 -top-10 h-10 bg-gradient-to-b from-transparent to-[#FAFCFB]"
+                  aria-hidden
+                />
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
                   <Link
                     href="/login"
