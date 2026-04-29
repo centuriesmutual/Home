@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Fraunces } from 'next/font/google'
+import { CorridorMapHero } from '@/components/illustrations/corridor-map-hero'
 import { NeighborhoodExpandedBody } from '@/components/neighborhood/neighborhood-expanded-body'
 import { TopoPattern } from '@/components/ui/topo-pattern'
 import { GRAIN_BG } from '@/components/layout/site-header'
+import '@/components/illustrations/neighborhood-motion.css'
 
 const editorial = Fraunces({
   subsets: ['latin'],
@@ -60,25 +61,8 @@ export function NeighborhoodLanding({ query }: Props) {
               Back to home search
               <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
             </Link>
-            <div className="relative min-h-[220px] min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#C9A961]/25 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:min-h-[320px] md:min-h-[400px]">
-              <Image
-                src="/buffalo2.png"
-                alt=""
-                fill
-                className="object-cover object-[center_35%]"
-                sizes="(max-width: 767px) 55vw, 45vw"
-                priority
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgba(15,61,46,0.5)_0%,transparent_50%)]"
-                aria-hidden
-              />
-              <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3 py-1.5 backdrop-blur-md sm:left-6 sm:top-6">
-                <MapPin className="h-3.5 w-3.5 text-[#C9A961]" aria-hidden />
-                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-[#FAFCFB]/95">
-                  Corridor map · coming inline
-                </span>
-              </div>
+            <div className="relative flex min-h-[220px] min-w-0 flex-1 flex-col overflow-hidden rounded-2xl border border-[#C9A961]/25 bg-[#FAFCFB] p-4 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:min-h-[320px] sm:p-5 md:min-h-[400px]">
+              <CorridorMapHero className="min-h-0 w-full flex-1" />
             </div>
           </div>
         </div>
