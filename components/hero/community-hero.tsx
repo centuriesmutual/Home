@@ -116,52 +116,46 @@ export function CommunityHero() {
 
             <QuickActions className="mb-6" items={COMMUNITY_HERO_QUICK_ITEMS} />
 
-            <div id="client-portal" className={`mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}>
-              {/* Single full-bleed image — previously two columns */}
-              <div className="relative aspect-[21/11] min-h-[12rem] w-full md:aspect-[24/11] md:min-h-[15rem]">
+            <div id="client-portal" className={`relative mb-0 min-h-[20rem] overflow-hidden rounded-2xl border border-[#E5E0D5]/90 md:min-h-[24rem] ${portalShadow}`}>
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/buffalo2.png"
                   alt=""
                   fill
                   priority={false}
                   sizes="(max-width: 1023px) 100vw, 42vw"
-                  className="object-cover object-top"
+                  className="object-cover object-[center_8%] [transform:scale(1.18)] [transform-origin:center_top]"
                 />
-                <div
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#FAFCFB] via-[#FAFCFB]/92 via-45% to-transparent sm:h-[40%]"
-                  aria-hidden
-                />
-                <div className="absolute inset-x-0 bottom-0 flex justify-between gap-3 px-4 pb-4 pt-8 md:px-8 md:pb-5">
+              </div>
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/55 via-black/20 to-transparent"
+                aria-hidden
+              />
+              <div className="relative z-[1] flex min-h-[20rem] flex-col justify-between gap-8 px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
+                <div className="flex justify-between gap-3 pt-2 md:pt-4">
                   <Link
                     href="/my-brothers-keeper"
-                    className="inline-flex h-7 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB] px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#0F3D2E] no-underline shadow-[0_2px_8px_rgba(15,61,46,0.14)] transition hover:bg-[#FAFCFB]"
+                    className="inline-flex h-7 items-center rounded-full border border-white/35 bg-black/35 px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#FAFCFB] no-underline shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm transition hover:bg-black/45"
                   >
                     My Brothers Keeper
                   </Link>
                   <Link
                     href="/wintergarden"
-                    className="inline-flex h-7 items-center rounded-full border border-[#0F3D2E]/20 bg-[#FAFCFB] px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#0F3D2E] no-underline shadow-[0_2px_8px_rgba(15,61,46,0.14)] transition hover:bg-[#FAFCFB]"
+                    className="inline-flex h-7 items-center rounded-full border border-white/35 bg-black/35 px-3 font-sans text-[0.53rem] font-semibold uppercase tracking-[0.16em] text-[#FAFCFB] no-underline shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm transition hover:bg-black/45"
                   >
                     Wintergarden
                   </Link>
                 </div>
-              </div>
-
-              <div className="relative bg-[#FAFCFB] px-6 py-8 md:px-8 md:py-9">
-                <div
-                  className="pointer-events-none absolute inset-x-0 -top-10 h-10 bg-gradient-to-b from-transparent to-[#FAFCFB]"
-                  aria-hidden
-                />
-                <div className="mx-auto grid max-w-xl grid-cols-1 gap-3 md:mx-0 md:max-w-none sm:grid-cols-2 sm:gap-4">
+                <div className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:mx-0 md:max-w-none">
                   <Link
                     href="/login"
-                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline transition hover:bg-[#15523D]"
+                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#0F3D2E] px-5 text-sm font-medium leading-none text-white no-underline shadow-lg transition hover:bg-[#15523D]"
                   >
                     Client Portal
                   </Link>
                   <Link
                     href="/signup"
-                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border border-[#0F3D2E] bg-white px-5 text-sm font-medium leading-none text-[#0F3D2E] no-underline transition hover:bg-[#0F3D2E]/5"
+                    className="inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full border-2 border-[#FAFCFB]/85 bg-[#FAFCFB]/12 px-5 text-sm font-medium leading-none text-[#FAFCFB] no-underline shadow-lg backdrop-blur-sm transition hover:bg-[#FAFCFB]/22"
                   >
                     Create Account
                   </Link>
