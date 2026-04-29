@@ -136,16 +136,16 @@ export function CommunityHero() {
               />
               <div className="relative z-[1] flex min-h-[20rem] flex-col px-5 py-6 md:min-h-[24rem] md:px-8 md:py-8">
                 <div className="relative z-[2] -mx-5 mt-auto border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 py-6 backdrop-blur-md md:-mx-8 md:px-8 md:py-8">
-                  <div className="mx-auto grid w-full max-w-xl grid-cols-2 gap-2 sm:gap-3 md:mx-0 md:max-w-none">
+                  <div className="mx-auto flex w-full max-w-md flex-col gap-3 sm:gap-4 md:mx-0 md:max-w-md">
                     <Link
                       href="/wintergarden"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-[#0F3D2E] px-2 text-[10px] font-semibold leading-tight tracking-tight text-white no-underline shadow-sm transition hover:bg-[#0c3328] sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex min-h-[3rem] w-full items-center justify-center rounded-full border-0 bg-[#0F3D2E] px-6 py-3.5 text-sm font-semibold tracking-tight text-white no-underline shadow-sm transition hover:bg-[#0c3328] sm:min-h-[3.25rem] sm:text-base"
                     >
                       Wintergarden
                     </Link>
                     <Link
                       href="/my-brothers-keeper"
-                      className="inline-flex h-9 w-full min-w-0 shrink-0 items-center justify-center whitespace-nowrap rounded-full border-0 bg-white px-1.5 text-[10px] font-semibold leading-tight tracking-tight text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white hover:shadow-md sm:h-10 sm:px-3 sm:text-xs"
+                      className="inline-flex min-h-[3rem] w-full items-center justify-center rounded-full border-0 bg-white px-6 py-3.5 text-sm font-semibold tracking-tight text-[#0F3D2E] no-underline shadow-sm transition hover:bg-white hover:shadow-md sm:min-h-[3.25rem] sm:text-base"
                     >
                       My Brothers Keeper
                     </Link>
