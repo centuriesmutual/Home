@@ -41,8 +41,8 @@ const CARDS: CardRow[] = [
     id: 'news',
     delay: 0,
     kind: 'news',
-    place: 'left-8 top-8 w-56 lg:left-10 lg:top-10',
-    hidden: 'max-[420px]:left-5 max-[420px]:top-6 max-[420px]:w-[calc(100%-2.5rem)]',
+    place: 'left-6 top-4 w-56 sm:left-8 sm:top-5 lg:left-10 lg:top-6',
+    hidden: 'max-[420px]:left-5 max-[420px]:top-4 max-[420px]:w-[calc(100%-2.5rem)]',
     href: '/newspaper',
     eyebrow: 'News',
     headline: 'Texas co-op housing starts edge up amid rate pause',
@@ -54,16 +54,17 @@ const CARDS: CardRow[] = [
     kind: 'chat',
     href: '/private-phone-messaging',
     place:
-      'bottom-[7.75rem] right-4 w-[min(92vw,22rem)] sm:bottom-[8.75rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[9.25rem] lg:right-12 lg:w-[26.75rem]',
-    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[11rem] max-[480px]:w-[calc(100%-2.5rem)]',
+      'bottom-[10.5rem] right-4 w-[min(92vw,22rem)] sm:bottom-[11.75rem] sm:right-8 sm:w-[23.5rem] lg:bottom-[12.25rem] lg:right-12 lg:w-[26.75rem]',
+    hidden: 'max-[480px]:right-5 max-[480px]:bottom-[13.75rem] max-[480px]:w-[calc(100%-2.5rem)]',
   },
   {
     id: 'stream',
     delay: 0.28,
     kind: 'stream',
     href: '/network',
-    place: 'bottom-7 left-6 w-[min(92vw,18.75rem)] sm:bottom-8 sm:left-8 sm:w-[19.75rem]',
-    hidden: 'max-[420px]:bottom-6 max-[420px]:left-5 max-[420px]:w-[calc(100%-2.5rem)]',
+    place:
+      'bottom-24 left-6 w-[min(92vw,18.75rem)] sm:bottom-28 sm:left-8 sm:w-[19.75rem] lg:bottom-32',
+    hidden: 'max-[420px]:bottom-[18rem] max-[420px]:left-5 max-[420px]:w-[calc(100%-2.5rem)]',
   },
 ]
 
