@@ -98,7 +98,7 @@ export function CommunityHero() {
           >
             <div>
               <p className="mb-3 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-[#C9A961]">
-                — A Centuries Mutual Service
+                — Est. 2024
               </p>
               <h1
                 className={`mb-8 max-w-md text-3xl font-medium tracking-tight text-[#0F3D2E] md:text-4xl lg:max-w-none lg:text-[2.65rem] lg:whitespace-nowrap`}
