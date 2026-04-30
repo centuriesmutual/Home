@@ -15,7 +15,7 @@ import {
   slideInRight,
   staggerItem,
 } from '../utils/animations'
-import { RoommateMatchingIllustration } from './illustrations/home-illustrations'
+import { RoommateMatchingModal } from './illustrations/home-product-modals'
 import './illustrations/neighborhood-motion.css'
 
 const FEATURES = [
@@ -98,17 +98,7 @@ export default function BlockchainSection() {
           </div>
 
           <motion.div className="col-lg-6" {...slideInLeft}>
-            <div
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid #E8EBEA',
-                borderRadius: '20px',
-                padding: '1.75rem',
-                boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
-              }}
-            >
-              <RoommateMatchingIllustration />
-            </div>
+            <RoommateMatchingModal />
           </motion.div>
 
           <motion.div className="col-lg-6" {...slideInRight}>

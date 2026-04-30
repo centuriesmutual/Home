@@ -12,7 +12,7 @@ import {
   staggerContainer,
   staggerItem,
 } from '../utils/animations'
-import { SmartHomeSecurityIllustration } from './illustrations/home-illustrations'
+import { SmartHomeSecurityModal } from './illustrations/home-product-modals'
 import './illustrations/neighborhood-motion.css'
 
 const FEATURES = [
@@ -211,17 +211,7 @@ export default function SmartHomeSecurity() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <div
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid #E8EBEA',
-                borderRadius: '20px',
-                padding: '1.75rem',
-                boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
-              }}
-            >
-              <SmartHomeSecurityIllustration />
-            </div>
+            <SmartHomeSecurityModal />
           </motion.div>
         </div>
       </div>

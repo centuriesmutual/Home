@@ -15,7 +15,7 @@ import {
   slideInRight,
   staggerItem,
 } from '../utils/animations'
-import { SocialNetworkIllustration } from './illustrations/home-illustrations'
+import { SocialNetworkModal } from './illustrations/home-product-modals'
 import './illustrations/neighborhood-motion.css'
 
 const FEATURES = [
@@ -98,17 +98,7 @@ export default function NetworkDevices() {
           </div>
 
           <motion.div className="col-lg-6 order-lg-2" {...slideInRight}>
-            <div
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid #E8EBEA',
-                borderRadius: '20px',
-                padding: '1.75rem',
-                boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
-              }}
-            >
-              <SocialNetworkIllustration />
-            </div>
+            <SocialNetworkModal />
           </motion.div>
 
           <motion.div className="col-lg-6 order-lg-1" {...slideInLeft}>

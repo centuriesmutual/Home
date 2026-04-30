@@ -16,9 +16,9 @@ import {
   staggerItem,
 } from '../utils/animations'
 import {
-  EDocumentSystemIllustration,
-  LegacyOfTrustIllustration,
-} from './illustrations/home-illustrations'
+  EDocumentSystemModal,
+  MemberTrustModal,
+} from './illustrations/home-product-modals'
 import './illustrations/neighborhood-motion.css'
 
 const DOC_FEATURES = [
@@ -102,17 +102,7 @@ export default function Legacy() {
             </div>
 
             <motion.div className="col-lg-6" {...slideInLeft}>
-              <div
-                style={{
-                  background: '#FFFFFF',
-                  border: '1px solid #E8EBEA',
-                  borderRadius: '20px',
-                  padding: '1.75rem',
-                  boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
-                }}
-              >
-                <EDocumentSystemIllustration />
-              </div>
+              <EDocumentSystemModal />
             </motion.div>
 
             <motion.div className="col-lg-6" {...slideInRight}>
@@ -229,17 +219,7 @@ export default function Legacy() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7 }}
             >
-              <div
-                style={{
-                  background: '#FFFFFF',
-                  border: '1px solid #E8EBEA',
-                  borderRadius: '20px',
-                  padding: '1.75rem',
-                  boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
-                }}
-              >
-                <LegacyOfTrustIllustration />
-              </div>
+              <MemberTrustModal />
             </motion.div>
 
             <motion.div
