@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   LockClosedIcon,
@@ -15,10 +16,7 @@ import {
   slideInRight,
   staggerItem,
 } from '../utils/animations'
-import {
-  EDocumentSystemModal,
-  MemberTrustModal,
-} from './illustrations/home-product-modals'
+import { EDocumentSystemModal } from './illustrations/home-product-modals'
 import './illustrations/neighborhood-motion.css'
 
 const DOC_FEATURES = [
@@ -219,7 +217,76 @@ export default function Legacy() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.7 }}
             >
-              <MemberTrustModal />
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  aspectRatio: '4 / 3',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  border: '1px solid #E8EBEA',
+                  background: '#F4F1EC',
+                  boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
+                }}
+              >
+                <Image
+                  src="/deer.jpeg"
+                  alt="Legacy of Trust"
+                  fill
+                  sizes="(max-width: 991px) 100vw, 42vw"
+                  style={{ objectFit: 'cover' }}
+                  priority={false}
+                />
+
+                {/* Soft tint to anchor the badge */}
+                <div
+                  aria-hidden
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background:
+                      'linear-gradient(180deg, rgba(20,67,42,0) 50%, rgba(20,67,42,0.18) 100%)',
+                  }}
+                />
+
+                {/* Est. 2024 badge */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '20px',
+                    right: '20px',
+                    background: '#0066CC',
+                    borderRadius: '10px',
+                    padding: '14px 26px',
+                    textAlign: 'center',
+                    boxShadow: '0 14px 30px -12px rgba(0, 102, 204, 0.55)',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '2rem',
+                      fontWeight: 700,
+                      color: '#FFFFFF',
+                      lineHeight: 1,
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    2024
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '0.78rem',
+                      color: '#FFFFFF',
+                      marginTop: '4px',
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Est.
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
