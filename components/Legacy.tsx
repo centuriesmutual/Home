@@ -201,8 +201,12 @@ export default function Legacy() {
         </div>
       </section>
 
-      {/* A Legacy of Trust */}
-      <section className="relative overflow-hidden border-t border-[#E8EBEA] bg-[#FAFCFB] py-20">
+      {/* A Legacy of Trust — Est. 2024 */}
+      <section
+        id="legacy-of-trust"
+        aria-label="A Legacy of Trust — Established 2024"
+        className="relative overflow-hidden border-t border-[#E8EBEA] bg-[#FAFCFB] py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <motion.div
@@ -214,20 +218,26 @@ export default function Legacy() {
               <div className="relative w-full overflow-hidden rounded-[20px] border border-[#E8EBEA] bg-[#F4F1EC] shadow-[0_16px_40px_-20px_rgba(15,61,46,0.16)] aspect-[4/3]">
                 <Image
                   src="/deer.jpeg"
-                  alt="Legacy of Trust"
+                  alt="Buck on the Texas plains — A Legacy of Trust"
                   fill
                   sizes="(max-width: 991px) 100vw, 42vw"
                   className="object-cover"
+                  priority={false}
                 />
 
                 {/* atmospheric tint to anchor the ribbon */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#14432A]/[0.18]"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#14432A]/[0.22]"
                 />
 
                 <EstRibbon />
               </div>
+
+              {/* tiny anchor caption beneath the photo so it's impossible to miss */}
+              <p className="mt-3 text-center font-sans text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[#C9A53E]">
+                Est. 2024 · Centuries Mutual
+              </p>
             </motion.div>
 
             <motion.div
@@ -237,7 +247,7 @@ export default function Legacy() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="mb-3 font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C9A53E]">
-                — Est. 2024
+                — Our Story · Est. 2024
               </p>
               <h2
                 className="mb-4 font-medium leading-[1.15] tracking-[-0.01em] text-[#14432A]"
