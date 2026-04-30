@@ -118,7 +118,7 @@ export function CommunityHero() {
 
             <div
               id="client-portal"
-              className={`relative mb-0 min-h-[22rem] overflow-hidden rounded-2xl border border-[#E5E0D5]/90 sm:min-h-[26rem] md:min-h-[30rem] ${portalShadow}`}
+              className={`relative mb-0 overflow-hidden rounded-2xl border border-[#E5E0D5]/90 ${portalShadow}`}
             >
               <div className="absolute inset-0 overflow-hidden">
                 <Image
@@ -127,20 +127,24 @@ export function CommunityHero() {
                   fill
                   priority={false}
                   sizes="(max-width: 1023px) 100vw, 42vw"
-                  className="object-cover object-[50%_0%] [transform:scale(2.05)] [transform-origin:center_top]"
+                  className="object-cover object-[50%_30%]"
                 />
               </div>
               <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-black/28 via-black/8 to-transparent"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/0 via-black/5 to-black/15"
                 aria-hidden
               />
-              <div className="relative z-[1] flex min-h-[22rem] flex-col justify-end px-5 pb-16 pt-0 sm:min-h-[26rem] sm:pb-20 md:min-h-[30rem] md:px-8 md:pb-24 md:pt-0">
-                <div className="relative z-[2] -mx-5 border-t border-[#E5E0D5]/70 bg-[#FAFCFB]/78 px-5 pb-4 pt-0 backdrop-blur-md md:-mx-8 md:px-8 md:pb-5 md:pt-0">
-                  <div className="mx-auto flex w-full max-w-xl items-center justify-center md:max-w-2xl">
-                    <HeroEditorialCarousel
-                      className="w-full max-w-full min-h-[10.5rem] shrink-0 rounded-none border-0 shadow-none sm:min-h-[12rem] md:min-h-[13.5rem]"
-                      controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
-                    />
+
+              {/* YouTube housing — tight black surround, low top/bottom padding */}
+              <div className="relative z-[1] flex w-full items-center justify-center px-3 py-3 sm:px-4 sm:py-4">
+                <div className="w-full max-w-[36rem]">
+                  <div className="relative overflow-hidden rounded-[14px] bg-black p-[6px] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)] ring-1 ring-black/60 sm:p-[7px]">
+                    <div className="relative w-full overflow-hidden rounded-[9px] bg-black aspect-[16/10]">
+                      <HeroEditorialCarousel
+                        className="absolute inset-0 h-full w-full rounded-none border-0 shadow-none"
+                        controlsClassName="bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
