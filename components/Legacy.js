@@ -1,339 +1,396 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
-import { LockClosedIcon, DocumentCheckIcon, DocumentTextIcon } from '@heroicons/react/24/outline'
-import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
-import { EDocumentDashboardImmersive } from './ImmersiveFeatureDashboards'
+import {
+  LockClosedIcon,
+  DocumentCheckIcon,
+  DocumentTextIcon,
+  ClockIcon,
+} from '@heroicons/react/24/outline'
+import {
+  sectionAnimation,
+  staggerContainer,
+  slideInLeft,
+  slideInRight,
+  staggerItem,
+} from '../utils/animations'
+import {
+  EDocumentSystemIllustration,
+  LegacyOfTrustIllustration,
+} from './illustrations/home-illustrations'
+import './illustrations/neighborhood-motion.css'
+
+const DOC_FEATURES = [
+  {
+    Icon: DocumentTextIcon,
+    title: 'Digital Leases',
+    blurb: 'Electronic lease agreements with versioned audit history.',
+  },
+  {
+    Icon: DocumentCheckIcon,
+    title: 'Roommate Contracts',
+    blurb: 'Secure roommate agreements signed by every party.',
+  },
+  {
+    Icon: ClockIcon,
+    title: 'Property Documents',
+    blurb: 'Complete property files, organized and searchable.',
+  },
+  {
+    Icon: LockClosedIcon,
+    title: 'Instant Access',
+    blurb: '24/7 access for everyone authorized — and only them.',
+  },
+]
 
 export default function Legacy() {
   return (
     <>
-      {/* eDocument System — placed before A Legacy of Trust */}
-      <section className="d-flex align-items-center" style={{
-        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%)',
-        position: 'relative',
-        overflow: 'hidden',
-        minHeight: '100vh',
-        padding: '2rem 0',
-        width: '100%'
-      }}>
-        <div style={{ width: '100%', padding: '0' }}>
-          <div className="row align-items-center" style={{ margin: 0 }}>
-            <div className="col-lg-12">
-              <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
-                <h1 className="display-3 fw-bold mb-4" style={{ 
-                  fontFamily: "'Playfair Display', serif",
-                  color: '#14432A'
-                }}>
+      {/* eDocument System */}
+      <section
+        style={{
+          background: '#F4F1EC',
+          borderTop: '1px solid #E8EBEA',
+          padding: '5rem 0',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center" style={{ rowGap: '2.5rem' }}>
+            <div className="col-12">
+              <motion.div className="text-center mb-5" {...sectionAnimation}>
+                <p
+                  className="mb-3"
+                  style={{
+                    fontSize: '0.6875rem',
+                    letterSpacing: '0.22em',
+                    textTransform: 'uppercase',
+                    color: '#C9A53E',
+                    fontWeight: 600,
+                  }}
+                >
+                  — Documents
+                </p>
+                <h2
+                  className="mb-3"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    color: '#14432A',
+                    fontWeight: 500,
+                    fontSize: 'clamp(2rem, 4.2vw, 3rem)',
+                    letterSpacing: '-0.01em',
+                    lineHeight: 1.15,
+                  }}
+                >
                   eDocument System
-                </h1>
-                <p className="lead mb-4" style={{ 
-                  fontSize: '1.3rem',
-                  color: '#495057',
-                  maxWidth: '800px',
-                  margin: '0 auto'
-                }}>
-                  Find and rent real estate with roommates using our comprehensive eDocument system. Streamline lease agreements, roommate contracts, and property documentation all in one place.
+                </h2>
+                <p
+                  className="mx-auto"
+                  style={{
+                    fontSize: '1.0625rem',
+                    color: '#55655D',
+                    maxWidth: '720px',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Find and rent real estate with roommates through a comprehensive eDocument
+                  system. Lease agreements, roommate contracts, and property files in one place.
                 </p>
               </motion.div>
             </div>
-            
+
             <motion.div className="col-lg-6" {...slideInLeft}>
-              <div className="position-relative px-2 px-md-0">
-                <EDocumentDashboardImmersive />
+              <div
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E8EBEA',
+                  borderRadius: '20px',
+                  padding: '1.75rem',
+                  boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
+                }}
+              >
+                <EDocumentSystemIllustration />
               </div>
             </motion.div>
-            
+
             <motion.div className="col-lg-6" {...slideInRight}>
-              <div className="text-dark" style={{ marginTop: '2rem' }}>
-                <motion.div 
-                  className="row g-3 mb-4" 
-                  style={{ marginBottom: '2rem' }}
-                  variants={staggerContainer}
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true, margin: '-50px' }}
+              <motion.div
+                className="row g-3 mb-4"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: '-50px' }}
+              >
+                {DOC_FEATURES.map(({ Icon, title, blurb }) => (
+                  <motion.div className="col-md-6" key={title} variants={staggerItem}>
+                    <div
+                      style={{
+                        background: '#FFFFFF',
+                        border: '1px solid #E8EBEA',
+                        borderRadius: '14px',
+                        padding: '1.1rem 1.25rem',
+                        height: '100%',
+                      }}
+                    >
+                      <div className="d-flex align-items-start gap-3">
+                        <div
+                          style={{
+                            background: 'rgba(20, 67, 42, 0.06)',
+                            borderRadius: '10px',
+                            padding: '10px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <Icon style={{ width: '20px', height: '20px', color: '#14432A' }} />
+                        </div>
+                        <div>
+                          <h5
+                            className="mb-1"
+                            style={{
+                              fontWeight: 600,
+                              fontSize: '0.95rem',
+                              color: '#14432A',
+                              letterSpacing: '-0.005em',
+                            }}
+                          >
+                            {title}
+                          </h5>
+                          <p
+                            className="mb-0"
+                            style={{ fontSize: '0.8125rem', color: '#55655D', lineHeight: 1.5 }}
+                          >
+                            {blurb}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="d-flex flex-wrap gap-3 mt-4"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <Link
+                  href="/edocument-system"
+                  className="btn px-4 py-2 fw-semibold"
+                  style={{
+                    borderRadius: '10px',
+                    background: '#14432A',
+                    borderColor: '#14432A',
+                    color: '#FAFCFB',
+                    letterSpacing: '0.01em',
+                    boxShadow: '0 8px 24px -10px rgba(20, 67, 42, 0.45)',
+                  }}
                 >
-                  <motion.div className="col-md-6" variants={staggerItem}>
-                    <div className="d-flex align-items-center">
-                      <div style={{
-                        background: 'rgba(20, 67, 42, 0.1)',
-                        borderRadius: '12px',
-                        padding: '12px',
-                        marginRight: '15px'
-                      }}>
-                        <DocumentTextIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                      </div>
-                      <div>
-                        <h5 className="mb-1 fw-bold">Digital Leases</h5>
-                        <small className="opacity-75">Electronic lease agreements</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div className="col-md-6" variants={staggerItem}>
-                    <div className="d-flex align-items-center">
-                      <div style={{
-                        background: 'rgba(20, 67, 42, 0.1)',
-                        borderRadius: '12px',
-                        padding: '12px',
-                        marginRight: '15px'
-                      }}>
-                        <DocumentCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                      </div>
-                      <div>
-                        <h5 className="mb-1 fw-bold">Roommate Contracts</h5>
-                        <small className="opacity-75">Secure roommate agreements</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div className="col-md-6" variants={staggerItem}>
-                    <div className="d-flex align-items-center">
-                      <div style={{
-                        background: 'rgba(20, 67, 42, 0.1)',
-                        borderRadius: '12px',
-                        padding: '12px',
-                        marginRight: '15px'
-                      }}>
-                        <DocumentTextIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                      </div>
-                      <div>
-                        <h5 className="mb-1 fw-bold">Property Documents</h5>
-                        <small className="opacity-75">Complete property files</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.div className="col-md-6" variants={staggerItem}>
-                    <div className="d-flex align-items-center">
-                      <div style={{
-                        background: 'rgba(20, 67, 42, 0.1)',
-                        borderRadius: '12px',
-                        padding: '12px',
-                        marginRight: '15px'
-                      }}>
-                        <LockClosedIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                      </div>
-                      <div>
-                        <h5 className="mb-1 fw-bold">Instant Access</h5>
-                        <small className="opacity-75">24/7 document access</small>
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-                
-                <motion.div 
-                  className="d-flex gap-3 flex-wrap" 
-                  style={{ marginTop: '1.5rem' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  Access Documents
+                </Link>
+                <Link
+                  href="/edocuments-audit-tracking"
+                  className="btn px-4 py-2 fw-semibold"
+                  style={{
+                    borderRadius: '10px',
+                    border: '1px solid #14432A',
+                    color: '#14432A',
+                    background: 'transparent',
+                    letterSpacing: '0.01em',
+                  }}
                 >
-                  <Link 
-                    href="/edocument-system" 
-                    className="btn btn-primary btn-lg px-4 py-3 fw-bold"
-                    style={{ 
-                      borderRadius: '12px',
-                      backgroundColor: '#14432A',
-                      borderColor: '#14432A',
-                      boxShadow: '0 4px 15px rgba(20, 67, 42, 0.3)',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                    }}
-                  >
-                    Access Documents
-                  </Link>
-                  <Link 
-                    href="/edocuments-audit-tracking" 
-                    className="btn btn-outline-primary btn-lg px-4 py-3 fw-bold"
-                    style={{ 
-                      borderRadius: '12px',
-                      borderColor: '#14432A',
-                      color: '#14432A',
-                      borderWidth: '2px',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.background = 'rgba(20, 67, 42, 0.1)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = 'transparent';
-                    }}
-                  >
-                    Learn More
-                  </Link>
-                </motion.div>
-              </div>
+                  Learn More
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Top Section - Light Grey Background */}
-      <section className="py-5" style={{ 
-        background: '#f8f9fa',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="container-fluid">
-          <div className="row align-items-center" style={{ margin: 0 }}>
-            {/* Left: Image with overlay button */}
-            <motion.div 
-              className="col-lg-6 p-0"
-              initial={{ opacity: 0, x: -50 }}
+      {/* A Legacy of Trust */}
+      <section
+        style={{
+          background: '#FAFCFB',
+          borderTop: '1px solid #E8EBEA',
+          padding: '5rem 0',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center" style={{ rowGap: '2.5rem' }}>
+            <motion.div
+              className="col-lg-6"
+              initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7 }}
             >
-              <div style={{ position: 'relative', width: '100%', height: '500px' }}>
-                <Image
-                  src="/deer.jpeg"
-                  alt="Legacy of Trust"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                  priority
-                />
-                {/* Blue button overlay on bottom right */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '20px',
-                  right: '20px',
-                  background: '#0066cc',
-                  borderRadius: '8px',
-                  padding: '15px 25px',
-                  textAlign: 'center',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
-                }}>
-                  <div style={{ 
-                    fontSize: '2rem', 
-                    fontWeight: 'bold', 
-                    color: 'white',
-                    lineHeight: '1'
-                  }}>
-                    2024
-                  </div>
-                  <div style={{ 
-                    fontSize: '0.8rem', 
-                    color: 'white',
-                    marginTop: '4px'
-                  }}>
-                    Est.
-                  </div>
-                </div>
+              <div
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E8EBEA',
+                  borderRadius: '20px',
+                  padding: '1.75rem',
+                  boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
+                }}
+              >
+                <LegacyOfTrustIllustration />
               </div>
             </motion.div>
 
-            {/* Right: Text content */}
-            <motion.div 
-              className="col-lg-6 p-5"
-              initial={{ opacity: 0, x: 50 }}
+            <motion.div
+              className="col-lg-6"
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7 }}
             >
-              <h2 className="fw-bold mb-4" style={{ 
-                fontFamily: "'Playfair Display', serif",
-                color: '#14432A',
-                fontSize: '3rem',
-                lineHeight: '1.2'
-              }}>
+              <p
+                className="mb-3"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: '#C9A53E',
+                  fontWeight: 600,
+                }}
+              >
+                — Est. 2024
+              </p>
+              <h2
+                className="mb-4"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#14432A',
+                  fontWeight: 500,
+                  fontSize: 'clamp(2rem, 4.4vw, 3rem)',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.15,
+                }}
+              >
                 A Legacy of Trust
               </h2>
-              <p style={{ 
-                fontSize: '1.1rem',
-                color: '#495057',
-                lineHeight: '1.8',
-                marginBottom: '1.5rem'
-              }}>
-                At Centuries Mutual, we've built our reputation on a foundation of trust, expertise, and unwavering commitment to our clients' financial success through secure, reliable systems and proven credibility.
+              <p
+                className="mb-3"
+                style={{
+                  fontSize: '1.0625rem',
+                  color: '#55655D',
+                  lineHeight: 1.7,
+                }}
+              >
+                Centuries Mutual is built on a foundation of trust, expertise, and unwavering
+                commitment to our clients&apos; financial success — through secure, reliable
+                systems and proven credibility.
               </p>
-              <p style={{ 
-                fontSize: '1.1rem',
-                color: '#495057',
-                lineHeight: '1.8',
-                marginBottom: 0
-              }}>
-                Our advanced security infrastructure ensures that every family receives the highest level of protection and personalized attention. Through state-of-the-art encryption, secure data handling, and transparent practices, we guide families toward financial security with complete confidence.
+              <p
+                className="mb-0"
+                style={{
+                  fontSize: '1.0625rem',
+                  color: '#55655D',
+                  lineHeight: 1.7,
+                }}
+              >
+                Our security infrastructure ensures every family receives the highest level of
+                protection. State-of-the-art encryption, secure data handling, and transparent
+                practices guide families toward financial security with confidence.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Bottom Section - Deep Green Background */}
-      <section className="py-5" style={{ 
-        background: '#14432A',
-        color: 'white',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="container-fluid">
-          <div className="row align-items-center" style={{ margin: 0 }}>
-            {/* Left: Text content */}
-            <motion.div 
-              className="col-lg-8 p-5"
-              initial={{ opacity: 0, x: -50 }}
+      {/* About Centuries Mutual */}
+      <section
+        style={{
+          background: '#14432A',
+          color: '#FAFCFB',
+          padding: '4rem 0',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* subtle gold rule */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 1,
+            background:
+              'linear-gradient(90deg, transparent 0%, rgba(201,165,62,0.45) 35%, rgba(201,165,62,0.45) 65%, transparent 100%)',
+          }}
+        />
+        <div className="container">
+          <div className="row align-items-center" style={{ rowGap: '2rem' }}>
+            <motion.div
+              className="col-lg-8"
+              initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7 }}
             >
-              <h2 className="fw-bold mb-4" style={{ 
-                fontFamily: "'Playfair Display', serif",
-                color: 'white',
-                fontSize: '3rem',
-                lineHeight: '1.2'
-              }}>
+              <p
+                className="mb-3"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: '#C9A53E',
+                  fontWeight: 600,
+                }}
+              >
+                — About
+              </p>
+              <h2
+                className="mb-3"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#FAFCFB',
+                  fontWeight: 500,
+                  fontSize: 'clamp(1.75rem, 3.6vw, 2.5rem)',
+                  letterSpacing: '-0.005em',
+                  lineHeight: 1.2,
+                }}
+              >
                 About Centuries Mutual
               </h2>
-              <p style={{ 
-                fontSize: '1.1rem',
-                color: 'white',
-                lineHeight: '1.8',
-                marginBottom: 0,
-                opacity: 0.95
-              }}>
-                We are a trusted financial services company dedicated to providing comprehensive solutions and building lasting relationships with our clients.
+              <p
+                className="mb-0"
+                style={{
+                  fontSize: '1.0625rem',
+                  color: 'rgba(250,252,251,0.85)',
+                  lineHeight: 1.7,
+                  maxWidth: '640px',
+                }}
+              >
+                A trusted financial services company dedicated to comprehensive solutions and
+                lasting relationships with our members.
               </p>
             </motion.div>
 
-            {/* Right: Button */}
-            <motion.div 
-              className="col-lg-4 p-5 text-center text-lg-start"
-              initial={{ opacity: 0, x: 50 }}
+            <motion.div
+              className="col-lg-4 text-center text-lg-end"
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7 }}
             >
-              <Link 
+              <Link
                 href="/about"
-                className="btn"
+                className="btn px-4 py-2 fw-semibold"
                 style={{
-                  background: '#e9ecef',
-                  color: '#495057',
-                  borderRadius: '8px',
-                  padding: '15px 40px',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  textDecoration: 'none',
-                  border: 'none',
-                  display: 'inline-block',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = '#dee2e6'
-                  e.target.style.transform = 'translateY(-2px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = '#e9ecef'
-                  e.target.style.transform = 'translateY(0)'
+                  borderRadius: '10px',
+                  background: '#FAFCFB',
+                  border: '1px solid rgba(250,252,251,0.18)',
+                  color: '#14432A',
+                  letterSpacing: '0.01em',
+                  boxShadow: '0 12px 28px -12px rgba(0,0,0,0.4)',
                 }}
               >
                 Learn More About Us
@@ -345,4 +402,3 @@ export default function Legacy() {
     </>
   )
 }
-

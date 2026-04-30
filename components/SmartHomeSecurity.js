@@ -1,220 +1,226 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BellIcon, KeyIcon, ShieldCheckIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline'
+import {
+  BellIcon,
+  KeyIcon,
+  ShieldCheckIcon,
+  ComputerDesktopIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { sectionAnimation, slideInLeft, slideInRight, staggerContainer, staggerItem } from '../utils/animations'
-import { SecuritySystemDashboardImmersive } from './ImmersiveFeatureDashboards'
+import {
+  staggerContainer,
+  staggerItem,
+} from '../utils/animations'
+import { SmartHomeSecurityIllustration } from './illustrations/home-illustrations'
+import './illustrations/neighborhood-motion.css'
+
+const FEATURES = [
+  {
+    Icon: ComputerDesktopIcon,
+    title: 'Integrated System',
+    blurb: 'Cameras, sensors, and network devices on one unified platform.',
+  },
+  {
+    Icon: BellIcon,
+    title: 'Smart Alerts',
+    blurb: 'Real-time notifications routed to the right people first.',
+  },
+  {
+    Icon: KeyIcon,
+    title: 'Access Control',
+    blurb: 'Smart locks and digital keys with full audit trails.',
+  },
+  {
+    Icon: ShieldCheckIcon,
+    title: 'Complete Protection',
+    blurb: 'End-to-end coverage from front door to remote endpoint.',
+  },
+]
 
 export default function SmartHomeSecurity() {
   return (
-    <section className="smart-home-security-section" style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%)',
-      position: 'relative',
-      overflow: 'hidden',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '2rem 0'
-    }}>
-      {/* Background Pattern */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: 'url("data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2314432A" fill-opacity="0.05"%3E%3Cpath d="M20 20c0-11.046-8.954-20-20-20v20h20z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        opacity: 0.6
-      }} />
-      
+    <section
+      className="cm-home-section"
+      style={{
+        background: '#FAFCFB',
+        borderTop: '1px solid #E8EBEA',
+        padding: '5rem 0',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       <div className="container">
-        <div className="row align-items-center" style={{ padding: '1rem 0' }}>
-          <div className="col-lg-12">
-            <motion.div 
-              className="text-dark text-center mb-5" 
-              initial={{ opacity: 0, y: 50 }}
+        <div className="row align-items-center" style={{ rowGap: '2.5rem' }}>
+          <div className="col-12">
+            <motion.div
+              className="text-center mb-5"
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-200px' }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <h1 className="display-3 fw-bold mb-4" style={{ 
-                fontFamily: "'Playfair Display', serif",
-                color: '#14432A'
-              }}>
+              <p
+                className="mb-3"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: '#C9A53E',
+                  fontWeight: 600,
+                }}
+              >
+                — Security
+              </p>
+              <h2
+                className="mb-3"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#14432A',
+                  fontWeight: 500,
+                  fontSize: 'clamp(2rem, 4.2vw, 3rem)',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.15,
+                }}
+              >
                 Smart Home Security System
-              </h1>
-              <p className="lead mb-4" style={{ 
-                fontSize: '1.3rem',
-                color: '#495057',
-                maxWidth: '800px',
-                margin: '0 auto'
-              }}>
-                Complete home security solution integrating cameras, network devices, and smart sensors. 
-                Enterprise-grade security for comprehensive home protection.
+              </h2>
+              <p
+                className="mx-auto"
+                style={{
+                  fontSize: '1.0625rem',
+                  color: '#55655D',
+                  maxWidth: '720px',
+                  lineHeight: 1.6,
+                }}
+              >
+                Cameras, network devices, and smart sensors working as a single, accountable
+                system — enterprise-grade protection for the home.
               </p>
             </motion.div>
           </div>
-          
-          <motion.div 
-            className="col-lg-6" 
-            initial={{ opacity: 0, x: -50 }}
+
+          <motion.div
+            className="col-lg-6"
+            initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-200px' }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <div className="text-dark" style={{ marginTop: '2rem' }}>
-              <style jsx>{`
-                @media (max-width: 991px) {
-                  .security-text-container {
-                    margin-top: 4rem !important;
-                  }
-                }
-              `}</style>
-              <div className="security-text-container">
-              
-              <motion.div 
-                className="row g-3 mb-4" 
-                style={{ marginBottom: '2rem' }}
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, margin: '-200px' }}
+            <motion.div
+              className="row g-3 mb-4"
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              {FEATURES.map(({ Icon, title, blurb }) => (
+                <motion.div className="col-md-6" key={title} variants={staggerItem}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E8EBEA',
+                      borderRadius: '14px',
+                      padding: '1.1rem 1.25rem',
+                      height: '100%',
+                    }}
+                  >
+                    <div className="d-flex align-items-start gap-3">
+                      <div
+                        style={{
+                          background: 'rgba(20, 67, 42, 0.06)',
+                          borderRadius: '10px',
+                          padding: '10px',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Icon style={{ width: '20px', height: '20px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5
+                          className="mb-1"
+                          style={{
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            color: '#14432A',
+                            letterSpacing: '-0.005em',
+                          }}
+                        >
+                          {title}
+                        </h5>
+                        <p
+                          className="mb-0"
+                          style={{ fontSize: '0.8125rem', color: '#55655D', lineHeight: 1.5 }}
+                        >
+                          {blurb}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="d-flex flex-wrap gap-3 mt-4"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                href="/shop/security-system"
+                className="btn px-4 py-2 fw-semibold"
+                style={{
+                  borderRadius: '10px',
+                  background: '#14432A',
+                  borderColor: '#14432A',
+                  color: '#FAFCFB',
+                  letterSpacing: '0.01em',
+                  boxShadow: '0 8px 24px -10px rgba(20, 67, 42, 0.45)',
+                  position: 'relative',
+                  zIndex: 2,
+                  pointerEvents: 'auto',
+                }}
               >
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <ComputerDesktopIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Integrated System</h5>
-                      <small className="opacity-75">Unified security platform</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <BellIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Smart Alerts</h5>
-                      <small className="opacity-75">Real-time notifications</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <KeyIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Access Control</h5>
-                      <small className="opacity-75">Smart locks & keys</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Complete Protection</h5>
-                      <small className="opacity-75">End-to-end security</small>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-              
-              <motion.div 
-                className="d-flex gap-3 flex-wrap" 
-                style={{ marginTop: '1.5rem' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-200px' }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                Shop Now
+              </Link>
+              <Link
+                href="/learnmore/security-system"
+                className="btn px-4 py-2 fw-semibold"
+                style={{
+                  borderRadius: '10px',
+                  border: '1px solid #14432A',
+                  color: '#14432A',
+                  background: 'transparent',
+                  letterSpacing: '0.01em',
+                  position: 'relative',
+                  zIndex: 2,
+                  pointerEvents: 'auto',
+                }}
               >
-                <Link 
-                  href="/shop/security-system" 
-                  className="btn btn-primary btn-lg px-4 py-3 fw-bold"
-                  style={{ 
-                    borderRadius: '12px',
-                    backgroundColor: '#14432A',
-                    borderColor: '#14432A',
-                    boxShadow: '0 4px 15px rgba(20, 67, 42, 0.3)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    zIndex: 10,
-                    pointerEvents: 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                  }}
-                >
-                  Shop Now
-                </Link>
-                <Link 
-                  href="/learnmore/security-system" 
-                  className="btn btn-outline-primary btn-lg px-4 py-3 fw-bold"
-                  style={{ 
-                    borderRadius: '12px',
-                    borderColor: '#14432A',
-                    color: '#14432A',
-                    borderWidth: '2px',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    zIndex: 10,
-                    pointerEvents: 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(20, 67, 42, 0.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'transparent';
-                  }}
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-              </div>
-            </div>
+                Learn More
+              </Link>
+            </motion.div>
           </motion.div>
-          
-          <motion.div 
-            className="col-lg-6" 
-            initial={{ opacity: 0, x: 50 }}
+
+          <motion.div
+            className="col-lg-6"
+            initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-200px' }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <div className="position-relative px-2 px-md-0">
-              <SecuritySystemDashboardImmersive />
+            <div
+              style={{
+                background: '#FFFFFF',
+                border: '1px solid #E8EBEA',
+                borderRadius: '20px',
+                padding: '1.75rem',
+                boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
+              }}
+            >
+              <SmartHomeSecurityIllustration />
             </div>
           </motion.div>
         </div>
@@ -222,4 +228,3 @@ export default function SmartHomeSecurity() {
     </section>
   )
 }
-

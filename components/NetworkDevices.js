@@ -1,206 +1,215 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { WifiIcon, ServerIcon, SignalIcon, ShieldCheckIcon, BoltIcon, GlobeAltIcon, PhoneIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
+import {
+  ShieldCheckIcon,
+  GlobeAltIcon,
+  PhoneIcon,
+  ChatBubbleLeftRightIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { sectionAnimation, staggerContainer, slideInLeft, slideInRight, staggerItem } from '../utils/animations'
-import { CommunicationDashboardImmersive } from './ImmersiveFeatureDashboards'
+import {
+  sectionAnimation,
+  staggerContainer,
+  slideInLeft,
+  slideInRight,
+  staggerItem,
+} from '../utils/animations'
+import { SocialNetworkIllustration } from './illustrations/home-illustrations'
+import './illustrations/neighborhood-motion.css'
+
+const FEATURES = [
+  {
+    Icon: PhoneIcon,
+    title: 'Profile & Presence',
+    blurb: 'Your public profile and how you appear to your circle.',
+  },
+  {
+    Icon: ShieldCheckIcon,
+    title: 'Privacy Controls',
+    blurb: 'Choose who sees posts and which signals stay private.',
+  },
+  {
+    Icon: ChatBubbleLeftRightIcon,
+    title: 'Chat & Threads',
+    blurb: 'Direct messages and group conversations, side by side.',
+  },
+  {
+    Icon: GlobeAltIcon,
+    title: 'Connections & Circles',
+    blurb: 'Follows, friends, and communities, kept separate by intent.',
+  },
+]
 
 export default function NetworkDevices() {
   return (
-    <section className="network-devices-section" style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%)',
-      position: 'relative',
-      overflow: 'hidden',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '2rem 0'
-    }}>
-      {/* Background Pattern */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: 'url("data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2314432A" fill-opacity="0.05"%3E%3Cpath d="M20 20c0-11.046-8.954-20-20-20v20h20z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        opacity: 0.6
-      }} />
-      
+    <section
+      className="cm-home-section"
+      style={{
+        background: '#F4F1EC',
+        borderTop: '1px solid #E8EBEA',
+        padding: '5rem 0',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
       <div className="container">
-        <div className="row align-items-center" style={{ padding: '1rem 0' }}>
-          <div className="col-lg-12">
-            <motion.div className="text-dark text-center mb-5" {...sectionAnimation}>
-              <h1 className="display-3 fw-bold mb-4" style={{ 
-                fontFamily: "'Playfair Display', serif",
-                color: '#14432A'
-              }}>
-                Social Network & Messaging
-              </h1>
-              <p className="lead mb-4" style={{ 
-                fontSize: '1.3rem',
-                color: '#495057',
-                maxWidth: '800px',
-                margin: '0 auto'
-              }}>
-                Build your profile, follow people and join groups, share updates in your feed, and keep conversations private. One network for your identity, connections, and real-time chat—with the same trusted security behind every interaction.
+        <div className="row align-items-center" style={{ rowGap: '2.5rem' }}>
+          <div className="col-12">
+            <motion.div className="text-center mb-5" {...sectionAnimation}>
+              <p
+                className="mb-3"
+                style={{
+                  fontSize: '0.6875rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: '#C9A53E',
+                  fontWeight: 600,
+                }}
+              >
+                — Network
+              </p>
+              <h2
+                className="mb-3"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#14432A',
+                  fontWeight: 500,
+                  fontSize: 'clamp(2rem, 4.2vw, 3rem)',
+                  letterSpacing: '-0.01em',
+                  lineHeight: 1.15,
+                }}
+              >
+                Social Network &amp; Messaging
+              </h2>
+              <p
+                className="mx-auto"
+                style={{
+                  fontSize: '1.0625rem',
+                  color: '#55655D',
+                  maxWidth: '720px',
+                  lineHeight: 1.6,
+                }}
+              >
+                Build your profile, follow people, share updates in your feed, and keep
+                conversations private — one network for identity, connections, and chat.
               </p>
             </motion.div>
           </div>
-          
-          <motion.div className="col-lg-6" {...slideInLeft}>
-            <div className="position-relative px-2 px-md-0">
-              <CommunicationDashboardImmersive />
+
+          <motion.div className="col-lg-6 order-lg-2" {...slideInRight}>
+            <div
+              style={{
+                background: '#FFFFFF',
+                border: '1px solid #E8EBEA',
+                borderRadius: '20px',
+                padding: '1.75rem',
+                boxShadow: '0 16px 40px -20px rgba(15, 61, 46, 0.16)',
+              }}
+            >
+              <SocialNetworkIllustration />
             </div>
           </motion.div>
-          
-          <motion.div className="col-lg-6" {...slideInRight}>
-            <div className="text-dark" style={{ marginTop: '2rem' }}>
-              <style jsx>{`
-                @media (max-width: 991px) {
-                  .network-text-container {
-                    margin-top: 4rem !important;
-                  }
-                }
-              `}</style>
-              <div className="network-text-container">
-              
-              <motion.div 
-                className="row g-3 mb-4" 
-                style={{ marginBottom: '2rem' }}
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, margin: '-50px' }}
+
+          <motion.div className="col-lg-6 order-lg-1" {...slideInLeft}>
+            <motion.div
+              className="row g-3 mb-4"
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              {FEATURES.map(({ Icon, title, blurb }) => (
+                <motion.div className="col-md-6" key={title} variants={staggerItem}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E8EBEA',
+                      borderRadius: '14px',
+                      padding: '1.1rem 1.25rem',
+                      height: '100%',
+                    }}
+                  >
+                    <div className="d-flex align-items-start gap-3">
+                      <div
+                        style={{
+                          background: 'rgba(20, 67, 42, 0.06)',
+                          borderRadius: '10px',
+                          padding: '10px',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Icon style={{ width: '20px', height: '20px', color: '#14432A' }} />
+                      </div>
+                      <div>
+                        <h5
+                          className="mb-1"
+                          style={{
+                            fontWeight: 600,
+                            fontSize: '0.95rem',
+                            color: '#14432A',
+                            letterSpacing: '-0.005em',
+                          }}
+                        >
+                          {title}
+                        </h5>
+                        <p
+                          className="mb-0"
+                          style={{ fontSize: '0.8125rem', color: '#55655D', lineHeight: 1.5 }}
+                        >
+                          {blurb}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="d-flex flex-wrap gap-3 mt-4"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                href="/shop/network"
+                className="btn px-4 py-2 fw-semibold"
+                style={{
+                  borderRadius: '10px',
+                  background: '#14432A',
+                  borderColor: '#14432A',
+                  color: '#FAFCFB',
+                  letterSpacing: '0.01em',
+                  boxShadow: '0 8px 24px -10px rgba(20, 67, 42, 0.45)',
+                  position: 'relative',
+                  zIndex: 2,
+                  pointerEvents: 'auto',
+                }}
               >
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <PhoneIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Profile & Presence</h5>
-                      <small className="opacity-75">Your public profile and how you appear</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <ShieldCheckIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Privacy Controls</h5>
-                      <small className="opacity-75">Choose who sees posts and activity</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <ChatBubbleLeftRightIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Chat & Threads</h5>
-                      <small className="opacity-75">DMs and group conversations</small>
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div className="col-md-6" variants={staggerItem}>
-                  <div className="d-flex align-items-center">
-                    <div style={{
-                      background: 'rgba(20, 67, 42, 0.1)',
-                      borderRadius: '12px',
-                      padding: '12px',
-                      marginRight: '15px'
-                    }}>
-                      <GlobeAltIcon style={{ width: '24px', height: '24px', color: '#14432A' }} />
-                    </div>
-                    <div>
-                      <h5 className="mb-1 fw-bold">Connections & Circles</h5>
-                      <small className="opacity-75">Follows, friends, and communities</small>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-              
-              <motion.div 
-                className="d-flex gap-3 flex-wrap" 
-                style={{ marginTop: '1.5rem' }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                Shop Now
+              </Link>
+              <Link
+                href="/learnmore/network"
+                className="btn px-4 py-2 fw-semibold"
+                style={{
+                  borderRadius: '10px',
+                  border: '1px solid #14432A',
+                  color: '#14432A',
+                  background: 'transparent',
+                  letterSpacing: '0.01em',
+                  position: 'relative',
+                  zIndex: 2,
+                  pointerEvents: 'auto',
+                }}
               >
-                <Link 
-                  href="/shop/network" 
-                  className="btn btn-primary btn-lg px-4 py-3 fw-bold"
-                  style={{ 
-                    borderRadius: '12px',
-                    backgroundColor: '#14432A',
-                    borderColor: '#14432A',
-                    boxShadow: '0 4px 15px rgba(20, 67, 42, 0.3)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    zIndex: 10,
-                    pointerEvents: 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                  }}
-                >
-                  Shop Now
-                </Link>
-                <Link 
-                  href="/learnmore/network" 
-                  className="btn btn-outline-primary btn-lg px-4 py-3 fw-bold"
-                  style={{ 
-                    borderRadius: '12px',
-                    borderColor: '#14432A',
-                    color: '#14432A',
-                    borderWidth: '2px',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    zIndex: 10,
-                    pointerEvents: 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(20, 67, 42, 0.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'transparent';
-                  }}
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-              </div>
-            </div>
+                Learn More
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   )
 }
-
